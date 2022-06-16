@@ -4,8 +4,8 @@ plugins {
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
     id 'androidx.navigation.safeargs'
-    id 'com.google.gms.google-services'
-    id 'com.google.firebase.crashlytics'
+    //id 'com.google.gms.google-services'
+    //id 'com.google.firebase.crashlytics'
 }
 
 android {
@@ -81,11 +81,12 @@ dependencies {
     implementation "com.google.dagger:hilt-android:2.39"
     implementation "androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03"
 
+    //Ready to use Firebase when we need it
     //Firebase
-    implementation platform('com.google.firebase:firebase-bom:30.0.2')
-    implementation 'com.google.firebase:firebase-analytics'
-    implementation 'com.google.firebase:firebase-crashlytics'
-    implementation 'com.google.firebase:firebase-messaging'
+    //implementation platform('com.google.firebase:firebase-bom:30.0.2')
+    //implementation 'com.google.firebase:firebase-analytics'
+    //implementation 'com.google.firebase:firebase-crashlytics'
+    //implementation 'com.google.firebase:firebase-messaging'
 
     //Google Services
     implementation 'com.google.android.gms:play-services-auth:20.2.0'
