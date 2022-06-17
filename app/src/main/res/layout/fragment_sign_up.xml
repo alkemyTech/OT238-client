@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -11,17 +12,17 @@
         android:layout_marginTop="48dp"
         android:background="@drawable/style_border_component"
         android:backgroundTint="#6DFFFFFF"
+        android:contentDescription="@string/img_description"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.15"
-        app:srcCompat="@drawable/logo_somos_mas"
-        android:contentDescription="@string/img_description" />
+        app:srcCompat="@drawable/logo_somos_mas" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/user_name"
+        android:id="@+id/tiUsername"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -41,7 +42,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/user_email"
+        android:id="@+id/tiUserEmail"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -51,7 +52,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/user_name"
+        app:layout_constraintTop_toBottomOf="@+id/tiUsername"
         app:layout_constraintVertical_bias="0.05">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -60,7 +61,7 @@
 
     </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/user_password"
+        android:id="@+id/tiUserPassword"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -70,7 +71,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/user_email"
+        app:layout_constraintTop_toBottomOf="@+id/tiUserEmail"
         app:layout_constraintVertical_bias="0.05">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -80,7 +81,7 @@
 
     </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/user_confirm_password"
+        android:id="@+id/tiUserPasswordConfirm"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -90,7 +91,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/user_password"
+        app:layout_constraintTop_toBottomOf="@+id/tiUserPassword"
         app:layout_constraintVertical_bias="0.05">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -107,7 +108,7 @@
         android:text="@string/register"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/user_confirm_password"
+        app:layout_constraintTop_toBottomOf="@+id/tiUserPasswordConfirm"
         android:enabled="false"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
