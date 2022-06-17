@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">ONGAndroid</string>
+    <string name="enter_user_name">Ingresa tu nombre de usuario</string>
+    <string name="user_email">Ingresa tu email</string>
+    <string name="user_password">Password</string>
+    <string name="confirm_password">Confirmar password</string>
+    <string name="register">Registrarse</string>
+    <string name="img_description">logo de somos mas</string>
 </resources>
