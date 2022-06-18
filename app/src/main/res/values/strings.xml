@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">ONGAndroid</string>
+    <!-- Strings related to login -->
+    <string name="email">Email</string>
+    <string name="prompt_password">Contraseña</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Ingresar</string>
+    <string name="action_sign_up_short">Crear cuenta</string>
+    <string name="do_you_have_an_account">No tienes cuenta?</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
