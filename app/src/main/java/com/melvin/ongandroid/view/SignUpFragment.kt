@@ -1,32 +1,39 @@
 package com.melvin.ongandroid.view
 
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModel
+import com.melvin.ongandroid.R
 import com.melvin.ongandroid.databinding.FragmentSignUpBinding
-import com.melvin.ongandroid.viewmodel.SignUpViewModel
 
 
-class SignUpFragment: Fragment() {
+
+class SignUpFragment : Fragment() {
+
     private lateinit var binding: FragmentSignUpBinding
-     private val signUpViewModel by viewModels()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = FragmentSignUpBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-
-
-/*        viewModel.validateFields(
-            binding.tiUsername,
-            binding.tiUserEmail,
-            binding.tiUserPassword,
-            binding.tiUserPasswordConfirm
-        )
-        viewModel.validateEmail(binding.tiUserEmail)
-        viewModel.validatePassword()
-    }*/
     }
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_sign_up, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding = FragmentSignUpBinding.bind(view)
+
+    }
+
 }
+
 
