@@ -12,7 +12,8 @@ import com.melvin.ongandroid.databinding.FragmentSignUpBinding
 
 class SignUpFragment : Fragment() {
 
-    private lateinit var binding: FragmentSignUpBinding
+    private var _binding: FragmentSignUpBinding? = null
+    private val binding get() = _binding!!
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,12 +26,13 @@ class SignUpFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_sign_up, container, false)
+        _binding = FragmentSignUpBinding.inflate(inflater,container,false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding = FragmentSignUpBinding.bind(view)
+
 
     }
 
