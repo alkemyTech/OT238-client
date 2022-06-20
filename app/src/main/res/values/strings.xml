@@ -1,9 +1,19 @@
 <resources>
     <string name="app_name">ONGAndroid</string>
+    <!-- Strings related to login -->
+    <string name="email">Email</string>
+    <string name="prompt_password">Contraseña</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Ingresar</string>
+    <string name="action_sign_up_short">Crear cuenta</string>
+    <string name="do_you_have_an_account">No tienes cuenta?</string>
+
     <string name="enter_user_name">Ingresa tu nombre de usuario</string>
     <string name="user_email">Ingresa tu email</string>
     <string name="user_password">Password</string>
     <string name="confirm_password">Confirmar password</string>
     <string name="register">Registrarse</string>
     <string name="img_description">logo de somos mas</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
