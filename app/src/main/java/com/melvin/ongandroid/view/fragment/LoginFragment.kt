@@ -6,8 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.melvin.ongandroid.R
 import com.melvin.ongandroid.databinding.FragmentLogInBinding
+import com.melvin.ongandroid.view.SignUpFragment
 
 class LoginFragment : Fragment() {
 
@@ -32,6 +34,7 @@ class LoginFragment : Fragment() {
         loginBinding.bSignUp.setOnClickListener{
 
             //call fragment sign up
+            findNavController().navigate(R.id.action_loginFragment_to_signUpFragment)
 
         }
 
