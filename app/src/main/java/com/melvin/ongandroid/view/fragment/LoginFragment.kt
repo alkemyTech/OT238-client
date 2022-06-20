@@ -5,9 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.widget.addTextChangedListener
+import androidx.core.widget.doOnTextChanged
 import androidx.navigation.findNavController
 import com.melvin.ongandroid.R
 import com.melvin.ongandroid.databinding.FragmentLogInBinding
+import com.melvin.ongandroid.viewmodel.LoginViewModel
 
 class LoginFragment : Fragment() {
 
@@ -16,7 +19,7 @@ class LoginFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
-
+    private val loginViewModel=LoginViewModel()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -29,13 +32,14 @@ class LoginFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         loginBinding= FragmentLogInBinding.bind(view)
 
-        loginBinding.bSignUp.setOnClickListener{
-
-            //call fragment sign up
-
+        loginBinding.etEmail.addTextChangedListener{
+            loginBinding.bLogin.isEnabled = loginViewModel.validateEmail(loginBinding.etEmail.text.toString()) &&
+                    loginViewModel.validatePassword(loginBinding.etPassword.text.toString())
         }
-
-
+        loginBinding.etPassword.addTextChangedListener{
+            loginBinding.bLogin.isEnabled = loginViewModel.validateEmail(loginBinding.etEmail.text.toString()) &&
+                    loginViewModel.validatePassword(loginBinding.etPassword.text.toString())
+        }
     }
 
 
