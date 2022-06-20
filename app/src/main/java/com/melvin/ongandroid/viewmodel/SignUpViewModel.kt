@@ -4,11 +4,12 @@ package com.melvin.ongandroid.viewmodel
 
 import androidx.core.util.PatternsCompat
 import androidx.lifecycle.ViewModel
+import com.google.android.material.textfield.TextInputEditText
 import java.util.regex.Pattern
 
 class SignUpViewModel : ViewModel() {
 
-    fun validateFields(username: String, email: String, password: String, confirmPassword: String) {
+    /*fun validateFields(username: String, email: String, password: String, confirmPassword: String) {
 
         val fieldsEmpty: Boolean =
             username.isEmpty() || email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()
@@ -17,10 +18,10 @@ class SignUpViewModel : ViewModel() {
             validatePassword(password) && isValidPasswordFormat(confirmPassword)
 
 
-    }
+    }*/
 
-      fun validateEmail(email: String): Boolean {
-        return if (email.isEmpty()) {
+      fun validateEmail(email: TextInputEditText): Boolean {
+        return if (email.toString().isEmpty()) {
             email.error = "Debes ingresar email"
             false
         } else if (!PatternsCompat.EMAIL_ADDRESS.matcher(email.toString()).matches()) {
@@ -33,7 +34,7 @@ class SignUpViewModel : ViewModel() {
 
     }
 
-     fun validatePassword(password: String): Boolean {
+     fun validatePassword(password: TextInputEditText): Boolean {
          val passwordRegex = Pattern.compile(
              "^" +
                      "(?=.*[0-9])" +         //at least 1 digit
@@ -44,16 +45,9 @@ class SignUpViewModel : ViewModel() {
                      ".{4,}" +               //at least 4 characters
                      "$",
          )
-         return Pattern.matches(passwordRegex.toString(), password)
+         return Pattern.matches(passwordRegex.toString(), password.toString())
     }
 
-     fun validate(){
-        val result = arrayOf(validateEmail(), validatePassword())
-        if(false in result){
-            return
-        }
-        binding.btnSignUp.isEnabled = true
 
-    }
 
 }
