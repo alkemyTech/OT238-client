@@ -14,7 +14,6 @@ import com.melvin.ongandroid.view.SignUpFragment
 import com.melvin.ongandroid.viewmodel.LoginViewModel
 
 class LoginFragment : Fragment() {
-
     private lateinit var loginBinding : FragmentLogInBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,25 +32,18 @@ class LoginFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         loginBinding= FragmentLogInBinding.bind(view)
 
-        loginBinding.etEmail.addTextChangedListener{
-            loginBinding.bLogin.isEnabled = loginViewModel.validateEmail(loginBinding.etEmail.text.toString()) &&
-                    loginViewModel.validatePassword(loginBinding.etPassword.text.toString())
-        }
-        loginBinding.etPassword.addTextChangedListener{
-            loginBinding.bLogin.isEnabled = loginViewModel.validateEmail(loginBinding.etEmail.text.toString()) &&
-                    loginViewModel.validatePassword(loginBinding.etPassword.text.toString())
+        loginBinding.itEmail.addTextChangedListener{
+            loginBinding.bLogin.isEnabled = loginViewModel.validateEmail(loginBinding.itEmail.text.toString()) &&
+                    loginViewModel.validatePassword(loginBinding.itPassword.text.toString())
         }
 
+        loginBinding.itPassword.addTextChangedListener{
+            loginBinding.bLogin.isEnabled = loginViewModel.validateEmail(loginBinding.itEmail.text.toString()) &&
+                    loginViewModel.validatePassword(loginBinding.itPassword.text.toString())
+        }
 
         loginBinding.bSignUp.setOnClickListener{
-
-            //call fragment sign up
             findNavController().navigate(R.id.action_loginFragment_to_signUpFragment)
-
         }
-
-
     }
-
-
 }
