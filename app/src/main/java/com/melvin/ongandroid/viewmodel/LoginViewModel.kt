@@ -1,9 +1,10 @@
 package com.melvin.ongandroid.viewmodel
 
 import androidx.core.util.PatternsCompat
+import androidx.lifecycle.ViewModel
 import java.util.regex.Pattern
 
-class LoginViewModel {
+class LoginViewModel: ViewModel() {
 
     fun  validateEmail ( Email:String): Boolean {
         return Email.isNotEmpty() && PatternsCompat.EMAIL_ADDRESS.matcher(Email).matches()
@@ -20,7 +21,7 @@ class LoginViewModel {
                     ".{4,}" +               //at least 4 characters
                     "$"
         )
-        return password.isNotEmpty()&&passwordRegex.matcher(password).matches()
+        return password.isNotEmpty() && passwordRegex.matcher(password).matches()
     }
 
 }
