@@ -1,13 +1,14 @@
 package com.melvin.ongandroid.data
 
+import com.melvin.ongandroid.model.entities.RegistrationResponse
+import com.melvin.ongandroid.model.entities.UserRegistrationRequest
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import javax.inject.Inject
 
-class ApiClient {
+class ApiClient @Inject constructor(private val api: OngApi){
 
-    private val api: OngApi = Retrofit.Builder()
-        .baseUrl("http://ongapi.alkemy.org/")
-        .addConverterFactory(GsonConverterFactory.create())
-        .build()
-        .create(OngApi::class.java)
+    suspend fun registerUser(newUser: UserRegistrationRequest): RegistrationResponse {
+        return api.postNewUser(newUser)
+    }
 }
