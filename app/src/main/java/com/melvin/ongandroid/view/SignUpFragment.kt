@@ -9,10 +9,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.melvin.ongandroid.R
 import com.melvin.ongandroid.databinding.FragmentSignUpBinding
 import com.melvin.ongandroid.model.entities.UserRegistrationRequest
+import com.melvin.ongandroid.viewmodel.ApiStatus
 import com.melvin.ongandroid.viewmodel.SignUpViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -60,7 +62,7 @@ class SignUpFragment : Fragment() {
             MaterialAlertDialogBuilder(it)
                 .setTitle(resources.getString(R.string.success_dialog_title))
                 .setMessage(resources.getString(R.string.success_supporting_text))
-                .setPositiveButton(resources.getString(R.string.accept)) { dialog, which ->
+                .setPositiveButton(resources.getString(R.string.accept)) { _, _ ->
                     findNavController().navigate(R.id.action_signUpFragment_to_loginFragment)
                 }
                 .show()
@@ -72,7 +74,7 @@ class SignUpFragment : Fragment() {
             MaterialAlertDialogBuilder(it)
                 .setTitle(resources.getString(R.string.failure_dialog_title))
                 .setMessage(resources.getString(R.string.failure_supporting_text))
-                .setPositiveButton(resources.getString(R.string.close)) { dialog, which ->
+                .setPositiveButton(resources.getString(R.string.close)) { _, _ ->
                     Log.d("SignUpFragment", "close")
                 }
                 .show()
