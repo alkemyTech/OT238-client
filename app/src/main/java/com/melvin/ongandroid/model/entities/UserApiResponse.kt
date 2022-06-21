@@ -3,15 +3,11 @@ package com.melvin.ongandroid.model.entities
 import com.google.gson.annotations.SerializedName
 
 data class UserApiResponse(
-    @SerializedName("id")
     var id: Int? = null,
-    @SerializedName("name")
     var name: String? = null,
-    @SerializedName("email")
     var email: String? = null,
     @SerializedName("email_verified_at")
     var emailVerifiedAt : String? = null,
-    @SerializedName("password")
     var password: String? = null,
     @SerializedName("role_id")
     var roleId: Int?    = null,
@@ -25,11 +21,8 @@ data class UserApiResponse(
     var deletedAt: String? = null,
     @SerializedName("group_id")
     var groupId: String? = null,
-    @SerializedName("latitude")
     var latitude: String? = null,
-    @SerializedName("longitude")
     var longitude: String? = null,
-    @SerializedName("address")
     var address: String? = null,
     @SerializedName("profile_image")
     var profileImage: String? = null
