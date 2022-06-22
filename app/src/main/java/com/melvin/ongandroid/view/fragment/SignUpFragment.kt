@@ -1,8 +1,6 @@
-package com.melvin.ongandroid.view
+package com.melvin.ongandroid.view.fragment
 
 import android.os.Bundle
-import android.system.Os.accept
-import android.system.Os.close
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -28,7 +26,7 @@ class SignUpFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
         _binding = FragmentSignUpBinding.inflate(inflater,container,false)
         return binding.root

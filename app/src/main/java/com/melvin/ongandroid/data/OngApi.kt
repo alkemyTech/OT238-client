@@ -6,6 +6,9 @@ import retrofit2.http.Body
 import retrofit2.http.POST
 
 interface OngApi {
+
     @POST("register")
-    suspend fun postNewUser(@Body newUser: UserRegistrationRequest) : RegistrationResponse
+    suspend fun postNewUser(
+        @Body newUser: UserRegistrationRequest
+    ) : RegistrationResponse
 }
