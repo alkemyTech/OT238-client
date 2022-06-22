@@ -10,12 +10,12 @@ data class Activity(
     var description: String,
     var image: String,
     @SerializedName("userId")
-    var user_id: Int,
+    var userId: Int,
     @SerializedName("CategoryId")
-    var category_id: Int,
+    var categoryId: Int,
     @SerializedName("CategoryId")
-    var created_at: Int,
-    var updated_at: String,
-    val deleted_at: String,
-    val group_id: Int
+    var createdAt: Int,
+    var updatedAt: String,
+    val deletedAt: String,
+    val groupId: Int
 )
