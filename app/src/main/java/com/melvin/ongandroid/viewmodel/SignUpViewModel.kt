@@ -1,14 +1,11 @@
 package com.melvin.ongandroid.viewmodel
 
-import android.widget.Button
-import android.widget.Toast
+
 import androidx.core.util.PatternsCompat
-import androidx.core.view.isEmpty
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import com.melvin.ongandroid.domain.use_case.RegisterUseCase
 import com.melvin.ongandroid.model.entities.UserRegistrationRequest
