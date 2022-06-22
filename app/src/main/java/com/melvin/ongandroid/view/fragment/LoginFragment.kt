@@ -1,34 +1,46 @@
 package com.melvin.ongandroid.view.fragment
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.melvin.ongandroid.R
 import com.melvin.ongandroid.databinding.FragmentLogInBinding
+import com.melvin.ongandroid.model.entities.LoginRequest
+import com.melvin.ongandroid.viewmodel.ApiStatus
 import com.melvin.ongandroid.viewmodel.LoginViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class LoginFragment : Fragment() {
-    private lateinit var loginBinding : FragmentLogInBinding
+    private lateinit var _binding : FragmentLogInBinding
+    private val loginBinding get() = _binding
+    private val loginViewModel: LoginViewModel by viewModels()
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
-    private val loginViewModel= LoginViewModel()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
+        _binding = FragmentLogInBinding.inflate(inflater,container,false)
+        return loginBinding.root
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_log_in, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        loginBinding= FragmentLogInBinding.bind(view)
 
         loginBinding.itEmail.addTextChangedListener{
             loginBinding.bLogin.isEnabled = loginViewModel.validateEmail(loginBinding.itEmail.text.toString()) &&
@@ -45,8 +57,39 @@ class LoginFragment : Fragment() {
         }
         
         loginBinding.bLogin.setOnClickListener{
+            val logIn = LoginRequest(
+                loginBinding.itEmail.text.toString(),
+                loginBinding.itPassword.text.toString())
+            loginViewModel.logInUser(logIn)
+            drawStatusDialog()
+            }
+
+        }
+
+        private fun drawStatusDialog() {
+            loginViewModel.status.observe(viewLifecycleOwner) {
+                when (it) {
+                    ApiStatus.SUCCESS -> { showSuccessDialog() }
+                    ApiStatus.FAILURE -> { showFailureDialog() }
+                }
+            }
+        }
+
+        private fun showSuccessDialog() {
+            Toast.makeText(context, resources.getString(R.string.success_login), Toast.LENGTH_LONG).show()
             findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
         }
 
+        private fun showFailureDialog() {
+            context?.let {
+                MaterialAlertDialogBuilder(it)
+                    .setTitle(resources.getString(R.string.failure_dialog_title))
+                    .setMessage(resources.getString(R.string.failure_supporting_text))
+                    .setPositiveButton(resources.getString(R.string.close)) { _, _ ->
+                        Log.d("LogInFragment", "close")
+                    }
+                    .show()
+            }
     }
-}
+
+    }
