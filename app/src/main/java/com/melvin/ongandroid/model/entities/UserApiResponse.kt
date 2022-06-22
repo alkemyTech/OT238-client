@@ -10,7 +10,7 @@ data class UserApiResponse(
     var emailVerifiedAt : String? = null,
     var password: String? = null,
     @SerializedName("role_id")
-    var roleId: Int?    = null,
+    var roleId: Int? = null,
     @SerializedName("remember_token")
     var rememberToken: String? = null,
     @SerializedName("created_at")

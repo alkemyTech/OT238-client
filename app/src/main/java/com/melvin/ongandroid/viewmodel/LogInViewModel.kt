@@ -1,10 +1,27 @@
 package com.melvin.ongandroid.viewmodel
 
 import androidx.core.util.PatternsCompat
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import java.util.regex.Pattern
+import androidx.lifecycle.viewModelScope
+import com.melvin.ongandroid.data.AppData
+import com.melvin.ongandroid.domain.use_case.LogInUseCase
+import com.melvin.ongandroid.model.entities.LoginRequest
 
-class LoginViewModel : ViewModel() {
+import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.launch
+import java.util.regex.Pattern
+import javax.inject.Inject
+
+@HiltViewModel
+class LoginViewModel @Inject constructor(
+    private val appData: AppData,
+    private val logInUseCase: LogInUseCase,
+    ) : ViewModel() {
+
+    private val _status = MutableLiveData<ApiStatus>()
+    val status: LiveData<ApiStatus> = _status
 
     fun  validateEmail ( Email:String): Boolean {
         return Email.isNotEmpty() && PatternsCompat.EMAIL_ADDRESS.matcher(Email).matches()
@@ -21,6 +38,16 @@ class LoginViewModel : ViewModel() {
                     ".{4,}" +               //at least 4 characters
                     "$"
         )
-        return password.isNotEmpty()&&passwordRegex.matcher(password).matches()
+        return password.isNotEmpty() && passwordRegex.matcher(password).matches()
+    }
+
+    fun logInUser(logIn:LoginRequest) {
+        viewModelScope.launch {
+            val apiLogIn = logInUseCase.logInUser(logIn)
+            if (apiLogIn.success) {
+                _status.value = ApiStatus.SUCCESS
+                appData.saveKey(apiLogIn.data.token)
+            } else _status.value = ApiStatus.FAILURE
+        }
     }
 }

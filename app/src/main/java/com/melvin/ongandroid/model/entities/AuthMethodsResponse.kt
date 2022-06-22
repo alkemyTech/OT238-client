@@ -1,6 +1,6 @@
 package com.melvin.ongandroid.model.entities
 
-data class RegistrationResponse(
+data class AuthMethodsResponse(
     val success: Boolean,
     val data: DataResponse,
     val message: String
