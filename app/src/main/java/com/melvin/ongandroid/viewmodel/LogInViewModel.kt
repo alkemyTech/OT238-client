@@ -21,6 +21,6 @@ class LoginViewModel : ViewModel() {
                     ".{4,}" +               //at least 4 characters
                     "$"
         )
-        return password.isNotEmpty()&&passwordRegex.matcher(password).matches()
+        return password.isNotEmpty() && passwordRegex.matcher(password).matches()
     }
 }
