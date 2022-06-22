@@ -7,6 +7,17 @@
     <string name="action_sign_in_short">Ingresar</string>
     <string name="action_sign_up_short">Crear cuenta</string>
     <string name="do_you_have_an_account">No tienes cuenta?</string>
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="enter_user_name">Ingresa tu nombre de usuario</string>
+    <string name="user_email">Ingresa tu email</string>
+    <string name="user_password">Password</string>
+    <string name="confirm_password">Confirmar password</string>
+    <string name="register">Registrarse</string>
+    <string name="img_description">logo de somos mas</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="success_dialog_title">Felicitaciones!</string>
+    <string name="success_supporting_text">Usuario registrado exitosamente.</string>
+    <string name="accept">Aceptar</string>
+    <string name="failure_dialog_title">Ocurrió un problema!</string>
+    <string name="failure_supporting_text">La llamada al endpoint falló.</string>
+    <string name="close">Cerrar</string>
 </resources>
