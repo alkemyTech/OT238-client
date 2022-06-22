@@ -27,7 +27,7 @@ class SignUpFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
         _binding = FragmentSignUpBinding.inflate(inflater,container,false)
         return binding.root
@@ -72,7 +72,6 @@ class SignUpFragment : Fragment() {
                     viewModel.confirmPassword(binding.etUserPassword.text.toString(),binding.etUserPasswordConfirm.text.toString(), binding.tiUserPasswordConfirm)&&
                     viewModel.validateUserName(binding.etUserName.text.toString(),binding.tiUsername)
         }
-
 
     }
 

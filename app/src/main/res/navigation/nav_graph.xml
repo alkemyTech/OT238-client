@@ -13,13 +13,21 @@
         <action
             android:id="@+id/action_loginFragment_to_signUpFragment"
             app:destination="@id/signUpFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
     </fragment>
     <fragment
         android:id="@+id/signUpFragment"
-        android:name="com.melvin.ongandroid.view.SignUpFragment"
+        android:name="com.melvin.ongandroid.view.fragment.SignUpFragment"
         android:label="SignUpFragment" >
         <action
             android:id="@+id/action_signUpFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.melvin.ongandroid.view.fragment.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
 </navigation>
