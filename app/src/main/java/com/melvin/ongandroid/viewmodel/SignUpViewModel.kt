@@ -76,10 +76,14 @@ class SignUpViewModel @Inject constructor(
         return if (password != confirmPassword){
             passwordMessage.error = passwordConfirmError
             false
+        }else if (confirmPassword.isEmpty()){
+            passwordMessage.error = passwordConfirmError
+            false
         }else{
             passwordMessage.error = null
             true
         }
+
     }
     fun validateUserName(username:String, usernameMessage:TextInputLayout ):Boolean{
         return if (username.isEmpty() && username.isBlank()){
@@ -89,8 +93,6 @@ class SignUpViewModel @Inject constructor(
             usernameMessage.error = null
             true
         }
-
     }
-
 
 }

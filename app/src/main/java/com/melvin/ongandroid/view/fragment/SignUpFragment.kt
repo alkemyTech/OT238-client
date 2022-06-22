@@ -5,7 +5,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -47,19 +46,32 @@ class SignUpFragment : Fragment() {
             drawStatusDialog()
         }
 
-        binding.etUserEmail.addTextChangedListener {
-            binding.btnSignUp.isEnabled = viewModel.validateUserName(binding.etUserName.text.toString(),binding.tiUsername)
-        }
-        binding.etUserEmail.addTextChangedListener  {
-            binding.btnSignUp.isEnabled = viewModel.validateEmail(binding.etUserEmail.text.toString(),binding.tiUserEmail)
-        }
-        binding.etUserEmail.addTextChangedListener{
-            binding.btnSignUp.isEnabled = viewModel.validatePassword(binding.etUserPassword.text.toString(),binding.tiUserPassword)
-        }
-        binding.etUserEmail.addTextChangedListener{
-            binding.btnSignUp.isEnabled = viewModel.confirmPassword(binding.etUserPassword.text.toString(),binding.etUserPasswordConfirm.text.toString(), binding.tiUserPasswordConfirm)
-        }
+        val binding = FragmentSignUpBinding.bind(view)
 
+        binding.etUserName.addTextChangedListener {
+            binding.btnSignUp.isEnabled = viewModel.validateEmail(binding.etUserEmail.text.toString(),binding.tiUserEmail) &&
+                    viewModel.validatePassword(binding.etUserPassword.text.toString(),binding.tiUserPassword)&&
+                    viewModel.confirmPassword(binding.etUserPassword.text.toString(),binding.etUserPasswordConfirm.text.toString(), binding.tiUserPasswordConfirm)&&
+                    viewModel.validateUserName(binding.etUserName.text.toString(),binding.tiUsername)
+        }
+        binding.etUserEmail.addTextChangedListener {
+            binding.btnSignUp.isEnabled = viewModel.validateEmail(binding.etUserEmail.text.toString(),binding.tiUserEmail) &&
+                    viewModel.validatePassword(binding.etUserPassword.text.toString(),binding.tiUserPassword)&&
+                    viewModel.confirmPassword(binding.etUserPassword.text.toString(),binding.etUserPasswordConfirm.text.toString(), binding.tiUserPasswordConfirm)&&
+                    viewModel.validateUserName(binding.etUserName.text.toString(),binding.tiUsername)
+        }
+        binding.etUserPassword.addTextChangedListener {
+            binding.btnSignUp.isEnabled = viewModel.validateEmail(binding.etUserEmail.text.toString(),binding.tiUserEmail) &&
+                    viewModel.validatePassword(binding.etUserPassword.text.toString(),binding.tiUserPassword)&&
+                    viewModel.confirmPassword(binding.etUserPassword.text.toString(),binding.etUserPasswordConfirm.text.toString(), binding.tiUserPasswordConfirm)&&
+                    viewModel.validateUserName(binding.etUserName.text.toString(),binding.tiUsername)
+        }
+        binding.etUserPasswordConfirm.addTextChangedListener {
+            binding.btnSignUp.isEnabled = viewModel.validateEmail(binding.etUserEmail.text.toString(),binding.tiUserEmail) &&
+                    viewModel.validatePassword(binding.etUserPassword.text.toString(),binding.tiUserPassword)&&
+                    viewModel.confirmPassword(binding.etUserPassword.text.toString(),binding.etUserPasswordConfirm.text.toString(), binding.tiUserPasswordConfirm)&&
+                    viewModel.validateUserName(binding.etUserName.text.toString(),binding.tiUsername)
+        }
 
 
     }
