@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -35,6 +36,9 @@ class SignUpFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        viewModel.validateFields(binding.etUserName.text.toString(),binding.etUserPassword.text.toString(),
+            binding.etUserEmail.text.toString(),binding.etUserPasswordConfirm.text.toString())
+
         binding.btnSignUp.setOnClickListener {
             val newUser = UserRegistrationRequest(
                 binding.tiUsername.toString(),
@@ -44,6 +48,17 @@ class SignUpFragment : Fragment() {
             viewModel.registerUser(newUser)
             drawStatusDialog()
         }
+
+        val binding = FragmentSignUpBinding.bind(view)
+
+        binding.etUserPasswordConfirm.doAfterTextChanged {
+            val controlFields = viewModel.validateFields(binding.etUserName.text.toString(),binding.etUserPassword.text.toString(),
+                binding.etUserEmail.text.toString(),binding.etUserPasswordConfirm.text.toString())
+            if (controlFields){
+                binding.btnSignUp.isEnabled = true
+            }
+        }
+
     }
 
     private fun drawStatusDialog() {
@@ -78,7 +93,6 @@ class SignUpFragment : Fragment() {
                 .show()
         }
     }
-
 }
 
 
