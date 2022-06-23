@@ -1,5 +1,6 @@
 package com.melvin.ongandroid.domain.di
 
+import com.melvin.ongandroid.data.LogIn
 import com.melvin.ongandroid.data.OngApi
 import dagger.Module
 import dagger.Provides
@@ -13,7 +14,7 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
 
-    private const val BASE_URL = "http://ongapi.alkemy.org/"
+    private const val BASE_URL = "https://ongapi.alkemy.org/api/"
 
     @Singleton
     @Provides
@@ -28,5 +29,11 @@ object NetworkModule {
     @Provides
     fun provideOngApi(retrofit: Retrofit) : OngApi {
         return retrofit.create(OngApi::class.java)
+    }
+
+    @Singleton
+    @Provides
+    fun provideLogInApi(retrofit: Retrofit) : LogIn {
+        return retrofit.create(LogIn::class.java)
     }
 }

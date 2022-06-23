@@ -16,6 +16,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="success_dialog_title">Felicitaciones!</string>
     <string name="success_supporting_text">Usuario registrado exitosamente.</string>
+    <string name="success_login">Sesion iniciada</string>
     <string name="accept">Aceptar</string>
     <string name="failure_dialog_title">Ocurrió un problema!</string>
     <string name="failure_supporting_text">La llamada al endpoint falló.</string>
