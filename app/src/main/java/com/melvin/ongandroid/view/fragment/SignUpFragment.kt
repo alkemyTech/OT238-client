@@ -5,7 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.widget.addTextChangedListener
+import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -27,7 +27,7 @@ class SignUpFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
         _binding = FragmentSignUpBinding.inflate(inflater,container,false)
         return binding.root
@@ -35,6 +35,9 @@ class SignUpFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        viewModel.validateFields(binding.etUserName.text.toString(),binding.etUserPassword.text.toString(),
+            binding.etUserEmail.text.toString(),binding.etUserPasswordConfirm.text.toString())
 
         binding.btnSignUp.setOnClickListener {
             val newUser = UserRegistrationRequest(
@@ -48,31 +51,13 @@ class SignUpFragment : Fragment() {
 
         val binding = FragmentSignUpBinding.bind(view)
 
-        binding.etUserName.addTextChangedListener {
-            binding.btnSignUp.isEnabled = viewModel.validateEmail(binding.etUserEmail.text.toString(),binding.tiUserEmail) &&
-                    viewModel.validatePassword(binding.etUserPassword.text.toString(),binding.tiUserPassword)&&
-                    viewModel.confirmPassword(binding.etUserPassword.text.toString(),binding.etUserPasswordConfirm.text.toString(), binding.tiUserPasswordConfirm)&&
-                    viewModel.validateUserName(binding.etUserName.text.toString(),binding.tiUsername)
+        binding.etUserPasswordConfirm.doAfterTextChanged {
+            val controlFields = viewModel.validateFields(binding.etUserName.text.toString(),binding.etUserPassword.text.toString(),
+                binding.etUserEmail.text.toString(),binding.etUserPasswordConfirm.text.toString())
+            if (controlFields){
+                binding.btnSignUp.isEnabled = true
+            }
         }
-        binding.etUserEmail.addTextChangedListener {
-            binding.btnSignUp.isEnabled = viewModel.validateEmail(binding.etUserEmail.text.toString(),binding.tiUserEmail) &&
-                    viewModel.validatePassword(binding.etUserPassword.text.toString(),binding.tiUserPassword)&&
-                    viewModel.confirmPassword(binding.etUserPassword.text.toString(),binding.etUserPasswordConfirm.text.toString(), binding.tiUserPasswordConfirm)&&
-                    viewModel.validateUserName(binding.etUserName.text.toString(),binding.tiUsername)
-        }
-        binding.etUserPassword.addTextChangedListener {
-            binding.btnSignUp.isEnabled = viewModel.validateEmail(binding.etUserEmail.text.toString(),binding.tiUserEmail) &&
-                    viewModel.validatePassword(binding.etUserPassword.text.toString(),binding.tiUserPassword)&&
-                    viewModel.confirmPassword(binding.etUserPassword.text.toString(),binding.etUserPasswordConfirm.text.toString(), binding.tiUserPasswordConfirm)&&
-                    viewModel.validateUserName(binding.etUserName.text.toString(),binding.tiUsername)
-        }
-        binding.etUserPasswordConfirm.addTextChangedListener {
-            binding.btnSignUp.isEnabled = viewModel.validateEmail(binding.etUserEmail.text.toString(),binding.tiUserEmail) &&
-                    viewModel.validatePassword(binding.etUserPassword.text.toString(),binding.tiUserPassword)&&
-                    viewModel.confirmPassword(binding.etUserPassword.text.toString(),binding.etUserPasswordConfirm.text.toString(), binding.tiUserPasswordConfirm)&&
-                    viewModel.validateUserName(binding.etUserName.text.toString(),binding.tiUsername)
-        }
-
 
     }
 
@@ -108,7 +93,6 @@ class SignUpFragment : Fragment() {
                 .show()
         }
     }
-
 }
 
 
