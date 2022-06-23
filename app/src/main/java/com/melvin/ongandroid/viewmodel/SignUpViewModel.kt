@@ -1,12 +1,15 @@
 package com.melvin.ongandroid.viewmodel
 
 
+import android.content.res.Resources
+import android.provider.Settings.Global.getString
 import androidx.core.util.PatternsCompat
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.google.android.material.textfield.TextInputLayout
+import com.melvin.ongandroid.R
 import com.melvin.ongandroid.domain.use_case.RegisterUseCase
 import com.melvin.ongandroid.model.entities.UserRegistrationRequest
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -20,10 +23,6 @@ class SignUpViewModel @Inject constructor(
 
     private val _status = MutableLiveData<ApiStatus>()
     val status: LiveData<ApiStatus> = _status
-    private val emptyFieldMsg = "Este campo debe ser completado"
-    private val invalidMsg = "El campo ingresado no es valido"
-    private val passWordError = "Debe ser alfanumerico, contener una letra mayuscula, un caracter especial y sin espacios"
-    private val passwordConfirmError = "Los passwords no coinciden"
 
 
     fun registerUser(newUser: UserRegistrationRequest) {
@@ -37,10 +36,10 @@ class SignUpViewModel @Inject constructor(
 
     fun validateEmail(email:String, emailMsg:TextInputLayout): Boolean {
         return if (email.isEmpty()){
-            emailMsg.error = emptyFieldMsg
+            emailMsg.error = Resources.getSystem().getString(R.string.empty_field_msg)
             false
         }else if (!PatternsCompat.EMAIL_ADDRESS.matcher(email).matches()) {
-            emailMsg.error = invalidMsg
+            emailMsg.error = Resources.getSystem().getString(R.string.invalid_format_msg)
             false
         }else{
             emailMsg.error = null
@@ -59,10 +58,10 @@ class SignUpViewModel @Inject constructor(
                     "$"
         )
         return if (password.isEmpty()){
-            passwordMessage.error = emptyFieldMsg
+            passwordMessage.error = Resources.getSystem().getString(R.string.empty_field_msg)
             false
         }else if (!passwordRegex.matcher(password).matches()){
-            passwordMessage.error = passWordError
+            passwordMessage.error = Resources.getSystem().getString(R.string.password_error_msg)
             false
         }else{
             passwordMessage.error = null
@@ -71,10 +70,10 @@ class SignUpViewModel @Inject constructor(
     }
     fun confirmPassword(password: String, confirmPassword:String, passwordMessage: TextInputLayout):Boolean{
         return if (password != confirmPassword){
-            passwordMessage.error = passwordConfirmError
+            passwordMessage.error = Resources.getSystem().getString(R.string.confirm_password_error)
             false
         }else if (confirmPassword.isEmpty()){
-            passwordMessage.error = passwordConfirmError
+            passwordMessage.error = Resources.getSystem().getString(R.string.empty_field_msg)
             false
         }else{
             passwordMessage.error = null
@@ -84,7 +83,7 @@ class SignUpViewModel @Inject constructor(
     }
     fun validateUserName(username:String, usernameMessage:TextInputLayout ):Boolean{
         return if (username.isEmpty() && username.isBlank()){
-            usernameMessage.error = emptyFieldMsg
+            usernameMessage.error = Resources.getSystem().getString(R.string.empty_field_msg)
             false
         }else{
             usernameMessage.error = null
