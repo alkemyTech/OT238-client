@@ -77,7 +77,7 @@ class LoginFragment : Fragment() {
 
         private fun showSuccessDialog() {
             Toast.makeText(context, resources.getString(R.string.success_login), Toast.LENGTH_LONG).show()
-            findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
+            findNavController().navigate(R.id.action_loginFragment_to_homeActivity)
         }
 
         private fun showFailureDialog() {
