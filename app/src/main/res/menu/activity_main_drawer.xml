@@ -14,6 +14,10 @@
             android:icon="@drawable/ic_baseline_new_releases_24"
             android:title="@string/menu_news" />
         <item
+            android:id="@+id/nav_testimonials"
+            android:icon="@drawable/ic_baseline_comment_24"
+            android:title="@string/menu_testimonials" />
+        <item
             android:id="@+id/nav_about_us"
             android:icon="@drawable/ic_baseline_group_24"
             android:title="@string/menu_about_us" />

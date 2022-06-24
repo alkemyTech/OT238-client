@@ -35,7 +35,7 @@ private lateinit var binding: ActivityHomeBinding
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_home, R.id.nav_news, R.id.nav_about_us, R.id.nav_contact_us
+                R.id.nav_home, R.id.nav_news,R.id.nav_testimonials, R.id.nav_about_us, R.id.nav_contact_us
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
@@ -43,6 +43,7 @@ private lateinit var binding: ActivityHomeBinding
 
         val home = navView.menu.findItem(R.id.nav_home)
         val contact = navView.menu.findItem(R.id.nav_contact_us)
+        val testimonials = navView.menu.findItem(R.id.nav_testimonials)
         val about = navView.menu.findItem(R.id.nav_about_us)
         val news = navView.menu.findItem(R.id.nav_news)
 
@@ -53,6 +54,10 @@ private lateinit var binding: ActivityHomeBinding
         }
         news.setOnMenuItemClickListener {
             Toast.makeText(this, resources.getString(R.string.menu_news), Toast.LENGTH_SHORT).show()
+            true
+        }
+        testimonials.setOnMenuItemClickListener {
+            Toast.makeText(this, resources.getString(R.string.menu_testimonials), Toast.LENGTH_SHORT).show()
             true
         }
         about.setOnMenuItemClickListener {
