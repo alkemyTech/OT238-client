@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ONGAndroid</string>
+    <string name="app_name">Somos Más</string>
     <!-- Strings related to login -->
     <string name="email">Email</string>
     <string name="prompt_password">Contraseña</string>
