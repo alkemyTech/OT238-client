@@ -3,7 +3,12 @@
     android:opacity="opaque">
 
     <item android:drawable="@color/primaryColor" />
-    <item>
+    <item
+        android:gravity="center"
+        android:top="10dp"
+        android:bottom="10dp"
+        android:left="10dp"
+        android:right="10dp">
         <bitmap android:src="@drawable/logo_somos_mas" />
     </item>
 
