@@ -15,7 +15,6 @@ interface OngApi {
         @Body newUser: UserRegistrationRequest
     ) : AuthMethodsResponse
 
-
     @GET("slides")
-    suspend fun getSlides(): Response<SlidesResponse>
+    suspend fun getSlides(): SlidesResponse
 }
