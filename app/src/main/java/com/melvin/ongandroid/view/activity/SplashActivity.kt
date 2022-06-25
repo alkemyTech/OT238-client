@@ -6,7 +6,9 @@ import android.os.Bundle
 import android.widget.Toast
 import com.melvin.ongandroid.data.AppData
 import dagger.hilt.android.AndroidEntryPoint
-import java.util.concurrent.Executors
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
@@ -21,15 +23,13 @@ class SplashActivity : AppCompatActivity(){
     }
 
     private fun timer(){
-        val timer = Executors.newSingleThreadScheduledExecutor()
-        timer.schedule(
-            {
-                runOnUiThread {
-                    checkAuth()
-                    Toast.makeText(this, "Timer has finished", Toast.LENGTH_LONG).show()
-                    finish()
-                }
-            },5,TimeUnit.SECONDS)
+        runBlocking {
+            launch {
+                delay(TimeUnit.SECONDS.toMillis(5))
+                Toast.makeText(this@SplashActivity, "Timer has finished", Toast.LENGTH_SHORT).show()
+                checkAuth()
+            }
+        }
     }
 
     private fun checkAuth(){
