@@ -33,5 +33,6 @@
     <string name="menu_testimonials">Testimonios</string>
     <string name="menu_about_us">Nosotros</string>
     <string name="menu_contact_us">Contacto</string>
-
+    <string name="home_title">Bienvenidos</string>
+    <string name="home_iv_description">Imágenes de la ONG</string>
 </resources>
