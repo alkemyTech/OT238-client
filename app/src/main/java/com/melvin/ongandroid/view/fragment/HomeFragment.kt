@@ -9,6 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.melvin.ongandroid.databinding.FragmentHomeBinding
+import com.melvin.ongandroid.model.entities.slides.Slide
 import com.melvin.ongandroid.view.adapters.HomeViewPagerAdapter
 import com.melvin.ongandroid.view.adapters.SlideAdapter
 import com.melvin.ongandroid.viewmodel.HomeViewModel
@@ -38,6 +39,7 @@ class HomeFragment : Fragment() {
         initActivitiesRv()
         viewModel.slideList.observe(viewLifecycleOwner) {
             showActivities(homeViewModel, binding)
+            loadViewPager(it.slideList)
         }
 
         return root
@@ -64,5 +66,10 @@ class HomeFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun loadViewPager(imageList: List<Slide>) {
+        adapter = HomeViewPagerAdapter(imageList)
+        binding.pager.adapter = adapter
     }
 }
