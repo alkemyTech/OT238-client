@@ -41,12 +41,11 @@ class HomeFragment : Fragment() {
         }
 
         return root
-
     }
 
-     private fun initActivitiesRv(){
-         binding.rvActivitiesSlides.layoutManager = LinearLayoutManager(activity)
-     }
+    private fun initActivitiesRv(){
+        binding.rvActivitiesSlides.layoutManager = LinearLayoutManager(activity)
+    }
 
     private fun showActivities(viewModel: HomeViewModel, binding: FragmentHomeBinding){
         val activitiesList = viewModel.slideList.value
