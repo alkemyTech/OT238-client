@@ -9,6 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.melvin.ongandroid.databinding.FragmentHomeBinding
+import com.melvin.ongandroid.view.adapters.HomeViewPagerAdapter
 import com.melvin.ongandroid.view.adapters.SlideAdapter
 import com.melvin.ongandroid.viewmodel.HomeViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -17,6 +18,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class HomeFragment : Fragment() {
     private val viewModel: HomeViewModel by viewModels()
     private var _binding: FragmentHomeBinding? = null
+    private lateinit var adapter: HomeViewPagerAdapter
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -41,9 +43,11 @@ class HomeFragment : Fragment() {
         return root
 
     }
+
      private fun initActivitiesRv(){
          binding.rvActivitiesSlides.layoutManager = LinearLayoutManager(activity)
      }
+
     private fun showActivities(viewModel: HomeViewModel, binding: FragmentHomeBinding){
         val activitiesList = viewModel.slideList.value
 
