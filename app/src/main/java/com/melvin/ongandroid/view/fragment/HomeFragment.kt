@@ -44,7 +44,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun initActivitiesRv(){
-        binding.rvActivitiesSlides.layoutManager = LinearLayoutManager(activity)
+        binding.rvActivitiesSlides.layoutManager = LinearLayoutManager(activity,LinearLayoutManager.HORIZONTAL,false)
     }
 
     private fun showActivities(viewModel: HomeViewModel, binding: FragmentHomeBinding){
