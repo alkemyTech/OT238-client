@@ -24,7 +24,7 @@ class HomeViewPagerAdapter: ListAdapter<Slide, HomeViewPagerAdapter.ViewHolder>(
 
     class ViewHolder(private var binding: ViewPagerItemHomeBinding): RecyclerView.ViewHolder(binding.root) {
         fun bind(slide: Slide) {
-            Glide.with(itemView).load(slide.imageUrl).into(binding.ivPager)
+            Glide.with(binding.ivPager).load(slide.imageUrl).into(binding.ivPager)
             Log.d("JOSE", slide.imageUrl)
             binding.tvPagerTitle.text = slide.name
             binding.tvPagerDescription.text = slide.description
