@@ -16,7 +16,7 @@ class SplashActivity() : AppCompatActivity(){
         checkAuth()
     }
 
-    fun checkAuth(){
+    private fun checkAuth(){
         val token = appData.getKey().toString()
         if(token != ""){
             startActivity(Intent(this, HomeActivity::class.java))
