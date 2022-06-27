@@ -36,4 +36,5 @@ object NetworkModule {
     fun provideLogInApi(retrofit: Retrofit) : LogIn {
         return retrofit.create(LogIn::class.java)
     }
+
 }
