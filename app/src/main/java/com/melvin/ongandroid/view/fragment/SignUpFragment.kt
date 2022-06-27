@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.LifecycleOwner
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.melvin.ongandroid.R
@@ -56,6 +57,14 @@ class SignUpFragment : Fragment() {
                 binding.etUserEmail.text.toString(),binding.etUserPasswordConfirm.text.toString())
             if (controlFields){
                 binding.btnSignUp.isEnabled = true
+            }
+        }
+
+        viewModel.signUpUserCharging.observe( viewLifecycleOwner) { charging ->
+            if (charging) {
+
+            } else {
+
             }
         }
 
