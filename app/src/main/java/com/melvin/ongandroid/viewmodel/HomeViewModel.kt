@@ -18,19 +18,17 @@ import javax.inject.Inject
 class HomeViewModel @Inject constructor(
     private val repository: ApiClient
 ) : ViewModel() {
-    sealed class SlideStatus {
-        class Success(val slideList: List<Slide>) : SlideStatus()
-        class Failure(val emptyList: Any = emptyList<Slide>()) : SlideStatus()
-    }
+
 
     private val _status = MutableLiveData<ApiStatus>()
-    val status: LiveData<ApiStatus> = _status
-    private val _slideList = MutableLiveData<SlideStatus>()
-    val slideList: LiveData<SlideStatus>
-        get() = _slideList
+    private val _slideList = MutableLiveData<List<Slide>>()
 
 
-    /*private fun getSlides() {
+    fun observerSlideList ():MutableLiveData<List<Slide>> {
+            return this._slideList
+    }
+
+    private fun getSlides() {
         viewModelScope.launch {
             val response = repository.getSlide()
             if (response.success) {
@@ -43,36 +41,7 @@ class HomeViewModel @Inject constructor(
 
         }
 
-    }*/
-
-    fun getSlide() {
-        viewModelScope.launch {
-            val response = repository.getSlide()
-            if (response.success) {
-                _slideList.value = SlideStatus.Success(response.slideList)
-            } else {
-                _slideList.value = SlideStatus.Success(emptyList())
-            }
-
-
-        }
-
-
-        /* private fun getSlides() {
-             var slideActivities: SlidesResponse
-             viewModelScope.launch {
-
-                     slideActivities = apiSlides.getSlides()
-                     if (slideActivities.success) {
-                         _status.value = ApiStatus.SUCCESS
-                         _slideList.value = slideActivities
-                     } else {
-                         _status.value = ApiStatus.FAILURE
-                         _slideList.value = emptyList<SlidesResponse>()
-
-                     }
-
-             }
-         }*/
     }
+
+
 }

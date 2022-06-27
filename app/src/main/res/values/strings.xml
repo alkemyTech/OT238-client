@@ -35,4 +35,6 @@
     <string name="menu_contact_us">Contacto</string>
     <string name="home_title">Bienvenidos</string>
     <string name="home_iv_description">Imágenes de la ONG</string>
+    <string name="textError"> Error al cargar los slides </string>
+    <string name="actionText" > RETRY</string>
 </resources>

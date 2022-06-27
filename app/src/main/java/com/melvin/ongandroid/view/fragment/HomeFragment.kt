@@ -9,6 +9,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.snackbar.Snackbar
+import com.melvin.ongandroid.R
 import com.melvin.ongandroid.databinding.FragmentHomeBinding
 import com.melvin.ongandroid.model.entities.slides.Slide
 import com.melvin.ongandroid.view.adapters.HomeViewPagerAdapter
@@ -22,10 +24,10 @@ class HomeFragment : Fragment() {
     private val viewModel: HomeViewModel by viewModels()
     private var _binding: FragmentHomeBinding? = null
     private lateinit var adapter: HomeViewPagerAdapter
-    private lateinit var slideAdapter: HomeViewPagerAdapter
+    private lateinit var sliderAdapter: SlideAdapter
+    private val slideList = mutableListOf<Slide>()
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
+
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -33,25 +35,23 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val homeViewModel =
-            ViewModelProvider(this)[HomeViewModel::class.java]
+        return inflater.inflate(R.layout.fragment_home, container, false)
+    }
 
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
-        val root: View = binding.root
-
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        _binding = FragmentHomeBinding.bind(view)
         initActivitiesRv()
-        /*viewModel.slideList.observe(viewLifecycleOwner) {
-            showActivities(homeViewModel, binding)
-            loadViewPager(it.slideList)
-        }*/
+        setupSlide()
 
-
-        return root
     }
 
     private fun initActivitiesRv() {
         binding.rvActivitiesSlides.layoutManager =
             LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
+    }
+    private fun setupSlide() {
+        viewModel.observerSlideList()
+        setupObserver()
     }
 
 
@@ -68,30 +68,25 @@ class HomeFragment : Fragment() {
 
 
     private fun setupObserver() {
-        viewModel.slideList.observe(viewLifecycleOwner) {
-            when (it) {
-                is HomeViewModel.SlideStatus.Success -> {
-                    if (it.slideList.isEmpty()) {
-                        loadViewPager(it.slideList)
-                    }
-                }
-                is HomeViewModel.SlideStatus.Failure -> {
-                    Toast.makeText(context, "asd", Toast.LENGTH_LONG).show()
-                }
+        viewModel.observerSlideList().observe(viewLifecycleOwner) {
+            if (viewModel.observerSlideList() != null) {
+
+            } else {
+                snackBar()
+
             }
         }
     }
 
-    /*private fun setupObersever(){
-        viewModel.status.observe(viewLifecycleOwner){
-            when(it){
-                ApiStatus.SUCCESS ->{
-                    loadViewPager(it)
-                }
-                ApiStatus.FAILURE -> {
-                    Toast.makeText()
-                }
+    private fun snackBar() {
+        Snackbar.make(binding.constraint, R.string.textError, Snackbar.LENGTH_LONG)
+            .setAction(R.string.actionText) {
+                setupObserver()
             }
-        }
-    } */
+            .show()
+    }
+
+
+
 }
+
