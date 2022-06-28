@@ -50,9 +50,9 @@ class LoginViewModel @Inject constructor(
             if (apiLogIn.success) {
                 _status.value = ApiStatus.SUCCESS
                 appData.saveKey(apiLogIn.data.token)
-            } else {
+            }else {
                 _status.value = ApiStatus.FAILURE
-             }
+            }
         }
     }
 }
