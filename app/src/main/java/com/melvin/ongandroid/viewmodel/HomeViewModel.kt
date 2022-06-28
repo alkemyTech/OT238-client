@@ -28,7 +28,7 @@ class HomeViewModel @Inject constructor(
             return this._slideList
     }
 
-    private fun getSlides() {
+    fun getSlides() {
         viewModelScope.launch {
             val response = repository.getSlide()
             if (response.success) {

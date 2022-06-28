@@ -50,7 +50,7 @@ class HomeFragment : Fragment() {
             LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
     }
     private fun setupSlide() {
-        viewModel.observerSlideList()
+        viewModel.getSlides()
         setupObserver()
     }
 
@@ -70,7 +70,7 @@ class HomeFragment : Fragment() {
     private fun setupObserver() {
         viewModel.observerSlideList().observe(viewLifecycleOwner) {
             if (viewModel.observerSlideList() != null) {
-
+                loadViewPager(it)
             } else {
                 snackBar()
 
