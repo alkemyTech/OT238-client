@@ -64,15 +64,7 @@ class LoginFragment : Fragment() {
             drawStatusDialog()
             }
 
-        loginViewModel.logInUserCharging.observe(viewLifecycleOwner) { charging ->
-            if (charging) {
-                loginBinding.pbCharging.visibility = View.VISIBLE
-            } else {
-                loginBinding.pbCharging.visibility = View.GONE
-            }
         }
-
-    }
 
         private fun drawStatusDialog() {
             loginViewModel.status.observe(viewLifecycleOwner) {

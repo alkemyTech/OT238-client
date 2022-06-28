@@ -58,8 +58,6 @@ private lateinit var binding: ActivityHomeBinding
         }
         testimonials.setOnMenuItemClickListener {
             Toast.makeText(this, resources.getString(R.string.menu_testimonials), Toast.LENGTH_SHORT).show()
-            //Go to testimonials fragment
-            navController.navigate(R.id.action_nav_home_to_testimonialsFragment)
             true
         }
         about.setOnMenuItemClickListener {
