@@ -16,14 +16,14 @@ import com.melvin.ongandroid.R
 import com.melvin.ongandroid.databinding.FragmentLogInBinding
 import com.melvin.ongandroid.model.entities.LoginRequest
 import com.melvin.ongandroid.viewmodel.ApiStatus
-import com.melvin.ongandroid.viewmodel.LoginViewModel
+import com.melvin.ongandroid.viewmodel.LogInViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class LoginFragment : Fragment() {
     private lateinit var _binding : FragmentLogInBinding
     private val loginBinding get() = _binding
-    private val loginViewModel: LoginViewModel by viewModels()
+    private val loginViewModel: LogInViewModel by viewModels()
 
 
     override fun onCreateView(
@@ -33,10 +33,14 @@ class LoginFragment : Fragment() {
         _binding = FragmentLogInBinding.inflate(inflater,container,false)
         return loginBinding.root
         // Inflate the layout for this fragment
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        loginBinding.itPasswordDesign.isHelperTextEnabled=false
+        loginBinding.itEmailDesign.isHelperTextEnabled=false
 
         loginBinding.itEmail.addTextChangedListener{
             loginBinding.bLogin.isEnabled = loginViewModel.validateEmail(loginBinding.itEmail.text.toString()) &&
@@ -96,9 +100,10 @@ class LoginFragment : Fragment() {
                         Log.d("LogInFragment", "close")
                     }
                     .show()
+                loginBinding.itPasswordDesign.isHelperTextEnabled=true
+                loginBinding.itEmailDesign.isHelperTextEnabled=true
             }
-            loginBinding.itPasswordDesign.isHelperTextEnabled=true
-            loginBinding.itEmailDesign.isHelperTextEnabled=true
+
         }
 
 }

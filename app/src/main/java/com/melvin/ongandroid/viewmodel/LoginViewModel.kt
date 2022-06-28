@@ -15,7 +15,7 @@ import java.util.regex.Pattern
 import javax.inject.Inject
 
 @HiltViewModel
-class LoginViewModel @Inject constructor(
+class LogInViewModel @Inject constructor(
     private val appData: AppData,
     private val logInUseCase: LogInUseCase,
     ) : ViewModel() {
