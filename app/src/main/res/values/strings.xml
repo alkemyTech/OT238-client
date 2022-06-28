@@ -34,5 +34,8 @@
     <string name="menu_about_us">Nosotros</string>
     <string name="menu_contact_us">Contacto</string>
     <string name="ultimas_novedades">Ultimas Novedades</string>
-
+    <string name="dialog_news_error_title">Ultimas Novedades</string>
+    <string name="dialog_news_error_message">Ha ocurrido un error obteniendo la información</string>
+    <string name="dialog_news_error_negative_btn">Cancelar</string>
+    <string name="dialog_news_error_positive_btn">Reintentar</string>
 </resources>
