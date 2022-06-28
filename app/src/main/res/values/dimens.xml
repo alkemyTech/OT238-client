@@ -8,4 +8,11 @@
     <dimen name="nav_header_vertical_spacing">8dp</dimen>
     <dimen name="nav_header_height">176dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
+    <!-- List item margins and paddings -->
+    <dimen name="list_item_margin">16dp</dimen>
+    <dimen name="list_item_padding">16dp</dimen>
+    <!-- Cards margins -->
+    <dimen name="card_margin_vertical">10dp</dimen>
+    <dimen name="card_margin_horizontal">8dp</dimen>
+
 </resources>
