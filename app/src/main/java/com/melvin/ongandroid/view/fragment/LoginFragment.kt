@@ -41,11 +41,14 @@ class LoginFragment : Fragment() {
         loginBinding.itEmail.addTextChangedListener{
             loginBinding.bLogin.isEnabled = loginViewModel.validateEmail(loginBinding.itEmail.text.toString()) &&
                     loginViewModel.validatePassword(loginBinding.itPassword.text.toString())
+            loginBinding.itEmailDesign.isHelperTextEnabled=false
+
         }
 
         loginBinding.itPassword.addTextChangedListener{
             loginBinding.bLogin.isEnabled = loginViewModel.validateEmail(loginBinding.itEmail.text.toString()) &&
                     loginViewModel.validatePassword(loginBinding.itPassword.text.toString())
+            loginBinding.itPasswordDesign.isHelperTextEnabled=false
         }
 
         loginBinding.bSignUp.setOnClickListener{
@@ -85,22 +88,17 @@ class LoginFragment : Fragment() {
         }
 
         private fun showFailureDialog() {
-            loginViewModel.logInError200.observe(viewLifecycleOwner){ logInError200->
-                if(logInError200){
-                    loginBinding.itEmail.error = R.string.set_error.toString()
-                    loginBinding.itPassword.error = R.string.set_error.toString()
-                }else{
-                    context?.let {
-                        MaterialAlertDialogBuilder(it)
-                            .setTitle(resources.getString(R.string.failure_dialog_title))
-                            .setMessage(resources.getString(R.string.failure_supporting_text))
-                            .setPositiveButton(resources.getString(R.string.close)) { _, _ ->
-                                Log.d("LogInFragment", "close")
-                            }
-                            .show()
+            context?.let {
+                MaterialAlertDialogBuilder(it)
+                    .setTitle(resources.getString(R.string.failure_dialog_title))
+                    .setMessage(resources.getString(R.string.failure_supporting_text))
+                    .setPositiveButton(resources.getString(R.string.close)) { _, _ ->
+                        Log.d("LogInFragment", "close")
                     }
-                }
+                    .show()
             }
+            loginBinding.itPasswordDesign.isHelperTextEnabled=true
+            loginBinding.itEmailDesign.isHelperTextEnabled=true
         }
 
 }

@@ -24,7 +24,6 @@ class LoginViewModel @Inject constructor(
     private val _status = MutableLiveData<ApiStatus>()
     val status: LiveData<ApiStatus> = _status
     val logInUserCharging = MutableLiveData(false)
-    val logInError200=MutableLiveData(false)
 
     fun  validateEmail ( Email:String): Boolean {
         return Email.isNotEmpty() && PatternsCompat.EMAIL_ADDRESS.matcher(Email).matches()
@@ -50,14 +49,9 @@ class LoginViewModel @Inject constructor(
             val apiLogIn = logInUseCase.logInUser(logIn)
             logInUserCharging.postValue(false)
             if (apiLogIn.success) {
-                if(apiLogIn.data!=null) {
-                    _status.value = ApiStatus.SUCCESS
-                    appData.saveKey(apiLogIn.data.token)
-                    logInError200.postValue(false)
-                }else{
-                    logInError200.postValue(true)
-                }
-            } else {
+                _status.value = ApiStatus.SUCCESS
+                appData.saveKey(apiLogIn.data.token)
+            }else {
                 _status.value = ApiStatus.FAILURE
             }
         }
