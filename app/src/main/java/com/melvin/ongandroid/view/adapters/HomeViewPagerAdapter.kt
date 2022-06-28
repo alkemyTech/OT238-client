@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.melvin.ongandroid.databinding.ViewPagerItemHomeBinding
 import com.melvin.ongandroid.model.entities.slides.Slide
+import com.squareup.picasso.Picasso
 
 class HomeViewPagerAdapter: ListAdapter<Slide, HomeViewPagerAdapter.ViewHolder>(DiffCallBack) {
 
@@ -24,7 +25,8 @@ class HomeViewPagerAdapter: ListAdapter<Slide, HomeViewPagerAdapter.ViewHolder>(
 
     class ViewHolder(private var binding: ViewPagerItemHomeBinding): RecyclerView.ViewHolder(binding.root) {
         fun bind(slide: Slide) {
-            Glide.with(binding.ivPager).load(slide.imageUrl).into(binding.ivPager)
+            Picasso.get().load(slide.imageUrl).into(binding.ivPager)
+            //Glide.with(binding.ivPager).load(slide.imageUrl).into(binding.ivPager)
             Log.d("JOSE", slide.imageUrl)
             binding.tvPagerTitle.text = slide.name
             binding.tvPagerDescription.text = slide.description
