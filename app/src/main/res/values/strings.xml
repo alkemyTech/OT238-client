@@ -33,6 +33,7 @@
     <string name="menu_testimonials">Testimonios</string>
     <string name="menu_about_us">Nosotros</string>
     <string name="menu_contact_us">Contacto</string>
+    <string name="set_error">ha existido un error</string>
 
     <!-- Dummy strings -->
     <string name="dummy_string">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.

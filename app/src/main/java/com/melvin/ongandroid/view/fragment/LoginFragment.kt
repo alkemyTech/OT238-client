@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.viewModels
@@ -24,11 +25,6 @@ class LoginFragment : Fragment() {
     private val loginBinding get() = _binding
     private val loginViewModel: LoginViewModel by viewModels()
 
-
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -89,15 +85,22 @@ class LoginFragment : Fragment() {
         }
 
         private fun showFailureDialog() {
-            context?.let {
-                MaterialAlertDialogBuilder(it)
-                    .setTitle(resources.getString(R.string.failure_dialog_title))
-                    .setMessage(resources.getString(R.string.failure_supporting_text))
-                    .setPositiveButton(resources.getString(R.string.close)) { _, _ ->
-                        Log.d("LogInFragment", "close")
+            loginViewModel.logInError200.observe(viewLifecycleOwner){ logInError200->
+                if(logInError200){
+                    loginBinding.itEmail.error = R.string.set_error.toString()
+                    loginBinding.itPassword.error = R.string.set_error.toString()
+                }else{
+                    context?.let {
+                        MaterialAlertDialogBuilder(it)
+                            .setTitle(resources.getString(R.string.failure_dialog_title))
+                            .setMessage(resources.getString(R.string.failure_supporting_text))
+                            .setPositiveButton(resources.getString(R.string.close)) { _, _ ->
+                                Log.d("LogInFragment", "close")
+                            }
+                            .show()
                     }
-                    .show()
+                }
             }
-    }
+        }
 
-    }
+}
