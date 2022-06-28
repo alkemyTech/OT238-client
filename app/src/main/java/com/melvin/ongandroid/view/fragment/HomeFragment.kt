@@ -23,23 +23,25 @@ class HomeFragment : Fragment() {
     private val viewModel: HomeViewModel by viewModels()
     private var _binding: FragmentHomeBinding? = null
     private lateinit var newsAdapter: NewsAdapter
-  private val binding get() = _binding!!
+    private val binding get() = _binding!!
 
-  override fun onCreateView(
-    inflater: LayoutInflater,
-    container: ViewGroup?,
-    savedInstanceState: Bundle?
-  ): View {
-      return inflater.inflate(R.layout.fragment_home, container, false)
-  }
+    override fun onCreateView(
+      inflater: LayoutInflater,
+      container: ViewGroup?,
+      savedInstanceState: Bundle?
+    ): View {
+        return inflater.inflate(R.layout.fragment_home, container, false)
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         _binding = FragmentHomeBinding.bind(view)
+
         setUpObserver()
     }
+
     private fun loadNewsPager(data: List<News>){
-        newsAdapter = NewsAdapter()
+        newsAdapter = NewsAdapter(data)
         binding.vpNews.adapter = newsAdapter
-        newsAdapter.submitList(data)
     }
 
     private fun setUpObserver() {
@@ -57,7 +59,7 @@ class HomeFragment : Fragment() {
         _binding = null
     }
 
-    fun dialogNews(){
+    private fun dialogNews(){
         val dialog = AlertDialog.Builder(context)
             .setTitle(R.string.dialog_news_error_title)
             .setMessage(R.string.dialog_news_error_message)
