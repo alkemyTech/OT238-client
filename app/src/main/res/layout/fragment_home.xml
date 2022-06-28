@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="424dp"
+        android:layout_marginTop="328dp"
         android:layout_marginEnd="8dp"
         android:text="@string/ultimas_novedades"
         android:textAppearance="?attr/textAppearanceHeadline5"
@@ -24,7 +24,7 @@
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/vpNews"
         android:layout_width="match_parent"
-        android:layout_height="249dp"
+        android:layout_height="350dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
