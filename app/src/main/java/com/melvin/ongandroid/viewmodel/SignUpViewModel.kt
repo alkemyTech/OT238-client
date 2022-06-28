@@ -26,12 +26,11 @@ class SignUpViewModel @Inject constructor(
         signUpUserCharging.postValue(true)
         viewModelScope.launch {
             val apiRegistrationResponse = registrationUseCase.registerUser(newUser)
+            signUpUserCharging.postValue(false)
             if (apiRegistrationResponse.success) {
-                signUpUserCharging.postValue(false)
                 _status.value = ApiStatus.SUCCESS
             } else{
                 _status.value = ApiStatus.FAILURE
-                signUpUserCharging.postValue(false)
             }
         }
     }

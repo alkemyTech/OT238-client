@@ -46,13 +46,12 @@ class LoginViewModel @Inject constructor(
         logInUserCharging.postValue(true)
         viewModelScope.launch {
             val apiLogIn = logInUseCase.logInUser(logIn)
+            logInUserCharging.postValue(false)
             if (apiLogIn.success) {
-                //logInUserCharging.postValue(false)
                 _status.value = ApiStatus.SUCCESS
                 appData.saveKey(apiLogIn.data.token)
             } else {
                 _status.value = ApiStatus.FAILURE
-                //logInUserCharging.postValue(false)
              }
         }
     }

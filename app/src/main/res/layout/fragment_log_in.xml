@@ -110,17 +110,14 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvNotHaveAnAccount" />
 
-            <ProgressBar
-                android:id="@+id/pbCharging"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:visibility="gone"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/bLogin"
-                app:layout_constraintStart_toStartOf="@+id/bLogin"
-                app:layout_constraintTop_toTopOf="parent" />
-
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
+
+    <ProgressBar
+        android:id="@+id/pbCharging"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:visibility="gone" />
 
 </FrameLayout>
