@@ -1,45 +1,30 @@
 package com.melvin.ongandroid.view.adapters
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.melvin.ongandroid.databinding.ViewPagerItemHomeBinding
+import com.melvin.ongandroid.R
 import com.melvin.ongandroid.model.entities.slides.Slide
-import com.squareup.picasso.Picasso
+import com.melvin.ongandroid.view.viewHolders.HomeViewHolder
+import javax.inject.Inject
 
-class HomeViewPagerAdapter: ListAdapter<Slide, HomeViewPagerAdapter.ViewHolder>(DiffCallBack) {
+class HomeViewPagerAdapter @Inject constructor(
+    private val slide: List<Slide>
+): RecyclerView.Adapter<HomeViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder(ViewPagerItemHomeBinding.inflate(LayoutInflater
-            .from(parent.context), parent,false))
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeViewHolder {
+        val layoutInflater = LayoutInflater.from(parent.context)
+        return HomeViewHolder(
+            layoutInflater.inflate(R.layout.view_pager_item_home, parent, false))
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val slide = getItem(position)
-        holder.bind(slide)
+    override fun onBindViewHolder(holder: HomeViewHolder, position: Int) {
+        val slide = slide[position]
+        holder.drawHomeViewPager(slide)
     }
 
-    class ViewHolder(private var binding: ViewPagerItemHomeBinding): RecyclerView.ViewHolder(binding.root) {
-        fun bind(slide: Slide) {
-            Picasso.get().load(slide.imageUrl).into(binding.ivPager)
-            //Glide.with(binding.ivPager).load(slide.imageUrl).into(binding.ivPager)
-            Log.d("JOSE", slide.imageUrl)
-            binding.tvPagerTitle.text = slide.name
-            binding.tvPagerDescription.text = slide.description
-        }
+    override fun getItemCount(): Int {
+        return slide.size
     }
 
-    companion object DiffCallBack : DiffUtil.ItemCallback<Slide>() {
-        override fun areItemsTheSame(oldItem: Slide, newItem: Slide): Boolean {
-            return oldItem.id == newItem.id
-        }
-
-        override fun areContentsTheSame(oldItem: Slide, newItem: Slide): Boolean {
-            return oldItem.imageUrl == newItem.imageUrl
-        }
-    }
 }

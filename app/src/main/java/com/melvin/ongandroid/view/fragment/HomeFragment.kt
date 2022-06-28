@@ -46,9 +46,8 @@ class HomeFragment : Fragment() {
     }
 
     private fun loadViewPager(data: List<Slide>) {
-        adapter = HomeViewPagerAdapter()
+        adapter = HomeViewPagerAdapter(data)
         binding.pager.adapter = adapter
-        adapter.submitList(data)
     }
 
     private fun setupObserver() {
