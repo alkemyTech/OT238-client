@@ -10,9 +10,9 @@ import com.melvin.ongandroid.databinding.NewsViewPagerItemHomeBinding
 import com.melvin.ongandroid.model.entities.News
 import com.squareup.picasso.Picasso
 
-class NewsAdapter : ListAdapter<News, RecyclerView.ViewHolder>(DiffCallBack) {
+class NewsAdapter : ListAdapter<News, NewsAdapter.ViewHolder>(DiffCallBack) {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = NewsViewPagerItemHomeBinding.inflate(
             LayoutInflater.from(parent.context),
             parent,
@@ -21,10 +21,7 @@ class NewsAdapter : ListAdapter<News, RecyclerView.ViewHolder>(DiffCallBack) {
         return ViewHolder(binding)
     }
 
-    override fun onBindViewHolder(
-        holder: RecyclerView.ViewHolder,
-        position: Int,
-    ) {
+    override fun onBindViewHolder(holder: ViewHolder,position: Int) {
         val news = getItem(position)
         holder.bind(news)
     }
@@ -49,5 +46,6 @@ class NewsAdapter : ListAdapter<News, RecyclerView.ViewHolder>(DiffCallBack) {
             return oldItem.image == newItem.image
         }
     }
+
 
 }

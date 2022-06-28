@@ -34,6 +34,7 @@ class HomeFragment : Fragment() {
   }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         _binding = FragmentHomeBinding.bind(view)
+        setUpObserver()
     }
     private fun loadNewsPager(data: List<News>){
         newsAdapter = NewsAdapter()
@@ -44,7 +45,7 @@ class HomeFragment : Fragment() {
     private fun setUpObserver() {
         viewModel.observeNewsList().observe(viewLifecycleOwner){
             if (viewModel.observeNewsList() != null){
-
+                loadNewsPager(it)
             }else{
                 dialogNews()
             }
