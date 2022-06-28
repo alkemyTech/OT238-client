@@ -34,7 +34,7 @@ class SplashActivity : AppCompatActivity(){
 
     private fun checkAuth(){
         val token = appData.getKey().toString()
-        if(token.isEmpty()){
+        if(token.isNotEmpty()){
             startActivity(Intent(this, HomeActivity::class.java))
         }else{
             startActivity(Intent(this, MainActivity::class.java))
