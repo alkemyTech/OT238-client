@@ -36,6 +36,7 @@ android {
     }
     buildFeatures{
         viewBinding = true
+        dataBinding = true
     }
 }
 
@@ -87,6 +88,9 @@ dependencies {
     //Dagger Hilt
     kapt "com.google.dagger:hilt-android-compiler:2.42"
     implementation "com.google.dagger:hilt-android:2.42"
+
+    //Picasso
+    implementation "com.squareup.picasso:picasso:2.71828"
 
     //Ready to use Firebase when we need it
     //Firebase

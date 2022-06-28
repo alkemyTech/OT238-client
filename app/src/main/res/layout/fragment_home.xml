@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/pager"
+        android:id="@+id/vpNews"
         android:layout_width="match_parent"
         android:layout_height="249dp"
         android:layout_marginStart="8dp"
