@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginVertical="@dimen/card_margin_vertical"
+    android:layout_marginHorizontal="@dimen/card_margin_horizontal"
+    app:cardCornerRadius="12dp">
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tvTestimonialTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:layout_margin="@dimen/list_item_margin"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/ivTestimonialImage"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            tools:text = "Title"/>
+
+        <ImageView
+            android:id="@+id/ivTestimonialImage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/list_item_margin"
+            android:padding="@dimen/list_item_padding"
+            android:scaleType="centerCrop"
+            android:src="@drawable/logo_somos_mas"
+            app:layout_constraintTop_toBottomOf="@id/tvTestimonialTitle"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/tvTestimonialDescription"/>
+
+        <TextView
+            android:id="@+id/tvTestimonialDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/list_item_margin"
+            android:maxLines="4"
+            app:layout_constraintTop_toBottomOf="@id/ivTestimonialImage"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:text = "Description"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>
