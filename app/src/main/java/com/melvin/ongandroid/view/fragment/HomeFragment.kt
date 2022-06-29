@@ -97,7 +97,7 @@ class HomeFragment : Fragment() {
         val dialog = AlertDialog.Builder(context)
             .setTitle(R.string.dialog_news_error_title)
             .setMessage(R.string.dialog_news_error_message)
-            .setPositiveButton(R.string.dialog_news_error_positive_btn) { view, _ ->
+            .setPositiveButton(R.string.dialog_news_error_positive_btn) { _, _ ->
                 setUpNewsObserver()
             }
             .setCancelable(false)
