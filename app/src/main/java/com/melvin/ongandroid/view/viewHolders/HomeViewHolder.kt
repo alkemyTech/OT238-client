@@ -14,6 +14,6 @@ class HomeViewHolder @Inject constructor(view: View): RecyclerView.ViewHolder(vi
     fun drawHomeViewPager(slide: Slide) {
         Picasso.get().load(slide.imageUrl).into(binding.ivPager)
         binding.tvPagerTitle.text = slide.name
-        binding.tvPagerDescription.text = slide.description
+        binding.tvPagerDescription.text = slide.rawDescription
     }
 }
