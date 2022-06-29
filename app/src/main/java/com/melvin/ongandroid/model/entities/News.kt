@@ -16,6 +16,7 @@ data class News(
     val updated_at: String,
     val deleted_at: String = ""
 ) {
-    val rawContent: String = Html.fromHtml(this.content, Html.FROM_HTML_MODE_COMPACT).toString()
+    val rawContent: String
+        get() = Html.fromHtml(this.content, Html.FROM_HTML_MODE_COMPACT).toString()
 }
 
