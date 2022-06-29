@@ -14,6 +14,6 @@ class NewsViewHolder @Inject constructor(view: View): RecyclerView.ViewHolder(vi
     fun drawNewsViewPager(news: News) {
         Picasso.get().load(news.image).into(binding.ivNews)
         binding.tvNewsTitle.text = news.name
-        binding.tvNewsDescription.text = news.content
+        binding.tvNewsDescription.text = news.rawContent
     }
 }
