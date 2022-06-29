@@ -2,6 +2,7 @@ package com.melvin.ongandroid.data
 
 import com.melvin.ongandroid.model.entities.AuthMethodsResponse
 import com.melvin.ongandroid.model.entities.LoginRequest
+import com.melvin.ongandroid.model.entities.NewsResponse
 import com.melvin.ongandroid.model.entities.UserRegistrationRequest
 import com.melvin.ongandroid.model.entities.slides.SlidesResponse
 
@@ -21,5 +22,9 @@ class ApiClient @Inject constructor(
 
     suspend fun getSlide(): SlidesResponse {
         return api.getSlides()
+    }
+
+    suspend fun getNews(): NewsResponse{
+        return api.getNews()
     }
 }

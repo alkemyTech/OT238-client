@@ -1,5 +1,6 @@
 package com.melvin.ongandroid.view.fragment
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +12,8 @@ import com.melvin.ongandroid.R
 import com.melvin.ongandroid.databinding.FragmentHomeBinding
 import com.melvin.ongandroid.model.entities.slides.Slide
 import com.melvin.ongandroid.view.adapters.HomeViewPagerAdapter
+import com.melvin.ongandroid.model.entities.News
+import com.melvin.ongandroid.view.adapters.NewsAdapter
 import com.melvin.ongandroid.viewmodel.HomeViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -19,6 +22,7 @@ class HomeFragment : Fragment() {
     private val viewModel: HomeViewModel by viewModels()
     private var _binding: FragmentHomeBinding? = null
     private lateinit var adapter: HomeViewPagerAdapter
+    private lateinit var newsAdapter: NewsAdapter
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -32,7 +36,7 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         _binding = FragmentHomeBinding.bind(view)
         setupSlide()
-
+        setUpNews()
     }
 
     private fun setupSlide() {
@@ -69,5 +73,36 @@ class HomeFragment : Fragment() {
             .show()
     }
 
+    private fun setUpNews() {
+        viewModel.getNews()
+        setUpNewsObserver()
+    }
+
+    private fun loadNewsPager(data: List<News>){
+        newsAdapter = NewsAdapter(data)
+        binding.vpNews.adapter = newsAdapter
+    }
+
+    private fun setUpNewsObserver() {
+        viewModel.observeNewsList().observe(viewLifecycleOwner){
+            if (viewModel.observeNewsList() != null){
+                loadNewsPager(it)
+            }else{
+                dialogNews()
+            }
+        }
+    }
+
+    private fun dialogNews(){
+        val dialog = AlertDialog.Builder(context)
+            .setTitle(R.string.dialog_news_error_title)
+            .setMessage(R.string.dialog_news_error_message)
+            .setPositiveButton(R.string.dialog_news_error_positive_btn) { _, _ ->
+                setUpNewsObserver()
+            }
+            .setCancelable(false)
+            .create()
+        dialog.show()
+    }
 }
 

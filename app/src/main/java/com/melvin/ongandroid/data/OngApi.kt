@@ -2,6 +2,7 @@ package com.melvin.ongandroid.data
 
 import com.melvin.ongandroid.model.entities.AuthMethodsResponse
 import com.melvin.ongandroid.model.entities.LoginRequest
+import com.melvin.ongandroid.model.entities.NewsResponse
 import com.melvin.ongandroid.model.entities.UserRegistrationRequest
 import com.melvin.ongandroid.model.entities.slides.SlidesResponse
 import retrofit2.http.Body
@@ -22,4 +23,7 @@ interface OngApi {
     suspend fun postLogin(
         @Body login: LoginRequest
     ): AuthMethodsResponse
+
+    @GET("news")
+    suspend fun getNews() : NewsResponse
 }
