@@ -13,7 +13,7 @@
         android:roundIcon="@mipmap/ic_somos_mas_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ONGAndroid"
-        android:usesCleartextTraffic="true">
+        android:networkSecurityConfig="@xml/network_security_config">
         <activity
             android:name=".view.activity.SplashActivity"
             android:theme="@style/SplashTheme"
