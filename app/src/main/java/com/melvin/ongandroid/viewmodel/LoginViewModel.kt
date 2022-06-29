@@ -15,20 +15,20 @@ import java.util.regex.Pattern
 import javax.inject.Inject
 
 @HiltViewModel
-class LoginViewModel @Inject constructor(
+class LogInViewModel @Inject constructor(
     private val appData: AppData,
     private val logInUseCase: LogInUseCase,
-    ) : ViewModel() {
+) : ViewModel() {
 
     private val _status = MutableLiveData<ApiStatus>()
     val status: LiveData<ApiStatus> = _status
     val logInUserCharging = MutableLiveData(false)
 
-    fun  validateEmail ( Email:String): Boolean {
+    fun validateEmail(Email: String): Boolean {
         return Email.isNotEmpty() && PatternsCompat.EMAIL_ADDRESS.matcher(Email).matches()
     }
 
-    fun validatePassword(password:String): Boolean{
+    fun validatePassword(password: String): Boolean {
         val passwordRegex = Pattern.compile(
             "^" +
                     "(?=.*[0-9])" +         //at least 1 digit
@@ -42,7 +42,7 @@ class LoginViewModel @Inject constructor(
         return password.isNotEmpty() && passwordRegex.matcher(password).matches()
     }
 
-    fun logInUser(logIn:LoginRequest) {
+    fun logInUser(logIn: LoginRequest) {
         logInUserCharging.postValue(true)
         viewModelScope.launch {
             val apiLogIn = logInUseCase.logInUser(logIn)
@@ -52,7 +52,7 @@ class LoginViewModel @Inject constructor(
                 appData.saveKey(apiLogIn.data.token)
             } else {
                 _status.value = ApiStatus.FAILURE
-             }
+            }
         }
     }
 }
