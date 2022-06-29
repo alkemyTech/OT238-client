@@ -62,9 +62,9 @@ class SignUpFragment : Fragment() {
 
         viewModel.signUpUserCharging.observe( viewLifecycleOwner) { charging ->
             if (charging) {
-                binding.pbSignUp.visibility=View.VISIBLE
+                binding.pbSignUp.visibility = View.VISIBLE
             } else {
-                binding.pbSignUp.visibility=View.GONE
+                binding.pbSignUp.visibility = View.GONE
             }
         }
 

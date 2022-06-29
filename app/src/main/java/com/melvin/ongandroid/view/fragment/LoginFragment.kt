@@ -39,21 +39,21 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        loginBinding.itPasswordDesign.isHelperTextEnabled=false
-        loginBinding.itEmailDesign.isHelperTextEnabled=false
+        loginBinding.itPasswordDesign.isHelperTextEnabled = false
+        loginBinding.itEmailDesign.isHelperTextEnabled = false
 
         loginBinding.itEmail.addTextChangedListener{
             loginBinding.bLogin.isEnabled = loginViewModel.validateEmail(loginBinding.itEmail.text.toString()) &&
                     loginViewModel.validatePassword(loginBinding.itPassword.text.toString())
-            loginBinding.itEmailDesign.isErrorEnabled=false
-            loginBinding.itPasswordDesign.isErrorEnabled=false
+            loginBinding.itEmailDesign.isErrorEnabled = false
+            loginBinding.itPasswordDesign.isErrorEnabled = false
         }
 
         loginBinding.itPassword.addTextChangedListener{
             loginBinding.bLogin.isEnabled = loginViewModel.validateEmail(loginBinding.itEmail.text.toString()) &&
                     loginViewModel.validatePassword(loginBinding.itPassword.text.toString())
-            loginBinding.itEmailDesign.isErrorEnabled=false
-            loginBinding.itPasswordDesign.isErrorEnabled=false
+            loginBinding.itEmailDesign.isErrorEnabled = false
+            loginBinding.itPasswordDesign.isErrorEnabled = false
         }
 
         loginBinding.bSignUp.setOnClickListener{
@@ -101,8 +101,8 @@ class LoginFragment : Fragment() {
                         Log.d("LogInFragment", "close")
                     }
                     .show()
-                loginBinding.itPasswordDesign.error=getString(R.string.set_error)
-                loginBinding.itEmailDesign.error=getString(R.string.set_error)
+                loginBinding.itPasswordDesign.error = getString(R.string.set_error)
+                loginBinding.itEmailDesign.error = getString(R.string.set_error)
             }
 
         }
