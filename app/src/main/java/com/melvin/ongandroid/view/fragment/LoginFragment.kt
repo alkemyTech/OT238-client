@@ -45,14 +45,15 @@ class LoginFragment : Fragment() {
         loginBinding.itEmail.addTextChangedListener{
             loginBinding.bLogin.isEnabled = loginViewModel.validateEmail(loginBinding.itEmail.text.toString()) &&
                     loginViewModel.validatePassword(loginBinding.itPassword.text.toString())
-            loginBinding.itEmailDesign.isHelperTextEnabled=false
-
+            loginBinding.itEmailDesign.isErrorEnabled=false
+            loginBinding.itPasswordDesign.isErrorEnabled=false
         }
 
         loginBinding.itPassword.addTextChangedListener{
             loginBinding.bLogin.isEnabled = loginViewModel.validateEmail(loginBinding.itEmail.text.toString()) &&
                     loginViewModel.validatePassword(loginBinding.itPassword.text.toString())
-            loginBinding.itPasswordDesign.isHelperTextEnabled=false
+            loginBinding.itEmailDesign.isErrorEnabled=false
+            loginBinding.itPasswordDesign.isErrorEnabled=false
         }
 
         loginBinding.bSignUp.setOnClickListener{
@@ -100,8 +101,8 @@ class LoginFragment : Fragment() {
                         Log.d("LogInFragment", "close")
                     }
                     .show()
-                loginBinding.itPasswordDesign.isHelperTextEnabled=true
-                loginBinding.itEmailDesign.isHelperTextEnabled=true
+                loginBinding.itPasswordDesign.error=getString(R.string.set_error)
+                loginBinding.itEmailDesign.error=getString(R.string.set_error)
             }
 
         }
