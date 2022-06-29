@@ -18,7 +18,7 @@ object NetworkModule {
 
     @Singleton
     @Provides
-    fun provideRetrofit() : Retrofit {
+    fun provideRetrofit(): Retrofit {
         return Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
@@ -27,7 +27,7 @@ object NetworkModule {
 
     @Singleton
     @Provides
-    fun provideOngApi(retrofit: Retrofit) : OngApi {
+    fun provideOngApi(retrofit: Retrofit): OngApi {
         return retrofit.create(OngApi::class.java)
     }
 
