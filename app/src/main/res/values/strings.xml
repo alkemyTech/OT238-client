@@ -33,12 +33,15 @@
     <string name="menu_testimonials">Testimonios</string>
     <string name="menu_about_us">Nosotros</string>
     <string name="menu_contact_us">Contacto</string>
-    <!-- Dummy strings -->
     <string name="dummy_string">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
         Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
         Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
         Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
     <string name="dummy_name">John Doe</string>
+    <string name="home_title">Bienvenidos</string>
+    <string name="home_iv_description">Imágenes de la ONG</string>
+    <string name="textError"> Error al cargar los slides </string>
+    <string name="actionText" > RETRY</string>
     <string name="ultimas_novedades">Ultimas Novedades</string>
     <string name="dialog_news_error_title">Ultimas Novedades</string>
     <string name="dialog_news_error_message">Ha ocurrido un error obteniendo la información</string>
