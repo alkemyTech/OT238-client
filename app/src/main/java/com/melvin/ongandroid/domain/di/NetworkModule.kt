@@ -1,6 +1,5 @@
 package com.melvin.ongandroid.domain.di
 
-import com.melvin.ongandroid.data.LogIn
 import com.melvin.ongandroid.data.OngApi
 import dagger.Module
 import dagger.Provides
@@ -18,7 +17,7 @@ object NetworkModule {
 
     @Singleton
     @Provides
-    fun provideRetrofit() : Retrofit {
+    fun provideRetrofit(): Retrofit {
         return Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
@@ -27,14 +26,8 @@ object NetworkModule {
 
     @Singleton
     @Provides
-    fun provideOngApi(retrofit: Retrofit) : OngApi {
+    fun provideOngApi(retrofit: Retrofit): OngApi {
         return retrofit.create(OngApi::class.java)
-    }
-
-    @Singleton
-    @Provides
-    fun provideLogInApi(retrofit: Retrofit) : LogIn {
-        return retrofit.create(LogIn::class.java)
     }
 
 }
