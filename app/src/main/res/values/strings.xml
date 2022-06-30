@@ -43,7 +43,7 @@
     <string name="home_title">Bienvenidos</string>
     <string name="home_iv_description">Imágenes de la ONG</string>
     <string name="textError"> Error al cargar los slides </string>
-    <string name="actionText" > RETRY</string>
+    <string name="actionText"> RETRY</string>
     <string name="ultimas_novedades">Ultimas Novedades</string>
     <string name="dialog_news_error_title">Ultimas Novedades</string>
     <string name="dialog_news_error_message">Ha ocurrido un error obteniendo la información</string>
