@@ -14,5 +14,7 @@
     <!-- Cards margins -->
     <dimen name="card_margin_vertical">10dp</dimen>
     <dimen name="card_margin_horizontal">8dp</dimen>
+    <!-- View Pager margins -->
+    <dimen name="view_pager_margin">8dp</dimen>
 
 </resources>
