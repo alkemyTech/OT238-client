@@ -30,6 +30,7 @@
     <string name="action_settings">Settings</string>
     <string name="menu_home">Inicio</string>
     <string name="menu_news">Novedades</string>
+    <string name="menu_activities">Actividades</string>
     <string name="menu_testimonials">Testimonios</string>
     <string name="menu_about_us">Nosotros</string>
     <string name="menu_contact_us">Contacto</string>
