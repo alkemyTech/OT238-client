@@ -31,6 +31,7 @@
     <string name="menu_home">Inicio</string>
     <string name="menu_news">Novedades</string>
     <string name="menu_testimonials">Testimonios</string>
+    <string name="menu_activities">Actividades</string>
     <string name="menu_about_us">Nosotros</string>
     <string name="menu_contact_us">Contacto</string>
     <string name="set_error">ha existido un error</string>
@@ -42,7 +43,8 @@
     <string name="home_title">Bienvenidos</string>
     <string name="home_iv_description">Imágenes de la ONG</string>
     <string name="textError"> Error al cargar los slides </string>
-    <string name="actionText" > RETRY</string>
+    <string name="txtErrorActivites"> Ha ocurrido un error obteniendo la info </string>
+    <string name="actionText"> RETRY</string>
     <string name="ultimas_novedades">Ultimas Novedades</string>
     <string name="dialog_news_error_title">Ultimas Novedades</string>
     <string name="dialog_news_error_message">Ha ocurrido un error obteniendo la información</string>

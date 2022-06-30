@@ -24,8 +24,8 @@ class LogInViewModel @Inject constructor(
     val status: LiveData<ApiStatus> = _status
     val logInUserCharging = MutableLiveData(false)
 
-    fun validateEmail(Email: String): Boolean {
-        return Email.isNotEmpty() && PatternsCompat.EMAIL_ADDRESS.matcher(Email).matches()
+    fun validateEmail(email: String): Boolean {
+        return email.isNotEmpty() && PatternsCompat.EMAIL_ADDRESS.matcher(email).matches()
     }
 
     fun validatePassword(password: String): Boolean {
