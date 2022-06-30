@@ -27,8 +27,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="194dp"
                 android:scaleType="centerCrop"
-                android:contentDescription="@string/somos_mas_image"
-                android:src="@drawable/logo_somos_mas" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:contentDescription="@string/somos_mas_integrante"
+                android:src="@tools:sample/avatars" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -43,15 +46,22 @@
                     android:layout_height="wrap_content"
                     android:textAppearance="?attr/textAppearanceHeadline6"
                     android:textStyle="bold"
+                    android:layout_marginTop="@dimen/card_margin_vertical"
+                    android:layout_marginStart="@dimen/card_margin_horizontal"
                     tools:text="Nombre" />
 
                 <TextView
                     android:id="@+id/tvMemberDescription"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
                     android:textAppearance="?attr/textAppearanceBody2"
+                    android:maxLines="2"
                     android:textColor="?android:attr/textColorSecondary"
+                    android:layout_marginTop="@dimen/card_margin_vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginStart="@dimen/card_margin_horizontal"
                     tools:text="Descripcion" />
 
             </LinearLayout>
