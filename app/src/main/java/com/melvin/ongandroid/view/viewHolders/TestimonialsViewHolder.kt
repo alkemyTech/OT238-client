@@ -11,7 +11,7 @@ import javax.inject.Inject
 class TestimonialsViewHolder
 @Inject constructor(view: View): RecyclerView.ViewHolder(view) {
 
-    val binding = FragmentActivitiesItemBinding.bind(view)
+    val binding = FragmentTestimonialsItemBinding.bind(view)
 
     fun drawTestimonial(testimonial: TestimonialsResponse) {
         binding.tvActivitieTitle.text = testimonial.name

@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.melvin.ongandroid.R
 import com.melvin.ongandroid.model.entities.activities.Activitie
+import com.melvin.ongandroid.model.entities.activities.ActivitiesResponse
 import com.melvin.ongandroid.view.viewHolders.ActivitieViewHolder
 import javax.inject.Inject
 
@@ -15,7 +16,8 @@ class ActivitieAdapter @Inject constructor(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ActivitieViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         return ActivitieViewHolder(
-            layoutInflater.inflate(R.layout.fragment_activitie, parent, false))
+            layoutInflater.inflate(R.layout.fragment_activities_item, parent, false)
+        )
     }
 
     override fun onBindViewHolder(holder: ActivitieViewHolder, position: Int) {
@@ -23,5 +25,7 @@ class ActivitieAdapter @Inject constructor(
         holder.drawActivitie(item)
     }
 
-    override fun getItemCount(): Int = activities.size
+    override fun getItemCount(): Int {
+        return activities.size
+    }
 }

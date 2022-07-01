@@ -7,12 +7,16 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
 import com.melvin.ongandroid.R
 import com.melvin.ongandroid.databinding.FragmentActivitieBinding
 import com.melvin.ongandroid.model.entities.activities.Activitie
 import com.melvin.ongandroid.view.adapters.ActivitieAdapter
 import com.melvin.ongandroid.viewmodel.ActivitiesViewModel
+import dagger.hilt.android.AndroidEntryPoint
+
+@AndroidEntryPoint
 
 class ActivitieFragment : Fragment() {
 
@@ -21,7 +25,8 @@ class ActivitieFragment : Fragment() {
     private val viewModel: ActivitiesViewModel by viewModels()
     private lateinit var adapter: ActivitieAdapter
 
- /*   var activitieDummyData = listOf(
+
+    var activitieDummyData = listOf(
         Activitie(
             1,
             "John Doe",
@@ -50,7 +55,7 @@ class ActivitieFragment : Fragment() {
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
             "",
         ),
-    )*/
+    )
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -63,6 +68,7 @@ class ActivitieFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentActivitieBinding.inflate(inflater, container, false)
+
         return binding.root
 
     }
@@ -72,12 +78,12 @@ class ActivitieFragment : Fragment() {
         (activity as AppCompatActivity).supportActionBar?.title =
             resources.getString(R.string.menu_activities)
         setupActivitie()
-
-
     }
+
 
     private fun initRecyclerView(data: List<Activitie>) {
         adapter = ActivitieAdapter(data)
+        binding.rvActivities.layoutManager = LinearLayoutManager(context)
         binding.rvActivities.adapter = adapter
     }
 
@@ -87,14 +93,11 @@ class ActivitieFragment : Fragment() {
     }
 
     private fun setupObserver() {
-        viewModel.observerSlideList().observe(viewLifecycleOwner) {
-            if (viewModel.observerSlideList() != null) {
-                initRecyclerView(it)
-                binding.rvActivities.visibility = View.VISIBLE
-                binding.pbActivities.visibility = View.GONE
-            } else {
+        viewModel.observerActivitieList().observe(viewLifecycleOwner) {
+            if (it != null){
+                 initRecyclerView(it)
+            }else {
                 snackBar()
-
             }
         }
     }
@@ -106,5 +109,6 @@ class ActivitieFragment : Fragment() {
             }
             .show()
     }
+
 
 }

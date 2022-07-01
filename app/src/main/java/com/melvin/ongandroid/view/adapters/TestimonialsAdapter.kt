@@ -10,20 +10,23 @@ import javax.inject.Inject
 
 class TestimonialsAdapter @Inject constructor(
     private val testimonials: List<TestimonialsResponse>
-    ): RecyclerView.Adapter<TestimonialsViewHolder>(){
+) : RecyclerView.Adapter<TestimonialsViewHolder>() {
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
-        viewType: Int): TestimonialsViewHolder {
+        viewType: Int
+    ): TestimonialsViewHolder {
 
         val layoutInflater = LayoutInflater.from(parent.context)
         return TestimonialsViewHolder(
-            layoutInflater.inflate(R.layout.fragment_testimonials_item, parent, false))
+            layoutInflater.inflate(R.layout.fragment_testimonials_item, parent, false)
+        )
     }
 
     override fun onBindViewHolder(
         holder: TestimonialsViewHolder,
-        position: Int) {
+        position: Int
+    ) {
 
         val item = testimonials[position]
         holder.drawTestimonial(item)
