@@ -5,15 +5,20 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
 import com.melvin.ongandroid.R
 import com.melvin.ongandroid.databinding.FragmentHomeBinding
 import com.melvin.ongandroid.model.entities.slides.Slide
 import com.melvin.ongandroid.view.adapters.HomeViewPagerAdapter
 import com.melvin.ongandroid.model.entities.News
+import com.melvin.ongandroid.model.entities.testimonials.Testimonials
 import com.melvin.ongandroid.view.adapters.NewsAdapter
+import com.melvin.ongandroid.view.adapters.TestimonialsAdapter
 import com.melvin.ongandroid.viewmodel.HomeViewModel
 import com.melvin.ongandroid.viewmodel.TestimonialsViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -22,13 +27,12 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
     private val viewModel: HomeViewModel by viewModels()
-    private val vmTestimonial : TestimonialsViewModel by viewModels()
+    private val vmTestimonial : TestimonialsViewModel by activityViewModels()
     private var _binding: FragmentHomeBinding? = null
     private lateinit var adapter: HomeViewPagerAdapter
     private lateinit var newsAdapter: NewsAdapter
+    private lateinit var testimonialsAdapter: TestimonialsAdapter
     private val binding get() = _binding!!
-
-    private val testimonial = TestimonialsFragment.Companion
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -42,7 +46,7 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.bind(view)
         setupSlide()
         setUpNews()
-        setUpTestimonialHome()
+        setUpTestimonials()
     }
 
     private fun setupSlide() {
@@ -111,8 +115,28 @@ class HomeFragment : Fragment() {
         dialog.show()
     }
 
-    private fun setUpTestimonialHome() {
+    private fun setUpTestimonials(){
+        vmTestimonial.getTestimonial()
+        setUpObserver()
+    }
+
+    private fun setUpObserver(){
+        vmTestimonial.observerTestimonialsList().observe(viewLifecycleOwner) {
+            if (it != null){
+                loadPagerTestimonials(it)
+            } else {
+                snackBar()
+            }
+        }
+    }
+
+    private fun loadPagerTestimonials(data: List<Testimonials>){
+        testimonialsAdapter = TestimonialsAdapter(data,true)
+        binding.vpTestimonials.adapter = testimonialsAdapter
+    }
+
+    private fun dialogTestimonials() {
+        //TODO: Ticket #41
     }
 
 }
-

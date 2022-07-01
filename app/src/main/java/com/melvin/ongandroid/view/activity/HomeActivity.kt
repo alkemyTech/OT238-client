@@ -76,9 +76,6 @@ private lateinit var binding: ActivityHomeBinding
             true
         }
 
-
-
-
     }
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment_content_home)

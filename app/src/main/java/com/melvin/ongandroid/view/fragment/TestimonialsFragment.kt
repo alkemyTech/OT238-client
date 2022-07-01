@@ -8,9 +8,11 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.bundleOf
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.snackbar.Snackbar
 import com.melvin.ongandroid.R
 import com.melvin.ongandroid.databinding.FragmentTestimonialsBinding
 import com.melvin.ongandroid.model.entities.testimonials.Testimonials
@@ -22,7 +24,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class TestimonialsFragment : Fragment() {
 
-    private val viewModel: TestimonialsViewModel by viewModels()
+    private val viewModel: TestimonialsViewModel by activityViewModels()
     private var _binding: FragmentTestimonialsBinding? = null
     private lateinit var adapter: TestimonialsAdapter
     private val binding get() = _binding!!
@@ -47,33 +49,30 @@ class TestimonialsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         (activity as AppCompatActivity).supportActionBar?.title = resources.getString(R.string.menu_testimonials)
-        setUpTestimonials()
-    }
-
-
-    private fun setUpTestimonials(){
-        viewModel.getTestimonial()
         setUpObserver()
     }
 
     private fun setUpObserver(){
-       viewModel.observerTestimonialsList().observe(viewLifecycleOwner) {
-           if (it != null){
-               initRecyclerView(it)
-           } else {
-               snackBar()
-           }
-       }
+        viewModel.observerTestimonialsList().observe(viewLifecycleOwner) {
+            if (it != null){
+                onLoadTestimonials()?.let { it1 -> initRecyclerView(it1) }
+            } else {
+                snackBar()
+            }
+        }
     }
+    fun onLoadTestimonials() = viewModel.observerTestimonialsList().value
 
     private fun initRecyclerView(data: List<Testimonials>){
-         adapter = TestimonialsAdapter(data)
+         adapter = TestimonialsAdapter(data, false)
          binding.rvTestimonials.layoutManager = LinearLayoutManager(context)
          binding.rvTestimonials.adapter = adapter
     }
-
-    private fun snackBar() {
-        //TODO: Ticket #41
+    private fun snackBar(){
+        Snackbar.make(binding.rvTestimonials, R.string.textError, Snackbar.LENGTH_LONG)
+            .setAction(R.string.actionText) {
+                setUpObserver()
+            }
+            .show()
     }
-
 }

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/cvNews"
+        android:id="@+id/cvTestimonials"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginVertical="@dimen/card_margin_vertical"
@@ -15,30 +15,30 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/ivNews"
+                android:id="@+id/ivTestimonialHome"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 tools:srcCompat="@tools:sample/avatars"
                 android:scaleType="centerCrop"
-                app:layout_constraintBottom_toTopOf="@id/tvNewsTitle"
+                app:layout_constraintBottom_toTopOf="@id/tvTestimonialTitleHome"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="ContentDescription" />
 
             <TextView
-                android:id="@+id/tvNewsTitle"
+                android:id="@+id/tvTestimonialTitleHome"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@tools:sample/lorem"
                 android:textAppearance="?attr/textAppearanceHeadline6"
                 android:layout_marginTop="@dimen/card_margin_vertical"
                 android:layout_marginStart="@dimen/card_margin_horizontal"
-                app:layout_constraintBottom_toTopOf="@id/tvNewsDescription"
-                app:layout_constraintTop_toBottomOf="@id/ivNews"/>
+                app:layout_constraintBottom_toTopOf="@id/tvTestimonialDescriptionHome"
+                app:layout_constraintTop_toBottomOf="@id/ivTestimonialHome"/>
 
             <TextView
-                android:id="@+id/tvNewsDescription"
+                android:id="@+id/tvTestimonialDescriptionHome"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
@@ -48,7 +48,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvNewsTitle" />
+                app:layout_constraintTop_toBottomOf="@+id/tvTestimonialTitleHome" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
