@@ -5,7 +5,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.melvin.ongandroid.R
 import com.melvin.ongandroid.model.entities.activities.Activitie
-import com.melvin.ongandroid.model.entities.activities.ActivitiesResponse
 import com.melvin.ongandroid.view.viewHolders.ActivitieViewHolder
 import javax.inject.Inject
 

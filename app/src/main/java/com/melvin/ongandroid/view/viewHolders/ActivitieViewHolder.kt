@@ -13,7 +13,7 @@ class ActivitieViewHolder @Inject constructor(view: View): RecyclerView.ViewHold
 
     fun drawActivitie(activitie: Activitie) {
         binding.tvActivitieTitle.text = activitie.name
-        binding.tvActivitieDescription.text = activitie.description
+        binding.tvActivitieDescription.text = activitie.rawDescription
         Picasso.get().load(activitie.image).into(binding.ivActivitieImage)
     }
 }

@@ -16,6 +16,7 @@ class ActivitiesViewModel @Inject constructor(
 ) : ViewModel() {
     private val _status = MutableLiveData<ApiStatus>()
     private val _activitieList = MutableLiveData<List<Activitie>>()
+     val charging = MutableLiveData(false)
 
 
     fun observerActivitieList(): MutableLiveData<List<Activitie>> {
@@ -23,8 +24,10 @@ class ActivitiesViewModel @Inject constructor(
     }
 
     fun setActivitie() {
+        charging.postValue(true)
         viewModelScope.launch {
             val response = repository.getActivities()
+            charging.postValue(false)
             if (response.success) {
                 _activitieList.value = response.activitieList
                 _status.value = ApiStatus.SUCCESS
