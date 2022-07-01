@@ -15,16 +15,20 @@ import java.util.regex.Pattern
 import javax.inject.Inject
 
 @HiltViewModel
+class LogInViewModel @Inject constructor(
     private val appData: AppData,
     private val logInUseCase: LogInUseCase,
+) : ViewModel() {
 
     private val _status = MutableLiveData<ApiStatus>()
     val status: LiveData<ApiStatus> = _status
     val logInUserCharging = MutableLiveData(false)
 
-        return Email.isNotEmpty() && PatternsCompat.EMAIL_ADDRESS.matcher(Email).matches()
+    fun validateEmail(email: String): Boolean {
+        return email.isNotEmpty() && PatternsCompat.EMAIL_ADDRESS.matcher(email).matches()
     }
 
+    fun validatePassword(password: String): Boolean {
         val passwordRegex = Pattern.compile(
             "^" +
                     "(?=.*[0-9])" +         //at least 1 digit
