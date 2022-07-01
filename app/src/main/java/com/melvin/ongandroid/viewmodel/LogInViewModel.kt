@@ -1,6 +1,5 @@
 package com.melvin.ongandroid.viewmodel
 
-
 import androidx.core.util.PatternsCompat
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
