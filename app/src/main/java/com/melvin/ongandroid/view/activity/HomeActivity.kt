@@ -43,6 +43,7 @@ private lateinit var binding: ActivityHomeBinding
 
         val home = navView.menu.findItem(R.id.nav_home)
         val contact = navView.menu.findItem(R.id.nav_contact_us)
+        val activities = navView.menu.findItem(R.id.nav_activities)
         val testimonials = navView.menu.findItem(R.id.nav_testimonials)
         val about = navView.menu.findItem(R.id.nav_about_us)
         val news = navView.menu.findItem(R.id.nav_news)
@@ -54,6 +55,10 @@ private lateinit var binding: ActivityHomeBinding
         }
         news.setOnMenuItemClickListener {
             Toast.makeText(this, resources.getString(R.string.menu_news), Toast.LENGTH_SHORT).show()
+            true
+        }
+        activities.setOnMenuItemClickListener {
+            Toast.makeText(this, resources.getString(R.string.menu_activities), Toast.LENGTH_SHORT).show()
             true
         }
         testimonials.setOnMenuItemClickListener {

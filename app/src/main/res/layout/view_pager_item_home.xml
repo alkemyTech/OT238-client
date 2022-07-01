@@ -1,39 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginVertical="@dimen/card_margin_vertical"
+    app:cardCornerRadius="12dp">
+
+<androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <ImageView
         android:id="@+id/ivPager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="fitXY"
+        android:layout_height="0dp"
+        android:scaleType="centerCrop"
+        tools:srcCompat="@tools:sample/avatars"
+        tools:ignore="ContentDescription"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars"
-        tools:ignore="ContentDescription" />
+        app:layout_constraintBottom_toTopOf="@id/tvPagerTitle"/>
 
     <TextView
         android:id="@+id/tvPagerTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:background="@color/primaryLightColor"
         android:text="@tools:sample/lorem"
         android:textAppearance="?attr/textAppearanceHeadline6"
+        android:layout_marginTop="@dimen/card_margin_vertical"
+        android:layout_marginStart="@dimen/card_margin_horizontal"
+        app:layout_constraintTop_toBottomOf="@id/ivPager"
         app:layout_constraintBottom_toTopOf="@id/tvPagerDescription" />
 
     <TextView
         android:id="@+id/tvPagerDescription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:background="@color/primaryDarkColor"
         android:text="@tools:sample/lorem"
-        app:layout_constraintBottom_toBottomOf="@id/ivPager" />
+        android:maxLines="2"
+        android:layout_marginTop="@dimen/card_margin_vertical"
+        android:layout_marginStart="@dimen/card_margin_horizontal"
+        app:layout_constraintTop_toBottomOf="@id/tvPagerTitle"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
