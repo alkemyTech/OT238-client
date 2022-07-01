@@ -19,6 +19,7 @@ import com.melvin.ongandroid.model.entities.News
 import com.melvin.ongandroid.model.entities.testimonials.Testimonials
 import com.melvin.ongandroid.view.adapters.NewsAdapter
 import com.melvin.ongandroid.view.adapters.TestimonialsAdapter
+import com.melvin.ongandroid.viewmodel.ApiStatus
 import com.melvin.ongandroid.viewmodel.HomeViewModel
 import com.melvin.ongandroid.viewmodel.TestimonialsViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -125,7 +126,7 @@ class HomeFragment : Fragment() {
             if (it != null){
                 loadPagerTestimonials(it)
             } else {
-                snackBar()
+                showFailureDialogTestimonials()
             }
         }
     }
@@ -135,8 +136,18 @@ class HomeFragment : Fragment() {
         binding.vpTestimonials.adapter = testimonialsAdapter
     }
 
-    private fun dialogTestimonials() {
-        //TODO: Ticket #41
+
+
+    private fun showFailureDialogTestimonials(){
+        val dialog = AlertDialog.Builder(context)
+            .setTitle(R.string.testimonials)
+            .setMessage(R.string.dialog_new_error_testimonials)
+            .setPositiveButton(R.string.dialog_news_error_positive_btn) { _, _ ->
+                setUpTestimonials()
+            }
+            .setCancelable(false)
+            .create()
+        dialog.show()
     }
 
 }

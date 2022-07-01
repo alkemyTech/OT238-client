@@ -51,4 +51,6 @@
     <string name="dialog_news_error_negative_btn">Cancelar</string>
     <string name="dialog_news_error_positive_btn">Reintentar</string>
     <string name="more_testimonials">Ver más testimonios</string>
+    <string name="dialog_new_error_testimonials">Ha ocurrido un error obteniendo la información</string>
+    <string name="testimonials">Testimonios</string>
 </resources>
