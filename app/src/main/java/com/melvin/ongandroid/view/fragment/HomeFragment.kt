@@ -15,15 +15,20 @@ import com.melvin.ongandroid.view.adapters.HomeViewPagerAdapter
 import com.melvin.ongandroid.model.entities.News
 import com.melvin.ongandroid.view.adapters.NewsAdapter
 import com.melvin.ongandroid.viewmodel.HomeViewModel
+import com.melvin.ongandroid.viewmodel.TestimonialsViewModel
 import dagger.hilt.android.AndroidEntryPoint
+
 
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
     private val viewModel: HomeViewModel by viewModels()
+    private val vmTestimonial : TestimonialsViewModel by viewModels()
     private var _binding: FragmentHomeBinding? = null
     private lateinit var adapter: HomeViewPagerAdapter
     private lateinit var newsAdapter: NewsAdapter
     private val binding get() = _binding!!
+
+    private val testimonial = TestimonialsFragment.Companion
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -37,6 +42,7 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.bind(view)
         setupSlide()
         setUpNews()
+        setUpTestimonialHome()
     }
 
     private fun setupSlide() {
@@ -104,5 +110,9 @@ class HomeFragment : Fragment() {
             .create()
         dialog.show()
     }
+
+    private fun setUpTestimonialHome() {
+    }
+
 }
 
