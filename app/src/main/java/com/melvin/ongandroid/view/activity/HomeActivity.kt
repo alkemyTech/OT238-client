@@ -69,14 +69,15 @@ private lateinit var binding: ActivityHomeBinding
         }
         about.setOnMenuItemClickListener {
             Toast.makeText(this, resources.getString(R.string.menu_about_us), Toast.LENGTH_SHORT).show()
+            navController.navigate(R.id.action_nav_home_to_usFragment)
             true
         }
         contact.setOnMenuItemClickListener {
             Toast.makeText(this, resources.getString(R.string.menu_contact_us), Toast.LENGTH_SHORT).show()
             true
         }
-
     }
+    
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment_content_home)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
