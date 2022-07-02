@@ -5,12 +5,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.android.material.snackbar.Snackbar
 import com.melvin.ongandroid.R
 import com.melvin.ongandroid.databinding.FragmentHomeBinding
 import com.melvin.ongandroid.model.entities.slides.Slide
@@ -19,7 +16,6 @@ import com.melvin.ongandroid.model.entities.News
 import com.melvin.ongandroid.model.entities.testimonials.Testimonials
 import com.melvin.ongandroid.view.adapters.NewsAdapter
 import com.melvin.ongandroid.view.adapters.TestimonialsAdapter
-import com.melvin.ongandroid.viewmodel.ApiStatus
 import com.melvin.ongandroid.viewmodel.HomeViewModel
 import com.melvin.ongandroid.viewmodel.TestimonialsViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -35,6 +31,7 @@ class HomeFragment : Fragment() {
     private lateinit var testimonialsAdapter: TestimonialsAdapter
     private val binding get() = _binding!!
 
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -45,48 +42,32 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         _binding = FragmentHomeBinding.bind(view)
-        setupSlide()
-        setUpNews()
-        setUpTestimonials()
+        initHome()
+    }
+
+    private fun initHome(){
+            setupSlide()
+            setUpNews()
+            setUpTestimonials()
     }
 
     private fun setupSlide() {
         viewModel.getSlides()
-        setupObserver()
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
-
-    private fun loadViewPager(data: List<Slide>) {
-        adapter = HomeViewPagerAdapter(data)
-        binding.pager.adapter = adapter
-    }
-
-    private fun setupObserver() {
-        viewModel.observerSlideList().observe(viewLifecycleOwner) {
-            if (viewModel.observerSlideList() != null) {
-                loadViewPager(it)
-            } else {
-                snackBar()
-
-            }
-        }
-    }
-
-    private fun snackBar() {
-        Snackbar.make(binding.constraint, R.string.textError, Snackbar.LENGTH_LONG)
-            .setAction(R.string.actionText) {
-                setupObserver()
-            }
-            .show()
+        setupSlideObserver()
     }
 
     private fun setUpNews() {
         viewModel.getNews()
         setUpNewsObserver()
+    }
+    private fun setUpTestimonials(){
+        vmTestimonial.getTestimonial()
+        setUpTestimonialsObserver()
+    }
+
+    private fun loadSlidePager(data: List<Slide>) {
+        adapter = HomeViewPagerAdapter(data)
+        binding.pager.adapter = adapter
     }
 
     private fun loadNewsPager(data: List<News>){
@@ -94,17 +75,63 @@ class HomeFragment : Fragment() {
         binding.vpNews.adapter = newsAdapter
     }
 
-    private fun setUpNewsObserver() {
-        viewModel.observeNewsList().observe(viewLifecycleOwner){
-            if (viewModel.observeNewsList() != null){
-                loadNewsPager(it)
-            }else{
-                dialogNews()
+    private fun loadTestimonialsPager(data: List<Testimonials>){
+        testimonialsAdapter = TestimonialsAdapter(data,true)
+        binding.vpTestimonials.adapter = testimonialsAdapter
+    }
+
+    private fun setupSlideObserver() {
+        viewModel.observerSlideList().observe(viewLifecycleOwner) {
+            if (it != null) {
+                loadSlidePager(it)
+            } else {
+                errorHandler("slides")
+
             }
         }
     }
 
-    private fun dialogNews(){
+    private fun setUpNewsObserver() {
+        viewModel.observeNewsList().observe(viewLifecycleOwner){
+            if (it != null){
+                loadNewsPager(it)
+            }else{
+                errorHandler("news")
+            }
+        }
+    }
+
+    private fun setUpTestimonialsObserver(){
+        vmTestimonial.observerTestimonialsList().observe(viewLifecycleOwner) {
+            if (it != null){
+                loadTestimonialsPager(it)
+            } else {
+                errorHandler("testimonials")
+            }
+        }
+    }
+
+    private fun errorHandler(apiCall: String){
+             when (apiCall) {
+                        "slides" -> showFailureDialogSlides()
+                        "news" -> showFailureDialogNews()
+                        "testimonials" -> showFailureDialogTestimonials()
+                    }
+    }
+
+    private fun showFailureDialogSlides() {
+        val dialog = AlertDialog.Builder(context)
+            .setTitle("Error")
+            .setMessage("No slides found")
+            .setPositiveButton("OK") { _, _ ->
+                setupSlide()
+            }
+            .setCancelable(false)
+            .create()
+        dialog.show()
+    }
+
+    private fun showFailureDialogNews(){
         val dialog = AlertDialog.Builder(context)
             .setTitle(R.string.dialog_news_error_title)
             .setMessage(R.string.dialog_news_error_message)
@@ -116,29 +143,7 @@ class HomeFragment : Fragment() {
         dialog.show()
     }
 
-    private fun setUpTestimonials(){
-        vmTestimonial.getTestimonial()
-        setUpObserver()
-    }
-
-    private fun setUpObserver(){
-        vmTestimonial.observerTestimonialsList().observe(viewLifecycleOwner) {
-            if (it != null){
-                loadPagerTestimonials(it)
-            } else {
-                showFailureDialogTestimonials()
-            }
-        }
-    }
-
-    private fun loadPagerTestimonials(data: List<Testimonials>){
-        testimonialsAdapter = TestimonialsAdapter(data,true)
-        binding.vpTestimonials.adapter = testimonialsAdapter
-    }
-
-
-
-    private fun showFailureDialogTestimonials(){
+    private fun showFailureDialogTestimonials() {
         val dialog = AlertDialog.Builder(context)
             .setTitle(R.string.testimonials)
             .setMessage(R.string.dialog_new_error_testimonials)
