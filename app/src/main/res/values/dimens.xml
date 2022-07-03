@@ -17,4 +17,8 @@
     <!-- View Pager margins -->
     <dimen name="view_pager_margin">8dp</dimen>
 
+    <!-- default width and height image recyclerView us  -->
+    <dimen name="image_width_us">150dp</dimen>
+    <dimen name="image_height_us">150dp</dimen>
+
 </resources>

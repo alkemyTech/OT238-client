@@ -23,8 +23,9 @@
 
         <ImageView
             android:id="@+id/ivUsImageUser"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/image_width_us"
+            android:layout_height="@dimen/image_height_us"
+            android:scaleType="centerCrop"
             android:layout_margin="5dp"
             android:layout_weight="1"
             tools:srcCompat="@tools:sample/avatars"
