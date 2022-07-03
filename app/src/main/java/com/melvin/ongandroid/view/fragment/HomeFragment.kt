@@ -42,13 +42,14 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         _binding = FragmentHomeBinding.bind(view)
-        initHome()
+        initHome(view)
     }
 
-    private fun initHome(){
+    private fun initHome(view: View){
             setupSlide()
             setUpNews()
             setUpTestimonials()
+            showProgressBarCharging(view)
     }
 
     private fun setupSlide() {
@@ -63,6 +64,36 @@ class HomeFragment : Fragment() {
     private fun setUpTestimonials(){
         vmTestimonial.getTestimonial()
         setUpTestimonialsObserver()
+    }
+
+    private fun showProgressBarCharging(view: View){
+        viewModel.observerSlideList().observe(viewLifecycleOwner){
+            if (viewModel.observerSlideList() == null ||
+                viewModel.observeNewsList() == null ||
+                vmTestimonial.observerTestimonialsList() == null){
+                showProgressBar(view)
+            }else{
+                hideProgressBar(view)
+            }
+        }
+        viewModel.observeNewsList().observe(viewLifecycleOwner){
+            if (viewModel.observerSlideList() == null ||
+                viewModel.observeNewsList() == null ||
+                vmTestimonial.observerTestimonialsList() == null){
+                showProgressBar(view)
+            }else{
+                hideProgressBar(view)
+            }
+        }
+        vmTestimonial.observerTestimonialsList().observe(viewLifecycleOwner) {
+            if (viewModel.observerSlideList() == null ||
+                viewModel.observeNewsList() == null ||
+                vmTestimonial.observerTestimonialsList() == null){
+                showProgressBar(view)
+            }else{
+                hideProgressBar(view)
+            }
+        }
     }
 
     private fun loadSlidePager(data: List<Slide>) {
