@@ -32,7 +32,7 @@
             app:destination="@id/membersFragment2" />
         <argument
             android:name="member"
-            app:argType="com.melvin.ongandroid.model.entities.we.Us" />
+            app:argType="com.melvin.ongandroid.model.entities.we.Member" />
     </fragment>
     <fragment
         android:id="@+id/membersFragment2"
@@ -44,7 +44,7 @@
             app:destination="@id/usFragment" />
         <argument
             android:name="member"
-            app:argType="com.melvin.ongandroid.model.entities.we.Us" />
+            app:argType="com.melvin.ongandroid.model.entities.we.Member" />
 
     </fragment>
 
