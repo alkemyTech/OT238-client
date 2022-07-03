@@ -40,14 +40,14 @@ class MembersFragment: Fragment() {
             tvMemberDescription.text = member.description
             Picasso.get().load(member.image).into(binding.ivMember)
             ibFacebook.setOnClickListener {
-                val url = member.facebookURL
+                val fbURL = member.facebookURL
                 val intent = Intent(Intent.ACTION_VIEW)
                 //TODO CHECK API URL
-                intent.data = Uri.parse("https://$url")
+                intent.data = Uri.parse("https://$fbURL")
                 startActivity(intent)
             }
-            //TODO CHECK API URL
-            ibLinkedin.setOnClickListener {
+                //TODO CHECK API URL
+                ibLinkedin.setOnClickListener {
                 val url = member.linkedinURL
                 val intent = Intent(Intent.ACTION_VIEW)
                 intent.data = Uri.parse("https://$url")
