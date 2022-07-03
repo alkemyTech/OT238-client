@@ -8,16 +8,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
-import com.melvin.ongandroid.R
 import com.melvin.ongandroid.databinding.UsMemberDetailBinding
-import com.melvin.ongandroid.model.entities.we.Us
+import com.melvin.ongandroid.model.entities.we.Member
 import com.squareup.picasso.Picasso
 
 class MembersFragment: Fragment() {
     private var _binding: UsMemberDetailBinding? = null
     private val binding get() = _binding!!
     private val args: MembersFragmentArgs by navArgs()
-    private lateinit var member: Us
+    private lateinit var member: Member
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,17 +40,19 @@ class MembersFragment: Fragment() {
             tvMemberDescription.text = member.description
             Picasso.get().load(member.image).into(binding.ivMember)
             ibFacebook.setOnClickListener {
-                val url = member.facebookUrl
+                val url = member.facebookURL
+                val intent = Intent(Intent.ACTION_VIEW)
+                //TODO CHECK API URL
+                intent.data = Uri.parse("https://$url")
+                startActivity(intent)
+            }
+            //TODO CHECK API URL
+            ibLinkedin.setOnClickListener {
+                val url = member.linkedinURL
                 val intent = Intent(Intent.ACTION_VIEW)
                 intent.data = Uri.parse("https://$url")
                 startActivity(intent)
             }
-            /*ibLinkedin.setOnClickListener {
-                val url = member.linkedinUrl
-                val intent = Intent(Intent.ACTION_VIEW)
-                intent.data = Uri.parse("https://$url")
-                startActivity(intent)
-            }*/
         }
     }
 
