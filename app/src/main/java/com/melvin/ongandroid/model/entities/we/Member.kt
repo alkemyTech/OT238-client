@@ -1,4 +1,4 @@
-package com.melvin.ongandroid.model.entities.members
+package com.melvin.ongandroid.model.entities.we
 
 import com.google.gson.annotations.SerializedName
 
@@ -7,8 +7,8 @@ data class Member(
     val name: String,
     val image: String,
     val description: String,
-    val facebookUrl: String,
-    val linkedinUrl: String,
+    val facebookURL: String,
+    val linkedinURL: String,
     @SerializedName("created_at")
     val createdAt: String,
     @SerializedName("updated_at")

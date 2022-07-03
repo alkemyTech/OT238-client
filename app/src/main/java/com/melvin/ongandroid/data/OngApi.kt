@@ -4,7 +4,7 @@ import com.melvin.ongandroid.model.entities.AuthMethodsResponse
 import com.melvin.ongandroid.model.entities.LoginRequest
 import com.melvin.ongandroid.model.entities.NewsResponse
 import com.melvin.ongandroid.model.entities.UserRegistrationRequest
-import com.melvin.ongandroid.model.entities.members.MembersResponse
+import com.melvin.ongandroid.model.entities.we.MembersResponse
 import com.melvin.ongandroid.model.entities.slides.SlidesResponse
 import retrofit2.http.Body
 import retrofit2.http.GET

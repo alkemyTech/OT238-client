@@ -4,13 +4,12 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.melvin.ongandroid.R
-import com.melvin.ongandroid.model.entities.we.UsResponse
-import com.melvin.ongandroid.view.viewHolders.TestimonialsViewHolder
+import com.melvin.ongandroid.model.entities.we.Member
 import com.melvin.ongandroid.view.viewHolders.UsViewHolder
 import javax.inject.Inject
 
 class UsAdapter @Inject constructor(
-    private val us: List<UsResponse>
+    private val us: List<Member>
     ): RecyclerView.Adapter<UsViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UsViewHolder {
