@@ -49,9 +49,10 @@ class HomeFragment : Fragment() {
     }
 
     private fun initHome(){
-            setupSlide()
-            setUpNews()
-            setUpTestimonials()
+        setupSlide()
+        setUpNews()
+        setUpTestimonials()
+        showProgressBarCharging()
     }
 
     private fun setupSlide() {
@@ -63,6 +64,7 @@ class HomeFragment : Fragment() {
         viewModel.getNews()
         setUpNewsObserver()
     }
+
     private fun setUpTestimonials(){
         vmTestimonial.getTestimonial()
         setUpTestimonialsObserver()
@@ -162,6 +164,18 @@ class HomeFragment : Fragment() {
             .setCancelable(false)
             .create()
         dialog.show()
+    }
+
+    private fun showProgressBarCharging(){
+        viewModel.observerSlideList().observe(viewLifecycleOwner){
+            if (viewModel.observerSlideList() == null ||
+                viewModel.observeNewsList() == null ||
+                vmTestimonial.observerTestimonialsList() == null){
+                binding.pbHome.showProgressBar()
+            }else{
+                binding.pbHome.hideProgressBar()
+            }
+        }
     }
 
 }
