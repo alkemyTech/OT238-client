@@ -1,9 +1,7 @@
 package com.melvin.ongandroid.data
 
-import com.melvin.ongandroid.model.entities.AuthMethodsResponse
-import com.melvin.ongandroid.model.entities.LoginRequest
-import com.melvin.ongandroid.model.entities.NewsResponse
-import com.melvin.ongandroid.model.entities.UserRegistrationRequest
+import com.melvin.ongandroid.model.entities.*
+import com.melvin.ongandroid.model.entities.whatWeDo.WhatWeDoResponse
 import com.melvin.ongandroid.model.entities.slides.SlidesResponse
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -26,4 +24,8 @@ interface OngApi {
 
     @GET("news")
     suspend fun getNews() : NewsResponse
+
+
+    @GET("activities")
+    suspend fun getActivities() : WhatWeDoResponse
 }

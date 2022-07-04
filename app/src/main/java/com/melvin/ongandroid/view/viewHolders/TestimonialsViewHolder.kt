@@ -13,9 +13,9 @@ class TestimonialsViewHolder
     val binding = FragmentTestimonialsItemBinding.bind(view)
 
     fun drawTestimonial(testimonial: TestimonialsResponse) {
-        binding.tvTestimonialTitle.text = testimonial.name
-        binding.tvTestimonialDescription.text = testimonial.description
-        Picasso.get().load(testimonial.image).into(binding.ivTestimonialImage)
+        binding.tvActivitieTitle.text = testimonial.name
+        binding.tvActivitieDescription.text = testimonial.description
+        Picasso.get().load(testimonial.image).into(binding.ivActivitieImage)
     }
 }
 

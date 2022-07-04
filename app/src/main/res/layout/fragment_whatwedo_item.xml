@@ -9,9 +9,9 @@
     android:layout_marginHorizontal="@dimen/card_margin_horizontal"
     app:cardCornerRadius="12dp">
 
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/tvActivitieTitle"
@@ -28,11 +28,12 @@
         <ImageView
             android:id="@+id/ivActivitieImage"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:layout_marginHorizontal="@dimen/list_item_margin"
             android:padding="@dimen/list_item_padding"
             android:scaleType="centerCrop"
             android:src="@drawable/logo_somos_mas"
+            app:layout_constraintHeight_percent="0.65"
             app:layout_constraintTop_toBottomOf="@id/tvActivitieTitle"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -48,5 +49,5 @@
             app:layout_constraintBottom_toBottomOf="parent"
             tools:text = "Description"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>

@@ -6,7 +6,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.viewModels
@@ -23,7 +22,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class LoginFragment : Fragment() {
     private lateinit var _binding : FragmentLogInBinding
     private val loginBinding get() = _binding
-    private val loginViewModel: LogInViewModel by viewModels()
+    private val loginViewModel : LogInViewModel by viewModels()
 
 
     override fun onCreateView(
