@@ -14,7 +14,7 @@ import com.melvin.ongandroid.databinding.UsMemberDetailBinding
 import com.melvin.ongandroid.model.entities.we.Member
 import com.squareup.picasso.Picasso
 
-class MembersFragment: Fragment() {
+class MembersFragment : Fragment() {
     private var _binding: UsMemberDetailBinding? = null
     private val binding get() = _binding!!
     private val args: MembersFragmentArgs by navArgs()
@@ -31,29 +31,40 @@ class MembersFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        (activity as AppCompatActivity).supportActionBar?.title = resources.getString(R.string.member_detail_title)
+        (activity as AppCompatActivity).supportActionBar?.title =
+            resources.getString(R.string.member_detail_title)
         member = args.member
         fillMemberData()
     }
 
     private fun fillMemberData() {
-        binding.apply{
+        binding.apply {
             tvMemberName.text = member.name
             tvMemberDescription.text = member.description
             Picasso.get().load(member.image).into(binding.ivMember)
             ibFacebook.setOnClickListener {
-                val fbURL = member.facebookURL
+                val fbURL = member.facebookURL.toString()
+                val url = urlReplace(fbURL)
                 val intent = Intent(Intent.ACTION_VIEW)
-                intent.data = Uri.parse(fbURL)
+                intent.data = Uri.parse(urlReplace(url))
                 startActivity(intent)
             }
-                ibLinkedin.setOnClickListener {
-                val url = member.linkedinURL
+            ibLinkedin.setOnClickListener {
+                val liURL = member.linkedinURL.toString()
+                val url = urlReplace(liURL)
                 val intent = Intent(Intent.ACTION_VIEW)
-                intent.data = Uri.parse(url)
+                intent.data = Uri.parse(urlReplace(url))
                 startActivity(intent)
             }
         }
+    }
+
+    private fun urlReplace(url: String): String {
+        val https = "https://"
+        return if (!url.contains("https://")) {
+            https + url
+        } else
+            url
     }
 
     override fun onDestroy() {
