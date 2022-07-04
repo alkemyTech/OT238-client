@@ -5,26 +5,26 @@ import com.melvin.ongandroid.databinding.FragmentHomeBinding
 import com.melvin.ongandroid.databinding.FragmentUsBinding
 
 
-fun Fragment.showProgressBar(view: View){
-    var binding: FragmentHomeBinding?=null
+fun Fragment.showProgressBarHome(view: View){
+    var binding: FragmentHomeBinding? = null
     binding = FragmentHomeBinding.bind(view)
     binding.pbGeneralCharging.visibility=View.VISIBLE
 }
 
-fun Fragment.hideProgressBar(view: View){
-    var binding: FragmentHomeBinding?=null
+fun Fragment.hideProgressBarHome(view: View){
+    var binding: FragmentHomeBinding? = null
     binding = FragmentHomeBinding.bind(view)
     binding.pbGeneralCharging.visibility=View.GONE
 }
 
-fun Fragment.showProgressBar2(view: View){
-    var binding: FragmentUsBinding?=null
+fun Fragment.showProgressBarUs(view: View){
+    var binding: FragmentUsBinding? = null
     binding = FragmentUsBinding.bind(view)
     binding.pbChargingUs.visibility=View.VISIBLE
 }
 
-fun Fragment.hideProgressBar2(view: View){
-    var binding: FragmentUsBinding?=null
+fun Fragment.hideProgressBarUs(view: View){
+    var binding: FragmentUsBinding? = null
     binding = FragmentUsBinding.bind(view)
     binding.pbChargingUs.visibility=View.GONE
 }

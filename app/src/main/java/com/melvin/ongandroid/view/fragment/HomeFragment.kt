@@ -71,27 +71,27 @@ class HomeFragment : Fragment() {
             if (viewModel.observerSlideList() == null ||
                 viewModel.observeNewsList() == null ||
                 vmTestimonial.observerTestimonialsList() == null){
-                showProgressBar(view)
+                showProgressBarHome(view)
             }else{
-                hideProgressBar(view)
+                hideProgressBarHome(view)
             }
         }
         viewModel.observeNewsList().observe(viewLifecycleOwner){
             if (viewModel.observerSlideList() == null ||
                 viewModel.observeNewsList() == null ||
                 vmTestimonial.observerTestimonialsList() == null){
-                showProgressBar(view)
+                showProgressBarHome(view)
             }else{
-                hideProgressBar(view)
+                hideProgressBarHome(view)
             }
         }
         vmTestimonial.observerTestimonialsList().observe(viewLifecycleOwner) {
             if (viewModel.observerSlideList() == null ||
                 viewModel.observeNewsList() == null ||
                 vmTestimonial.observerTestimonialsList() == null){
-                showProgressBar(view)
+                showProgressBarHome(view)
             }else{
-                hideProgressBar(view)
+                hideProgressBarHome(view)
             }
         }
     }
