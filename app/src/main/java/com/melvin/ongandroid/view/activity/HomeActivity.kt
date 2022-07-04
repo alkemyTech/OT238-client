@@ -77,8 +77,10 @@ class HomeActivity : AppCompatActivity() {
             true
         }
         about.setOnMenuItemClickListener {
-            Toast.makeText(this, resources.getString(R.string.menu_about_us), Toast.LENGTH_SHORT)
-                .show()
+
+            Toast.makeText(this, resources.getString(R.string.menu_about_us), Toast.LENGTH_SHORT).show()
+            navController.navigate(R.id.action_nav_home_to_usFragment)
+
             true
         }
         contact.setOnMenuItemClickListener {
@@ -86,7 +88,6 @@ class HomeActivity : AppCompatActivity() {
                 .show()
             true
         }
-
 
     }
 
