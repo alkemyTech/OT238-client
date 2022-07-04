@@ -67,36 +67,6 @@ class HomeFragment : Fragment() {
         setUpTestimonialsObserver()
     }
 
-    private fun showProgressBarCharging(view: View){
-        viewModel.observerSlideList().observe(viewLifecycleOwner){
-            if (viewModel.observerSlideList() == null ||
-                viewModel.observeNewsList() == null ||
-                vmTestimonial.observerTestimonialsList() == null){
-                showProgressBarHome(view)
-            }else{
-                hideProgressBarHome(view)
-            }
-        }
-        viewModel.observeNewsList().observe(viewLifecycleOwner){
-            if (viewModel.observerSlideList() == null ||
-                viewModel.observeNewsList() == null ||
-                vmTestimonial.observerTestimonialsList() == null){
-                showProgressBarHome(view)
-            }else{
-                hideProgressBarHome(view)
-            }
-        }
-        vmTestimonial.observerTestimonialsList().observe(viewLifecycleOwner) {
-            if (viewModel.observerSlideList() == null ||
-                viewModel.observeNewsList() == null ||
-                vmTestimonial.observerTestimonialsList() == null){
-                showProgressBarHome(view)
-            }else{
-                hideProgressBarHome(view)
-            }
-        }
-    }
-
     private fun loadSlidePager(data: List<Slide>) {
         adapter = HomeViewPagerAdapter(data)
         binding.pager.adapter = adapter
