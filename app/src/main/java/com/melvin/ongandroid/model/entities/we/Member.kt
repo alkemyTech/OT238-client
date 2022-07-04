@@ -10,7 +10,9 @@ data class Member (
     val name: String?,
     val image: String?,
     val description: String?,
+    @SerializedName("facebookUrl")
     val facebookURL: String?,
+    @SerializedName("linkedinUrl")
     val linkedinURL: String?,
     @SerializedName("created_at")
     val createdAt: String?,
