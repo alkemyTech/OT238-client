@@ -42,14 +42,15 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         _binding = FragmentHomeBinding.bind(view)
-        initHome(view)
+        initHome()
     }
 
-    private fun initHome(view: View){
-            setupSlide()
-            setUpNews()
-            setUpTestimonials()
-            showProgressBarCharging(view)
+    private fun initHome(){
+        binding.pbHome.showProgressBar()
+        setupSlide()
+        setUpNews()
+        setUpTestimonials()
+
     }
 
     private fun setupSlide() {
@@ -61,6 +62,7 @@ class HomeFragment : Fragment() {
         viewModel.getNews()
         setUpNewsObserver()
     }
+
     private fun setUpTestimonials(){
         vmTestimonial.getTestimonial()
         setUpTestimonialsObserver()
