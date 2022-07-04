@@ -2,7 +2,6 @@ package com.melvin.ongandroid.view.viewHolders
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
-import com.melvin.ongandroid.databinding.FragmentActivitiesItemBinding
 import com.melvin.ongandroid.databinding.FragmentTestimonialsItemBinding
 import com.melvin.ongandroid.model.entities.testimonials.TestimonialsResponse
 import com.squareup.picasso.Picasso

@@ -26,6 +26,6 @@
         android:id="@+id/activitieFragment"
         android:name="com.melvin.ongandroid.view.fragment.ActivitieFragment"
         android:label="fragment_activitie"
-        tools:layout="@layout/fragment_activitie" />
+        tools:layout="@layout/fragment_whatwedo" />
 
 </navigation>

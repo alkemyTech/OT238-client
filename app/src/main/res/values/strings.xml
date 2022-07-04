@@ -21,7 +21,7 @@
     <string name="failure_dialog_title">Ocurrió un problema!</string>
     <string name="failure_supporting_text">La llamada al endpoint falló.</string>
     <string name="close">Cerrar</string>
-    <string name="empty_field_msg">Este campo debe ser completado.</string>
+    <string name="empty_field_msg">xEste campo debe ser completado.</string>
     <string name="invalid_format_msg">El campo ingresado no es valido.</string>
     <string name="password_error_msg">Debe ser alfanumerico, contener una letra mayuscula, un caracter especial y sin espacios.</string>
     <string name="confirm_password_error">Los passwords no coinciden.</string>
@@ -42,9 +42,9 @@
     <string name="dummy_name">John Doe</string>
     <string name="home_title">Bienvenidos</string>
     <string name="home_iv_description">Imágenes de la ONG</string>
-    <string name="textError"> Error al cargar los slides </string>
-    <string name="txtErrorActivites"> Ha ocurrido un error obteniendo la info </string>
-    <string name="actionText"> RETRY</string>
+    <string name="textError">Error al cargar los slides </string>
+    <string name="txtErrorActivites">Ha ocurrido un error obteniendo la info </string>
+    <string name="actionText">RETRY</string>
     <string name="ultimas_novedades">Ultimas Novedades</string>
     <string name="dialog_news_error_title">Ultimas Novedades</string>
     <string name="dialog_news_error_message">Ha ocurrido un error obteniendo la información</string>

@@ -10,20 +10,20 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
 import com.melvin.ongandroid.R
-import com.melvin.ongandroid.databinding.FragmentActivitieBinding
-import com.melvin.ongandroid.model.entities.activities.Activitie
-import com.melvin.ongandroid.view.adapters.ActivitieAdapter
-import com.melvin.ongandroid.viewmodel.ActivitiesViewModel
+import com.melvin.ongandroid.databinding.FragmentWhatwedoBinding
+import com.melvin.ongandroid.model.entities.whatWeDo.WhatWeDo
+import com.melvin.ongandroid.view.adapters.WhatWeDoAdapter
+import com.melvin.ongandroid.viewmodel.WhatWeDoViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 
 class ActivitieFragment : Fragment() {
 
-    private var _binding: FragmentActivitieBinding? = null
+    private var _binding: FragmentWhatwedoBinding? = null
     private val binding get() = _binding!!
-    private val viewModel: ActivitiesViewModel by viewModels()
-    private lateinit var adapter: ActivitieAdapter
+    private val viewModel: WhatWeDoViewModel by viewModels()
+    private lateinit var adapter: WhatWeDoAdapter
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,7 +35,7 @@ class ActivitieFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentActivitieBinding.inflate(inflater, container, false)
+        _binding = FragmentWhatwedoBinding.inflate(inflater, container, false)
 
         return binding.root
 
@@ -49,19 +49,19 @@ class ActivitieFragment : Fragment() {
     }
 
 
-    private fun initRecyclerView(data: List<Activitie>) {
-        adapter = ActivitieAdapter(data)
+    private fun initRecyclerView(data: List<WhatWeDo>) {
+        adapter = WhatWeDoAdapter(data)
         binding.rvActivities.layoutManager = LinearLayoutManager(context)
         binding.rvActivities.adapter = adapter
     }
 
     private fun setupActivitie() {
-        viewModel.setActivitie()
+        viewModel.setWhatWeDo()
         setupObserver()
     }
 
     private fun setupObserver() {
-        viewModel.observerActivitieList().observe(viewLifecycleOwner) {
+        viewModel.observerWhatWeDoList().observe(viewLifecycleOwner) {
             if (it != null) {
                 charging()
                 initRecyclerView(it)

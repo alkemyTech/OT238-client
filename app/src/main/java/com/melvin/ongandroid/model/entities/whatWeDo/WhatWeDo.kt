@@ -1,8 +1,8 @@
-package com.melvin.ongandroid.model.entities.activities
+package com.melvin.ongandroid.model.entities.whatWeDo
 
 import android.text.Html
 
-data class Activitie(
+data class WhatWeDo(
     val id: Int,
     val name: String,
     val slug: String,

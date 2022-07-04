@@ -1,7 +1,7 @@
 package com.melvin.ongandroid.data
 
 import com.melvin.ongandroid.model.entities.*
-import com.melvin.ongandroid.model.entities.activities.ActivitiesResponse
+import com.melvin.ongandroid.model.entities.whatWeDo.WhatWeDoResponse
 import com.melvin.ongandroid.model.entities.slides.SlidesResponse
 
 import javax.inject.Inject
@@ -26,7 +26,7 @@ class ApiClient @Inject constructor(
         return api.getNews()
     }
 
-    suspend fun getActivities () : ActivitiesResponse {
+    suspend fun getActivities () : WhatWeDoResponse {
         return api.getActivities()
     }
 }
