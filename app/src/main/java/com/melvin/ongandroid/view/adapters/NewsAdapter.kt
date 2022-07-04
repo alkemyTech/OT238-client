@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.melvin.ongandroid.R
-import com.melvin.ongandroid.model.entities.News
+import com.melvin.ongandroid.model.entities.news.News
 import com.melvin.ongandroid.view.viewHolders.NewsViewHolder
 import javax.inject.Inject
 

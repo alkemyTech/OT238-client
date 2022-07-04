@@ -72,7 +72,7 @@ class SignUpFragment : Fragment() {
 
     private fun drawStatusDialog() {
         viewModel.status.observe(viewLifecycleOwner) {
-            when (it) {
+            when (it!!) {
                 ApiStatus.SUCCESS -> { showSuccessDialog() }
                 ApiStatus.FAILURE -> { showFailureDialog() }
             }

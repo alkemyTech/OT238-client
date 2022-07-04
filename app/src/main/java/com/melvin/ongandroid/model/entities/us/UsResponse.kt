@@ -1,4 +1,4 @@
-package com.melvin.ongandroid.model.entities.we
+package com.melvin.ongandroid.model.entities.us
 
 data class UsResponse (
     val id : Int,

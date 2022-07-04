@@ -1,4 +1,4 @@
-package com.melvin.ongandroid.model.entities.we
+package com.melvin.ongandroid.model.entities.us
 
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
@@ -20,4 +20,6 @@ data class Member (
     val updatedAt: String?,
     @SerializedName("deleted_at")
     val deletedAt: String?
-):Parcelable
+): Parcelable
+
+

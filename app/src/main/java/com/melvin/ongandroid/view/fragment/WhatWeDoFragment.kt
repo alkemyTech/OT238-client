@@ -17,8 +17,7 @@ import com.melvin.ongandroid.viewmodel.WhatWeDoViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-
-class ActivitieFragment : Fragment() {
+class WhatWeDoFragment : Fragment() {
 
     private var _binding: FragmentWhatwedoBinding? = null
     private val binding get() = _binding!!
@@ -26,15 +25,10 @@ class ActivitieFragment : Fragment() {
     private lateinit var adapter: WhatWeDoAdapter
 
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentWhatwedoBinding.inflate(inflater, container, false)
 
         return binding.root
@@ -45,7 +39,7 @@ class ActivitieFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         (activity as AppCompatActivity).supportActionBar?.title =
             resources.getString(R.string.menu_activities)
-        setupActivitie()
+        setupWhatWeDo()
     }
 
 
@@ -55,7 +49,7 @@ class ActivitieFragment : Fragment() {
         binding.rvActivities.adapter = adapter
     }
 
-    private fun setupActivitie() {
+    private fun setupWhatWeDo() {
         viewModel.setWhatWeDo()
         setupObserver()
     }
@@ -74,9 +68,9 @@ class ActivitieFragment : Fragment() {
     private fun charging() {
         viewModel.charging.observe(viewLifecycleOwner) { charging ->
             if (charging) {
-                binding.progressSearch.visibility = View.VISIBLE
+                binding.pbWhatWeDo.visibility = View.VISIBLE
             } else {
-                binding.progressSearch.visibility = View.GONE
+                binding.pbWhatWeDo.visibility = View.GONE
             }
         }
     }

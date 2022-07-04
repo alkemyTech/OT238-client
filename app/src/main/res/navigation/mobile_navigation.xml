@@ -16,6 +16,7 @@
         <action
             android:id="@+id/action_nav_home_to_activitieFragment"
             app:destination="@id/activitieFragment" />
+        <action
             android:id="@+id/action_nav_home_to_usFragment"
             app:destination="@id/usFragment" />
     </fragment>
@@ -26,9 +27,10 @@
         tools:layout="@layout/fragment_testimonials" />
     <fragment
         android:id="@+id/activitieFragment"
-        android:name="com.melvin.ongandroid.view.fragment.ActivitieFragment"
-        android:label="fragment_activitie"
+        android:name="com.melvin.ongandroid.view.fragment.WhatWeDoFragment"
+        android:label="fragment_whatwedo"
         tools:layout="@layout/fragment_whatwedo" />
+    <fragment
         android:id="@+id/usFragment"
         android:name="com.melvin.ongandroid.view.fragment.UsFragment"
         android:label="fragment_us"
@@ -38,8 +40,12 @@
             app:destination="@id/membersFragment2" />
         <argument
             android:name="member"
-            app:argType="com.melvin.ongandroid.model.entities.we.Member" />
+            app:argType="com.melvin.ongandroid.model.entities.us.Member" />
     </fragment>
+    <argument
+            android:name="member"
+            app:argType="com.melvin.ongandroid.model.entities.us.Member" />
+
     <fragment
         android:id="@+id/membersFragment2"
         android:name="com.melvin.ongandroid.view.fragment.MembersFragment"
@@ -50,7 +56,7 @@
             app:destination="@id/usFragment" />
         <argument
             android:name="member"
-            app:argType="com.melvin.ongandroid.model.entities.we.Member" />
+            app:argType="com.melvin.ongandroid.model.entities.us.Member" />
 
     </fragment>
 

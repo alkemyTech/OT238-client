@@ -1,69 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
-    android:id="@+id/constraint"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraint"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.fragment.HomeFragment" >
+    tools:context=".view.fragment.HomeFragment">
 
-    <TextView
-        android:id="@+id/tvHomeWelcome"
-        android:layout_width="wrap_content"
+    <ScrollView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="@string/home_title"
-        android:textAppearance="?attr/textAppearanceHeadline5"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/pager"/>
+        android:fillViewport="true">
 
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/pager"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginStart="@dimen/view_pager_margin"
-        android:layout_marginTop="@dimen/view_pager_margin"
-        android:layout_marginEnd="@dimen/view_pager_margin"
-        app:layout_constraintHeight_percent="0.40"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvHomeWelcome"
-        app:layout_constraintBottom_toTopOf="@id/tvLastNews"
-        tools:listitem="@layout/view_pager_item_home"/>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+                    <TextView
+                        android:id="@+id/tvHomeWelcome"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:text="@string/home_title"
+                        android:textAppearance="?attr/textAppearanceHeadline5"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toTopOf="@id/pager"/>
 
-    <TextView
-        android:id="@+id/tvLastNews"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="@string/ultimas_novedades"
-        android:textAppearance="?attr/textAppearanceHeadline5"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/pager"
-        app:layout_constraintBottom_toTopOf="@id/vpNews"/>
+                    <androidx.viewpager2.widget.ViewPager2
+                        android:id="@+id/pager"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_marginStart="@dimen/view_pager_margin"
+                        android:layout_marginTop="@dimen/view_pager_margin"
+                        android:layout_marginEnd="@dimen/view_pager_margin"
+                        tools:listitem="@layout/view_pager_item_home"
+                        app:layout_constraintDimensionRatio="H, 1.2:1"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvHomeWelcome"/>
 
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/vpNews"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginStart="@dimen/view_pager_margin"
-        android:layout_marginTop="@dimen/view_pager_margin"
-        android:layout_marginEnd="@dimen/view_pager_margin"
-        app:layout_constraintHeight_percent=".40"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvLastNews"
-        app:layout_constraintBottom_toBottomOf="parent"
-        tools:listitem="@layout/news_view_pager_item_home" />
+                    <TextView
+                        android:id="@+id/tvLastNews"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:text="@string/ultimas_novedades"
+                        android:textAppearance="?attr/textAppearanceHeadline5"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/pager"
+                        app:layout_constraintBottom_toTopOf="@id/vpNews"/>
 
+                    <androidx.viewpager2.widget.ViewPager2
+                        android:id="@+id/vpNews"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_marginStart="@dimen/view_pager_margin"
+                        android:layout_marginTop="@dimen/view_pager_margin"
+                        android:layout_marginEnd="@dimen/view_pager_margin"
+                        tools:listitem="@layout/news_view_pager_item_home"
+                        app:layout_constraintDimensionRatio="H, 1.2:1"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvLastNews"
+                        app:layout_constraintBottom_toTopOf="@id/tvLastTestimonials"/>
+
+                    <TextView
+                        android:id="@+id/tvLastTestimonials"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:text="@string/lastest_testimonials"
+                        android:textAppearance="?attr/textAppearanceHeadline5"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/vpNews"
+                        app:layout_constraintBottom_toTopOf="@id/vpTestimonials"
+                         />
+
+                    <androidx.viewpager2.widget.ViewPager2
+                        android:id="@+id/vpTestimonials"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_marginStart="@dimen/view_pager_margin"
+                        android:layout_marginTop="@dimen/view_pager_margin"
+                        android:layout_marginEnd="@dimen/view_pager_margin"
+                        tools:listitem="@layout/testimonials_view_pager_item_home"
+                        app:layout_constraintDimensionRatio="H, 1.2:1"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvLastTestimonials"
+                        />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+      </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
+
