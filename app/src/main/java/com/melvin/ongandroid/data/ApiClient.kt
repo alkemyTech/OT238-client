@@ -1,9 +1,7 @@
 package com.melvin.ongandroid.data
 
-import com.melvin.ongandroid.model.entities.AuthMethodsResponse
-import com.melvin.ongandroid.model.entities.LoginRequest
-import com.melvin.ongandroid.model.entities.NewsResponse
-import com.melvin.ongandroid.model.entities.UserRegistrationRequest
+import com.melvin.ongandroid.model.entities.*
+import com.melvin.ongandroid.model.entities.whatWeDo.WhatWeDoResponse
 import com.melvin.ongandroid.model.entities.slides.SlidesResponse
 import com.melvin.ongandroid.model.entities.testimonials.TestimonialsResponse
 
@@ -31,5 +29,9 @@ class ApiClient @Inject constructor(
 
     suspend fun getTestimonials(): TestimonialsResponse{
         return api.getTestimonials()
+        
+    suspend fun getActivities () : WhatWeDoResponse {
+        return api.getActivities()
+
     }
 }

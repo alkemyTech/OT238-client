@@ -14,6 +14,8 @@
             android:id="@+id/action_nav_home_to_testimonialsFragment"
             app:destination="@id/testimonialsFragment" />
         <action
+            android:id="@+id/action_nav_home_to_activitieFragment"
+            app:destination="@id/activitieFragment" />
             android:id="@+id/action_nav_home_to_usFragment"
             app:destination="@id/usFragment" />
     </fragment>
@@ -23,6 +25,10 @@
         android:label="fragment_testimonials"
         tools:layout="@layout/fragment_testimonials" />
     <fragment
+        android:id="@+id/activitieFragment"
+        android:name="com.melvin.ongandroid.view.fragment.ActivitieFragment"
+        android:label="fragment_activitie"
+        tools:layout="@layout/fragment_whatwedo" />
         android:id="@+id/usFragment"
         android:name="com.melvin.ongandroid.view.fragment.UsFragment"
         android:label="fragment_us"

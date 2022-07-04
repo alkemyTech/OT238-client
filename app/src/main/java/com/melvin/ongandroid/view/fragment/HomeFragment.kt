@@ -26,6 +26,7 @@ class HomeFragment : Fragment() {
     private val viewModel: HomeViewModel by viewModels()
     private val vmTestimonial : TestimonialsViewModel by activityViewModels()
     private var _binding: FragmentHomeBinding? = null
+    private val binding get() = _binding!!
     private lateinit var adapter: HomeViewPagerAdapter
     private lateinit var newsAdapter: NewsAdapter
     private lateinit var testimonialsAdapter: TestimonialsAdapter
