@@ -33,6 +33,6 @@ class ApiClient @Inject constructor(
     }
 
     suspend fun getActivities () : WhatWeDoResponse {
-        return api.getActivities()
+        return api.getWhatWeDo()
     }
 }

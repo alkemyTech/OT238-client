@@ -31,6 +31,6 @@ interface OngApi {
     suspend fun getTestimonials() : TestimonialsResponse
 
     @GET("activities")
-    suspend fun getActivities() : WhatWeDoResponse
+    suspend fun getWhatWeDo() : WhatWeDoResponse
 
 }

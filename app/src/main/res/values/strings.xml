@@ -21,7 +21,7 @@
     <string name="failure_dialog_title">Ocurrió un problema!</string>
     <string name="failure_supporting_text">La llamada al endpoint falló.</string>
     <string name="close">Cerrar</string>
-    <string name="empty_field_msg">xEste campo debe ser completado.</string>
+    <string name="empty_field_msg">Este campo debe ser completado.</string>
     <string name="invalid_format_msg">El campo ingresado no es valido.</string>
     <string name="password_error_msg">Debe ser alfanumerico, contener una letra mayuscula, un caracter especial y sin espacios.</string>
     <string name="confirm_password_error">Los passwords no coinciden.</string>
