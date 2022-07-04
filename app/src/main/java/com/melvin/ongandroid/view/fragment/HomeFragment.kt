@@ -12,7 +12,7 @@ import com.melvin.ongandroid.R
 import com.melvin.ongandroid.databinding.FragmentHomeBinding
 import com.melvin.ongandroid.model.entities.slides.Slide
 import com.melvin.ongandroid.view.adapters.HomeViewPagerAdapter
-import com.melvin.ongandroid.model.entities.News
+import com.melvin.ongandroid.model.entities.news.News
 import com.melvin.ongandroid.model.entities.testimonials.Testimonials
 import com.melvin.ongandroid.view.adapters.NewsAdapter
 import com.melvin.ongandroid.view.adapters.TestimonialsAdapter
@@ -30,7 +30,6 @@ class HomeFragment : Fragment() {
     private lateinit var adapter: HomeViewPagerAdapter
     private lateinit var newsAdapter: NewsAdapter
     private lateinit var testimonialsAdapter: TestimonialsAdapter
-    private val binding get() = _binding!!
 
 
     override fun onCreateView(

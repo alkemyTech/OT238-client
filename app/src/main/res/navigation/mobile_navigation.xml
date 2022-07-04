@@ -16,6 +16,7 @@
         <action
             android:id="@+id/action_nav_home_to_activitieFragment"
             app:destination="@id/activitieFragment" />
+        <action
             android:id="@+id/action_nav_home_to_usFragment"
             app:destination="@id/usFragment" />
     </fragment>
@@ -27,11 +28,11 @@
     <fragment
         android:id="@+id/activitieFragment"
         android:name="com.melvin.ongandroid.view.fragment.ActivitieFragment"
-        android:label="fragment_activitie"
+        android:label="fragment_whatwedo"
         tools:layout="@layout/fragment_whatwedo" />
+    <fragment
         android:id="@+id/usFragment"
         android:name="com.melvin.ongandroid.view.fragment.UsFragment"
         android:label="fragment_us"
         tools:layout="@layout/fragment_us" />
-
 </navigation>

@@ -4,8 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.melvin.ongandroid.R
-import com.melvin.ongandroid.model.entities.we.UsResponse
-import com.melvin.ongandroid.view.viewHolders.TestimonialsViewHolder
+import com.melvin.ongandroid.model.entities.us.UsResponse
 import com.melvin.ongandroid.view.viewHolders.UsViewHolder
 import javax.inject.Inject
 

@@ -1,4 +1,4 @@
-package com.melvin.ongandroid.model.entities
+package com.melvin.ongandroid.model.entities.news
 
 import android.text.Html
 

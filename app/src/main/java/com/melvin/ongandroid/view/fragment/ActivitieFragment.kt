@@ -34,7 +34,7 @@ class ActivitieFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentWhatwedoBinding.inflate(inflater, container, false)
 
         return binding.root
@@ -74,9 +74,9 @@ class ActivitieFragment : Fragment() {
     private fun charging() {
         viewModel.charging.observe(viewLifecycleOwner) { charging ->
             if (charging) {
-                binding.progressSearch.visibility = View.VISIBLE
+                binding.pbWhatWeDo.visibility = View.VISIBLE
             } else {
-                binding.progressSearch.visibility = View.GONE
+                binding.pbWhatWeDo.visibility = View.GONE
             }
         }
     }

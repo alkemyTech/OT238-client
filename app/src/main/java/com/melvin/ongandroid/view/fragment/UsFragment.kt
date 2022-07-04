@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.melvin.ongandroid.databinding.FragmentUsBinding
-import com.melvin.ongandroid.model.entities.we.UsResponse
+import com.melvin.ongandroid.model.entities.us.UsResponse
 import com.melvin.ongandroid.view.adapters.UsAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
