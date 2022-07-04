@@ -12,7 +12,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.melvin.ongandroid.R
 import com.melvin.ongandroid.databinding.FragmentUsBinding
-import com.melvin.ongandroid.model.entities.we.Member
+import com.melvin.ongandroid.model.entities.us.Member
+import com.melvin.ongandroid.model.entities.us.UsResponse
 import com.melvin.ongandroid.view.adapters.UsAdapter
 import com.melvin.ongandroid.viewmodel.UsViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -27,6 +28,32 @@ class UsFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
+
+    //Dummy Data for test purposes
+    var usDummyData = listOf(
+        Member(
+            1,
+            "John Doe",
+            "https://yca.org.ar/wp-content/uploads/sites/4/2019/06/perfil-avatar-hombre-icono-redondo_24640-14044.jpg",
+            " ",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ),
+        Member(
+            2,
+            "Jane Doe",
+            "https://yca.org.ar/wp-content/uploads/sites/4/2019/06/perfil-avatar-hombre-icono-redondo_24640-14044.jpg",
+            " ",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ),
+    )
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

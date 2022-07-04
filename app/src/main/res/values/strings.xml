@@ -44,17 +44,24 @@
     <string name="dummy_name">John Doe</string>
     <string name="home_title">Bienvenidos</string>
     <string name="home_iv_description">Imágenes de la ONG</string>
-    <string name="textError"> Error al cargar los slides </string>
-    <string name="actionText"> RETRY</string>
+    <string name="textError">Error al cargar los slides </string>
+    <string name="txtErrorActivites">Ha ocurrido un error obteniendo la info </string>
+    <string name="actionText">RETRY</string>
     <string name="ultimas_novedades">Ultimas Novedades</string>
     <string name="dialog_news_error_title">Ultimas Novedades</string>
+    <string name="lastest_testimonials">Ultimos Testimonios</string>
     <string name="dialog_news_error_message">Ha ocurrido un error obteniendo la información</string>
     <string name="dialog_news_error_negative_btn">Cancelar</string>
     <string name="dialog_news_error_positive_btn">Reintentar</string>
+    <string name="more_testimonials">Ver más testimonios</string>
+    <string name="dialog_new_error_testimonials">Ha ocurrido un error obteniendo la información</string>
+    <string name="testimonials">Testimonios</string>
     <string name="linkedin_icon">linkedin icon</string>
     <string name="facebook_icon">facebook icon</string>
     <string name="somos_mas_integrante">foto de integrante de la ong</string>
     <string name="us_title">Nosotros!</string>
     <string name="us_description">Desde 1997 en Somos MAs trabajamos con los chicos y chicas, mamas y papas, abuelos y vecinos del barrio Da Cava generando procesos de crecimiento y de insercion social. Uniendo las manos de todas las familias, las que vivien en el barrio y las que viven fuera de el, es que podemos pensar, crear y garantizar estos procesos.</string>
     <string name="us_name_title">NameTitle</string>
+    <string name="member_detail_title">Detalle</string>
+
 </resources>

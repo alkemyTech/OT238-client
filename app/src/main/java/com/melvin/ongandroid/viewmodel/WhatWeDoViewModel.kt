@@ -4,35 +4,38 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.melvin.ongandroid.data.ApiClient
-import com.melvin.ongandroid.model.entities.testimonials.Testimonials
+import com.melvin.ongandroid.model.entities.whatWeDo.WhatWeDo
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class TestimonialsViewModel @Inject constructor(
+class WhatWeDoViewModel @Inject constructor(
     private val repository: ApiClient
 ) : ViewModel() {
-
     private val _status = MutableLiveData<ApiStatus>()
-    private val _testimonialsList = MutableLiveData<List<Testimonials>>()
+    private val _whatWeDoList = MutableLiveData<List<WhatWeDo>>()
+     val charging = MutableLiveData(false)
 
-    fun observerTestimonialsList (): MutableLiveData<List<Testimonials>> {
-        return _testimonialsList
+
+    fun observerWhatWeDoList(): MutableLiveData<List<WhatWeDo>> {
+        return _whatWeDoList
     }
 
-    fun getTestimonial(){
+    fun setWhatWeDo() {
+        charging.postValue(true)
         viewModelScope.launch {
-            val response = repository.getTestimonials()
+            val response = repository.getActivities()
+            charging.postValue(false)
             if (response.success) {
-                _testimonialsList.value = response.testimonialsList
+                _whatWeDoList.value = response.whatWeDoList
                 _status.value = ApiStatus.SUCCESS
             } else {
-                _testimonialsList.value = emptyList()
+                _whatWeDoList.value = emptyList()
                 _status.value = ApiStatus.FAILURE
             }
         }
     }
 
-}
 
+}

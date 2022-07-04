@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.melvin.ongandroid.data.ApiClient
 import com.melvin.ongandroid.model.entities.slides.Slide
-import com.melvin.ongandroid.model.entities.News
+import com.melvin.ongandroid.model.entities.news.News
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
