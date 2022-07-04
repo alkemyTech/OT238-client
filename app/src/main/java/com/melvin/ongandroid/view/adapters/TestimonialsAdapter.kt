@@ -13,6 +13,8 @@ class TestimonialsAdapter @Inject constructor(
     private val isMain: Boolean
     ): RecyclerView.Adapter<TestimonialsViewHolder>(){
 
+    private val MAXITEMS = 3
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TestimonialsViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         return if (isMain) {
@@ -24,10 +26,9 @@ class TestimonialsAdapter @Inject constructor(
 
     override fun onBindViewHolder(holder: TestimonialsViewHolder, position: Int) {
         val item = testimonials[position]
-        val maxItems = 3
-        if (isMain && position <= maxItems) {
+        if (isMain && position <= MAXITEMS) {
            holder.drawTestimonialHome(item)
-        } else if(isMain && position == maxItems + 1){
+        } else if(isMain && position == MAXITEMS + 1){
             holder.drawArrow()
         } else if (!isMain) {
             holder.drawTestimonial(item)

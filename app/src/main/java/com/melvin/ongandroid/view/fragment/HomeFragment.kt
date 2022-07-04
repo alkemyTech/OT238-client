@@ -16,13 +16,16 @@ import com.melvin.ongandroid.model.entities.news.News
 import com.melvin.ongandroid.model.entities.testimonials.Testimonials
 import com.melvin.ongandroid.view.adapters.NewsAdapter
 import com.melvin.ongandroid.view.adapters.TestimonialsAdapter
+import com.melvin.ongandroid.viewmodel.ErrorStatus
 import com.melvin.ongandroid.viewmodel.HomeViewModel
 import com.melvin.ongandroid.viewmodel.TestimonialsViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
+    @Inject lateinit var errorStatus : ErrorStatus
     private val viewModel: HomeViewModel by viewModels()
     private val vmTestimonial : TestimonialsViewModel by activityViewModels()
     private var _binding: FragmentHomeBinding? = null
@@ -30,6 +33,7 @@ class HomeFragment : Fragment() {
     private lateinit var adapter: HomeViewPagerAdapter
     private lateinit var newsAdapter: NewsAdapter
     private lateinit var testimonialsAdapter: TestimonialsAdapter
+
 
 
     override fun onCreateView(
@@ -85,7 +89,7 @@ class HomeFragment : Fragment() {
             if (it != null) {
                 loadSlidePager(it)
             } else {
-                errorHandler("slides")
+                errorHandler(ErrorStatus.SLIDES)
 
             }
         }
@@ -96,7 +100,7 @@ class HomeFragment : Fragment() {
             if (it != null){
                 loadNewsPager(it)
             }else{
-                errorHandler("news")
+                errorHandler(ErrorStatus.NEWS)
             }
         }
     }
@@ -106,17 +110,23 @@ class HomeFragment : Fragment() {
             if (it != null){
                 loadTestimonialsPager(it)
             } else {
-                errorHandler("testimonials")
+                errorHandler(ErrorStatus.TESTIMONIALS)
             }
         }
     }
 
-    private fun errorHandler(apiCall: String){
-             when (apiCall) {
-                        "slides" -> showFailureDialogSlides()
-                        "news" -> showFailureDialogNews()
-                        "testimonials" -> showFailureDialogTestimonials()
-                    }
+    private fun errorHandler(apiCall: ErrorStatus){
+        when(apiCall){
+            ErrorStatus.SLIDES -> {
+                showFailureDialogNews()
+            }
+            ErrorStatus.NEWS -> {
+                showFailureDialogNews()
+            }
+            ErrorStatus.TESTIMONIALS -> {
+                showFailureDialogTestimonials()
+            }
+        }
     }
 
     private fun showFailureDialogSlides() {
