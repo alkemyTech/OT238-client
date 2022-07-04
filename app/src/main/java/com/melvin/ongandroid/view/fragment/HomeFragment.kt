@@ -119,7 +119,7 @@ class HomeFragment : Fragment() {
     private fun errorHandler(apiCall: ErrorStatus){
         when(apiCall){
             ErrorStatus.SLIDES -> {
-                showFailureDialogNews()
+                showFailureDialogSlides()
             }
             ErrorStatus.NEWS -> {
                 showFailureDialogNews()
