@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.melvin.ongandroid.R
-import com.melvin.ongandroid.model.entities.we.Member
+import com.melvin.ongandroid.model.entities.us.Member
 import com.melvin.ongandroid.view.fragment.UsFragmentDirections
 import com.melvin.ongandroid.view.viewHolders.UsViewHolder
 import javax.inject.Inject
@@ -28,6 +28,7 @@ class UsAdapter @Inject constructor(
         holder.itemView.setOnClickListener { mView ->
             val direction = UsFragmentDirections
                 .actionUsFragmentToMembersFragment2(item)
+
             mView.findNavController().navigate(direction)
         }
     }

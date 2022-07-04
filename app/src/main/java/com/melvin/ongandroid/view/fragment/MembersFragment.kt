@@ -11,9 +11,11 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import com.melvin.ongandroid.R
 import com.melvin.ongandroid.databinding.UsMemberDetailBinding
-import com.melvin.ongandroid.model.entities.we.Member
+import com.melvin.ongandroid.model.entities.us.Member
 import com.squareup.picasso.Picasso
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MembersFragment : Fragment() {
     private var _binding: UsMemberDetailBinding? = null
     private val binding get() = _binding!!

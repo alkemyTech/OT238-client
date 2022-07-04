@@ -8,6 +8,7 @@ import com.melvin.ongandroid.model.entities.whatWeDo.WhatWeDo
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
+
 @HiltViewModel
 class WhatWeDoViewModel @Inject constructor(
     private val repository: ApiClient

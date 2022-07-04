@@ -5,7 +5,7 @@
     android:id="@+id/activitieConstraint"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.fragment.ActivitieFragment">
+    tools:context=".view.fragment.WhatWeDoFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvActivities"

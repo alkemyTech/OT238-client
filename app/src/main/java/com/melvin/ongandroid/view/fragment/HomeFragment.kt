@@ -25,7 +25,6 @@ import javax.inject.Inject
 
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
-    @Inject lateinit var errorStatus : ErrorStatus
     private val viewModel: HomeViewModel by viewModels()
     private val vmTestimonial : TestimonialsViewModel by activityViewModels()
     private var _binding: FragmentHomeBinding? = null

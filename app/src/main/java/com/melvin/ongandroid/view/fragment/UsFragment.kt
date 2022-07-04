@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.melvin.ongandroid.databinding.FragmentUsBinding
+import com.melvin.ongandroid.model.entities.us.Member
 import com.melvin.ongandroid.model.entities.us.UsResponse
 import com.melvin.ongandroid.view.adapters.UsAdapter
 import dagger.hilt.android.AndroidEntryPoint
@@ -24,38 +25,28 @@ class UsFragment : Fragment() {
 
     //Dummy Data for test purposes
     var usDummyData = listOf(
-        UsResponse(
+        Member(
             1,
             "John Doe",
             "https://yca.org.ar/wp-content/uploads/sites/4/2019/06/perfil-avatar-hombre-icono-redondo_24640-14044.jpg",
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+            " ",
+            "",
+            "",
+            "",
             "",
             "",
             ),
-        UsResponse(
-            1,
-            "John Doe",
-            "https://dietisticavalencia.com/wp-content/uploads/2019/09/perfil-avatar-mujer-icono-redondo.jpg",
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+        Member(
+            2,
+            "Jane Doe",
+            "https://yca.org.ar/wp-content/uploads/sites/4/2019/06/perfil-avatar-hombre-icono-redondo_24640-14044.jpg",
+            " ",
             "",
             "",
-        ),
-        UsResponse(
-            1,
-            "John Doe",
-            "https://lymproperties.es/wp-content/uploads/2020/08/perfil-avatar-hombre-icono-redondo_24640-14046.jpg",
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
             "",
             "",
-        ),
-        UsResponse(
-            1,
-            "John Doe",
-            "https://casasanjose.org/wp-content/uploads/2020/07/woman-avatar-profile-round-icon_24640-14048-1.jpg",
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
             "",
-            "",
-        )
+            ),
     )
 
     override fun onCreateView(
@@ -72,7 +63,7 @@ class UsFragment : Fragment() {
         (activity as AppCompatActivity).supportActionBar?.title="Nosotros"
     }
 
-    private fun initRecyclerView(usDummyData: List<UsResponse>) {
+    private fun initRecyclerView(usDummyData: List<Member>) {
         binding.rvUs.layoutManager= LinearLayoutManager(binding.root.context)
         binding.rvUs.adapter = UsAdapter(usDummyData)
     }

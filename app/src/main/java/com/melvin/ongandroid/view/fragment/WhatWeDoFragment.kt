@@ -17,19 +17,13 @@ import com.melvin.ongandroid.viewmodel.WhatWeDoViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-
-class ActivitieFragment : Fragment() {
+class WhatWeDoFragment : Fragment() {
 
     private var _binding: FragmentWhatwedoBinding? = null
     private val binding get() = _binding!!
     private val viewModel: WhatWeDoViewModel by viewModels()
     private lateinit var adapter: WhatWeDoAdapter
 
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -45,7 +39,7 @@ class ActivitieFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         (activity as AppCompatActivity).supportActionBar?.title =
             resources.getString(R.string.menu_activities)
-        setupActivitie()
+        setupWhatWeDo()
     }
 
 
@@ -55,7 +49,7 @@ class ActivitieFragment : Fragment() {
         binding.rvActivities.adapter = adapter
     }
 
-    private fun setupActivitie() {
+    private fun setupWhatWeDo() {
         viewModel.setWhatWeDo()
         setupObserver()
     }
