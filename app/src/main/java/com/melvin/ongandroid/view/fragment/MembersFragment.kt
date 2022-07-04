@@ -45,14 +45,14 @@ class MembersFragment: Fragment() {
                 val fbURL = member.facebookURL
                 val intent = Intent(Intent.ACTION_VIEW)
                 //TODO CHECK API URL
-                intent.data = Uri.parse("https://$fbURL")
+                intent.data = Uri.parse(fbURL)
                 startActivity(intent)
             }
                 //TODO CHECK API URL
                 ibLinkedin.setOnClickListener {
                 val url = member.linkedinURL
                 val intent = Intent(Intent.ACTION_VIEW)
-                intent.data = Uri.parse("https://$url")
+                intent.data = Uri.parse(url)
                 startActivity(intent)
             }
         }
