@@ -52,7 +52,7 @@ class MembersFragment : Fragment() {
                 startActivity(intent)
             }
             ibLinkedin.setOnClickListener {
-                val liURL = member.linkedinURL.toString()
+                val liURL = member.linkedInURL.toString()
                 val url = urlReplace(liURL)
                 val intent = Intent(Intent.ACTION_VIEW)
                 intent.data = Uri.parse(urlReplace(url))
