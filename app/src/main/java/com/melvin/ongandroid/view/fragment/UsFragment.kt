@@ -33,6 +33,7 @@ class UsFragment : Fragment() {
     ): View {
         _binding = FragmentUsBinding.inflate(inflater, container, false)
         setUpMembers()
+        showProgressBarCharging()
         return binding.root
     }
 
@@ -70,6 +71,16 @@ class UsFragment : Fragment() {
                     setUpMembers()
                 }
                 .show()
+        }
+    }
+
+    private fun showProgressBarCharging() {
+        viewModel.observeMembersList().observe(viewLifecycleOwner) {
+            if (viewModel.observeMembersList() == null) {
+                binding.pbUs.showProgressBar()
+            } else {
+                binding.pbUs.hideProgressBar()
+            }
         }
     }
 }
