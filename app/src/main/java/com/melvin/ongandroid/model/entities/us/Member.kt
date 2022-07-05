@@ -1,8 +1,11 @@
 package com.melvin.ongandroid.model.entities.us
 
+import android.os.Parcelable
 import android.text.Html
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 data class Member(
     val id: Int?,
     val name: String?,
@@ -18,7 +21,7 @@ data class Member(
     val updatedAt: String?,
     @SerializedName("deleted_at")
     val deletedAt: String?,
-) {
+): Parcelable {
     val rawDescription: String
         get() = Html.fromHtml(this.description, Html.FROM_HTML_MODE_COMPACT).toString()
 }
