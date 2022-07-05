@@ -4,7 +4,6 @@ import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.melvin.ongandroid.databinding.FragmentUsItemBinding
 import com.melvin.ongandroid.model.entities.us.Member
-import com.melvin.ongandroid.model.entities.us.UsResponse
 import com.squareup.picasso.Picasso
 import javax.inject.Inject
 
@@ -16,6 +15,6 @@ class UsViewHolder
     fun drawUs(us: Member) {
         Picasso.get().load(us.image).into(binding.ivUsImageUser)
         binding.tvUsNameTitle.text = us.name
-        binding.tvUsUserDescription.text = us.description
+        binding.tvUsUserDescription.text = us.rawDescription
     }
 }

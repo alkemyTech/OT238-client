@@ -5,6 +5,7 @@ import com.melvin.ongandroid.model.entities.news.NewsResponse
 import com.melvin.ongandroid.model.entities.whatWeDo.WhatWeDoResponse
 import com.melvin.ongandroid.model.entities.slides.SlidesResponse
 import com.melvin.ongandroid.model.entities.testimonials.TestimonialsResponse
+import com.melvin.ongandroid.model.entities.us.MembersResponse
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
@@ -33,4 +34,6 @@ interface OngApi {
     @GET("activities")
     suspend fun getWhatWeDo() : WhatWeDoResponse
 
+    @GET("members")
+    suspend fun getMembers(): MembersResponse
 }

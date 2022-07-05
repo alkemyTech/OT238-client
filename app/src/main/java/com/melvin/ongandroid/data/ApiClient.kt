@@ -5,6 +5,7 @@ import com.melvin.ongandroid.model.entities.news.NewsResponse
 import com.melvin.ongandroid.model.entities.whatWeDo.WhatWeDoResponse
 import com.melvin.ongandroid.model.entities.slides.SlidesResponse
 import com.melvin.ongandroid.model.entities.testimonials.TestimonialsResponse
+import com.melvin.ongandroid.model.entities.us.MembersResponse
 
 import javax.inject.Inject
 
@@ -34,5 +35,9 @@ class ApiClient @Inject constructor(
 
     suspend fun getActivities () : WhatWeDoResponse {
         return api.getWhatWeDo()
+    }
+
+    suspend fun getMembers(): MembersResponse {
+        return api.getMembers()
     }
 }

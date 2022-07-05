@@ -20,7 +20,6 @@ import com.melvin.ongandroid.viewmodel.ErrorStatus
 import com.melvin.ongandroid.viewmodel.HomeViewModel
 import com.melvin.ongandroid.viewmodel.TestimonialsViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
 
 
 @AndroidEntryPoint
@@ -32,8 +31,6 @@ class HomeFragment : Fragment() {
     private lateinit var adapter: HomeViewPagerAdapter
     private lateinit var newsAdapter: NewsAdapter
     private lateinit var testimonialsAdapter: TestimonialsAdapter
-
-
 
     override fun onCreateView(
         inflater: LayoutInflater,
