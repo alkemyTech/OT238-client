@@ -37,7 +37,7 @@ class ApiClient @Inject constructor(
         return api.getWhatWeDo()
     }
 
-    suspend fun getMembers(): MembersResponse {
+    suspend fun  getMembers(): MembersResponse {
         return api.getMembers()
     }
 }
