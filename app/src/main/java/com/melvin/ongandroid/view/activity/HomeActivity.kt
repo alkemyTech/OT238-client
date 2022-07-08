@@ -61,7 +61,7 @@ class HomeActivity : AppCompatActivity() {
             true
         }
         news.setOnMenuItemClickListener {
-            Toast.makeText(this, resources.getString(R.string.menu_news), Toast.LENGTH_SHORT).show()
+            navController.navigate(R.id.action_nav_home_to_newsFragment)
             true
         }
         activities.setOnMenuItemClickListener {
