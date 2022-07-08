@@ -78,7 +78,7 @@ class NewsFragment: Fragment() {
 
     private fun initRecyclerView(data: List<News>) {
         binding.rvNews.layoutManager = LinearLayoutManager(binding.root.context)
-        binding.rvNews.adapter = NewsAdapter(data, true)
+        binding.rvNews.adapter = NewsAdapter(data, false)
     }
 
     private fun setUpObserver() {
