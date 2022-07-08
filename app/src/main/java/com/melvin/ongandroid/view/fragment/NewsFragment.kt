@@ -38,6 +38,7 @@ class NewsFragment: Fragment() {
             resources.getString(R.string.menu_news)
         //initRecyclerView(newsDummyData)
         setUpNews()
+        showProgressBarCharging()
     }
 
     private var newsDummyData = listOf(
