@@ -17,18 +17,19 @@ class NewsAdapter @Inject constructor(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewsViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         return if (isMain) {
-            NewsViewHolder(
-                layoutInflater.inflate(R.layout.news_view_pager_item_home, parent, false))
+            NewsViewHolder(layoutInflater.inflate(R.layout.news_view_pager_item_home, parent, false))
         } else {
-            NewsViewHolder(
-                layoutInflater.inflate(R.layout.fragment_news_item, parent, false)
-            )
+            NewsViewHolder(layoutInflater.inflate(R.layout.fragment_news_item, parent, false))
         }
     }
 
     override fun onBindViewHolder(holder: NewsViewHolder, position: Int) {
         val item = news[position]
-        if (isMain) holder.drawNewsViewPager(item) else holder.drawNewsRecyclerView(item)
+        if (isMain) {
+            holder.drawNewsViewPager(item)
+        } else {
+            holder.drawNewsRecyclerView(item)
+        }
     }
 
     override fun getItemCount(): Int {
