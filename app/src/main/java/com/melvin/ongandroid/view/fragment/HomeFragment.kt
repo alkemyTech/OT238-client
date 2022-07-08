@@ -73,7 +73,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun loadNewsPager(data: List<News>){
-        newsAdapter = NewsAdapter(data)
+        newsAdapter = NewsAdapter(data, true)
         binding.vpNews.adapter = newsAdapter
     }
 
