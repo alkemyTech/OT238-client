@@ -14,8 +14,8 @@ class TestimonialsViewModel @Inject constructor(
     private val repository: ApiClient
 ) : ViewModel() {
 
-    private val _status = MutableLiveData<ApiStatus>()
-    private val _testimonialsList = MutableLiveData<List<Testimonials>>()
+    val _status = MutableLiveData<ApiStatus>()
+    val _testimonialsList = MutableLiveData<List<Testimonials>>()
 
     fun observerTestimonialsList (): MutableLiveData<List<Testimonials>> {
         return _testimonialsList

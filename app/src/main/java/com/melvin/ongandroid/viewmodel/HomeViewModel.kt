@@ -15,12 +15,12 @@ class HomeViewModel @Inject constructor(
     private val repository: ApiClient
 ) : ViewModel() {
 
-    private val _status = MutableLiveData<ApiStatus>()
-    private val _slideList = MutableLiveData<List<Slide>>()
-    private val _newsList = MutableLiveData<List<News>>()
+    val _status = MutableLiveData<ApiStatus>()
+    val _slideList = MutableLiveData<List<Slide>>()
+    val _newsList = MutableLiveData<List<News>>()
 
     fun observerSlideList ():MutableLiveData<List<Slide>> {
-            return this._slideList
+        return this._slideList
     }
 
     fun observeNewsList (): MutableLiveData<List<News>>{
