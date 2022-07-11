@@ -177,10 +177,10 @@ document.getElementById(id).style.display = 'none';
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
   <header class="mdl-layout__header">
     <div class="mdl-layout__header-row">
-      <span class="mdl-layout-title">Lint Report: 40 warnings</span>
+      <span class="mdl-layout-title">Lint Report: 37 warnings</span>
       <div class="mdl-layout-spacer"></div>
       <nav class="mdl-navigation mdl-layout--large-screen-only">
-Check performed at Mon Jul 11 22:24:57 UTC 2022      </nav>
+Check performed at Mon Jul 11 22:28:37 UTC 2022      </nav>
     </div>
   </header>
   <div class="mdl-layout__drawer">
@@ -194,7 +194,6 @@ Check performed at Mon Jul 11 22:24:57 UTC 2022      </nav>
       <a class="mdl-navigation__link" href="#IconLocation"><i class="material-icons warning-icon">warning</i>Image defined in density-independent drawable folder (1)</a>
       <a class="mdl-navigation__link" href="#IconDensities"><i class="material-icons warning-icon">warning</i>Icon densities validation (3)</a>
       <a class="mdl-navigation__link" href="#ContentDescription"><i class="material-icons warning-icon">warning</i>Image without <code>contentDescription</code> (3)</a>
-      <a class="mdl-navigation__link" href="#HardcodedText"><i class="material-icons warning-icon">warning</i>Hardcoded text (3)</a>
     </nav>
   </div>
   <main class="mdl-layout__content">
@@ -238,11 +237,6 @@ Check performed at Mon Jul 11 22:24:57 UTC 2022      </nav>
 <tr>
 <td class="countColumn">3</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
 <a href="#ContentDescription">ContentDescription</a>: Image without <code>contentDescription</code></td></tr>
-<tr><td class="countColumn"></td><td class="categoryColumn"><a href="#Internationalization">Internationalization</a>
-</td></tr>
-<tr>
-<td class="countColumn">3</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
-<a href="#HardcodedText">HardcodedText</a>: Hardcoded text</td></tr>
 <tr><td></td><td class="categoryColumn"><a href="#MissingIssues">Disabled Checks (35)</a>
 </td></tr></table>
 <br/>              </div>
@@ -797,75 +791,6 @@ To suppress this error, use the issue id "ContentDescription" as explained in th
               <div class="mdl-card__actions mdl-card--border">
 <button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="explanationContentDescriptionLink" onclick="reveal('explanationContentDescription');">
 Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="ContentDescriptionCardLink" onclick="hideid('ContentDescriptionCard');">
-Dismiss</button>            </div>
-            </div>
-          </section>
-<a name="Internationalization"></a>
-<a name="HardcodedText"></a>
-<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="HardcodedTextCard" style="display: block;">
-            <div class="mdl-card mdl-cell mdl-cell--12-col">
-  <div class="mdl-card__title">
-    <h2 class="mdl-card__title-text">Hardcoded text</h2>
-  </div>
-              <div class="mdl-card__supporting-text">
-<div class="issue">
-<div class="warningslist">
-<span class="location"><a href="../../src/main/res/layout/fragment_news_item.xml">../../src/main/res/layout/fragment_news_item.xml</a>:41</span>: <span class="message">Hardcoded string "Image", should use <code>@string</code> resource</span><br /><pre class="errorlines">
-<span class="lineno"> 38 </span>            <span class="prefix">app:</span><span class="attribute">layout_constraintRight_toRightOf</span>=<span class="value">"parent"</span>
-<span class="lineno"> 39 </span>            <span class="prefix">app:</span><span class="attribute">layout_constraintBottom_toTopOf</span>=<span class="value">"@id/tvNewsItemDescription"</span>
-<span class="lineno"> 40 </span>            <span class="prefix">tools:</span><span class="attribute">srcCompat</span>=<span class="value">"@tools:sample/backgrounds/scenic"</span>
-<span class="caretline"><span class="lineno"> 41 </span>            <span class="warning"><span class="prefix">android:</span><span class="attribute">contentDescription</span>=<span class="value">"Image"</span></span> />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 42 </span>
-<span class="lineno"> 43 </span>        <span class="tag">&lt;TextView</span><span class="attribute">
-</span><span class="lineno"> 44 </span><span class="attribute">            </span><span class="prefix">android:</span><span class="attribute">id</span>=<span class="value">"@+id/tvNewsItemDescription"</span></pre>
-
-<span class="location"><a href="../../src/main/res/layout/nav_header_home.xml">../../src/main/res/layout/nav_header_home.xml</a>:28</span>: <span class="message">Hardcoded string "User name", should use <code>@string</code> resource</span><br /><pre class="errorlines">
-<span class="lineno"> 25 </span><span class="attribute">        </span><span class="prefix">android:</span><span class="attribute">layout_width</span>=<span class="value">"match_parent"</span>
-<span class="lineno"> 26 </span>        <span class="prefix">android:</span><span class="attribute">layout_height</span>=<span class="value">"wrap_content"</span>
-<span class="lineno"> 27 </span>        <span class="prefix">android:</span><span class="attribute">paddingTop</span>=<span class="value">"@dimen/nav_header_vertical_spacing"</span>
-<span class="caretline"><span class="lineno"> 28 </span>        <span class="warning"><span class="prefix">android:</span><span class="attribute">text</span>=<span class="value">"User name"</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 29 </span>        <span class="prefix">android:</span><span class="attribute">textAppearance</span>=<span class="value">"@style/TextAppearance.AppCompat.Body1"</span> />
-<span class="lineno"> 30 </span>
-<span class="lineno"> 31 </span>    <span class="tag">&lt;TextView</span></pre>
-
-<span class="location"><a href="../../src/main/res/layout/nav_header_home.xml">../../src/main/res/layout/nav_header_home.xml</a>:34</span>: <span class="message">Hardcoded string "User email", should use <code>@string</code> resource</span><br /><pre class="errorlines">
-<span class="lineno"> 31 </span>    <span class="tag">&lt;TextView</span><span class="attribute">
-</span><span class="lineno"> 32 </span><span class="attribute">        </span><span class="prefix">android:</span><span class="attribute">layout_width</span>=<span class="value">"wrap_content"</span>
-<span class="lineno"> 33 </span>        <span class="prefix">android:</span><span class="attribute">layout_height</span>=<span class="value">"wrap_content"</span>
-<span class="caretline"><span class="lineno"> 34 </span>        <span class="warning"><span class="prefix">android:</span><span class="attribute">text</span>=<span class="value">"User email"</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 35 </span>        <span class="prefix">android:</span><span class="attribute">id</span>=<span class="value">"@+id/textView"</span> />
-<span class="lineno"> 36 </span><span class="tag">&lt;/LinearLayout></span></pre>
-
-</div>
-<div class="metadata"><div class="explanation" id="explanationHardcodedText" style="display: none;">
-Hardcoding text attributes directly in layout files is bad for several reasons:<br/>
-<br/>
-* When creating configuration variations (for example for landscape or portrait) you have to repeat the actual text (and keep it up to date when making changes)<br/>
-<br/>
-* The application cannot be translated to other languages by just adding new translations for existing string resources.<br/>
-<br/>
-There are quickfixes to automatically extract this hardcoded string into a resource lookup.<br/>To suppress this error, use the issue id "HardcodedText" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
-<br/></div>
-</div>
-</div>
-<div class="chips">
-<span class="mdl-chip">
-    <span class="mdl-chip__text">HardcodedText</span>
-</span>
-<span class="mdl-chip">
-    <span class="mdl-chip__text">Internationalization</span>
-</span>
-<span class="mdl-chip">
-    <span class="mdl-chip__text">Warning</span>
-</span>
-<span class="mdl-chip">
-    <span class="mdl-chip__text">Priority 5/10</span>
-</span>
-</div>
-              </div>
-              <div class="mdl-card__actions mdl-card--border">
-<button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="explanationHardcodedTextLink" onclick="reveal('explanationHardcodedText');">
-Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="HardcodedTextCardLink" onclick="hideid('HardcodedTextCard');">
 Dismiss</button>            </div>
             </div>
           </section>
