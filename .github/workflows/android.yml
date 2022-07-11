@@ -1,10 +1,12 @@
-name: Android CI
+name: OT238 CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches: 
+            - '**'
   pull_request:
-    branches: [ "main" ]
+    branches:
+            - '**'
 
 jobs:
   build:
@@ -22,7 +24,9 @@ jobs:
 
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
-    - name: Build with Gradle
-      run: ./gradlew build
     - name: Run Unit Tests
       run: ./gradlew test
+    - name: Build Project
+      run: ./gradlew assemble
+    - name: Run Lint
+      run: ./gradlew lint
