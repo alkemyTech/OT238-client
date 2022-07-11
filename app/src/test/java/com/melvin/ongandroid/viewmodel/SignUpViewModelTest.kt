@@ -23,6 +23,7 @@ import org.junit.rules.TestRule
 import org.junit.runner.RunWith
 import org.junit.runners.JUnit4
 
+@ExperimentalCoroutinesApi
 @RunWith(JUnit4::class)
 class SignUpViewModelTest {
 
@@ -190,25 +191,23 @@ class SignUpViewModelTest {
         assertEquals(true, result)
     }
 
-    @OptIn(ExperimentalCoroutinesApi::class)
     @Test
     fun `when registrerUser is called response is successful`() =
         runTest {
             coEvery {
                 repository.registerUser(newUser)
             } returns authMethodsResponse()
-            registrationUseCase.registerUser(newUser)
+            signUpViewModel.registerUser(newUser)
             Assert.assertEquals(true, signUpViewModel.status.value)
         }
 
-    @OptIn(ExperimentalCoroutinesApi::class)
     @Test
     fun `when registrerUser is called response is failure`() =
         runTest {
             coEvery {
                 repository.registerUser(newUser)
             } returns authMethodsResponseFalse()
-            registrationUseCase.registerUser(newUser)
+            signUpViewModel.registerUser(newUser)
             assertEquals(statusError(), signUpViewModel._status.value)
         }
 
