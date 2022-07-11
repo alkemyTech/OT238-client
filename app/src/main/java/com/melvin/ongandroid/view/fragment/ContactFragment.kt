@@ -7,6 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.widget.addTextChangedListener
+import androidx.fragment.app.viewModels
 import com.melvin.ongandroid.R
 import com.melvin.ongandroid.databinding.FragmentContactBinding
 import com.melvin.ongandroid.databinding.FragmentWhatwedoBinding
@@ -14,11 +16,7 @@ import com.melvin.ongandroid.viewmodel.ContactViewModel
 
 class ContactFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = ContactFragment()
-    }
-
-    private lateinit var viewModel: ContactViewModel
+    private  var viewModel=ContactViewModel ()
     private var _binding: FragmentContactBinding? = null
     private val binding get() = _binding!!
 
@@ -34,6 +32,32 @@ class ContactFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         (activity as AppCompatActivity).supportActionBar?.title =
             resources.getString(R.string.menu_contact_us)
+        binding.apply {
+            etName.addTextChangedListener{
+                checkPlaces()
+            }
+            etEmail.addTextChangedListener {
+                checkPlaces()
+            }
+            etMessage.addTextChangedListener {
+                checkPlaces()
+            }
+            etPhoneNumber.addTextChangedListener {
+                checkPlaces()
+            }
+        }
     }
+
+    private fun checkPlaces(){
+        binding.apply {
+            btnSend.isEnabled = viewModel.validateName(etName.text.toString()) &&
+                    viewModel.validateEmail(etEmail.text.toString()) &&
+                    viewModel.validateNumber(etPhoneNumber.text.toString()) &&
+                    viewModel.validateMessage(etMessage.text.toString())
+        }
+    }
+
+
+
 
 }

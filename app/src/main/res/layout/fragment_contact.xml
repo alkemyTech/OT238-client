@@ -43,6 +43,7 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
+                    android:id="@+id/etName"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
@@ -61,6 +62,7 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
+                    android:id="@+id/etEmail"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
@@ -77,6 +79,7 @@
                 android:layout_height="wrap_content">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etPhoneNumber"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
@@ -95,11 +98,14 @@
                 android:layout_height="wrap_content">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etMessage"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
-                    android:hint="@string/contact_message" />
+                    android:hint="@string/contact_message"
+                    android:lines="3"
+                    android:textAlignment="textStart" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <View
@@ -109,7 +115,7 @@
             <Button
                 android:id="@+id/btnSend"
                 android:layout_width="310dp"
-                android:layout_height="43dp"
+                android:layout_height="60dp"
                 android:layout_marginTop="30dp"
                 android:layout_gravity="center"
                 android:enabled="false"
