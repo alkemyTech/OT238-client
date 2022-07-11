@@ -23,7 +23,6 @@ import org.junit.rules.TestRule
 import org.junit.runner.RunWith
 import org.junit.runners.JUnit4
 
-@ExperimentalCoroutinesApi
 @RunWith(JUnit4::class)
 class SignUpViewModelTest {
 
@@ -123,7 +122,7 @@ class SignUpViewModelTest {
     @Test
     fun `null password returns false`() {
         val password: String? = null
-        val result = password?.let { signUpViewModel.validatePassword(it) }
+        val result = signUpViewModel.validatePassword(password.toString())
         assertEquals(false, result)
     }
 
@@ -159,14 +158,14 @@ class SignUpViewModelTest {
 
     @Test
     fun `username is empty returns false`() {
-        val userName: String = ""
+        val userName = ""
         val result = signUpViewModel.validateUserName(userName)
         assertEquals(false, result)
     }
 
     @Test
-    fun `valid username returns true    `() {
-        val email = "pablopablo"
+    fun `valid username returns true`() {
+        val email = "a@a.com"
         val result = signUpViewModel.validateEmail(email)
         assertEquals(true, result)
     }
@@ -191,23 +190,25 @@ class SignUpViewModelTest {
         assertEquals(true, result)
     }
 
+    @OptIn(ExperimentalCoroutinesApi::class)
     @Test
     fun `when registrerUser is called response is successful`() =
         runTest {
             coEvery {
                 repository.registerUser(newUser)
             } returns authMethodsResponse()
-            signUpViewModel.registerUser(newUser)
-            Assert.assertEquals(statusSuccess(), signUpViewModel.status.value)
+            registrationUseCase.registerUser(newUser)
+            Assert.assertEquals(true, signUpViewModel.status.value)
         }
 
+    @OptIn(ExperimentalCoroutinesApi::class)
     @Test
     fun `when registrerUser is called response is failure`() =
         runTest {
             coEvery {
                 repository.registerUser(newUser)
             } returns authMethodsResponseFalse()
-            signUpViewModel.registerUser(newUser)
+            registrationUseCase.registerUser(newUser)
             assertEquals(statusError(), signUpViewModel._status.value)
         }
 
