@@ -2,11 +2,10 @@ name: OT238 CI
 
 on:
   push:
-    branches: 
-            - '**'
+    branches: [ "main" ]
+    
   pull_request:
-    branches:
-            - '**'
+    branches: [ "main" ]
 
 jobs:
   build:
