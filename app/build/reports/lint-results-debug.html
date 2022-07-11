@@ -177,10 +177,10 @@ document.getElementById(id).style.display = 'none';
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
   <header class="mdl-layout__header">
     <div class="mdl-layout__header-row">
-      <span class="mdl-layout-title">Lint Report: 37 warnings</span>
+      <span class="mdl-layout-title">Lint Report: 36 warnings</span>
       <div class="mdl-layout-spacer"></div>
       <nav class="mdl-navigation mdl-layout--large-screen-only">
-Check performed at Mon Jul 11 22:28:37 UTC 2022      </nav>
+Check performed at Mon Jul 11 22:43:09 UTC 2022      </nav>
     </div>
   </header>
   <div class="mdl-layout__drawer">
@@ -188,7 +188,6 @@ Check performed at Mon Jul 11 22:28:37 UTC 2022      </nav>
     <nav class="mdl-navigation">
       <a class="mdl-navigation__link" href="#overview"><i class="material-icons">dashboard</i>Overview</a>
       <a class="mdl-navigation__link" href="#CustomSplashScreen"><i class="material-icons warning-icon">warning</i>Application-defined Launch Screen (1)</a>
-      <a class="mdl-navigation__link" href="#DataExtractionRules"><i class="material-icons warning-icon">warning</i>Missing data extraction rules (1)</a>
       <a class="mdl-navigation__link" href="#ObsoleteSdkInt"><i class="material-icons warning-icon">warning</i>Obsolete SDK_INT Version Check (1)</a>
       <a class="mdl-navigation__link" href="#UnusedResources"><i class="material-icons warning-icon">warning</i>Unused resources (27)</a>
       <a class="mdl-navigation__link" href="#IconLocation"><i class="material-icons warning-icon">warning</i>Image defined in density-independent drawable folder (1)</a>
@@ -211,11 +210,6 @@ Check performed at Mon Jul 11 22:28:37 UTC 2022      </nav>
 <tr>
 <td class="countColumn">1</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
 <a href="#CustomSplashScreen">CustomSplashScreen</a>: Application-defined Launch Screen</td></tr>
-<tr><td class="countColumn"></td><td class="categoryColumn"><a href="#Security">Security</a>
-</td></tr>
-<tr>
-<td class="countColumn">1</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
-<a href="#DataExtractionRules">DataExtractionRules</a>: Missing data extraction rules</td></tr>
 <tr><td class="countColumn"></td><td class="categoryColumn"><a href="#Performance">Performance</a>
 </td></tr>
 <tr>
@@ -289,56 +283,6 @@ Starting in Android 12 (API 31+), the application's Launch Screen is provided by
               <div class="mdl-card__actions mdl-card--border">
 <button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="explanationCustomSplashScreenLink" onclick="reveal('explanationCustomSplashScreen');">
 Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="CustomSplashScreenCardLink" onclick="hideid('CustomSplashScreenCard');">
-Dismiss</button>            </div>
-            </div>
-          </section>
-<a name="Security"></a>
-<a name="DataExtractionRules"></a>
-<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="DataExtractionRulesCard" style="display: block;">
-            <div class="mdl-card mdl-cell mdl-cell--12-col">
-  <div class="mdl-card__title">
-    <h2 class="mdl-card__title-text">Missing data extraction rules</h2>
-  </div>
-              <div class="mdl-card__supporting-text">
-<div class="issue">
-<div class="warningslist">
-<span class="location"><a href="../../src/main/AndroidManifest.xml">../../src/main/AndroidManifest.xml</a>:10</span>: <span class="message">The attribute <code>android:allowBackup</code> is deprecated from Android 12 and higher and may be removed in future versions. Consider adding the attribute <code>android:dataExtractionRules</code> specifying an <code>@xml</code> resource which configures cloud backups and device transfers on Android 12 and higher.</span><br /><pre class="errorlines">
-<span class="lineno">  7 </span>
-<span class="lineno">  8 </span>    <span class="tag">&lt;application</span><span class="attribute">
-</span><span class="lineno">  9 </span><span class="attribute">        </span><span class="prefix">android:</span><span class="attribute">name</span>=<span class="value">".SomosMasOng"</span>
-<span class="caretline"><span class="lineno"> 10 </span>        <span class="prefix">android:</span><span class="attribute">allowBackup</span>=<span class="value">"</span><span class="warning"><span class="value">false</span></span><span class="value">"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 11 </span>        <span class="prefix">android:</span><span class="attribute">icon</span>=<span class="value">"@mipmap/ic_somos_mas_launcher"</span>
-<span class="lineno"> 12 </span>        <span class="prefix">android:</span><span class="attribute">label</span>=<span class="value">"@string/app_name"</span>
-<span class="lineno"> 13 </span>        <span class="prefix">android:</span><span class="attribute">roundIcon</span>=<span class="value">"@mipmap/ic_somos_mas_launcher_round"</span></pre>
-
-</div>
-<div class="metadata"><div class="explanation" id="explanationDataExtractionRules" style="display: none;">
-Before Android 12, the attributes <code>android:allowBackup</code> and <code>android:fullBackupContent</code> were used to configure all forms of backup, including cloud backups, device-to-device transfers and adb backup.<br/>
-<br/>
-In Android 12 and higher, these attributes have been deprecated and will only apply to cloud backups. You should instead use the attribute <code>android:dataExtractionRules</code>, specifying an <code>@xml</code> resource that configures which files to back up, for cloud backups and for device-to-device transfers, separately. If your <code>minSdkVersion</code> supports older versions, you'll still want to specify an <code>android:fullBackupContent</code> resource if the default behavior is not right for your app.<br/><div class="moreinfo">More info: <a href="https://developer.android.com/about/versions/12/backup-restore#xml-changes">https://developer.android.com/about/versions/12/backup-restore#xml-changes</a>
-</div>Note: This issue has an associated quickfix operation in Android Studio and IntelliJ IDEA.<br>
-To suppress this error, use the issue id "DataExtractionRules" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
-<br/></div>
-</div>
-</div>
-<div class="chips">
-<span class="mdl-chip">
-    <span class="mdl-chip__text">DataExtractionRules</span>
-</span>
-<span class="mdl-chip">
-    <span class="mdl-chip__text">Security</span>
-</span>
-<span class="mdl-chip">
-    <span class="mdl-chip__text">Warning</span>
-</span>
-<span class="mdl-chip">
-    <span class="mdl-chip__text">Priority 3/10</span>
-</span>
-</div>
-              </div>
-              <div class="mdl-card__actions mdl-card--border">
-<button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="explanationDataExtractionRulesLink" onclick="reveal('explanationDataExtractionRules');">
-Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="DataExtractionRulesCardLink" onclick="hideid('DataExtractionRulesCard');">
 Dismiss</button>            </div>
             </div>
           </section>
