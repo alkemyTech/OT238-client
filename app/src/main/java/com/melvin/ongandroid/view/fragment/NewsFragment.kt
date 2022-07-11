@@ -22,10 +22,10 @@ class NewsFragment: Fragment() {
     private val viewModel: NewsViewModel by viewModels()
     private var _binding: FragmentNewsBinding? = null
     private val binding get() = _binding!!
-    private lateinit var adapter: NewsAdapter
+    private lateinit var adapter : NewsAdapter
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater, container : ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentNewsBinding.inflate(inflater, container, false)

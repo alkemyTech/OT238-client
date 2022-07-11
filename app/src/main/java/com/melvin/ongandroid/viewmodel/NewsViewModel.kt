@@ -18,17 +18,17 @@ class NewsViewModel @Inject constructor(
     private val _status = MutableLiveData<ApiStatus>()
     private val _newsList = MutableLiveData<List<News>>()
 
-    fun observerNewsList() : MutableLiveData<List<News>>{
+    fun observerNewsList() : MutableLiveData<List<News>> {
         return this._newsList
     }
 
     fun getNews(){
         viewModelScope.launch {
             val response = dataProvider.getNews()
-            if (response.success){
+            if (response.success) {
                 _newsList.value = response.data
                 _status.value = ApiStatus.SUCCESS
-            }else{
+            } else {
                 _newsList.value = emptyList()
                 _status.value = ApiStatus.FAILURE
             }
