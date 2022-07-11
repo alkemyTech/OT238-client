@@ -17,7 +17,7 @@ class SignUpViewModel @Inject constructor(
     private val registrationUseCase: RegisterUseCase,
 ) : ViewModel() {
 
-    private val _status = MutableLiveData<ApiStatus>()
+    val _status = MutableLiveData<ApiStatus>()
     val status: LiveData<ApiStatus> = _status
     val signUpUserCharging = MutableLiveData(false)
 
