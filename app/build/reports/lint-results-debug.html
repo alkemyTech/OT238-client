@@ -177,10 +177,10 @@ document.getElementById(id).style.display = 'none';
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
   <header class="mdl-layout__header">
     <div class="mdl-layout__header-row">
-      <span class="mdl-layout-title">Lint Report: 28 warnings</span>
+      <span class="mdl-layout-title">Lint Report: 30 warnings</span>
       <div class="mdl-layout-spacer"></div>
       <nav class="mdl-navigation mdl-layout--large-screen-only">
-Check performed at Mon Jul 11 20:09:38 ART 2022      </nav>
+Check performed at Mon Jul 11 20:26:43 ART 2022      </nav>
     </div>
   </header>
   <div class="mdl-layout__drawer">
@@ -189,7 +189,7 @@ Check performed at Mon Jul 11 20:09:38 ART 2022      </nav>
       <a class="mdl-navigation__link" href="#overview"><i class="material-icons">dashboard</i>Overview</a>
       <a class="mdl-navigation__link" href="#CustomSplashScreen"><i class="material-icons warning-icon">warning</i>Application-defined Launch Screen (1)</a>
       <a class="mdl-navigation__link" href="#UnusedResources"><i class="material-icons warning-icon">warning</i>Unused resources (26)</a>
-      <a class="mdl-navigation__link" href="#IconLocation"><i class="material-icons warning-icon">warning</i>Image defined in density-independent drawable folder (1)</a>
+      <a class="mdl-navigation__link" href="#IconDensities"><i class="material-icons warning-icon">warning</i>Icon densities validation (3)</a>
     </nav>
   </div>
   <main class="mdl-layout__content">
@@ -215,8 +215,8 @@ Check performed at Mon Jul 11 20:09:38 ART 2022      </nav>
 <tr><td class="countColumn"></td><td class="categoryColumn"><a href="#Usability:Icons">Usability:Icons</a>
 </td></tr>
 <tr>
-<td class="countColumn">1</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
-<a href="#IconLocation">IconLocation</a>: Image defined in density-independent drawable folder</td></tr>
+<td class="countColumn">3</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
+<a href="#IconDensities">IconDensities</a>: Icon densities validation</td></tr>
 <tr><td></td><td class="categoryColumn"><a href="#MissingIssues">Disabled Checks (35)</a>
 </td></tr></table>
 <br/>              </div>
@@ -553,26 +553,30 @@ Dismiss</button>            </div>
             </div>
           </section>
 <a name="Usability:Icons"></a>
-<a name="IconLocation"></a>
-<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="IconLocationCard" style="display: block;">
+<a name="IconDensities"></a>
+<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="IconDensitiesCard" style="display: block;">
             <div class="mdl-card mdl-cell mdl-cell--12-col">
   <div class="mdl-card__title">
-    <h2 class="mdl-card__title-text">Image defined in density-independent drawable folder</h2>
+    <h2 class="mdl-card__title-text">Icon densities validation</h2>
   </div>
               <div class="mdl-card__supporting-text">
 <div class="issue">
 <div class="warningslist">
-<span class="location"><a href="../../src/main/res/drawable/logo_somos_mas.webp">../../src/main/res/drawable/logo_somos_mas.webp</a></span>: <img class="embedimage" align="right" src="../../src/main/res/drawable/logo_somos_mas.webp" /><span class="message">Found bitmap drawable <code>res/drawable/logo_somos_mas.webp</code> in densityless folder</span><br clear="right"/>
+<span class="location"><a href="../../src/main/res/drawable-hdpi">../../src/main/res/drawable-hdpi</a></span>: <span class="message">Missing the following drawables in <code>drawable-hdpi</code>: logo_somos_mas.webp (found in drawable-mdpi)</span><br />
+<span class="location"><a href="../../src/main/res/drawable-xhdpi">../../src/main/res/drawable-xhdpi</a></span>: <span class="message">Missing the following drawables in <code>drawable-xhdpi</code>: logo_somos_mas.webp (found in drawable-mdpi)</span><br />
+<span class="location"><a href="../../src/main/res/drawable-xxhdpi">../../src/main/res/drawable-xxhdpi</a></span>: <span class="message">Missing the following drawables in <code>drawable-xxhdpi</code>: logo_somos_mas.webp (found in drawable-mdpi)</span><br />
 </div>
-<div class="metadata"><div class="explanation" id="explanationIconLocation" style="display: none;">
-The res/drawable folder is intended for density-independent graphics such as shapes defined in XML. For bitmaps, move it to <code>drawable-mdpi</code> and consider providing higher and lower resolution versions in <code>drawable-ldpi</code>, <code>drawable-hdpi</code> and <code>drawable-xhdpi</code>. If the icon <b>really</b> is density independent (for example a solid color) you can place it in <code>drawable-nodpi</code>.<br/><div class="moreinfo">More info: <a href="https://developer.android.com/guide/practices/screens_support.html">https://developer.android.com/guide/practices/screens_support.html</a>
-</div>To suppress this error, use the issue id "IconLocation" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<div class="metadata"><div class="explanation" id="explanationIconDensities" style="display: none;">
+Icons will look best if a custom version is provided for each of the major screen density classes (low, medium, high, extra high). This lint check identifies icons which do not have complete coverage across the densities.<br/>
+<br/>
+Low density is not really used much anymore, so this check ignores the ldpi density. To force lint to include it, set the environment variable <code>ANDROID_LINT_INCLUDE_LDPI=true</code>. For more information on current density usage, see <a href="https://developer.android.com/about/dashboards">https://developer.android.com/about/dashboards</a><br/><div class="moreinfo">More info: <a href="https://developer.android.com/guide/practices/screens_support.html">https://developer.android.com/guide/practices/screens_support.html</a>
+</div>To suppress this error, use the issue id "IconDensities" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
 <br/></div>
 </div>
 </div>
 <div class="chips">
 <span class="mdl-chip">
-    <span class="mdl-chip__text">IconLocation</span>
+    <span class="mdl-chip__text">IconDensities</span>
 </span>
 <span class="mdl-chip">
     <span class="mdl-chip__text">Icons</span>
@@ -584,13 +588,13 @@ The res/drawable folder is intended for density-independent graphics such as sha
     <span class="mdl-chip__text">Warning</span>
 </span>
 <span class="mdl-chip">
-    <span class="mdl-chip__text">Priority 5/10</span>
+    <span class="mdl-chip__text">Priority 4/10</span>
 </span>
 </div>
               </div>
               <div class="mdl-card__actions mdl-card--border">
-<button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="explanationIconLocationLink" onclick="reveal('explanationIconLocation');">
-Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="IconLocationCardLink" onclick="hideid('IconLocationCard');">
+<button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="explanationIconDensitiesLink" onclick="reveal('explanationIconDensities');">
+Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="IconDensitiesCardLink" onclick="hideid('IconDensitiesCard');">
 Dismiss</button>            </div>
             </div>
           </section>
