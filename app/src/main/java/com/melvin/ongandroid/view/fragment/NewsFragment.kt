@@ -38,43 +38,8 @@ class NewsFragment: Fragment() {
             resources.getString(R.string.menu_news)
         //initRecyclerView(newsDummyData)
         setUpNews()
+        showProgressBarCharging()
     }
-
-    private var newsDummyData = listOf(
-        News(
-            1,
-            "Tokyo",
-            "",
-            "Konnichiwa, sushi, naruto",
-            "https://media-cdn.tripadvisor.com/media/photo-s/15/e6/9b/47/tokyo-nightlife.jpg",
-            1,
-            1,
-            "",
-            ""
-        ),
-        News(
-            2,
-            "Los Angeles",
-            "",
-            "Home of Hollywood and great beaches",
-            "https://media-cdn.tripadvisor.com/media/photo-s/15/e6/9b/47/tokyo-nightlife.jpg",
-            1,
-            1,
-            "",
-            ""
-        ),
-        News(
-            3,
-            "Mar del Plata",
-            "",
-            "Home of great churros",
-            "https://media-cdn.tripadvisor.com/media/photo-s/15/e6/9b/47/tokyo-nightlife.jpg",
-            1,
-            1,
-            "",
-            ""
-        )
-    )
 
     private fun initRecyclerView(data: List<News>) {
         binding.rvNews.layoutManager = LinearLayoutManager(binding.root.context)
@@ -111,9 +76,9 @@ class NewsFragment: Fragment() {
     private fun showProgressBarCharging() {
         viewModel.observerNewsList().observe(viewLifecycleOwner) {
             if (viewModel.observerNewsList() == null) {
-                binding.rvNews.showProgressBar()
+                binding.pbNews.showProgressBar()
             } else {
-                binding.rvNews.hideProgressBar()
+                binding.pbNews.hideProgressBar()
             }
         }
     }
