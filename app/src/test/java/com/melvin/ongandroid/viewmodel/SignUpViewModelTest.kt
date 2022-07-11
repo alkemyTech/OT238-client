@@ -198,7 +198,7 @@ class SignUpViewModelTest {
                 repository.registerUser(newUser)
             } returns authMethodsResponse()
             signUpViewModel.registerUser(newUser)
-            Assert.assertEquals(true, signUpViewModel.status.value)
+            Assert.assertEquals(statusSuccess(), signUpViewModel.status.value)
         }
 
     @Test
