@@ -177,10 +177,10 @@ document.getElementById(id).style.display = 'none';
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
   <header class="mdl-layout__header">
     <div class="mdl-layout__header-row">
-      <span class="mdl-layout-title">Lint Report: 41 warnings</span>
+      <span class="mdl-layout-title">Lint Report: 40 warnings</span>
       <div class="mdl-layout-spacer"></div>
       <nav class="mdl-navigation mdl-layout--large-screen-only">
-Check performed at Mon Jul 11 21:32:31 UTC 2022      </nav>
+Check performed at Mon Jul 11 22:24:57 UTC 2022      </nav>
     </div>
   </header>
   <div class="mdl-layout__drawer">
@@ -194,7 +194,6 @@ Check performed at Mon Jul 11 21:32:31 UTC 2022      </nav>
       <a class="mdl-navigation__link" href="#IconLocation"><i class="material-icons warning-icon">warning</i>Image defined in density-independent drawable folder (1)</a>
       <a class="mdl-navigation__link" href="#IconDensities"><i class="material-icons warning-icon">warning</i>Icon densities validation (3)</a>
       <a class="mdl-navigation__link" href="#ContentDescription"><i class="material-icons warning-icon">warning</i>Image without <code>contentDescription</code> (3)</a>
-      <a class="mdl-navigation__link" href="#SetTextI18n"><i class="material-icons warning-icon">warning</i>TextView Internationalization (1)</a>
       <a class="mdl-navigation__link" href="#HardcodedText"><i class="material-icons warning-icon">warning</i>Hardcoded text (3)</a>
     </nav>
   </div>
@@ -241,9 +240,6 @@ Check performed at Mon Jul 11 21:32:31 UTC 2022      </nav>
 <a href="#ContentDescription">ContentDescription</a>: Image without <code>contentDescription</code></td></tr>
 <tr><td class="countColumn"></td><td class="categoryColumn"><a href="#Internationalization">Internationalization</a>
 </td></tr>
-<tr>
-<td class="countColumn">1</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
-<a href="#SetTextI18n">SetTextI18n</a>: TextView Internationalization</td></tr>
 <tr>
 <td class="countColumn">3</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
 <a href="#HardcodedText">HardcodedText</a>: Hardcoded text</td></tr>
@@ -612,8 +608,8 @@ Dismiss</button>            </div>
 <span class="lineno"> 55 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"dialog_news_error_positive_btn"</span>>Reintentar<span class="tag">&lt;/string></span>
 <span class="caretline"><span class="lineno"> 56 </span>  <span class="tag">&lt;string</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"more_testimonials"</span></span>>Ver más testimonios<span class="tag">&lt;/string></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
 <span class="lineno"> 57 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"dialog_new_error_testimonials"</span>>Ha ocurrido un error obteniendo la información<span class="tag">&lt;/string></span>
-<span class="lineno"> 58 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"testimonials"</span>>Testimonios<span class="tag">&lt;/string></span>
-<span class="lineno"> 59 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"linkedin_icon"</span>>linkedin icon<span class="tag">&lt;/string></span></pre>
+<span class="lineno"> 58 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"see_more"</span>>Ver más<span class="tag">&lt;/string></span>
+<span class="lineno"> 59 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"testimonials"</span>>Testimonios<span class="tag">&lt;/string></span></pre>
 
 </div>
 </div>
@@ -805,56 +801,7 @@ Dismiss</button>            </div>
             </div>
           </section>
 <a name="Internationalization"></a>
-<a name="SetTextI18n"></a>
-<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="SetTextI18nCard" style="display: block;">
-            <div class="mdl-card mdl-cell mdl-cell--12-col">
-  <div class="mdl-card__title">
-    <h2 class="mdl-card__title-text">TextView Internationalization</h2>
-  </div>
-              <div class="mdl-card__supporting-text">
-<div class="issue">
-<div class="warningslist">
-<span class="location"><a href="../../src/main/java/com/melvin/ongandroid/view/viewHolders/TestimonialsViewHolder.kt">../../src/main/java/com/melvin/ongandroid/view/viewHolders/TestimonialsViewHolder.kt</a>:38</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
-<span class="lineno"> 35 </span>   <span class="keyword">fun</span> drawArrow(){
-<span class="lineno"> 36 </span>       homeBinding = TestimonialsViewPagerItemHomeBinding.bind(view)
-<span class="lineno"> 37 </span>       homeBinding.ivTestimonialHome.setImageResource(R.drawable.ic_baseline_arrow_forward_24)
-<span class="caretline"><span class="lineno"> 38 </span>       homeBinding.tvTestimonialTitleHome.text = <span class="string">"</span><span class="warning"><span class="string">See More</span></span><span class="string">"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 39 </span>       homeBinding.tvTestimonialDescriptionHome.isVisible = <span class="keyword">false</span>
-<span class="lineno"> 40 </span>       homeBinding.cvTestimonials.isClickable = <span class="keyword">true</span>
-<span class="lineno"> 41 </span>       homeBinding.cvTestimonials.setOnClickListener {
-</pre>
-
-</div>
-<div class="metadata"><div class="explanation" id="explanationSetTextI18n" style="display: none;">
-When calling <code>TextView#setText</code><br/>
-* Never call <code>Number#toString()</code> to format numbers; it will not handle fraction separators and locale-specific digits properly. Consider using <code>String#format</code> with proper format specifications (<code>%d</code> or <code>%f</code>) instead.<br/>
-* Do not pass a string literal (e.g. "Hello") to display text. Hardcoded text can not be properly translated to other languages. Consider using Android resource strings instead.<br/>
-* Do not build messages by concatenating text chunks. Such messages can not be properly translated.<br/><div class="moreinfo">More info: <a href="https://developer.android.com/guide/topics/resources/localization.html">https://developer.android.com/guide/topics/resources/localization.html</a>
-</div>To suppress this error, use the issue id "SetTextI18n" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
-<br/></div>
-</div>
-</div>
-<div class="chips">
-<span class="mdl-chip">
-    <span class="mdl-chip__text">SetTextI18n</span>
-</span>
-<span class="mdl-chip">
-    <span class="mdl-chip__text">Internationalization</span>
-</span>
-<span class="mdl-chip">
-    <span class="mdl-chip__text">Warning</span>
-</span>
-<span class="mdl-chip">
-    <span class="mdl-chip__text">Priority 6/10</span>
-</span>
-</div>
-              </div>
-              <div class="mdl-card__actions mdl-card--border">
-<button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="explanationSetTextI18nLink" onclick="reveal('explanationSetTextI18n');">
-Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="SetTextI18nCardLink" onclick="hideid('SetTextI18nCard');">
-Dismiss</button>            </div>
-            </div>
-          </section><a name="HardcodedText"></a>
+<a name="HardcodedText"></a>
 <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="HardcodedTextCard" style="display: block;">
             <div class="mdl-card mdl-cell mdl-cell--12-col">
   <div class="mdl-card__title">
