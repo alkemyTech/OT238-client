@@ -32,3 +32,11 @@ jobs:
       run: ./gradlew assemble
     - name: Run Lint
       run: ./gradlew lint
+    - name: Push lint report  
+    - uses: EndBug/add-and-commit@v9
+      with:
+          committer_name: GitHub Actions
+          committer_email: 41898282+github-actions[bot]@users.noreply.github.com
+          message: 'Add Lint report'
+          add: '/home/runner/work/OT238-client/OT238-client/app/build/reports/lint-results-debug.html --force'
+          cwd: '.'    
