@@ -36,7 +36,6 @@ class NewsFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
         (activity as AppCompatActivity).supportActionBar?.title =
             resources.getString(R.string.menu_news)
-        //initRecyclerView(newsDummyData)
         setUpNews()
         showProgressBarCharging()
     }
