@@ -80,6 +80,7 @@ class HomeActivity : AppCompatActivity() {
         contact.setOnMenuItemClickListener {
             Toast.makeText(this, resources.getString(R.string.menu_contact_us), Toast.LENGTH_SHORT)
                 .show()
+            navController.navigate(R.id.action_nav_home_to_contactFragment)
             true
         }
 
