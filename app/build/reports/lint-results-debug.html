@@ -177,18 +177,17 @@ document.getElementById(id).style.display = 'none';
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
   <header class="mdl-layout__header">
     <div class="mdl-layout__header-row">
-      <span class="mdl-layout-title">Lint Report: 30 warnings</span>
+      <span class="mdl-layout-title">Lint Report: 27 warnings</span>
       <div class="mdl-layout-spacer"></div>
       <nav class="mdl-navigation mdl-layout--large-screen-only">
-Check performed at Mon Jul 11 20:26:43 ART 2022      </nav>
+Check performed at Tue Jul 12 17:48:39 ART 2022      </nav>
     </div>
   </header>
   <div class="mdl-layout__drawer">
     <span class="mdl-layout-title">Issue Types</span>
     <nav class="mdl-navigation">
       <a class="mdl-navigation__link" href="#overview"><i class="material-icons">dashboard</i>Overview</a>
-      <a class="mdl-navigation__link" href="#CustomSplashScreen"><i class="material-icons warning-icon">warning</i>Application-defined Launch Screen (1)</a>
-      <a class="mdl-navigation__link" href="#UnusedResources"><i class="material-icons warning-icon">warning</i>Unused resources (26)</a>
+      <a class="mdl-navigation__link" href="#UnusedResources"><i class="material-icons warning-icon">warning</i>Unused resources (24)</a>
       <a class="mdl-navigation__link" href="#IconDensities"><i class="material-icons warning-icon">warning</i>Icon densities validation (3)</a>
     </nav>
   </div>
@@ -202,15 +201,10 @@ Check performed at Mon Jul 11 20:26:43 ART 2022      </nav>
   </div>
               <div class="mdl-card__supporting-text">
 <table class="overview">
-<tr><td class="countColumn"></td><td class="categoryColumn"><a href="#Correctness">Correctness</a>
-</td></tr>
-<tr>
-<td class="countColumn">1</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
-<a href="#CustomSplashScreen">CustomSplashScreen</a>: Application-defined Launch Screen</td></tr>
 <tr><td class="countColumn"></td><td class="categoryColumn"><a href="#Performance">Performance</a>
 </td></tr>
 <tr>
-<td class="countColumn">26</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
+<td class="countColumn">24</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
 <a href="#UnusedResources">UnusedResources</a>: Unused resources</td></tr>
 <tr><td class="countColumn"></td><td class="categoryColumn"><a href="#Usability:Icons">Usability:Icons</a>
 </td></tr>
@@ -222,53 +216,6 @@ Check performed at Mon Jul 11 20:26:43 ART 2022      </nav>
 <br/>              </div>
               <div class="mdl-card__actions mdl-card--border">
 <button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="OverviewCardLink" onclick="hideid('OverviewCard');">
-Dismiss</button>            </div>
-            </div>
-          </section>
-<a name="Correctness"></a>
-<a name="CustomSplashScreen"></a>
-<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="CustomSplashScreenCard" style="display: block;">
-            <div class="mdl-card mdl-cell mdl-cell--12-col">
-  <div class="mdl-card__title">
-    <h2 class="mdl-card__title-text">Application-defined Launch Screen</h2>
-  </div>
-              <div class="mdl-card__supporting-text">
-<div class="issue">
-<div class="warningslist">
-<span class="location"><a href="../../src/main/java/com/melvin/ongandroid/view/activity/SplashActivity.kt">../../src/main/java/com/melvin/ongandroid/view/activity/SplashActivity.kt</a>:17</span>: <span class="message">The application should not provide its own launch screen</span><br /><pre class="errorlines">
-<span class="lineno"> 14 </span>
-<span class="lineno"> 15 </span>
-<span class="lineno"> 16 </span><span class="annotation">@AndroidEntryPoint</span>
-<span class="caretline"><span class="lineno"> 17 </span><span class="keyword">class</span> <span class="warning">SplashActivity</span> : AppCompatActivity(){&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 18 </span>    <span class="annotation">@Inject</span> lateinit <span class="keyword">var</span> appData : AppData
-<span class="lineno"> 19 </span>
-<span class="lineno"> 20 </span>    override <span class="keyword">fun</span> onCreate(savedInstanceState: Bundle?) {
-</pre>
-
-</div>
-<div class="metadata"><div class="explanation" id="explanationCustomSplashScreen" style="display: none;">
-Starting in Android 12 (API 31+), the application's Launch Screen is provided by the system and the application should not create its own, otherwise the user will see two splashscreen. Please check the <code>SplashScreen</code> class to check how the Splash Screen can be controlled and customized.<br/>To suppress this error, use the issue id "CustomSplashScreen" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
-<br/></div>
-</div>
-</div>
-<div class="chips">
-<span class="mdl-chip">
-    <span class="mdl-chip__text">CustomSplashScreen</span>
-</span>
-<span class="mdl-chip">
-    <span class="mdl-chip__text">Correctness</span>
-</span>
-<span class="mdl-chip">
-    <span class="mdl-chip__text">Warning</span>
-</span>
-<span class="mdl-chip">
-    <span class="mdl-chip__text">Priority 5/10</span>
-</span>
-</div>
-              </div>
-              <div class="mdl-card__actions mdl-card--border">
-<button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="explanationCustomSplashScreenLink" onclick="reveal('explanationCustomSplashScreen');">
-Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="CustomSplashScreenCardLink" onclick="hideid('CustomSplashScreenCard');">
 Dismiss</button>            </div>
             </div>
           </section>
@@ -326,7 +273,7 @@ Dismiss</button>            </div>
 <span class="lineno"> 4 </span>    <span class="tag">&lt;foreground</span><span class="attribute"> </span><span class="prefix">android:</span><span class="attribute">drawable</span>=<span class="value">"@drawable/ic_launcher_foreground"</span> />
 <span class="lineno"> 5 </span><span class="tag">&lt;/adaptive-icon></span></pre>
 
-<button class="mdl-button mdl-js-button mdl-button--primary" id="UnusedResourcesDivLink" onclick="reveal('UnusedResourcesDiv');" />+ 21 More Occurrences...</button>
+<button class="mdl-button mdl-js-button mdl-button--primary" id="UnusedResourcesDivLink" onclick="reveal('UnusedResourcesDiv');" />+ 19 More Occurrences...</button>
 <div id="UnusedResourcesDiv" style="display: none">
 <span class="location"><a href="../../src/main/res/drawable/ic_launcher_background.xml">../../src/main/res/drawable/ic_launcher_background.xml</a>:2</span>: <span class="message">The resource <code>R.drawable.ic_launcher_background</code> appears to be unused</span><br /><pre class="errorlines">
 <span class="lineno">   1 </span><span class="prologue">&lt;?xml version="1.0" encoding="utf-8"?></span>
@@ -386,7 +333,7 @@ Dismiss</button>            </div>
 <span class="caretline"><span class="lineno">  6 </span>    <span class="tag">&lt;string</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"action_sign_in"</span></span>>Sign in or register<span class="tag">&lt;/string></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
 <span class="lineno">  7 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"action_sign_in_short"</span>>Ingresar<span class="tag">&lt;/string></span>
 <span class="lineno">  8 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"action_sign_up_short"</span>>Crear cuenta<span class="tag">&lt;/string></span>
-<span class="lineno">  9 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"do_you_have_an_account"</span>>No tienes cuenta?<span class="tag">&lt;/string></span>
+<span class="lineno">  9 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"do_you_have_an_account"</span>>¿No tienes cuenta?<span class="tag">&lt;/string></span>
 </pre>
 
 <span class="location"><a href="../../src/main/res/values/strings.xml">../../src/main/res/values/strings.xml</a>:15</span>: <span class="message">The resource <code>R.string.img_description</code> appears to be unused</span><br /><pre class="errorlines">
@@ -395,7 +342,7 @@ Dismiss</button>            </div>
 <span class="lineno"> 14 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"register"</span>>Registrarse<span class="tag">&lt;/string></span>
 <span class="caretline"><span class="lineno"> 15 </span>    <span class="tag">&lt;string</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"img_description"</span></span>>logo de somos mas<span class="tag">&lt;/string></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
 <span class="lineno"> 16 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"hello_blank_fragment"</span>>Hello blank fragment<span class="tag">&lt;/string></span>
-<span class="lineno"> 17 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"success_dialog_title"</span>>Felicitaciones!<span class="tag">&lt;/string></span>
+<span class="lineno"> 17 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"success_dialog_title"</span>>¡Felicitaciones!<span class="tag">&lt;/string></span>
 <span class="lineno"> 18 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"success_supporting_text"</span>>Usuario registrado exitosamente.<span class="tag">&lt;/string></span>
 </pre>
 
@@ -404,13 +351,13 @@ Dismiss</button>            </div>
 <span class="lineno"> 14 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"register"</span>>Registrarse<span class="tag">&lt;/string></span>
 <span class="lineno"> 15 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"img_description"</span>>logo de somos mas<span class="tag">&lt;/string></span>
 <span class="caretline"><span class="lineno"> 16 </span>    <span class="tag">&lt;string</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"hello_blank_fragment"</span></span>>Hello blank fragment<span class="tag">&lt;/string></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 17 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"success_dialog_title"</span>>Felicitaciones!<span class="tag">&lt;/string></span>
+<span class="lineno"> 17 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"success_dialog_title"</span>>¡Felicitaciones!<span class="tag">&lt;/string></span>
 <span class="lineno"> 18 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"success_supporting_text"</span>>Usuario registrado exitosamente.<span class="tag">&lt;/string></span>
 <span class="lineno"> 19 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"success_login"</span>>Sesion iniciada<span class="tag">&lt;/string></span>
 </pre>
 
 <span class="location"><a href="../../src/main/res/values/strings.xml">../../src/main/res/values/strings.xml</a>:24</span>: <span class="message">The resource <code>R.string.empty_field_msg</code> appears to be unused</span><br /><pre class="errorlines">
-<span class="lineno"> 21 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"failure_dialog_title"</span>>Ocurrió un problema!<span class="tag">&lt;/string></span>
+<span class="lineno"> 21 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"failure_dialog_title"</span>>¡Ocurrió un problema!<span class="tag">&lt;/string></span>
 <span class="lineno"> 22 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"failure_supporting_text"</span>>La llamada al endpoint falló.<span class="tag">&lt;/string></span>
 <span class="lineno"> 23 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"close"</span>>Cerrar<span class="tag">&lt;/string></span>
 <span class="caretline"><span class="lineno"> 24 </span>  <span class="tag">&lt;string</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"empty_field_msg"</span></span>>Este campo debe ser completado.<span class="tag">&lt;/string></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
@@ -459,64 +406,44 @@ Dismiss</button>            </div>
 <span class="lineno"> 33 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"menu_activities"</span>>Actividades<span class="tag">&lt;/string></span>
 </pre>
 
-<span class="location"><a href="../../src/main/res/values/strings.xml">../../src/main/res/values/strings.xml</a>:38</span>: <span class="message">The resource <code>R.string.dummy_string</code> appears to be unused</span><br /><pre class="errorlines">
-<span class="lineno"> 35 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"menu_about_us"</span>>Nosotros<span class="tag">&lt;/string></span>
-<span class="lineno"> 36 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"menu_contact_us"</span>>Contacto<span class="tag">&lt;/string></span>
-<span class="lineno"> 37 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"set_error"</span>>ha existido un error<span class="tag">&lt;/string></span>
-<span class="caretline"><span class="lineno"> 38 </span>  <span class="tag">&lt;string</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"dummy_string"</span></span>>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
-<span class="lineno"> 39 </span>      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-<span class="lineno"> 40 </span>      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-<span class="lineno"> 41 </span>      Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<span class="tag">&lt;/string></span>
+<span class="location"><a href="../../src/main/res/values/strings.xml">../../src/main/res/values/strings.xml</a>:40</span>: <span class="message">The resource <code>R.string.dummy_name</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno"> 37 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"set_error"</span>>¡Ocurrio un error!<span class="tag">&lt;/string></span>
+<span class="lineno"> 38 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"dummy_short_string"</span>>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+<span class="lineno"> 39 </span>      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<span class="tag">&lt;/string></span>
+<span class="caretline"><span class="lineno"> 40 </span>  <span class="tag">&lt;string</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"dummy_name"</span></span>>John Doe<span class="tag">&lt;/string></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 41 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"home_title"</span>>Bienvenidos<span class="tag">&lt;/string></span>
+<span class="lineno"> 42 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"home_iv_description"</span>>Imágenes de la ONG<span class="tag">&lt;/string></span>
+<span class="lineno"> 43 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"textError"</span>>Error al cargar los slides <span class="tag">&lt;/string></span>
 </pre>
 
-<span class="location"><a href="../../src/main/res/values/strings.xml">../../src/main/res/values/strings.xml</a>:44</span>: <span class="message">The resource <code>R.string.dummy_name</code> appears to be unused</span><br /><pre class="errorlines">
-<span class="lineno"> 41 </span>      Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<span class="tag">&lt;/string></span>
-<span class="lineno"> 42 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"dummy_short_string"</span>>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-<span class="lineno"> 43 </span>      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<span class="tag">&lt;/string></span>
-<span class="caretline"><span class="lineno"> 44 </span>  <span class="tag">&lt;string</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"dummy_name"</span></span>>John Doe<span class="tag">&lt;/string></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 45 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"home_title"</span>>Bienvenidos<span class="tag">&lt;/string></span>
-<span class="lineno"> 46 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"home_iv_description"</span>>Imágenes de la ONG<span class="tag">&lt;/string></span>
-<span class="lineno"> 47 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"textError"</span>>Error al cargar los slides <span class="tag">&lt;/string></span>
+<span class="location"><a href="../../src/main/res/values/strings.xml">../../src/main/res/values/strings.xml</a>:42</span>: <span class="message">The resource <code>R.string.home_iv_description</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno"> 39 </span>      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<span class="tag">&lt;/string></span>
+<span class="lineno"> 40 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"dummy_name"</span>>John Doe<span class="tag">&lt;/string></span>
+<span class="lineno"> 41 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"home_title"</span>>Bienvenidos<span class="tag">&lt;/string></span>
+<span class="caretline"><span class="lineno"> 42 </span>  <span class="tag">&lt;string</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"home_iv_description"</span></span>>Imágenes de la ONG<span class="tag">&lt;/string></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 43 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"textError"</span>>Error al cargar los slides <span class="tag">&lt;/string></span>
+<span class="lineno"> 44 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"txtErrorActivites"</span>>Ha ocurrido un error obteniendo la info <span class="tag">&lt;/string></span>
+<span class="lineno"> 45 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"actionText"</span>>RETRY<span class="tag">&lt;/string></span>
 </pre>
 
-<span class="location"><a href="../../src/main/res/values/strings.xml">../../src/main/res/values/strings.xml</a>:46</span>: <span class="message">The resource <code>R.string.home_iv_description</code> appears to be unused</span><br /><pre class="errorlines">
-<span class="lineno"> 43 </span>      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<span class="tag">&lt;/string></span>
-<span class="lineno"> 44 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"dummy_name"</span>>John Doe<span class="tag">&lt;/string></span>
-<span class="lineno"> 45 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"home_title"</span>>Bienvenidos<span class="tag">&lt;/string></span>
-<span class="caretline"><span class="lineno"> 46 </span>  <span class="tag">&lt;string</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"home_iv_description"</span></span>>Imágenes de la ONG<span class="tag">&lt;/string></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 47 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"textError"</span>>Error al cargar los slides <span class="tag">&lt;/string></span>
-<span class="lineno"> 48 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"txtErrorActivites"</span>>Ha ocurrido un error obteniendo la info <span class="tag">&lt;/string></span>
-<span class="lineno"> 49 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"actionText"</span>>RETRY<span class="tag">&lt;/string></span>
+<span class="location"><a href="../../src/main/res/values/strings.xml">../../src/main/res/values/strings.xml</a>:44</span>: <span class="message">The resource <code>R.string.txtErrorActivites</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno"> 41 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"home_title"</span>>Bienvenidos<span class="tag">&lt;/string></span>
+<span class="lineno"> 42 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"home_iv_description"</span>>Imágenes de la ONG<span class="tag">&lt;/string></span>
+<span class="lineno"> 43 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"textError"</span>>Error al cargar los slides <span class="tag">&lt;/string></span>
+<span class="caretline"><span class="lineno"> 44 </span>    <span class="tag">&lt;string</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"txtErrorActivites"</span></span>>Ha ocurrido un error obteniendo la info <span class="tag">&lt;/string></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 45 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"actionText"</span>>RETRY<span class="tag">&lt;/string></span>
+<span class="lineno"> 46 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"ultimas_novedades"</span>>Ultimas Novedades<span class="tag">&lt;/string></span>
+<span class="lineno"> 47 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"dialog_news_error_title"</span>>Ultimas Novedades<span class="tag">&lt;/string></span>
 </pre>
 
-<span class="location"><a href="../../src/main/res/values/strings.xml">../../src/main/res/values/strings.xml</a>:48</span>: <span class="message">The resource <code>R.string.txtErrorActivites</code> appears to be unused</span><br /><pre class="errorlines">
-<span class="lineno"> 45 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"home_title"</span>>Bienvenidos<span class="tag">&lt;/string></span>
-<span class="lineno"> 46 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"home_iv_description"</span>>Imágenes de la ONG<span class="tag">&lt;/string></span>
-<span class="lineno"> 47 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"textError"</span>>Error al cargar los slides <span class="tag">&lt;/string></span>
-<span class="caretline"><span class="lineno"> 48 </span>    <span class="tag">&lt;string</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"txtErrorActivites"</span></span>>Ha ocurrido un error obteniendo la info <span class="tag">&lt;/string></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 49 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"actionText"</span>>RETRY<span class="tag">&lt;/string></span>
-<span class="lineno"> 50 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"ultimas_novedades"</span>>Ultimas Novedades<span class="tag">&lt;/string></span>
-<span class="lineno"> 51 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"dialog_news_error_title"</span>>Ultimas Novedades<span class="tag">&lt;/string></span>
-</pre>
-
-<span class="location"><a href="../../src/main/res/values/strings.xml">../../src/main/res/values/strings.xml</a>:54</span>: <span class="message">The resource <code>R.string.dialog_news_error_negative_btn</code> appears to be unused</span><br /><pre class="errorlines">
-<span class="lineno"> 51 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"dialog_news_error_title"</span>>Ultimas Novedades<span class="tag">&lt;/string></span>
-<span class="lineno"> 52 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"lastest_testimonials"</span>>Ultimos Testimonios<span class="tag">&lt;/string></span>
-<span class="lineno"> 53 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"dialog_news_error_message"</span>>Ha ocurrido un error obteniendo la información<span class="tag">&lt;/string></span>
-<span class="caretline"><span class="lineno"> 54 </span>  <span class="tag">&lt;string</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"dialog_news_error_negative_btn"</span></span>>Cancelar<span class="tag">&lt;/string></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 55 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"dialog_news_error_positive_btn"</span>>Reintentar<span class="tag">&lt;/string></span>
-<span class="lineno"> 56 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"more_testimonials"</span>>Ver más testimonios<span class="tag">&lt;/string></span>
-<span class="lineno"> 57 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"dialog_new_error_testimonials"</span>>Ha ocurrido un error obteniendo la información<span class="tag">&lt;/string></span>
-</pre>
-
-<span class="location"><a href="../../src/main/res/values/strings.xml">../../src/main/res/values/strings.xml</a>:56</span>: <span class="message">The resource <code>R.string.more_testimonials</code> appears to be unused</span><br /><pre class="errorlines">
-<span class="lineno"> 53 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"dialog_news_error_message"</span>>Ha ocurrido un error obteniendo la información<span class="tag">&lt;/string></span>
-<span class="lineno"> 54 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"dialog_news_error_negative_btn"</span>>Cancelar<span class="tag">&lt;/string></span>
-<span class="lineno"> 55 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"dialog_news_error_positive_btn"</span>>Reintentar<span class="tag">&lt;/string></span>
-<span class="caretline"><span class="lineno"> 56 </span>  <span class="tag">&lt;string</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"more_testimonials"</span></span>>Ver más testimonios<span class="tag">&lt;/string></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 57 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"dialog_new_error_testimonials"</span>>Ha ocurrido un error obteniendo la información<span class="tag">&lt;/string></span>
-<span class="lineno"> 58 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"see_more"</span>>Ver más<span class="tag">&lt;/string></span>
-<span class="lineno"> 59 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"testimonials"</span>>Testimonios<span class="tag">&lt;/string></span>
+<span class="location"><a href="../../src/main/res/values/strings.xml">../../src/main/res/values/strings.xml</a>:50</span>: <span class="message">The resource <code>R.string.dialog_news_error_negative_btn</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno"> 47 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"dialog_news_error_title"</span>>Ultimas Novedades<span class="tag">&lt;/string></span>
+<span class="lineno"> 48 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"lastest_testimonials"</span>>Ultimos Testimonios<span class="tag">&lt;/string></span>
+<span class="lineno"> 49 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"dialog_news_error_message"</span>>Ha ocurrido un error obteniendo la información<span class="tag">&lt;/string></span>
+<span class="caretline"><span class="lineno"> 50 </span>  <span class="tag">&lt;string</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"dialog_news_error_negative_btn"</span></span>>Cancelar<span class="tag">&lt;/string></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 51 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"dialog_news_error_positive_btn"</span>>Reintentar<span class="tag">&lt;/string></span>
+<span class="lineno"> 52 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"dialog_new_error_testimonials"</span>>Ha ocurrido un error obteniendo la información<span class="tag">&lt;/string></span>
+<span class="lineno"> 53 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"see_more"</span>>Ver más<span class="tag">&lt;/string></span>
 </pre>
 
 </div>

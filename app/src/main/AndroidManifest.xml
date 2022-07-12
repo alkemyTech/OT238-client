@@ -17,7 +17,7 @@
         android:fullBackupContent="true"
         tools:ignore="DataExtractionRules">
          <activity
-            android:name=".view.activity.SplashActivity"
+            android:name=".view.activity.StartActivity"
             android:theme="@style/SplashTheme"
             android:exported="true">
             <intent-filter>
