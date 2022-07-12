@@ -63,8 +63,8 @@
         <argument
             android:name="member"
             app:argType="com.melvin.ongandroid.model.entities.us.Member" />
-
     </fragment>
+
     <fragment
         android:id="@+id/contactFragment"
         android:name="com.melvin.ongandroid.view.fragment.ContactFragment"
