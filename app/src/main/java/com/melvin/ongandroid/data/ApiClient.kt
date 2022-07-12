@@ -41,7 +41,7 @@ class ApiClient @Inject constructor(
     suspend fun getMembers(): MembersResponse {
         return api.getMembers()
     }
-
+    
     suspend fun createContact(contact: Contact): AuthMethodsResponse {
         return api.postNewContact(contact)
     }
