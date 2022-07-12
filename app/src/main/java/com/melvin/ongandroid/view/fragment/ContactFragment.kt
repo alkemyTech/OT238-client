@@ -56,6 +56,13 @@ class ContactFragment : Fragment() {
                 contactViewModel.createContact(newContact)
                 drawStatusDialog()
             }
+            contactViewModel.createContactCharging.observe(viewLifecycleOwner) { charging ->
+                if (charging) {
+                    pbChargingContact.visibility = View.VISIBLE
+                } else {
+                    pbChargingContact.visibility = View.GONE
+                }
+            }
         }
     }
 
