@@ -23,11 +23,15 @@ class LogInViewModel @Inject constructor(
     val status: LiveData<ApiStatus> = _status
     val logInUserCharging = MutableLiveData(false)
 
-    fun validateEmail(Email: String): Boolean {
-        return Email.isNotEmpty() && PatternsCompat.EMAIL_ADDRESS.matcher(Email).matches()
+    fun validateEmail(Email: String?): Boolean {
+        return if (Email != null) {
+            Email.isNotEmpty() && PatternsCompat.EMAIL_ADDRESS.matcher(Email).matches()
+        } else{
+            false
+        }
     }
 
-    fun validatePassword(password: String): Boolean {
+    fun validatePassword(password: String?): Boolean {
         val passwordRegex = Pattern.compile(
             "^" +
                     "(?=.*[0-9])" +         //at least 1 digit
@@ -38,7 +42,11 @@ class LogInViewModel @Inject constructor(
                     ".{4,}" +               //at least 4 characters
                     "$"
         )
-        return password.isNotEmpty() && passwordRegex.matcher(password).matches()
+        return if (password != null) {
+            (password.isNotEmpty() && passwordRegex.matcher(password).matches())
+        }else{
+            false
+        }
     }
 
     fun logInUser(logIn: LoginRequest) {

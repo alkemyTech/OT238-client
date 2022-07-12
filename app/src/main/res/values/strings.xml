@@ -63,5 +63,13 @@
     <string name="us_description">Desde 1997 en Somos MAs trabajamos con los chicos y chicas, mamas y papas, abuelos y vecinos del barrio Da Cava generando procesos de crecimiento y de insercion social. Uniendo las manos de todas las familias, las que vivien en el barrio y las que viven fuera de el, es que podemos pensar, crear y garantizar estos procesos.</string>
     <string name="us_name_title">NameTitle</string>
     <string name="member_detail_title">Detalle</string>
+    <string name="contact_name">Ingrese su nombre y apellido</string>
+    <string name="contact_phone_number">Ingrese su número telefónico</string>
+    <string name="contact_email">Ingrese su Email</string>
+    <string name="contact_message">Mensaje o duda</string>
+    <string name="contact_us">Contáctenos</string>
+    <string name="send_button">Enviar</string>
+    <string name="success_contact_creation">El contacto fue creado con éxito</string>
+    <string name="successful_operation">Operación exitosa</string>
 
 </resources>
