@@ -177,10 +177,10 @@ document.getElementById(id).style.display = 'none';
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
   <header class="mdl-layout__header">
     <div class="mdl-layout__header-row">
-      <span class="mdl-layout-title">Lint Report: 41 warnings</span>
+      <span class="mdl-layout-title">Lint Report: 42 warnings</span>
       <div class="mdl-layout-spacer"></div>
       <nav class="mdl-navigation mdl-layout--large-screen-only">
-Check performed at Tue Jul 12 20:39:52 UTC 2022      </nav>
+Check performed at Tue Jul 12 21:11:12 UTC 2022      </nav>
     </div>
   </header>
   <div class="mdl-layout__drawer">
@@ -195,7 +195,7 @@ Check performed at Tue Jul 12 20:39:52 UTC 2022      </nav>
       <a class="mdl-navigation__link" href="#IconDensities"><i class="material-icons warning-icon">warning</i>Icon densities validation (3)</a>
       <a class="mdl-navigation__link" href="#ContentDescription"><i class="material-icons warning-icon">warning</i>Image without <code>contentDescription</code> (3)</a>
       <a class="mdl-navigation__link" href="#SetTextI18n"><i class="material-icons warning-icon">warning</i>TextView Internationalization (1)</a>
-      <a class="mdl-navigation__link" href="#HardcodedText"><i class="material-icons warning-icon">warning</i>Hardcoded text (3)</a>
+      <a class="mdl-navigation__link" href="#HardcodedText"><i class="material-icons warning-icon">warning</i>Hardcoded text (4)</a>
     </nav>
   </div>
   <main class="mdl-layout__content">
@@ -245,7 +245,7 @@ Check performed at Tue Jul 12 20:39:52 UTC 2022      </nav>
 <td class="countColumn">1</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
 <a href="#SetTextI18n">SetTextI18n</a>: TextView Internationalization</td></tr>
 <tr>
-<td class="countColumn">3</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
+<td class="countColumn">4</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
 <a href="#HardcodedText">HardcodedText</a>: Hardcoded text</td></tr>
 <tr><td></td><td class="categoryColumn"><a href="#MissingIssues">Disabled Checks (35)</a>
 </td></tr></table>
@@ -863,6 +863,15 @@ Dismiss</button>            </div>
               <div class="mdl-card__supporting-text">
 <div class="issue">
 <div class="warningslist">
+<span class="location"><a href="../../src/main/res/layout/fragment_contact.xml">../../src/main/res/layout/fragment_contact.xml</a>:142</span>: <span class="message">Hardcoded string "Enviar falla", should use <code>@string</code> resource</span><br /><pre class="errorlines">
+<span class="lineno"> 139 </span>                <span class="prefix">android:</span><span class="attribute">layout_marginTop</span>=<span class="value">"10dp"</span>
+<span class="lineno"> 140 </span>                <span class="prefix">android:</span><span class="attribute">layout_gravity</span>=<span class="value">"center"</span>
+<span class="lineno"> 141 </span>                <span class="prefix">android:</span><span class="attribute">enabled</span>=<span class="value">"true"</span>
+<span class="caretline"><span class="lineno"> 142 </span>                <span class="warning"><span class="prefix">android:</span><span class="attribute">text</span>=<span class="value">"Enviar falla"</span></span> />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 143 </span>
+<span class="lineno"> 144 </span>        <span class="tag">&lt;/LinearLayout></span>
+</pre>
+
 <span class="location"><a href="../../src/main/res/layout/fragment_news_item.xml">../../src/main/res/layout/fragment_news_item.xml</a>:41</span>: <span class="message">Hardcoded string "Image", should use <code>@string</code> resource</span><br /><pre class="errorlines">
 <span class="lineno"> 38 </span>            <span class="prefix">app:</span><span class="attribute">layout_constraintRight_toRightOf</span>=<span class="value">"parent"</span>
 <span class="lineno"> 39 </span>            <span class="prefix">app:</span><span class="attribute">layout_constraintBottom_toTopOf</span>=<span class="value">"@id/tvNewsItemDescription"</span>
