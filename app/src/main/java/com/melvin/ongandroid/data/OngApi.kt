@@ -1,6 +1,7 @@
 package com.melvin.ongandroid.data
 
 import com.melvin.ongandroid.model.entities.*
+import com.melvin.ongandroid.model.entities.contact.Contact
 import com.melvin.ongandroid.model.entities.news.NewsResponse
 import com.melvin.ongandroid.model.entities.whatWeDo.WhatWeDoResponse
 import com.melvin.ongandroid.model.entities.slides.SlidesResponse
@@ -36,4 +37,10 @@ interface OngApi {
 
     @GET("members")
     suspend fun getMembers(): MembersResponse
+
+    @POST("contacts")
+    suspend fun postNewContact(
+        @Body contact: Contact
+    ):AuthMethodsResponse
+
 }

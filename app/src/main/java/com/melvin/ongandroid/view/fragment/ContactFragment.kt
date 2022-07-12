@@ -1,6 +1,5 @@
 package com.melvin.ongandroid.view.fragment
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,14 +8,17 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.viewModels
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.melvin.ongandroid.R
 import com.melvin.ongandroid.databinding.FragmentContactBinding
-import com.melvin.ongandroid.databinding.FragmentWhatwedoBinding
+import com.melvin.ongandroid.model.entities.contact.Contact
+import com.melvin.ongandroid.viewmodel.ApiStatus
 import com.melvin.ongandroid.viewmodel.ContactViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class ContactFragment : Fragment() {
-
-    private  var viewModel=ContactViewModel ()
+    private val contactViewModel: ContactViewModel by viewModels()
     private var _binding: FragmentContactBinding? = null
     private val binding get() = _binding!!
 
@@ -45,19 +47,64 @@ class ContactFragment : Fragment() {
             etPhoneNumber.addTextChangedListener {
                 checkPlaces()
             }
+            btnSend.setOnClickListener{
+                val newContact= Contact(
+                        etName.text.toString(),
+                        etEmail.text.toString(),
+                        etPhoneNumber.text.toString(),
+                        etMessage.text.toString())
+                contactViewModel.createContact(newContact)
+                drawStatusDialog()
+            }
         }
     }
+
 
     private fun checkPlaces(){
         binding.apply {
-            btnSend.isEnabled = viewModel.validateName(etName.text.toString()) &&
-                    viewModel.validateEmail(etEmail.text.toString()) &&
-                    viewModel.validateNumber(etPhoneNumber.text.toString()) &&
-                    viewModel.validateMessage(etMessage.text.toString())
+            btnSend.isEnabled = contactViewModel.validateName(etName.text.toString()) &&
+                    contactViewModel.validateEmail(etEmail.text.toString()) &&
+                    contactViewModel.validateNumber(etPhoneNumber.text.toString()) &&
+                    contactViewModel.validateMessage(etMessage.text.toString())
         }
     }
 
+    private fun drawStatusDialog() {
+        contactViewModel.status.observe(viewLifecycleOwner) { statusApi->
+            when (statusApi!!) {
+                ApiStatus.SUCCESS -> { showSuccessDialog() }
+                ApiStatus.FAILURE -> { showFailureDialog() }
+            }
+        }
+    }
 
+    private fun showSuccessDialog() {
+        context?.let {
+            MaterialAlertDialogBuilder(it)
+                .setTitle(resources.getString(R.string.successful_operation))
+                .setMessage(resources.getString(R.string.success_contact_creation))
+                .setPositiveButton(resources.getString(R.string.close)) { _, _ ->
+                }
+                .show()
+        }
+        binding.apply {
+            etName.setText("")
+            etEmail.setText("")
+            etMessage.setText("")
+            etPhoneNumber.setText("")
+        }
+    }
+
+    private fun showFailureDialog() {
+        context?.let {
+            MaterialAlertDialogBuilder(it)
+                .setTitle(resources.getString(R.string.failure_dialog_title))
+                .setMessage(resources.getString(R.string.failure_supporting_text))
+                .setPositiveButton(resources.getString(R.string.close)) { _, _ ->
+                }
+                .show()
+        }
+    }
 
 
 }

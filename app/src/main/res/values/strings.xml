@@ -69,5 +69,7 @@
     <string name="contact_message">Mensaje o duda</string>
     <string name="contact_us">Contactenos</string>
     <string name="send_button">Enviar</string>
+    <string name="success_contact_creation">El contacto fue creado con éxito</string>
+    <string name="successful_operation">Operación exitosa</string>
 
 </resources>
