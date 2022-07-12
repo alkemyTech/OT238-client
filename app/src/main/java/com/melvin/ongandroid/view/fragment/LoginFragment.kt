@@ -103,7 +103,6 @@ class LoginFragment : Fragment() {
                 loginBinding.itPasswordDesign.error = getString(R.string.set_error)
                 loginBinding.itEmailDesign.error = getString(R.string.set_error)
             }
-
         }
 
 }

@@ -56,6 +56,9 @@ class ContactFragment : Fragment() {
                 contactViewModel.createContact(newContact)
                 drawStatusDialog()
             }
+            btnSendFail.setOnClickListener {
+                showFailure()
+            }
             contactViewModel.createContactCharging.observe(viewLifecycleOwner) { charging ->
                 if (charging) {
                     pbChargingContact.visibility = View.VISIBLE
@@ -73,6 +76,10 @@ class ContactFragment : Fragment() {
                     contactViewModel.validateEmail(etEmail.text.toString()) &&
                     contactViewModel.validateNumber(etPhoneNumber.text.toString()) &&
                     contactViewModel.validateMessage(etMessage.text.toString())
+            tiNameAndSurname.isErrorEnabled=false
+            tiEmail.isErrorEnabled=false
+            tiMessage.isErrorEnabled=false
+            tiPhone.isErrorEnabled=false
         }
     }
 
@@ -80,7 +87,7 @@ class ContactFragment : Fragment() {
         contactViewModel.status.observe(viewLifecycleOwner) { statusApi->
             when (statusApi!!) {
                 ApiStatus.SUCCESS -> { showSuccessDialog() }
-                ApiStatus.FAILURE -> { showFailureDialog() }
+                ApiStatus.FAILURE -> { showFailure() }
             }
         }
     }
@@ -102,14 +109,12 @@ class ContactFragment : Fragment() {
         }
     }
 
-    private fun showFailureDialog() {
-        context?.let {
-            MaterialAlertDialogBuilder(it)
-                .setTitle(resources.getString(R.string.failure_dialog_title))
-                .setMessage(resources.getString(R.string.failure_supporting_text))
-                .setPositiveButton(resources.getString(R.string.close)) { _, _ ->
-                }
-                .show()
+    private fun showFailure() {
+        binding.apply {
+            tiNameAndSurname.error = getString(R.string.set_error)
+            tiEmail.error = getString(R.string.set_error)
+            tiMessage.error = getString(R.string.set_error)
+            tiPhone.error= getString(R.string.set_error)
         }
     }
 
