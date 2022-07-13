@@ -1,12 +1,12 @@
 package com.melvin.ongandroid.viewmodel
 
-import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.melvin.ongandroid.data.AppData
 import com.melvin.ongandroid.domain.use_case.LogInUseCase
 import junit.framework.Assert.*
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
+import org.junit.rules.TestRule
 import org.junit.runner.RunWith
 import org.junit.runners.JUnit4
 import org.mockito.kotlin.mock
@@ -14,8 +14,6 @@ import org.mockito.kotlin.mock
 @RunWith(JUnit4::class)
 internal class LogInViewModelTest{
 
-    @get:Rule
-    var rule: InstantTaskExecutorRule = InstantTaskExecutorRule()
 
     private lateinit var logInViewModel: LogInViewModel
     private val appData: AppData = mock()

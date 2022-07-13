@@ -15,10 +15,9 @@ import javax.inject.Inject
 @HiltViewModel
 class SignUpViewModel @Inject constructor(
     private val registrationUseCase: RegisterUseCase,
-    )
-    : ViewModel() {
+) : ViewModel() {
 
-    private val _status = MutableLiveData<ApiStatus>()
+    val _status = MutableLiveData<ApiStatus>()
     val status: LiveData<ApiStatus> = _status
     val signUpUserCharging = MutableLiveData(false)
 
@@ -29,19 +28,21 @@ class SignUpViewModel @Inject constructor(
             signUpUserCharging.postValue(false)
             if (apiRegistrationResponse.success) {
                 _status.value = ApiStatus.SUCCESS
-            } else{
+            } else {
                 _status.value = ApiStatus.FAILURE
             }
         }
     }
 
-    fun validateEmail(email:String): Boolean {
-        return if (email.isEmpty()){
-
+    fun validateEmail(Email: String?): Boolean {
+        return if (Email != null) {
+            Email.isNotEmpty() && PatternsCompat.EMAIL_ADDRESS.matcher(Email).matches()
+        } else {
             false
-        }else PatternsCompat.EMAIL_ADDRESS.matcher(email).matches()
+        }
     }
-    fun validatePassword(password:String,):Boolean{
+
+    fun validatePassword(password: String): Boolean {
         val passwordRegex = Pattern.compile(
             "^" +
                     "(?=.*[0-9])" +         //at least 1 digit
@@ -52,26 +53,35 @@ class SignUpViewModel @Inject constructor(
                     ".{4,}" +               //at least 4 characters
                     "$"
         )
-        return if (password.isEmpty()){
+        return password.isNotEmpty() && passwordRegex.matcher(password).matches()
+    }
 
+    fun confirmPassword(password: String, confirmPassword: String): Boolean {
+        return if (password != confirmPassword) {
             false
-        }else passwordRegex.matcher(password).matches()
-    }
-    fun confirmPassword(password: String, confirmPassword:String):Boolean{
-        return if (password != confirmPassword){
-            false
-        }else !confirmPassword.isEmpty()
+        } else confirmPassword.isNotEmpty()
 
     }
-    fun validateUserName(username:String):Boolean{
-        return !(username.isEmpty() && username.isBlank())
+
+    fun validateUserName(username: String?): Boolean {
+        return if (username != null) {
+            return !(username.isEmpty() && username.isBlank())
+
+            } else {
+                false
+            }
     }
 
-    fun validateFields(username:String, password:String, email:String, confirmPassword:String):Boolean{
-        val checkUserName:Boolean = validateUserName(username)
-        val checkPasswordConfirm:Boolean = confirmPassword(password,confirmPassword)
-        val checkPassword:Boolean = validatePassword(password)
-        val checkEmail:Boolean = validateEmail(email)
+    fun validateFields(
+        username: String,
+        password: String,
+        email: String,
+        confirmPassword: String
+    ): Boolean {
+        val checkUserName: Boolean = validateUserName(username)
+        val checkPasswordConfirm: Boolean = confirmPassword(password, confirmPassword)
+        val checkPassword: Boolean = validatePassword(password)
+        val checkEmail: Boolean = validateEmail(email)
 
         if (checkUserName && checkEmail && checkPassword && checkPasswordConfirm) {
             return true

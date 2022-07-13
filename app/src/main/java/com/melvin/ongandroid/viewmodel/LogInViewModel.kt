@@ -26,7 +26,7 @@ class LogInViewModel @Inject constructor(
     fun validateEmail(Email: String?): Boolean {
         return if (Email != null) {
             Email.isNotEmpty() && PatternsCompat.EMAIL_ADDRESS.matcher(Email).matches()
-        } else{
+        } else {
             false
         }
     }
@@ -44,7 +44,7 @@ class LogInViewModel @Inject constructor(
         )
         return if (password != null) {
             (password.isNotEmpty() && passwordRegex.matcher(password).matches())
-        }else{
+        } else {
             false
         }
     }
