@@ -56,9 +56,7 @@ class ContactFragment : Fragment() {
                 contactViewModel.createContact(newContact)
                 drawStatusDialog()
             }
-            btnSendFail.setOnClickListener {
-                showFailure()
-            }
+
             contactViewModel.createContactCharging.observe(viewLifecycleOwner) { charging ->
                 if (charging) {
                     pbChargingContact.visibility = View.VISIBLE
