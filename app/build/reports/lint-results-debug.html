@@ -177,25 +177,19 @@ document.getElementById(id).style.display = 'none';
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
   <header class="mdl-layout__header">
     <div class="mdl-layout__header-row">
-      <span class="mdl-layout-title">Lint Report: 42 warnings</span>
+      <span class="mdl-layout-title">Lint Report: 28 warnings</span>
       <div class="mdl-layout-spacer"></div>
       <nav class="mdl-navigation mdl-layout--large-screen-only">
-Check performed at Wed Jul 13 21:11:27 UTC 2022      </nav>
+Check performed at Wed Jul 13 21:19:59 ART 2022      </nav>
     </div>
   </header>
   <div class="mdl-layout__drawer">
     <span class="mdl-layout-title">Issue Types</span>
     <nav class="mdl-navigation">
       <a class="mdl-navigation__link" href="#overview"><i class="material-icons">dashboard</i>Overview</a>
-      <a class="mdl-navigation__link" href="#CustomSplashScreen"><i class="material-icons warning-icon">warning</i>Application-defined Launch Screen (1)</a>
-      <a class="mdl-navigation__link" href="#DataExtractionRules"><i class="material-icons warning-icon">warning</i>Missing data extraction rules (1)</a>
-      <a class="mdl-navigation__link" href="#ObsoleteSdkInt"><i class="material-icons warning-icon">warning</i>Obsolete SDK_INT Version Check (1)</a>
-      <a class="mdl-navigation__link" href="#UnusedResources"><i class="material-icons warning-icon">warning</i>Unused resources (27)</a>
-      <a class="mdl-navigation__link" href="#IconLocation"><i class="material-icons warning-icon">warning</i>Image defined in density-independent drawable folder (1)</a>
+      <a class="mdl-navigation__link" href="#UnusedResources"><i class="material-icons warning-icon">warning</i>Unused resources (24)</a>
       <a class="mdl-navigation__link" href="#IconDensities"><i class="material-icons warning-icon">warning</i>Icon densities validation (3)</a>
-      <a class="mdl-navigation__link" href="#ContentDescription"><i class="material-icons warning-icon">warning</i>Image without <code>contentDescription</code> (3)</a>
-      <a class="mdl-navigation__link" href="#SetTextI18n"><i class="material-icons warning-icon">warning</i>TextView Internationalization (1)</a>
-      <a class="mdl-navigation__link" href="#HardcodedText"><i class="material-icons warning-icon">warning</i>Hardcoded text (4)</a>
+      <a class="mdl-navigation__link" href="#HardcodedText"><i class="material-icons warning-icon">warning</i>Hardcoded text (1)</a>
     </nav>
   </div>
   <main class="mdl-layout__content">
@@ -208,44 +202,20 @@ Check performed at Wed Jul 13 21:11:27 UTC 2022      </nav>
   </div>
               <div class="mdl-card__supporting-text">
 <table class="overview">
-<tr><td class="countColumn"></td><td class="categoryColumn"><a href="#Correctness">Correctness</a>
-</td></tr>
-<tr>
-<td class="countColumn">1</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
-<a href="#CustomSplashScreen">CustomSplashScreen</a>: Application-defined Launch Screen</td></tr>
-<tr><td class="countColumn"></td><td class="categoryColumn"><a href="#Security">Security</a>
-</td></tr>
-<tr>
-<td class="countColumn">1</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
-<a href="#DataExtractionRules">DataExtractionRules</a>: Missing data extraction rules</td></tr>
 <tr><td class="countColumn"></td><td class="categoryColumn"><a href="#Performance">Performance</a>
 </td></tr>
 <tr>
-<td class="countColumn">1</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
-<a href="#ObsoleteSdkInt">ObsoleteSdkInt</a>: Obsolete SDK_INT Version Check</td></tr>
-<tr>
-<td class="countColumn">27</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
+<td class="countColumn">24</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
 <a href="#UnusedResources">UnusedResources</a>: Unused resources</td></tr>
 <tr><td class="countColumn"></td><td class="categoryColumn"><a href="#Usability:Icons">Usability:Icons</a>
 </td></tr>
 <tr>
-<td class="countColumn">1</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
-<a href="#IconLocation">IconLocation</a>: Image defined in density-independent drawable folder</td></tr>
-<tr>
 <td class="countColumn">3</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
 <a href="#IconDensities">IconDensities</a>: Icon densities validation</td></tr>
-<tr><td class="countColumn"></td><td class="categoryColumn"><a href="#Accessibility">Accessibility</a>
-</td></tr>
-<tr>
-<td class="countColumn">3</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
-<a href="#ContentDescription">ContentDescription</a>: Image without <code>contentDescription</code></td></tr>
 <tr><td class="countColumn"></td><td class="categoryColumn"><a href="#Internationalization">Internationalization</a>
 </td></tr>
 <tr>
 <td class="countColumn">1</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
-<a href="#SetTextI18n">SetTextI18n</a>: TextView Internationalization</td></tr>
-<tr>
-<td class="countColumn">4</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
 <a href="#HardcodedText">HardcodedText</a>: Hardcoded text</td></tr>
 <tr><td></td><td class="categoryColumn"><a href="#MissingIssues">Disabled Checks (35)</a>
 </td></tr></table>
@@ -255,144 +225,8 @@ Check performed at Wed Jul 13 21:11:27 UTC 2022      </nav>
 Dismiss</button>            </div>
             </div>
           </section>
-<a name="Correctness"></a>
-<a name="CustomSplashScreen"></a>
-<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="CustomSplashScreenCard" style="display: block;">
-            <div class="mdl-card mdl-cell mdl-cell--12-col">
-  <div class="mdl-card__title">
-    <h2 class="mdl-card__title-text">Application-defined Launch Screen</h2>
-  </div>
-              <div class="mdl-card__supporting-text">
-<div class="issue">
-<div class="warningslist">
-<span class="location"><a href="../../src/main/java/com/melvin/ongandroid/view/activity/SplashActivity.kt">../../src/main/java/com/melvin/ongandroid/view/activity/SplashActivity.kt</a>:17</span>: <span class="message">The application should not provide its own launch screen</span><br /><pre class="errorlines">
-<span class="lineno"> 14 </span>
-<span class="lineno"> 15 </span>
-<span class="lineno"> 16 </span><span class="annotation">@AndroidEntryPoint</span>
-<span class="caretline"><span class="lineno"> 17 </span><span class="keyword">class</span> <span class="warning">SplashActivity</span> : AppCompatActivity(){&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 18 </span>    <span class="annotation">@Inject</span> lateinit <span class="keyword">var</span> appData : AppData
-<span class="lineno"> 19 </span>
-<span class="lineno"> 20 </span>    override <span class="keyword">fun</span> onCreate(savedInstanceState: Bundle?) {
-</pre>
-
-</div>
-<div class="metadata"><div class="explanation" id="explanationCustomSplashScreen" style="display: none;">
-Starting in Android 12 (API 31+), the application's Launch Screen is provided by the system and the application should not create its own, otherwise the user will see two splashscreen. Please check the <code>SplashScreen</code> class to check how the Splash Screen can be controlled and customized.<br/>To suppress this error, use the issue id "CustomSplashScreen" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
-<br/></div>
-</div>
-</div>
-<div class="chips">
-<span class="mdl-chip">
-    <span class="mdl-chip__text">CustomSplashScreen</span>
-</span>
-<span class="mdl-chip">
-    <span class="mdl-chip__text">Correctness</span>
-</span>
-<span class="mdl-chip">
-    <span class="mdl-chip__text">Warning</span>
-</span>
-<span class="mdl-chip">
-    <span class="mdl-chip__text">Priority 5/10</span>
-</span>
-</div>
-              </div>
-              <div class="mdl-card__actions mdl-card--border">
-<button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="explanationCustomSplashScreenLink" onclick="reveal('explanationCustomSplashScreen');">
-Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="CustomSplashScreenCardLink" onclick="hideid('CustomSplashScreenCard');">
-Dismiss</button>            </div>
-            </div>
-          </section>
-<a name="Security"></a>
-<a name="DataExtractionRules"></a>
-<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="DataExtractionRulesCard" style="display: block;">
-            <div class="mdl-card mdl-cell mdl-cell--12-col">
-  <div class="mdl-card__title">
-    <h2 class="mdl-card__title-text">Missing data extraction rules</h2>
-  </div>
-              <div class="mdl-card__supporting-text">
-<div class="issue">
-<div class="warningslist">
-<span class="location"><a href="../../src/main/AndroidManifest.xml">../../src/main/AndroidManifest.xml</a>:10</span>: <span class="message">The attribute <code>android:allowBackup</code> is deprecated from Android 12 and higher and may be removed in future versions. Consider adding the attribute <code>android:dataExtractionRules</code> specifying an <code>@xml</code> resource which configures cloud backups and device transfers on Android 12 and higher.</span><br /><pre class="errorlines">
-<span class="lineno">  7 </span>
-<span class="lineno">  8 </span>    <span class="tag">&lt;application</span><span class="attribute">
-</span><span class="lineno">  9 </span><span class="attribute">        </span><span class="prefix">android:</span><span class="attribute">name</span>=<span class="value">".SomosMasOng"</span>
-<span class="caretline"><span class="lineno"> 10 </span>        <span class="prefix">android:</span><span class="attribute">allowBackup</span>=<span class="value">"</span><span class="warning"><span class="value">false</span></span><span class="value">"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 11 </span>        <span class="prefix">android:</span><span class="attribute">icon</span>=<span class="value">"@mipmap/ic_somos_mas_launcher"</span>
-<span class="lineno"> 12 </span>        <span class="prefix">android:</span><span class="attribute">label</span>=<span class="value">"@string/app_name"</span>
-<span class="lineno"> 13 </span>        <span class="prefix">android:</span><span class="attribute">roundIcon</span>=<span class="value">"@mipmap/ic_somos_mas_launcher_round"</span></pre>
-
-</div>
-<div class="metadata"><div class="explanation" id="explanationDataExtractionRules" style="display: none;">
-Before Android 12, the attributes <code>android:allowBackup</code> and <code>android:fullBackupContent</code> were used to configure all forms of backup, including cloud backups, device-to-device transfers and adb backup.<br/>
-<br/>
-In Android 12 and higher, these attributes have been deprecated and will only apply to cloud backups. You should instead use the attribute <code>android:dataExtractionRules</code>, specifying an <code>@xml</code> resource that configures which files to back up, for cloud backups and for device-to-device transfers, separately. If your <code>minSdkVersion</code> supports older versions, you'll still want to specify an <code>android:fullBackupContent</code> resource if the default behavior is not right for your app.<br/><div class="moreinfo">More info: <a href="https://developer.android.com/about/versions/12/backup-restore#xml-changes">https://developer.android.com/about/versions/12/backup-restore#xml-changes</a>
-</div>Note: This issue has an associated quickfix operation in Android Studio and IntelliJ IDEA.<br>
-To suppress this error, use the issue id "DataExtractionRules" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
-<br/></div>
-</div>
-</div>
-<div class="chips">
-<span class="mdl-chip">
-    <span class="mdl-chip__text">DataExtractionRules</span>
-</span>
-<span class="mdl-chip">
-    <span class="mdl-chip__text">Security</span>
-</span>
-<span class="mdl-chip">
-    <span class="mdl-chip__text">Warning</span>
-</span>
-<span class="mdl-chip">
-    <span class="mdl-chip__text">Priority 3/10</span>
-</span>
-</div>
-              </div>
-              <div class="mdl-card__actions mdl-card--border">
-<button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="explanationDataExtractionRulesLink" onclick="reveal('explanationDataExtractionRules');">
-Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="DataExtractionRulesCardLink" onclick="hideid('DataExtractionRulesCard');">
-Dismiss</button>            </div>
-            </div>
-          </section>
 <a name="Performance"></a>
-<a name="ObsoleteSdkInt"></a>
-<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="ObsoleteSdkIntCard" style="display: block;">
-            <div class="mdl-card mdl-cell mdl-cell--12-col">
-  <div class="mdl-card__title">
-    <h2 class="mdl-card__title-text">Obsolete SDK_INT Version Check</h2>
-  </div>
-              <div class="mdl-card__supporting-text">
-<div class="issue">
-<div class="warningslist">
-<span class="location"><a href="../../src/main/res/drawable-v24">../../src/main/res/drawable-v24</a></span>: <span class="message">This folder configuration (<code>v24</code>) is unnecessary; <code>minSdkVersion</code> is 25. Merge all the resources in this folder into <code>drawable</code>.</span><br />
-</div>
-<div class="metadata"><div class="explanation" id="explanationObsoleteSdkInt" style="display: none;">
-This check flags version checks that are not necessary, because the <code>minSdkVersion</code> (or surrounding known API level) is already at least as high as the version checked for.<br/>
-<br/>
-Similarly, it also looks for resources in <code>-vNN</code> folders, such as <code>values-v14</code> where the version qualifier is less than or equal to the <code>minSdkVersion</code>, where the contents should be merged into the best folder.<br/>Note: This issue has an associated quickfix operation in Android Studio and IntelliJ IDEA.<br>
-To suppress this error, use the issue id "ObsoleteSdkInt" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
-<br/></div>
-</div>
-</div>
-<div class="chips">
-<span class="mdl-chip">
-    <span class="mdl-chip__text">ObsoleteSdkInt</span>
-</span>
-<span class="mdl-chip">
-    <span class="mdl-chip__text">Performance</span>
-</span>
-<span class="mdl-chip">
-    <span class="mdl-chip__text">Warning</span>
-</span>
-<span class="mdl-chip">
-    <span class="mdl-chip__text">Priority 6/10</span>
-</span>
-</div>
-              </div>
-              <div class="mdl-card__actions mdl-card--border">
-<button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="explanationObsoleteSdkIntLink" onclick="reveal('explanationObsoleteSdkInt');">
-Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="ObsoleteSdkIntCardLink" onclick="hideid('ObsoleteSdkIntCard');">
-Dismiss</button>            </div>
-            </div>
-          </section><a name="UnusedResources"></a>
+<a name="UnusedResources"></a>
 <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="UnusedResourcesCard" style="display: block;">
             <div class="mdl-card mdl-cell mdl-cell--12-col">
   <div class="mdl-card__title">
@@ -404,216 +238,219 @@ Dismiss</button>            </div>
 <span class="location"><a href="../../src/main/res/values/dimens.xml">../../src/main/res/values/dimens.xml</a>:3</span>: <span class="message">The resource <code>R.dimen.fragment_horizontal_margin</code> appears to be unused</span><br /><pre class="errorlines">
 <span class="lineno">  1 </span><span class="tag">&lt;resources></span>
 <span class="lineno">  2 </span>    <span class="comment">&lt;!-- Default screen margins, per the Android Design guidelines. --></span>
-<span class="caretline"><span class="lineno">  3 </span>    <span class="tag">&lt;dimen</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"fragment_horizontal_margin"</span></span>>16dp<span class="tag">&lt;/dimen></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="caretline"><span class="lineno">  3 </span>    <span class="tag">&lt;dimen</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"fragment_horizontal_margin"</span></span>>16dp<span class="tag">&lt;/dimen></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
 <span class="lineno">  4 </span>    <span class="tag">&lt;dimen</span><span class="attribute"> name</span>=<span class="value">"fragment_vertical_margin"</span>>16dp<span class="tag">&lt;/dimen></span>
 <span class="lineno">  5 </span>    <span class="comment">&lt;!-- Default screen margins, per the Android Design guidelines. --></span>
-<span class="lineno">  6 </span>    <span class="tag">&lt;dimen</span><span class="attribute"> name</span>=<span class="value">"activity_horizontal_margin"</span>>16dp<span class="tag">&lt;/dimen></span></pre>
+<span class="lineno">  6 </span>    <span class="tag">&lt;dimen</span><span class="attribute"> name</span>=<span class="value">"activity_horizontal_margin"</span>>16dp<span class="tag">&lt;/dimen></span>
+</pre>
 
 <span class="location"><a href="../../src/main/res/values/dimens.xml">../../src/main/res/values/dimens.xml</a>:4</span>: <span class="message">The resource <code>R.dimen.fragment_vertical_margin</code> appears to be unused</span><br /><pre class="errorlines">
 <span class="lineno">  1 </span><span class="tag">&lt;resources></span>
 <span class="lineno">  2 </span>    <span class="comment">&lt;!-- Default screen margins, per the Android Design guidelines. --></span>
 <span class="lineno">  3 </span>    <span class="tag">&lt;dimen</span><span class="attribute"> name</span>=<span class="value">"fragment_horizontal_margin"</span>>16dp<span class="tag">&lt;/dimen></span>
-<span class="caretline"><span class="lineno">  4 </span>    <span class="tag">&lt;dimen</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"fragment_vertical_margin"</span></span>>16dp<span class="tag">&lt;/dimen></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="caretline"><span class="lineno">  4 </span>    <span class="tag">&lt;dimen</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"fragment_vertical_margin"</span></span>>16dp<span class="tag">&lt;/dimen></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
 <span class="lineno">  5 </span>    <span class="comment">&lt;!-- Default screen margins, per the Android Design guidelines. --></span>
 <span class="lineno">  6 </span>    <span class="tag">&lt;dimen</span><span class="attribute"> name</span>=<span class="value">"activity_horizontal_margin"</span>>16dp<span class="tag">&lt;/dimen></span>
-<span class="lineno">  7 </span>    <span class="tag">&lt;dimen</span><span class="attribute"> name</span>=<span class="value">"activity_vertical_margin"</span>>16dp<span class="tag">&lt;/dimen></span></pre>
+<span class="lineno">  7 </span>    <span class="tag">&lt;dimen</span><span class="attribute"> name</span>=<span class="value">"activity_vertical_margin"</span>>16dp<span class="tag">&lt;/dimen></span>
+</pre>
 
 <span class="location"><a href="../../src/main/res/values/dimens.xml">../../src/main/res/values/dimens.xml</a>:10</span>: <span class="message">The resource <code>R.dimen.fab_margin</code> appears to be unused</span><br /><pre class="errorlines">
 <span class="lineno">  7 </span>    <span class="tag">&lt;dimen</span><span class="attribute"> name</span>=<span class="value">"activity_vertical_margin"</span>>16dp<span class="tag">&lt;/dimen></span>
 <span class="lineno">  8 </span>    <span class="tag">&lt;dimen</span><span class="attribute"> name</span>=<span class="value">"nav_header_vertical_spacing"</span>>8dp<span class="tag">&lt;/dimen></span>
 <span class="lineno">  9 </span>    <span class="tag">&lt;dimen</span><span class="attribute"> name</span>=<span class="value">"nav_header_height"</span>>176dp<span class="tag">&lt;/dimen></span>
-<span class="caretline"><span class="lineno"> 10 </span>    <span class="tag">&lt;dimen</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"fab_margin"</span></span>>16dp<span class="tag">&lt;/dimen></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="caretline"><span class="lineno"> 10 </span>    <span class="tag">&lt;dimen</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"fab_margin"</span></span>>16dp<span class="tag">&lt;/dimen></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
 <span class="lineno"> 11 </span>    <span class="comment">&lt;!-- List item margins and paddings --></span>
 <span class="lineno"> 12 </span>    <span class="tag">&lt;dimen</span><span class="attribute"> name</span>=<span class="value">"list_item_margin"</span>>16dp<span class="tag">&lt;/dimen></span>
-<span class="lineno"> 13 </span>    <span class="tag">&lt;dimen</span><span class="attribute"> name</span>=<span class="value">"list_item_padding"</span>>16dp<span class="tag">&lt;/dimen></span></pre>
+<span class="lineno"> 13 </span>    <span class="tag">&lt;dimen</span><span class="attribute"> name</span>=<span class="value">"list_item_padding"</span>>16dp<span class="tag">&lt;/dimen></span>
+</pre>
 
 <span class="location"><a href="../../src/main/res/menu/home.xml">../../src/main/res/menu/home.xml</a>:2</span>: <span class="message">The resource <code>R.menu.home</code> appears to be unused</span><br /><pre class="errorlines">
 <span class="lineno"> 1 </span><span class="prologue">&lt;?xml version="1.0" encoding="utf-8"?></span>
-<span class="caretline"><span class="lineno"> 2 </span><span class="warning"><span class="tag">&lt;menu</span><span class="attribute"> </span><span class="prefix">xmlns:</span><span class="attribute">android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="caretline"><span class="lineno"> 2 </span><span class="warning"><span class="tag">&lt;menu</span><span class="attribute"> </span><span class="prefix">xmlns:</span><span class="attribute">android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
 <span class="lineno"> 3 </span>    <span class="prefix">xmlns:</span><span class="attribute">app</span>=<span class="value">"http://schemas.android.com/apk/res-auto"</span>>
 <span class="lineno"> 4 </span>    <span class="tag">&lt;item</span><span class="attribute"> </span><span class="prefix">android:</span><span class="attribute">id</span>=<span class="value">"@+id/action_settings"</span>
-<span class="lineno"> 5 </span>        <span class="prefix">android:</span><span class="attribute">title</span>=<span class="value">"@string/action_settings"</span></pre>
+<span class="lineno"> 5 </span>        <span class="prefix">android:</span><span class="attribute">title</span>=<span class="value">"@string/action_settings"</span>
+</pre>
 
 <span class="location"><a href="../../src/main/res/mipmap-anydpi-v26/ic_launcher.xml">../../src/main/res/mipmap-anydpi-v26/ic_launcher.xml</a>:2</span>: <span class="message">The resource <code>R.mipmap.ic_launcher</code> appears to be unused</span><br /><pre class="errorlines">
 <span class="lineno"> 1 </span><span class="prologue">&lt;?xml version="1.0" encoding="utf-8"?></span>
-<span class="caretline"><span class="lineno"> 2 </span><span class="warning"><span class="tag">&lt;adaptive-icon</span><span class="attribute"> </span><span class="prefix">xmlns:</span><span class="attribute">android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span>></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="caretline"><span class="lineno"> 2 </span><span class="warning"><span class="tag">&lt;adaptive-icon</span><span class="attribute"> </span><span class="prefix">xmlns:</span><span class="attribute">android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span>></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
 <span class="lineno"> 3 </span>    <span class="tag">&lt;background</span><span class="attribute"> </span><span class="prefix">android:</span><span class="attribute">drawable</span>=<span class="value">"@drawable/ic_launcher_background"</span> />
 <span class="lineno"> 4 </span>    <span class="tag">&lt;foreground</span><span class="attribute"> </span><span class="prefix">android:</span><span class="attribute">drawable</span>=<span class="value">"@drawable/ic_launcher_foreground"</span> />
 <span class="lineno"> 5 </span><span class="tag">&lt;/adaptive-icon></span></pre>
 
-<button class="mdl-button mdl-js-button mdl-button--primary" id="UnusedResourcesDivLink" onclick="reveal('UnusedResourcesDiv');" />+ 22 More Occurrences...</button>
+<button class="mdl-button mdl-js-button mdl-button--primary" id="UnusedResourcesDivLink" onclick="reveal('UnusedResourcesDiv');" />+ 19 More Occurrences...</button>
 <div id="UnusedResourcesDiv" style="display: none">
 <span class="location"><a href="../../src/main/res/drawable/ic_launcher_background.xml">../../src/main/res/drawable/ic_launcher_background.xml</a>:2</span>: <span class="message">The resource <code>R.drawable.ic_launcher_background</code> appears to be unused</span><br /><pre class="errorlines">
 <span class="lineno">   1 </span><span class="prologue">&lt;?xml version="1.0" encoding="utf-8"?></span>
-<span class="caretline"><span class="lineno">   2 </span><span class="warning"><span class="tag">&lt;vector</span><span class="attribute"> </span><span class="prefix">xmlns:</span><span class="attribute">android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="caretline"><span class="lineno">   2 </span><span class="warning"><span class="tag">&lt;vector</span><span class="attribute"> </span><span class="prefix">xmlns:</span><span class="attribute">android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
 <span class="lineno">   3 </span>    <span class="prefix">android:</span><span class="attribute">width</span>=<span class="value">"108dp"</span>
 <span class="lineno">   4 </span>    <span class="prefix">android:</span><span class="attribute">height</span>=<span class="value">"108dp"</span>
-<span class="lineno">   5 </span>    <span class="prefix">android:</span><span class="attribute">viewportWidth</span>=<span class="value">"108"</span></pre>
+<span class="lineno">   5 </span>    <span class="prefix">android:</span><span class="attribute">viewportWidth</span>=<span class="value">"108"</span>
+</pre>
 
-<span class="location"><a href="../../src/main/res/drawable-v24/ic_launcher_foreground.xml">../../src/main/res/drawable-v24/ic_launcher_foreground.xml</a>:1</span>: <span class="message">The resource <code>R.drawable.ic_launcher_foreground</code> appears to be unused</span><br /><pre class="errorlines">
-<span class="caretline"><span class="lineno">  1 </span><span class="warning"><span class="tag">&lt;vector</span><span class="attribute"> </span><span class="prefix">xmlns:</span><span class="attribute">android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="location"><a href="../../src/main/res/drawable/ic_launcher_foreground.xml">../../src/main/res/drawable/ic_launcher_foreground.xml</a>:1</span>: <span class="message">The resource <code>R.drawable.ic_launcher_foreground</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="caretline"><span class="lineno">  1 </span><span class="warning"><span class="tag">&lt;vector</span><span class="attribute"> </span><span class="prefix">xmlns:</span><span class="attribute">android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
 <span class="lineno">  2 </span>    <span class="prefix">xmlns:</span><span class="attribute">aapt</span>=<span class="value">"http://schemas.android.com/aapt"</span>
 <span class="lineno">  3 </span>    <span class="prefix">android:</span><span class="attribute">width</span>=<span class="value">"108dp"</span>
-<span class="lineno">  4 </span>    <span class="prefix">android:</span><span class="attribute">height</span>=<span class="value">"108dp"</span></pre>
+<span class="lineno">  4 </span>    <span class="prefix">android:</span><span class="attribute">height</span>=<span class="value">"108dp"</span>
+</pre>
 
 <span class="location"><a href="../../src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml">../../src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml</a>:2</span>: <span class="message">The resource <code>R.mipmap.ic_launcher_round</code> appears to be unused</span><br /><pre class="errorlines">
 <span class="lineno"> 1 </span><span class="prologue">&lt;?xml version="1.0" encoding="utf-8"?></span>
-<span class="caretline"><span class="lineno"> 2 </span><span class="warning"><span class="tag">&lt;adaptive-icon</span><span class="attribute"> </span><span class="prefix">xmlns:</span><span class="attribute">android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span>></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="caretline"><span class="lineno"> 2 </span><span class="warning"><span class="tag">&lt;adaptive-icon</span><span class="attribute"> </span><span class="prefix">xmlns:</span><span class="attribute">android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span>></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
 <span class="lineno"> 3 </span>    <span class="tag">&lt;background</span><span class="attribute"> </span><span class="prefix">android:</span><span class="attribute">drawable</span>=<span class="value">"@drawable/ic_launcher_background"</span> />
 <span class="lineno"> 4 </span>    <span class="tag">&lt;foreground</span><span class="attribute"> </span><span class="prefix">android:</span><span class="attribute">drawable</span>=<span class="value">"@drawable/ic_launcher_foreground"</span> />
 <span class="lineno"> 5 </span><span class="tag">&lt;/adaptive-icon></span></pre>
 
 <span class="location"><a href="../../src/main/res/drawable/ic_menu_camera.xml">../../src/main/res/drawable/ic_menu_camera.xml</a>:1</span>: <span class="message">The resource <code>R.drawable.ic_menu_camera</code> appears to be unused</span><br /><pre class="errorlines">
-<span class="caretline"><span class="lineno">  1 </span><span class="warning"><span class="tag">&lt;vector</span><span class="attribute"> </span><span class="prefix">xmlns:</span><span class="attribute">android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="caretline"><span class="lineno">  1 </span><span class="warning"><span class="tag">&lt;vector</span><span class="attribute"> </span><span class="prefix">xmlns:</span><span class="attribute">android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
 <span class="lineno">  2 </span>        <span class="prefix">android:</span><span class="attribute">width</span>=<span class="value">"24dp"</span>
 <span class="lineno">  3 </span>        <span class="prefix">android:</span><span class="attribute">height</span>=<span class="value">"24dp"</span>
-<span class="lineno">  4 </span>        <span class="prefix">android:</span><span class="attribute">viewportWidth</span>=<span class="value">"24.0"</span></pre>
+<span class="lineno">  4 </span>        <span class="prefix">android:</span><span class="attribute">viewportWidth</span>=<span class="value">"24.0"</span>
+</pre>
 
 <span class="location"><a href="../../src/main/res/drawable/ic_menu_gallery.xml">../../src/main/res/drawable/ic_menu_gallery.xml</a>:1</span>: <span class="message">The resource <code>R.drawable.ic_menu_gallery</code> appears to be unused</span><br /><pre class="errorlines">
-<span class="caretline"><span class="lineno">  1 </span><span class="warning"><span class="tag">&lt;vector</span><span class="attribute"> </span><span class="prefix">xmlns:</span><span class="attribute">android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="caretline"><span class="lineno">  1 </span><span class="warning"><span class="tag">&lt;vector</span><span class="attribute"> </span><span class="prefix">xmlns:</span><span class="attribute">android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
 <span class="lineno">  2 </span>        <span class="prefix">android:</span><span class="attribute">width</span>=<span class="value">"24dp"</span>
 <span class="lineno">  3 </span>        <span class="prefix">android:</span><span class="attribute">height</span>=<span class="value">"24dp"</span>
-<span class="lineno">  4 </span>        <span class="prefix">android:</span><span class="attribute">viewportWidth</span>=<span class="value">"24.0"</span></pre>
+<span class="lineno">  4 </span>        <span class="prefix">android:</span><span class="attribute">viewportWidth</span>=<span class="value">"24.0"</span>
+</pre>
 
 <span class="location"><a href="../../src/main/res/drawable/ic_menu_slideshow.xml">../../src/main/res/drawable/ic_menu_slideshow.xml</a>:1</span>: <span class="message">The resource <code>R.drawable.ic_menu_slideshow</code> appears to be unused</span><br /><pre class="errorlines">
-<span class="caretline"><span class="lineno">  1 </span><span class="warning"><span class="tag">&lt;vector</span><span class="attribute"> </span><span class="prefix">xmlns:</span><span class="attribute">android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="caretline"><span class="lineno">  1 </span><span class="warning"><span class="tag">&lt;vector</span><span class="attribute"> </span><span class="prefix">xmlns:</span><span class="attribute">android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
 <span class="lineno">  2 </span>        <span class="prefix">android:</span><span class="attribute">width</span>=<span class="value">"24dp"</span>
 <span class="lineno">  3 </span>        <span class="prefix">android:</span><span class="attribute">height</span>=<span class="value">"24dp"</span>
-<span class="lineno">  4 </span>        <span class="prefix">android:</span><span class="attribute">viewportWidth</span>=<span class="value">"24.0"</span></pre>
+<span class="lineno">  4 </span>        <span class="prefix">android:</span><span class="attribute">viewportWidth</span>=<span class="value">"24.0"</span>
+</pre>
 
 <span class="location"><a href="../../src/main/res/drawable/ic_somos_mas_launcher_background.xml">../../src/main/res/drawable/ic_somos_mas_launcher_background.xml</a>:2</span>: <span class="message">The resource <code>R.drawable.ic_somos_mas_launcher_background</code> appears to be unused</span><br /><pre class="errorlines">
 <span class="lineno">  1 </span><span class="prologue">&lt;?xml version="1.0" encoding="utf-8"?></span>
-<span class="caretline"><span class="lineno">  2 </span><span class="warning"><span class="tag">&lt;vector</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="attribute">
+<span class="caretline"><span class="lineno">  2 </span><span class="warning"><span class="tag">&lt;vector</span><span class="attribute"></span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="attribute">
 </span><span class="lineno">  3 </span><span class="attribute">    </span><span class="prefix">android:</span><span class="attribute">height</span>=<span class="value">"108dp"</span>
 <span class="lineno">  4 </span>    <span class="prefix">android:</span><span class="attribute">width</span>=<span class="value">"108dp"</span>
-<span class="lineno">  5 </span>    <span class="prefix">android:</span><span class="attribute">viewportHeight</span>=<span class="value">"108"</span></pre>
+<span class="lineno">  5 </span>    <span class="prefix">android:</span><span class="attribute">viewportHeight</span>=<span class="value">"108"</span>
+</pre>
 
-<span class="location"><a href="../../src/main/res/drawable-xxhdpi/jose.png">../../src/main/res/drawable-xxhdpi/jose.png</a></span>: <img class="embedimage" align="right" src="../../src/main/res/drawable-xxhdpi/jose.png" /><span class="message">The resource <code>R.drawable.jose</code> appears to be unused</span><br clear="right"/>
 <span class="location"><a href="../../src/main/res/values/strings.xml">../../src/main/res/values/strings.xml</a>:6</span>: <span class="message">The resource <code>R.string.action_sign_in</code> appears to be unused</span><br /><pre class="errorlines">
 <span class="lineno">  3 </span>    <span class="comment">&lt;!-- Strings related to login --></span>
 <span class="lineno">  4 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"email"</span>>Email<span class="tag">&lt;/string></span>
 <span class="lineno">  5 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"prompt_password"</span>>Contraseña<span class="tag">&lt;/string></span>
-<span class="caretline"><span class="lineno">  6 </span>    <span class="tag">&lt;string</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"action_sign_in"</span></span>>Sign in or register<span class="tag">&lt;/string></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="caretline"><span class="lineno">  6 </span>    <span class="tag">&lt;string</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"action_sign_in"</span></span>>Sign in or register<span class="tag">&lt;/string></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
 <span class="lineno">  7 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"action_sign_in_short"</span>>Ingresar<span class="tag">&lt;/string></span>
 <span class="lineno">  8 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"action_sign_up_short"</span>>Crear cuenta<span class="tag">&lt;/string></span>
-<span class="lineno">  9 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"do_you_have_an_account"</span>>No tienes cuenta?<span class="tag">&lt;/string></span></pre>
+<span class="lineno">  9 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"do_you_have_an_account"</span>>¿No tienes cuenta?<span class="tag">&lt;/string></span>
+</pre>
 
 <span class="location"><a href="../../src/main/res/values/strings.xml">../../src/main/res/values/strings.xml</a>:15</span>: <span class="message">The resource <code>R.string.img_description</code> appears to be unused</span><br /><pre class="errorlines">
 <span class="lineno"> 12 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"user_password"</span>>Password<span class="tag">&lt;/string></span>
 <span class="lineno"> 13 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"confirm_password"</span>>Confirmar password<span class="tag">&lt;/string></span>
 <span class="lineno"> 14 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"register"</span>>Registrarse<span class="tag">&lt;/string></span>
-<span class="caretline"><span class="lineno"> 15 </span>    <span class="tag">&lt;string</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"img_description"</span></span>>logo de somos mas<span class="tag">&lt;/string></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="caretline"><span class="lineno"> 15 </span>    <span class="tag">&lt;string</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"img_description"</span></span>>logo de somos mas<span class="tag">&lt;/string></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
 <span class="lineno"> 16 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"hello_blank_fragment"</span>>Hello blank fragment<span class="tag">&lt;/string></span>
-<span class="lineno"> 17 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"success_dialog_title"</span>>Felicitaciones!<span class="tag">&lt;/string></span>
-<span class="lineno"> 18 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"success_supporting_text"</span>>Usuario registrado exitosamente.<span class="tag">&lt;/string></span></pre>
+<span class="lineno"> 17 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"success_dialog_title"</span>>¡Felicitaciones!<span class="tag">&lt;/string></span>
+<span class="lineno"> 18 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"success_supporting_text"</span>>Usuario registrado exitosamente.<span class="tag">&lt;/string></span>
+</pre>
 
 <span class="location"><a href="../../src/main/res/values/strings.xml">../../src/main/res/values/strings.xml</a>:16</span>: <span class="message">The resource <code>R.string.hello_blank_fragment</code> appears to be unused</span><br /><pre class="errorlines">
 <span class="lineno"> 13 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"confirm_password"</span>>Confirmar password<span class="tag">&lt;/string></span>
 <span class="lineno"> 14 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"register"</span>>Registrarse<span class="tag">&lt;/string></span>
 <span class="lineno"> 15 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"img_description"</span>>logo de somos mas<span class="tag">&lt;/string></span>
-<span class="caretline"><span class="lineno"> 16 </span>    <span class="tag">&lt;string</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"hello_blank_fragment"</span></span>>Hello blank fragment<span class="tag">&lt;/string></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 17 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"success_dialog_title"</span>>Felicitaciones!<span class="tag">&lt;/string></span>
+<span class="caretline"><span class="lineno"> 16 </span>    <span class="tag">&lt;string</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"hello_blank_fragment"</span></span>>Hello blank fragment<span class="tag">&lt;/string></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 17 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"success_dialog_title"</span>>¡Felicitaciones!<span class="tag">&lt;/string></span>
 <span class="lineno"> 18 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"success_supporting_text"</span>>Usuario registrado exitosamente.<span class="tag">&lt;/string></span>
-<span class="lineno"> 19 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"success_login"</span>>Sesion iniciada<span class="tag">&lt;/string></span></pre>
+<span class="lineno"> 19 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"success_login"</span>>Sesion iniciada<span class="tag">&lt;/string></span>
+</pre>
 
 <span class="location"><a href="../../src/main/res/values/strings.xml">../../src/main/res/values/strings.xml</a>:24</span>: <span class="message">The resource <code>R.string.empty_field_msg</code> appears to be unused</span><br /><pre class="errorlines">
-<span class="lineno"> 21 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"failure_dialog_title"</span>>Ocurrió un problema!<span class="tag">&lt;/string></span>
+<span class="lineno"> 21 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"failure_dialog_title"</span>>¡Ocurrió un problema!<span class="tag">&lt;/string></span>
 <span class="lineno"> 22 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"failure_supporting_text"</span>>La llamada al endpoint falló.<span class="tag">&lt;/string></span>
 <span class="lineno"> 23 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"close"</span>>Cerrar<span class="tag">&lt;/string></span>
-<span class="caretline"><span class="lineno"> 24 </span>  <span class="tag">&lt;string</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"empty_field_msg"</span></span>>Este campo debe ser completado.<span class="tag">&lt;/string></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="caretline"><span class="lineno"> 24 </span>  <span class="tag">&lt;string</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"empty_field_msg"</span></span>>Este campo debe ser completado.<span class="tag">&lt;/string></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
 <span class="lineno"> 25 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"invalid_format_msg"</span>>El campo ingresado no es valido.<span class="tag">&lt;/string></span>
 <span class="lineno"> 26 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"password_error_msg"</span>>Debe ser alfanumerico, contener una letra mayuscula, un caracter especial y sin espacios.<span class="tag">&lt;/string></span>
-<span class="lineno"> 27 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"confirm_password_error"</span>>Los passwords no coinciden.<span class="tag">&lt;/string></span></pre>
+<span class="lineno"> 27 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"confirm_password_error"</span>>Los passwords no coinciden.<span class="tag">&lt;/string></span>
+</pre>
 
 <span class="location"><a href="../../src/main/res/values/strings.xml">../../src/main/res/values/strings.xml</a>:25</span>: <span class="message">The resource <code>R.string.invalid_format_msg</code> appears to be unused</span><br /><pre class="errorlines">
 <span class="lineno"> 22 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"failure_supporting_text"</span>>La llamada al endpoint falló.<span class="tag">&lt;/string></span>
 <span class="lineno"> 23 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"close"</span>>Cerrar<span class="tag">&lt;/string></span>
 <span class="lineno"> 24 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"empty_field_msg"</span>>Este campo debe ser completado.<span class="tag">&lt;/string></span>
-<span class="caretline"><span class="lineno"> 25 </span>  <span class="tag">&lt;string</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"invalid_format_msg"</span></span>>El campo ingresado no es valido.<span class="tag">&lt;/string></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="caretline"><span class="lineno"> 25 </span>  <span class="tag">&lt;string</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"invalid_format_msg"</span></span>>El campo ingresado no es valido.<span class="tag">&lt;/string></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
 <span class="lineno"> 26 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"password_error_msg"</span>>Debe ser alfanumerico, contener una letra mayuscula, un caracter especial y sin espacios.<span class="tag">&lt;/string></span>
 <span class="lineno"> 27 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"confirm_password_error"</span>>Los passwords no coinciden.<span class="tag">&lt;/string></span>
-<span class="lineno"> 28 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"title_activity_home"</span>>Inicio<span class="tag">&lt;/string></span></pre>
+<span class="lineno"> 28 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"title_activity_home"</span>>Inicio<span class="tag">&lt;/string></span>
+</pre>
 
 <span class="location"><a href="../../src/main/res/values/strings.xml">../../src/main/res/values/strings.xml</a>:26</span>: <span class="message">The resource <code>R.string.password_error_msg</code> appears to be unused</span><br /><pre class="errorlines">
 <span class="lineno"> 23 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"close"</span>>Cerrar<span class="tag">&lt;/string></span>
 <span class="lineno"> 24 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"empty_field_msg"</span>>Este campo debe ser completado.<span class="tag">&lt;/string></span>
 <span class="lineno"> 25 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"invalid_format_msg"</span>>El campo ingresado no es valido.<span class="tag">&lt;/string></span>
-<span class="caretline"><span class="lineno"> 26 </span>  <span class="tag">&lt;string</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"password_error_msg"</span></span>>Debe ser alfanumerico, contener una letra mayuscula, un caracter especial y sin espacios.<span class="tag">&lt;/string></span></span>
+<span class="caretline"><span class="lineno"> 26 </span>  <span class="tag">&lt;string</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"password_error_msg"</span></span>>Debe ser alfanumerico, contener una letra mayuscula, un caracter especial y sin espacios.<span class="tag">&lt;/string></span></span>
 <span class="lineno"> 27 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"confirm_password_error"</span>>Los passwords no coinciden.<span class="tag">&lt;/string></span>
 <span class="lineno"> 28 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"title_activity_home"</span>>Inicio<span class="tag">&lt;/string></span>
-<span class="lineno"> 29 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"nav_header_desc"</span>>Somos Más<span class="tag">&lt;/string></span></pre>
+<span class="lineno"> 29 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"nav_header_desc"</span>>Somos Más<span class="tag">&lt;/string></span>
+</pre>
 
 <span class="location"><a href="../../src/main/res/values/strings.xml">../../src/main/res/values/strings.xml</a>:27</span>: <span class="message">The resource <code>R.string.confirm_password_error</code> appears to be unused</span><br /><pre class="errorlines">
 <span class="lineno"> 24 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"empty_field_msg"</span>>Este campo debe ser completado.<span class="tag">&lt;/string></span>
 <span class="lineno"> 25 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"invalid_format_msg"</span>>El campo ingresado no es valido.<span class="tag">&lt;/string></span>
 <span class="lineno"> 26 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"password_error_msg"</span>>Debe ser alfanumerico, contener una letra mayuscula, un caracter especial y sin espacios.<span class="tag">&lt;/string></span>
-<span class="caretline"><span class="lineno"> 27 </span>  <span class="tag">&lt;string</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"confirm_password_error"</span></span>>Los passwords no coinciden.<span class="tag">&lt;/string></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="caretline"><span class="lineno"> 27 </span>  <span class="tag">&lt;string</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"confirm_password_error"</span></span>>Los passwords no coinciden.<span class="tag">&lt;/string></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
 <span class="lineno"> 28 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"title_activity_home"</span>>Inicio<span class="tag">&lt;/string></span>
 <span class="lineno"> 29 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"nav_header_desc"</span>>Somos Más<span class="tag">&lt;/string></span>
-<span class="lineno"> 30 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"action_settings"</span>>Settings<span class="tag">&lt;/string></span></pre>
+<span class="lineno"> 30 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"action_settings"</span>>Settings<span class="tag">&lt;/string></span>
+</pre>
 
 <span class="location"><a href="../../src/main/res/values/strings.xml">../../src/main/res/values/strings.xml</a>:30</span>: <span class="message">The resource <code>R.string.action_settings</code> appears to be unused</span><br /><pre class="errorlines">
 <span class="lineno"> 27 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"confirm_password_error"</span>>Los passwords no coinciden.<span class="tag">&lt;/string></span>
 <span class="lineno"> 28 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"title_activity_home"</span>>Inicio<span class="tag">&lt;/string></span>
 <span class="lineno"> 29 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"nav_header_desc"</span>>Somos Más<span class="tag">&lt;/string></span>
-<span class="caretline"><span class="lineno"> 30 </span>    <span class="tag">&lt;string</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"action_settings"</span></span>>Settings<span class="tag">&lt;/string></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="caretline"><span class="lineno"> 30 </span>    <span class="tag">&lt;string</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"action_settings"</span></span>>Settings<span class="tag">&lt;/string></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
 <span class="lineno"> 31 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"menu_home"</span>>Inicio<span class="tag">&lt;/string></span>
 <span class="lineno"> 32 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"menu_news"</span>>Novedades<span class="tag">&lt;/string></span>
-<span class="lineno"> 33 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"menu_activities"</span>>Actividades<span class="tag">&lt;/string></span></pre>
+<span class="lineno"> 33 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"menu_activities"</span>>Actividades<span class="tag">&lt;/string></span>
+</pre>
 
-<span class="location"><a href="../../src/main/res/values/strings.xml">../../src/main/res/values/strings.xml</a>:38</span>: <span class="message">The resource <code>R.string.dummy_string</code> appears to be unused</span><br /><pre class="errorlines">
-<span class="lineno"> 35 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"menu_about_us"</span>>Nosotros<span class="tag">&lt;/string></span>
-<span class="lineno"> 36 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"menu_contact_us"</span>>Contacto<span class="tag">&lt;/string></span>
-<span class="lineno"> 37 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"set_error"</span>>ha existido un error<span class="tag">&lt;/string></span>
-<span class="caretline"><span class="lineno"> 38 </span>  <span class="tag">&lt;string</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"dummy_string"</span></span>>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
-<span class="lineno"> 39 </span>      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-<span class="lineno"> 40 </span>      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-<span class="lineno"> 41 </span>      Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<span class="tag">&lt;/string></span></pre>
+<span class="location"><a href="../../src/main/res/values/strings.xml">../../src/main/res/values/strings.xml</a>:40</span>: <span class="message">The resource <code>R.string.dummy_name</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno"> 37 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"set_error"</span>>¡Ocurrio un error!<span class="tag">&lt;/string></span>
+<span class="lineno"> 38 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"dummy_short_string"</span>>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+<span class="lineno"> 39 </span>      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<span class="tag">&lt;/string></span>
+<span class="caretline"><span class="lineno"> 40 </span>  <span class="tag">&lt;string</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"dummy_name"</span></span>>John Doe<span class="tag">&lt;/string></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 41 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"home_title"</span>>Bienvenidos<span class="tag">&lt;/string></span>
+<span class="lineno"> 42 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"home_iv_description"</span>>Imágenes de la ONG<span class="tag">&lt;/string></span>
+<span class="lineno"> 43 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"textError"</span>>Error al cargar los slides <span class="tag">&lt;/string></span>
+</pre>
 
-<span class="location"><a href="../../src/main/res/values/strings.xml">../../src/main/res/values/strings.xml</a>:44</span>: <span class="message">The resource <code>R.string.dummy_name</code> appears to be unused</span><br /><pre class="errorlines">
-<span class="lineno"> 41 </span>      Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<span class="tag">&lt;/string></span>
-<span class="lineno"> 42 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"dummy_short_string"</span>>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-<span class="lineno"> 43 </span>      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<span class="tag">&lt;/string></span>
-<span class="caretline"><span class="lineno"> 44 </span>  <span class="tag">&lt;string</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"dummy_name"</span></span>>John Doe<span class="tag">&lt;/string></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 45 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"home_title"</span>>Bienvenidos<span class="tag">&lt;/string></span>
-<span class="lineno"> 46 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"home_iv_description"</span>>Imágenes de la ONG<span class="tag">&lt;/string></span>
-<span class="lineno"> 47 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"textError"</span>>Error al cargar los slides <span class="tag">&lt;/string></span></pre>
+<span class="location"><a href="../../src/main/res/values/strings.xml">../../src/main/res/values/strings.xml</a>:42</span>: <span class="message">The resource <code>R.string.home_iv_description</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno"> 39 </span>      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<span class="tag">&lt;/string></span>
+<span class="lineno"> 40 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"dummy_name"</span>>John Doe<span class="tag">&lt;/string></span>
+<span class="lineno"> 41 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"home_title"</span>>Bienvenidos<span class="tag">&lt;/string></span>
+<span class="caretline"><span class="lineno"> 42 </span>  <span class="tag">&lt;string</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"home_iv_description"</span></span>>Imágenes de la ONG<span class="tag">&lt;/string></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 43 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"textError"</span>>Error al cargar los slides <span class="tag">&lt;/string></span>
+<span class="lineno"> 44 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"txtErrorActivites"</span>>Ha ocurrido un error obteniendo la info <span class="tag">&lt;/string></span>
+<span class="lineno"> 45 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"actionText"</span>>RETRY<span class="tag">&lt;/string></span>
+</pre>
 
-<span class="location"><a href="../../src/main/res/values/strings.xml">../../src/main/res/values/strings.xml</a>:46</span>: <span class="message">The resource <code>R.string.home_iv_description</code> appears to be unused</span><br /><pre class="errorlines">
-<span class="lineno"> 43 </span>      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<span class="tag">&lt;/string></span>
-<span class="lineno"> 44 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"dummy_name"</span>>John Doe<span class="tag">&lt;/string></span>
-<span class="lineno"> 45 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"home_title"</span>>Bienvenidos<span class="tag">&lt;/string></span>
-<span class="caretline"><span class="lineno"> 46 </span>  <span class="tag">&lt;string</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"home_iv_description"</span></span>>Imágenes de la ONG<span class="tag">&lt;/string></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 47 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"textError"</span>>Error al cargar los slides <span class="tag">&lt;/string></span>
-<span class="lineno"> 48 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"txtErrorActivites"</span>>Ha ocurrido un error obteniendo la info <span class="tag">&lt;/string></span>
-<span class="lineno"> 49 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"actionText"</span>>RETRY<span class="tag">&lt;/string></span></pre>
+<span class="location"><a href="../../src/main/res/values/strings.xml">../../src/main/res/values/strings.xml</a>:44</span>: <span class="message">The resource <code>R.string.txtErrorActivites</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno"> 41 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"home_title"</span>>Bienvenidos<span class="tag">&lt;/string></span>
+<span class="lineno"> 42 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"home_iv_description"</span>>Imágenes de la ONG<span class="tag">&lt;/string></span>
+<span class="lineno"> 43 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"textError"</span>>Error al cargar los slides <span class="tag">&lt;/string></span>
+<span class="caretline"><span class="lineno"> 44 </span>    <span class="tag">&lt;string</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"txtErrorActivites"</span></span>>Ha ocurrido un error obteniendo la info <span class="tag">&lt;/string></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 45 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"actionText"</span>>RETRY<span class="tag">&lt;/string></span>
+<span class="lineno"> 46 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"ultimas_novedades"</span>>Ultimas Novedades<span class="tag">&lt;/string></span>
+<span class="lineno"> 47 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"dialog_news_error_title"</span>>Ultimas Novedades<span class="tag">&lt;/string></span>
+</pre>
 
-<span class="location"><a href="../../src/main/res/values/strings.xml">../../src/main/res/values/strings.xml</a>:48</span>: <span class="message">The resource <code>R.string.txtErrorActivites</code> appears to be unused</span><br /><pre class="errorlines">
-<span class="lineno"> 45 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"home_title"</span>>Bienvenidos<span class="tag">&lt;/string></span>
-<span class="lineno"> 46 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"home_iv_description"</span>>Imágenes de la ONG<span class="tag">&lt;/string></span>
-<span class="lineno"> 47 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"textError"</span>>Error al cargar los slides <span class="tag">&lt;/string></span>
-<span class="caretline"><span class="lineno"> 48 </span>    <span class="tag">&lt;string</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"txtErrorActivites"</span></span>>Ha ocurrido un error obteniendo la info <span class="tag">&lt;/string></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 49 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"actionText"</span>>RETRY<span class="tag">&lt;/string></span>
-<span class="lineno"> 50 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"ultimas_novedades"</span>>Ultimas Novedades<span class="tag">&lt;/string></span>
-<span class="lineno"> 51 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"dialog_news_error_title"</span>>Ultimas Novedades<span class="tag">&lt;/string></span></pre>
-
-<span class="location"><a href="../../src/main/res/values/strings.xml">../../src/main/res/values/strings.xml</a>:54</span>: <span class="message">The resource <code>R.string.dialog_news_error_negative_btn</code> appears to be unused</span><br /><pre class="errorlines">
-<span class="lineno"> 51 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"dialog_news_error_title"</span>>Ultimas Novedades<span class="tag">&lt;/string></span>
-<span class="lineno"> 52 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"lastest_testimonials"</span>>Ultimos Testimonios<span class="tag">&lt;/string></span>
-<span class="lineno"> 53 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"dialog_news_error_message"</span>>Ha ocurrido un error obteniendo la información<span class="tag">&lt;/string></span>
-<span class="caretline"><span class="lineno"> 54 </span>  <span class="tag">&lt;string</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"dialog_news_error_negative_btn"</span></span>>Cancelar<span class="tag">&lt;/string></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 55 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"dialog_news_error_positive_btn"</span>>Reintentar<span class="tag">&lt;/string></span>
-<span class="lineno"> 56 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"more_testimonials"</span>>Ver más testimonios<span class="tag">&lt;/string></span>
-<span class="lineno"> 57 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"dialog_new_error_testimonials"</span>>Ha ocurrido un error obteniendo la información<span class="tag">&lt;/string></span></pre>
-
-<span class="location"><a href="../../src/main/res/values/strings.xml">../../src/main/res/values/strings.xml</a>:56</span>: <span class="message">The resource <code>R.string.more_testimonials</code> appears to be unused</span><br /><pre class="errorlines">
-<span class="lineno"> 53 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"dialog_news_error_message"</span>>Ha ocurrido un error obteniendo la información<span class="tag">&lt;/string></span>
-<span class="lineno"> 54 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"dialog_news_error_negative_btn"</span>>Cancelar<span class="tag">&lt;/string></span>
-<span class="lineno"> 55 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"dialog_news_error_positive_btn"</span>>Reintentar<span class="tag">&lt;/string></span>
-<span class="caretline"><span class="lineno"> 56 </span>  <span class="tag">&lt;string</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"more_testimonials"</span></span>>Ver más testimonios<span class="tag">&lt;/string></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 57 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"dialog_new_error_testimonials"</span>>Ha ocurrido un error obteniendo la información<span class="tag">&lt;/string></span>
-<span class="lineno"> 58 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"testimonials"</span>>Testimonios<span class="tag">&lt;/string></span>
-<span class="lineno"> 59 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"linkedin_icon"</span>>linkedin icon<span class="tag">&lt;/string></span></pre>
+<span class="location"><a href="../../src/main/res/values/strings.xml">../../src/main/res/values/strings.xml</a>:50</span>: <span class="message">The resource <code>R.string.dialog_news_error_negative_btn</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno"> 47 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"dialog_news_error_title"</span>>Ultimas Novedades<span class="tag">&lt;/string></span>
+<span class="lineno"> 48 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"lastest_testimonials"</span>>Ultimos Testimonios<span class="tag">&lt;/string></span>
+<span class="lineno"> 49 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"dialog_news_error_message"</span>>Ocurrio un error obteniendo la información<span class="tag">&lt;/string></span>
+<span class="caretline"><span class="lineno"> 50 </span>  <span class="tag">&lt;string</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"dialog_news_error_negative_btn"</span></span>>Cancelar<span class="tag">&lt;/string></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 51 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"dialog_news_error_positive_btn"</span>>Reintentar<span class="tag">&lt;/string></span>
+<span class="lineno"> 52 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"dialog_new_error_testimonials"</span>>Ha ocurrido un error obteniendo la información<span class="tag">&lt;/string></span>
+<span class="lineno"> 53 </span>  <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"see_more"</span>>Ver más<span class="tag">&lt;/string></span>
+</pre>
 
 </div>
 </div>
@@ -649,47 +486,7 @@ Dismiss</button>            </div>
             </div>
           </section>
 <a name="Usability:Icons"></a>
-<a name="IconLocation"></a>
-<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="IconLocationCard" style="display: block;">
-            <div class="mdl-card mdl-cell mdl-cell--12-col">
-  <div class="mdl-card__title">
-    <h2 class="mdl-card__title-text">Image defined in density-independent drawable folder</h2>
-  </div>
-              <div class="mdl-card__supporting-text">
-<div class="issue">
-<div class="warningslist">
-<span class="location"><a href="../../src/main/res/drawable/logo_somos_mas.png">../../src/main/res/drawable/logo_somos_mas.png</a></span>: <img class="embedimage" align="right" src="../../src/main/res/drawable/logo_somos_mas.png" /><span class="message">Found bitmap drawable <code>res/drawable/logo_somos_mas.png</code> in densityless folder</span><br clear="right"/>
-</div>
-<div class="metadata"><div class="explanation" id="explanationIconLocation" style="display: none;">
-The res/drawable folder is intended for density-independent graphics such as shapes defined in XML. For bitmaps, move it to <code>drawable-mdpi</code> and consider providing higher and lower resolution versions in <code>drawable-ldpi</code>, <code>drawable-hdpi</code> and <code>drawable-xhdpi</code>. If the icon <b>really</b> is density independent (for example a solid color) you can place it in <code>drawable-nodpi</code>.<br/><div class="moreinfo">More info: <a href="https://developer.android.com/guide/practices/screens_support.html">https://developer.android.com/guide/practices/screens_support.html</a>
-</div>To suppress this error, use the issue id "IconLocation" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
-<br/></div>
-</div>
-</div>
-<div class="chips">
-<span class="mdl-chip">
-    <span class="mdl-chip__text">IconLocation</span>
-</span>
-<span class="mdl-chip">
-    <span class="mdl-chip__text">Icons</span>
-</span>
-<span class="mdl-chip">
-    <span class="mdl-chip__text">Usability</span>
-</span>
-<span class="mdl-chip">
-    <span class="mdl-chip__text">Warning</span>
-</span>
-<span class="mdl-chip">
-    <span class="mdl-chip__text">Priority 5/10</span>
-</span>
-</div>
-              </div>
-              <div class="mdl-card__actions mdl-card--border">
-<button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="explanationIconLocationLink" onclick="reveal('explanationIconLocation');">
-Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="IconLocationCardLink" onclick="hideid('IconLocationCard');">
-Dismiss</button>            </div>
-            </div>
-          </section><a name="IconDensities"></a>
+<a name="IconDensities"></a>
 <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="IconDensitiesCard" style="display: block;">
             <div class="mdl-card mdl-cell mdl-cell--12-col">
   <div class="mdl-card__title">
@@ -698,9 +495,9 @@ Dismiss</button>            </div>
               <div class="mdl-card__supporting-text">
 <div class="issue">
 <div class="warningslist">
-<span class="location"><a href="../../src/main/res/drawable-hdpi">../../src/main/res/drawable-hdpi</a></span>: <span class="message">Missing the following drawables in <code>drawable-hdpi</code>: jose.png (found in drawable-xxhdpi)</span><br />
-<span class="location"><a href="../../src/main/res/drawable-mdpi">../../src/main/res/drawable-mdpi</a></span>: <span class="message">Missing the following drawables in <code>drawable-mdpi</code>: jose.png (found in drawable-xxhdpi)</span><br />
-<span class="location"><a href="../../src/main/res/drawable-xhdpi">../../src/main/res/drawable-xhdpi</a></span>: <span class="message">Missing the following drawables in <code>drawable-xhdpi</code>: jose.png (found in drawable-xxhdpi)</span><br />
+<span class="location"><a href="../../src/main/res/drawable-hdpi">../../src/main/res/drawable-hdpi</a></span>: <span class="message">Missing the following drawables in <code>drawable-hdpi</code>: logo_somos_mas.webp (found in drawable-mdpi)</span><br />
+<span class="location"><a href="../../src/main/res/drawable-xhdpi">../../src/main/res/drawable-xhdpi</a></span>: <span class="message">Missing the following drawables in <code>drawable-xhdpi</code>: logo_somos_mas.webp (found in drawable-mdpi)</span><br />
+<span class="location"><a href="../../src/main/res/drawable-xxhdpi">../../src/main/res/drawable-xxhdpi</a></span>: <span class="message">Missing the following drawables in <code>drawable-xxhdpi</code>: logo_somos_mas.webp (found in drawable-mdpi)</span><br />
 </div>
 <div class="metadata"><div class="explanation" id="explanationIconDensities" style="display: none;">
 Icons will look best if a custom version is provided for each of the major screen density classes (low, medium, high, extra high). This lint check identifies icons which do not have complete coverage across the densities.<br/>
@@ -734,127 +531,8 @@ Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id
 Dismiss</button>            </div>
             </div>
           </section>
-<a name="Accessibility"></a>
-<a name="ContentDescription"></a>
-<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="ContentDescriptionCard" style="display: block;">
-            <div class="mdl-card mdl-cell mdl-cell--12-col">
-  <div class="mdl-card__title">
-    <h2 class="mdl-card__title-text">Image without contentDescription</h2>
-  </div>
-              <div class="mdl-card__supporting-text">
-<div class="issue">
-<div class="warningslist">
-<span class="location"><a href="../../src/main/res/layout/fragment_log_in.xml">../../src/main/res/layout/fragment_log_in.xml</a>:19</span>: <span class="message">Missing <code>contentDescription</code> attribute on image</span><br /><pre class="errorlines">
-<span class="lineno">  16 </span><span class="attribute">            </span><span class="prefix">android:</span><span class="attribute">layout_width</span>=<span class="value">"match_parent"</span>
-<span class="lineno">  17 </span>            <span class="prefix">android:</span><span class="attribute">layout_height</span>=<span class="value">"wrap_content"</span>>
-<span class="lineno">  18 </span>
-<span class="caretline"><span class="lineno">  19 </span>            <span class="tag">&lt;</span><span class="warning"><span class="tag">ImageView</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="attribute">
-</span><span class="lineno">  20 </span><span class="attribute">                </span><span class="prefix">android:</span><span class="attribute">id</span>=<span class="value">"@+id/ivLogoSomosMasLogIn"</span>
-<span class="lineno">  21 </span>                <span class="prefix">android:</span><span class="attribute">layout_width</span>=<span class="value">"wrap_content"</span>
-<span class="lineno">  22 </span>                <span class="prefix">android:</span><span class="attribute">layout_height</span>=<span class="value">"wrap_content"</span></pre>
-
-<span class="location"><a href="../../src/main/res/layout/fragment_sign_up.xml">../../src/main/res/layout/fragment_sign_up.xml</a>:9</span>: <span class="message">Missing <code>contentDescription</code> attribute on image</span><br /><pre class="errorlines">
-<span class="lineno">   6 </span>    <span class="prefix">android:</span><span class="attribute">layout_height</span>=<span class="value">"match_parent"</span>>
-<span class="lineno">   7 </span>
-<span class="lineno">   8 </span>
-<span class="caretline"><span class="lineno">   9 </span>    <span class="tag">&lt;</span><span class="warning"><span class="tag">ImageView</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="attribute">
-</span><span class="lineno">  10 </span><span class="attribute">        </span><span class="prefix">android:</span><span class="attribute">id</span>=<span class="value">"@+id/ivLogoSomosMasSignUp"</span>
-<span class="lineno">  11 </span>        <span class="prefix">android:</span><span class="attribute">layout_width</span>=<span class="value">"wrap_content"</span>
-<span class="lineno">  12 </span>        <span class="prefix">android:</span><span class="attribute">layout_height</span>=<span class="value">"wrap_content"</span></pre>
-
-<span class="location"><a href="../../src/main/res/layout/fragment_whatwedo_item.xml">../../src/main/res/layout/fragment_whatwedo_item.xml</a>:28</span>: <span class="message">Missing <code>contentDescription</code> attribute on image</span><br /><pre class="errorlines">
-<span class="lineno"> 25 </span>            <span class="prefix">app:</span><span class="attribute">layout_constraintRight_toRightOf</span>=<span class="value">"parent"</span>
-<span class="lineno"> 26 </span>            <span class="prefix">tools:</span><span class="attribute">text</span> = <span class="value">"Title"</span>/>
-<span class="lineno"> 27 </span>
-<span class="caretline"><span class="lineno"> 28 </span>        <span class="tag">&lt;</span><span class="warning"><span class="tag">ImageView</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="attribute">
-</span><span class="lineno"> 29 </span><span class="attribute">            </span><span class="prefix">android:</span><span class="attribute">id</span>=<span class="value">"@+id/ivActivitieImage"</span>
-<span class="lineno"> 30 </span>            <span class="prefix">android:</span><span class="attribute">layout_width</span>=<span class="value">"match_parent"</span>
-<span class="lineno"> 31 </span>            <span class="prefix">android:</span><span class="attribute">layout_height</span>=<span class="value">"0dp"</span></pre>
-
-</div>
-<div class="metadata"><div class="explanation" id="explanationContentDescription" style="display: none;">
-Non-textual widgets like ImageViews and ImageButtons should use the <code>contentDescription</code> attribute to specify a textual description of the widget such that screen readers and other accessibility tools can adequately describe the user interface.<br/>
-<br/>
-Note that elements in application screens that are purely decorative and do not provide any content or enable a user action should not have accessibility content descriptions. In this case, just suppress the lint warning with a tools:ignore="ContentDescription" attribute.<br/>
-<br/>
-Note that for text fields, you should not set both the <code>hint</code> and the <code>contentDescription</code> attributes since the hint will never be shown. Just set the <code>hint</code>.<br/><div class="moreinfo">More info: <a href="https://developer.android.com/guide/topics/ui/accessibility/apps#special-cases">https://developer.android.com/guide/topics/ui/accessibility/apps#special-cases</a>
-</div>Note: This issue has an associated quickfix operation in Android Studio and IntelliJ IDEA.<br>
-To suppress this error, use the issue id "ContentDescription" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
-<br/></div>
-</div>
-</div>
-<div class="chips">
-<span class="mdl-chip">
-    <span class="mdl-chip__text">ContentDescription</span>
-</span>
-<span class="mdl-chip">
-    <span class="mdl-chip__text">Accessibility</span>
-</span>
-<span class="mdl-chip">
-    <span class="mdl-chip__text">Warning</span>
-</span>
-<span class="mdl-chip">
-    <span class="mdl-chip__text">Priority 3/10</span>
-</span>
-</div>
-              </div>
-              <div class="mdl-card__actions mdl-card--border">
-<button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="explanationContentDescriptionLink" onclick="reveal('explanationContentDescription');">
-Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="ContentDescriptionCardLink" onclick="hideid('ContentDescriptionCard');">
-Dismiss</button>            </div>
-            </div>
-          </section>
 <a name="Internationalization"></a>
-<a name="SetTextI18n"></a>
-<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="SetTextI18nCard" style="display: block;">
-            <div class="mdl-card mdl-cell mdl-cell--12-col">
-  <div class="mdl-card__title">
-    <h2 class="mdl-card__title-text">TextView Internationalization</h2>
-  </div>
-              <div class="mdl-card__supporting-text">
-<div class="issue">
-<div class="warningslist">
-<span class="location"><a href="../../src/main/java/com/melvin/ongandroid/view/viewHolders/TestimonialsViewHolder.kt">../../src/main/java/com/melvin/ongandroid/view/viewHolders/TestimonialsViewHolder.kt</a>:38</span>: <span class="message">String literal in <code>setText</code> can not be translated. Use Android resources instead.</span><br /><pre class="errorlines">
-<span class="lineno"> 35 </span>   <span class="keyword">fun</span> drawArrow(){
-<span class="lineno"> 36 </span>       homeBinding = TestimonialsViewPagerItemHomeBinding.bind(view)
-<span class="lineno"> 37 </span>       homeBinding.ivTestimonialHome.setImageResource(R.drawable.ic_baseline_arrow_forward_24)
-<span class="caretline"><span class="lineno"> 38 </span>       homeBinding.tvTestimonialTitleHome.text = <span class="string">"</span><span class="warning"><span class="string">See More</span></span><span class="string">"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 39 </span>       homeBinding.tvTestimonialDescriptionHome.isVisible = <span class="keyword">false</span>
-<span class="lineno"> 40 </span>       homeBinding.cvTestimonials.isClickable = <span class="keyword">true</span>
-<span class="lineno"> 41 </span>       homeBinding.cvTestimonials.setOnClickListener {
-</pre>
-
-</div>
-<div class="metadata"><div class="explanation" id="explanationSetTextI18n" style="display: none;">
-When calling <code>TextView#setText</code><br/>
-* Never call <code>Number#toString()</code> to format numbers; it will not handle fraction separators and locale-specific digits properly. Consider using <code>String#format</code> with proper format specifications (<code>%d</code> or <code>%f</code>) instead.<br/>
-* Do not pass a string literal (e.g. "Hello") to display text. Hardcoded text can not be properly translated to other languages. Consider using Android resource strings instead.<br/>
-* Do not build messages by concatenating text chunks. Such messages can not be properly translated.<br/><div class="moreinfo">More info: <a href="https://developer.android.com/guide/topics/resources/localization.html">https://developer.android.com/guide/topics/resources/localization.html</a>
-</div>To suppress this error, use the issue id "SetTextI18n" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
-<br/></div>
-</div>
-</div>
-<div class="chips">
-<span class="mdl-chip">
-    <span class="mdl-chip__text">SetTextI18n</span>
-</span>
-<span class="mdl-chip">
-    <span class="mdl-chip__text">Internationalization</span>
-</span>
-<span class="mdl-chip">
-    <span class="mdl-chip__text">Warning</span>
-</span>
-<span class="mdl-chip">
-    <span class="mdl-chip__text">Priority 6/10</span>
-</span>
-</div>
-              </div>
-              <div class="mdl-card__actions mdl-card--border">
-<button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="explanationSetTextI18nLink" onclick="reveal('explanationSetTextI18n');">
-Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="SetTextI18nCardLink" onclick="hideid('SetTextI18nCard');">
-Dismiss</button>            </div>
-            </div>
-          </section><a name="HardcodedText"></a>
+<a name="HardcodedText"></a>
 <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="HardcodedTextCard" style="display: block;">
             <div class="mdl-card mdl-cell mdl-cell--12-col">
   <div class="mdl-card__title">
@@ -867,36 +545,11 @@ Dismiss</button>            </div>
 <span class="lineno"> 139 </span>                <span class="prefix">android:</span><span class="attribute">layout_marginTop</span>=<span class="value">"10dp"</span>
 <span class="lineno"> 140 </span>                <span class="prefix">android:</span><span class="attribute">layout_gravity</span>=<span class="value">"center"</span>
 <span class="lineno"> 141 </span>                <span class="prefix">android:</span><span class="attribute">enabled</span>=<span class="value">"true"</span>
-<span class="caretline"><span class="lineno"> 142 </span>                <span class="warning"><span class="prefix">android:</span><span class="attribute">text</span>=<span class="value">"Enviar falla"</span></span> />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="caretline"><span class="lineno"> 142 </span>                <span class="warning"><span class="prefix">android:</span><span class="attribute">text</span>=<span class="value">"Enviar falla"</span></span> />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
 <span class="lineno"> 143 </span>
 <span class="lineno"> 144 </span>        <span class="tag">&lt;/LinearLayout></span>
+<span class="lineno"> 145 </span>
 </pre>
-
-<span class="location"><a href="../../src/main/res/layout/fragment_news_item.xml">../../src/main/res/layout/fragment_news_item.xml</a>:41</span>: <span class="message">Hardcoded string "Image", should use <code>@string</code> resource</span><br /><pre class="errorlines">
-<span class="lineno"> 38 </span>            <span class="prefix">app:</span><span class="attribute">layout_constraintRight_toRightOf</span>=<span class="value">"parent"</span>
-<span class="lineno"> 39 </span>            <span class="prefix">app:</span><span class="attribute">layout_constraintBottom_toTopOf</span>=<span class="value">"@id/tvNewsItemDescription"</span>
-<span class="lineno"> 40 </span>            <span class="prefix">tools:</span><span class="attribute">srcCompat</span>=<span class="value">"@tools:sample/backgrounds/scenic"</span>
-<span class="caretline"><span class="lineno"> 41 </span>            <span class="warning"><span class="prefix">android:</span><span class="attribute">contentDescription</span>=<span class="value">"Image"</span></span> />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 42 </span>
-<span class="lineno"> 43 </span>        <span class="tag">&lt;TextView</span><span class="attribute">
-</span><span class="lineno"> 44 </span><span class="attribute">            </span><span class="prefix">android:</span><span class="attribute">id</span>=<span class="value">"@+id/tvNewsItemDescription"</span></pre>
-
-<span class="location"><a href="../../src/main/res/layout/nav_header_home.xml">../../src/main/res/layout/nav_header_home.xml</a>:28</span>: <span class="message">Hardcoded string "User name", should use <code>@string</code> resource</span><br /><pre class="errorlines">
-<span class="lineno"> 25 </span><span class="attribute">        </span><span class="prefix">android:</span><span class="attribute">layout_width</span>=<span class="value">"match_parent"</span>
-<span class="lineno"> 26 </span>        <span class="prefix">android:</span><span class="attribute">layout_height</span>=<span class="value">"wrap_content"</span>
-<span class="lineno"> 27 </span>        <span class="prefix">android:</span><span class="attribute">paddingTop</span>=<span class="value">"@dimen/nav_header_vertical_spacing"</span>
-<span class="caretline"><span class="lineno"> 28 </span>        <span class="warning"><span class="prefix">android:</span><span class="attribute">text</span>=<span class="value">"User name"</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 29 </span>        <span class="prefix">android:</span><span class="attribute">textAppearance</span>=<span class="value">"@style/TextAppearance.AppCompat.Body1"</span> />
-<span class="lineno"> 30 </span>
-<span class="lineno"> 31 </span>    <span class="tag">&lt;TextView</span></pre>
-
-<span class="location"><a href="../../src/main/res/layout/nav_header_home.xml">../../src/main/res/layout/nav_header_home.xml</a>:34</span>: <span class="message">Hardcoded string "User email", should use <code>@string</code> resource</span><br /><pre class="errorlines">
-<span class="lineno"> 31 </span>    <span class="tag">&lt;TextView</span><span class="attribute">
-</span><span class="lineno"> 32 </span><span class="attribute">        </span><span class="prefix">android:</span><span class="attribute">layout_width</span>=<span class="value">"wrap_content"</span>
-<span class="lineno"> 33 </span>        <span class="prefix">android:</span><span class="attribute">layout_height</span>=<span class="value">"wrap_content"</span>
-<span class="caretline"><span class="lineno"> 34 </span>        <span class="warning"><span class="prefix">android:</span><span class="attribute">text</span>=<span class="value">"User email"</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 35 </span>        <span class="prefix">android:</span><span class="attribute">id</span>=<span class="value">"@+id/textView"</span> />
-<span class="lineno"> 36 </span><span class="tag">&lt;/LinearLayout></span></pre>
 
 </div>
 <div class="metadata"><div class="explanation" id="explanationHardcodedText" style="display: none;">
