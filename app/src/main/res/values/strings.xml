@@ -3,28 +3,21 @@
     <!-- Strings related to login -->
     <string name="email">Email</string>
     <string name="prompt_password">Contraseña</string>
-    <string name="action_sign_in">Sign in or register</string>
     <string name="action_sign_in_short">Ingresar</string>
     <string name="action_sign_up_short">Crear cuenta</string>
-    <string name="do_you_have_an_account">No tienes cuenta?</string>
+    <string name="do_you_have_an_account">¿No tienes cuenta?</string>
     <string name="enter_user_name">Ingresa tu nombre de usuario</string>
     <string name="user_email">Ingresa tu email</string>
     <string name="user_password">Password</string>
     <string name="confirm_password">Confirmar password</string>
     <string name="register">Registrarse</string>
-    <string name="img_description">logo de somos mas</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="success_dialog_title">Felicitaciones!</string>
+    <string name="success_dialog_title">¡Felicitaciones!</string>
     <string name="success_supporting_text">Usuario registrado exitosamente.</string>
     <string name="success_login">Sesion iniciada</string>
     <string name="accept">Aceptar</string>
-    <string name="failure_dialog_title">Ocurrió un problema!</string>
+    <string name="failure_dialog_title">¡Ocurrió un problema!</string>
     <string name="failure_supporting_text">La llamada al endpoint falló.</string>
     <string name="close">Cerrar</string>
-    <string name="empty_field_msg">Este campo debe ser completado.</string>
-    <string name="invalid_format_msg">El campo ingresado no es valido.</string>
-    <string name="password_error_msg">Debe ser alfanumerico, contener una letra mayuscula, un caracter especial y sin espacios.</string>
-    <string name="confirm_password_error">Los passwords no coinciden.</string>
     <string name="title_activity_home">Inicio</string>
     <string name="nav_header_desc">Somos Más</string>
     <string name="action_settings">Settings</string>
@@ -34,41 +27,37 @@
     <string name="menu_testimonials">Testimonios</string>
     <string name="menu_about_us">Nosotros</string>
     <string name="menu_contact_us">Contacto</string>
-    <string name="set_error">ha existido un error</string>
-    <string name="dummy_string">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
+    <string name="set_error">¡Ocurrio un error!</string>
     <string name="dummy_short_string">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
         Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</string>
-    <string name="dummy_name">John Doe</string>
     <string name="home_title">Bienvenidos</string>
-    <string name="home_iv_description">Imágenes de la ONG</string>
     <string name="textError">Error al cargar los slides </string>
-    <string name="txtErrorActivites">Ha ocurrido un error obteniendo la info </string>
     <string name="actionText">RETRY</string>
     <string name="ultimas_novedades">Ultimas Novedades</string>
     <string name="dialog_news_error_title">Ultimas Novedades</string>
     <string name="lastest_testimonials">Ultimos Testimonios</string>
-    <string name="dialog_news_error_message">Ha ocurrido un error obteniendo la información</string>
-    <string name="dialog_news_error_negative_btn">Cancelar</string>
+    <string name="dialog_news_error_message">Ocurrio un error obteniendo la información</string>
     <string name="dialog_news_error_positive_btn">Reintentar</string>
-    <string name="more_testimonials">Ver más testimonios</string>
     <string name="dialog_new_error_testimonials">Ha ocurrido un error obteniendo la información</string>
+    <string name="see_more">Ver más</string>
     <string name="testimonials">Testimonios</string>
     <string name="linkedin_icon">linkedin icon</string>
     <string name="facebook_icon">facebook icon</string>
     <string name="somos_mas_integrante">foto de integrante de la ong</string>
-    <string name="us_title">Nosotros!</string>
+    <string name="us_title">¡Nosotros!</string>
     <string name="us_description">Desde 1997 en Somos MAs trabajamos con los chicos y chicas, mamas y papas, abuelos y vecinos del barrio Da Cava generando procesos de crecimiento y de insercion social. Uniendo las manos de todas las familias, las que vivien en el barrio y las que viven fuera de el, es que podemos pensar, crear y garantizar estos procesos.</string>
     <string name="us_name_title">NameTitle</string>
     <string name="member_detail_title">Detalle</string>
+    <string name="default_content_description">Image</string>
+    <string name="default_user_name">User name</string>
+    <string name="default_user_email">User email</string>
     <string name="contact_name">Ingrese su nombre y apellido</string>
     <string name="contact_phone_number">Ingrese su número telefónico</string>
     <string name="contact_email">Ingrese su Email</string>
     <string name="contact_message">Mensaje o duda</string>
     <string name="contact_us">Contáctenos</string>
     <string name="send_button">Enviar</string>
+    <string name="send_error">Enviar falla</string>
     <string name="success_contact_creation">El contacto fue creado con éxito</string>
     <string name="successful_operation">Operación exitosa</string>
 

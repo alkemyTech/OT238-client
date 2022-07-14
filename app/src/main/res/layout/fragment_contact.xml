@@ -139,7 +139,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_gravity="center"
                 android:enabled="true"
-                android:text="Enviar falla" />
+                android:text="@string/send_error" />
 
         </LinearLayout>
 
