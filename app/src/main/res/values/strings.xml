@@ -62,5 +62,13 @@
     <string name="default_content_description">Image</string>
     <string name="default_user_name">User name</string>
     <string name="default_user_email">User email</string>
+    <string name="contact_name">Ingrese su nombre y apellido</string>
+    <string name="contact_phone_number">Ingrese su número telefónico</string>
+    <string name="contact_email">Ingrese su Email</string>
+    <string name="contact_message">Mensaje o duda</string>
+    <string name="contact_us">Contáctenos</string>
+    <string name="send_button">Enviar</string>
+    <string name="success_contact_creation">El contacto fue creado con éxito</string>
+    <string name="successful_operation">Operación exitosa</string>
 
 </resources>
