@@ -82,6 +82,7 @@ class LoginFragment : Fragment() {
                 when (it!!) {
                     ApiStatus.SUCCESS -> { showSuccessDialog() }
                     ApiStatus.FAILURE -> { showFailureDialog() }
+                    ApiStatus.LOADING -> TODO()
                 }
             }
         }

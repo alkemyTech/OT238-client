@@ -88,6 +88,7 @@ class ContactFragment : Fragment() {
             when (statusApi!!) {
                 ApiStatus.SUCCESS -> { showSuccessDialog() }
                 ApiStatus.FAILURE -> { showFailure() }
+                ApiStatus.LOADING -> TODO()
             }
         }
     }
