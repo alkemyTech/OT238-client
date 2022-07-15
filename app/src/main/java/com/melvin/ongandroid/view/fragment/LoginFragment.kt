@@ -89,14 +89,14 @@ class LoginFragment : Fragment() {
     }
 
     private fun eventLogInSuccess() {
-        firebaseAnalytics.logEvent("log_in_pressed") {
+        firebaseAnalytics.logEvent("log_in_succes") {
             param("user_email", loginBinding.itEmail.toString())
         }
     }
     private fun eventLogInError() {
-        firebaseAnalytics.logEvent("log_in_pressed") {
+        firebaseAnalytics.logEvent("log_in_error") {
             param("user_email", loginBinding.itEmail.toString())
-            param("user_email", loginBinding.itPassword.toString())
+            param("user_password", loginBinding.itPassword.toString())
         }
     }
     private fun eventPressedLogIn() {

@@ -127,14 +127,14 @@ class SignUpFragment : Fragment() {
         }
     }
     private fun eventSingUpSuccess() {
-        firebaseAnalytics.logEvent("log_in_pressed") {
+        firebaseAnalytics.logEvent("sing_up_success") {
             param("user_email", binding.etUserEmail.toString())
         }
     }
     private fun eventSingUpError() {
-        firebaseAnalytics.logEvent("log_in_pressed") {
+        firebaseAnalytics.logEvent("sing_up_error") {
             param("user_email", binding.etUserEmail.toString())
-            param("user_email", binding.tiUserPassword.toString())
+            param("user_password", binding.tiUserPassword.toString())
         }
     }
 }
