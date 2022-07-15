@@ -53,21 +53,21 @@ class TestimonialsFragment : Fragment() {
     }
 
     private fun setUpObserver(){
-        viewModel.observerTestimonialsList().observe(viewLifecycleOwner) {
-            if (it != null){
-                onLoadTestimonials()?.let { it1 -> initRecyclerView(it1) }
-            } else {
+        viewModel.testimonialsList.observe(viewLifecycleOwner) {
+            if (it.isNullOrEmpty()){
                 snackBar()
+            } else {
+                initRecyclerView(it)
             }
         }
     }
-    fun onLoadTestimonials() = viewModel.observerTestimonialsList().value
 
     private fun initRecyclerView(data: List<Testimonials>){
          adapter = TestimonialsAdapter(data, false)
          binding.rvTestimonials.layoutManager = LinearLayoutManager(context)
          binding.rvTestimonials.adapter = adapter
     }
+
     private fun snackBar(){
         Snackbar.make(binding.rvTestimonials, R.string.textError, Snackbar.LENGTH_LONG)
             .setAction(R.string.actionText) {

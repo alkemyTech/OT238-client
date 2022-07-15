@@ -18,8 +18,8 @@ class ContactViewModel @Inject constructor(
 ) : ViewModel() {
 
     private val _status = MutableLiveData<ApiStatus>()
-    val status: LiveData<ApiStatus> = _status
-    val createContactCharging = MutableLiveData(false)
+    val status: LiveData<ApiStatus>
+        get() = _status
 
     fun validateName(name: String): Boolean {
         return name.isNotEmpty()
@@ -38,10 +38,9 @@ class ContactViewModel @Inject constructor(
     }
 
     fun createContact(newContact: Contact) {
-        createContactCharging.postValue(true)
         viewModelScope.launch {
+            _status.value = ApiStatus.LOADING
             val apiCreateContact=contactUseCase.createContact(newContact)
-            createContactCharging.postValue(false)
             if(apiCreateContact.success){
                 _status.value = ApiStatus.SUCCESS
             }else{

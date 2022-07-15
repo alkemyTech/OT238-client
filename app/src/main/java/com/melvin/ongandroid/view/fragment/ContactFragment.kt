@@ -54,21 +54,22 @@ class ContactFragment : Fragment() {
                         etPhoneNumber.text.toString(),
                         etMessage.text.toString())
                 contactViewModel.createContact(newContact)
-                drawStatusDialog()
             }
             btnSendFail.setOnClickListener {
                 showFailure()
             }
-            contactViewModel.createContactCharging.observe(viewLifecycleOwner) { charging ->
-                if (charging) {
-                    pbChargingContact.visibility = View.VISIBLE
-                } else {
-                    pbChargingContact.visibility = View.GONE
+
+            contactViewModel.status.observe(viewLifecycleOwner) { currentStatus ->
+                when (currentStatus) {
+                    ApiStatus.SUCCESS -> {binding.pbChargingContact.hideProgressBar()
+                        showSuccessDialog()}
+                    ApiStatus.FAILURE -> {binding.pbChargingContact.hideProgressBar()
+                        showFailure()}
+                    ApiStatus.LOADING -> binding.pbChargingContact.showProgressBar()
                 }
             }
         }
     }
-
 
     private fun checkPlaces(){
         binding.apply {
@@ -80,16 +81,6 @@ class ContactFragment : Fragment() {
             tiEmail.isErrorEnabled=false
             tiMessage.isErrorEnabled=false
             tiPhone.isErrorEnabled=false
-        }
-    }
-
-    private fun drawStatusDialog() {
-        contactViewModel.status.observe(viewLifecycleOwner) { statusApi->
-            when (statusApi!!) {
-                ApiStatus.SUCCESS -> { showSuccessDialog() }
-                ApiStatus.FAILURE -> { showFailure() }
-                ApiStatus.LOADING -> TODO()
-            }
         }
     }
 
@@ -118,6 +109,5 @@ class ContactFragment : Fragment() {
             tiPhone.error= getString(R.string.set_error)
         }
     }
-
 
 }
