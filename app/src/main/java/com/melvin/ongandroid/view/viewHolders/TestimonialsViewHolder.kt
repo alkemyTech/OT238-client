@@ -35,7 +35,7 @@ class TestimonialsViewHolder
     fun drawArrow(){
         homeBinding = TestimonialsViewPagerItemHomeBinding.bind(view)
         homeBinding.ivTestimonialHome.setImageResource(R.drawable.ic_baseline_arrow_forward_24)
-        homeBinding.tvTestimonialTitleHome.text = "See More"
+        homeBinding.tvTestimonialTitleHome.setText(R.string.see_more)
         homeBinding.tvTestimonialDescriptionHome.isVisible = false
         homeBinding.cvTestimonials.isClickable = true
         homeBinding.cvTestimonials.setOnClickListener {

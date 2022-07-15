@@ -122,7 +122,7 @@
 
             <View
                 android:layout_width="1dp"
-                android:layout_height="15dp" />
+                android:layout_height="30dp" />
 
             <Button
                 android:id="@+id/btnSend"
@@ -132,14 +132,6 @@
                 android:layout_gravity="center"
                 android:enabled="false"
                 android:text="@string/send_button" />
-            <Button
-                android:id="@+id/btnSendFail"
-                android:layout_width="310dp"
-                android:layout_height="60dp"
-                android:layout_marginTop="10dp"
-                android:layout_gravity="center"
-                android:enabled="true"
-                android:text="Enviar falla" />
 
         </LinearLayout>
 

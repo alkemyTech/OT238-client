@@ -33,6 +33,7 @@
             android:padding="@dimen/list_item_padding"
             android:scaleType="centerCrop"
             android:src="@drawable/logo_somos_mas"
+            android:contentDescription="@string/default_content_description"
             app:layout_constraintHeight_percent="0.65"
             app:layout_constraintTop_toBottomOf="@id/tvActivitieTitle"
             app:layout_constraintLeft_toLeftOf="parent"

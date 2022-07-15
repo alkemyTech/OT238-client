@@ -23,6 +23,7 @@
                 android:layout_marginTop="48dp"
                 android:background="@drawable/style_border_component"
                 android:backgroundTint="#6DFFFFFF"
+                android:contentDescription="@string/default_content_description"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"

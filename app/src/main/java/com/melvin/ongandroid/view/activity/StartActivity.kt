@@ -3,7 +3,6 @@ package com.melvin.ongandroid.view.activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
 import com.melvin.ongandroid.data.AppData
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
@@ -14,7 +13,7 @@ import javax.inject.Inject
 
 
 @AndroidEntryPoint
-class SplashActivity : AppCompatActivity(){
+class StartActivity : AppCompatActivity(){
     @Inject lateinit var appData : AppData
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,7 +25,6 @@ class SplashActivity : AppCompatActivity(){
         runBlocking {
             launch {
                 delay(TimeUnit.SECONDS.toMillis(5))
-                Toast.makeText(this@SplashActivity, "Timer has finished", Toast.LENGTH_SHORT).show()
                 checkAuth()
             }
         }

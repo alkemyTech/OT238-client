@@ -5,8 +5,8 @@ plugins {
     id 'dagger.hilt.android.plugin'
     id 'androidx.navigation.safeargs.kotlin'
     id 'kotlin-parcelize'
-    //id 'com.google.gms.google-services'
-    //id 'com.google.firebase.crashlytics'
+    id 'com.google.gms.google-services'
+    id 'com.google.firebase.crashlytics'
 }
 
 android {
@@ -100,12 +100,11 @@ dependencies {
     //Picasso
     implementation "com.squareup.picasso:picasso:2.71828"
 
-    //Ready to use Firebase when we need it
     //Firebase
-    //implementation platform('com.google.firebase:firebase-bom:30.0.2')
-    //implementation 'com.google.firebase:firebase-analytics'
-    //implementation 'com.google.firebase:firebase-crashlytics'
-    //implementation 'com.google.firebase:firebase-messaging'
+    implementation platform('com.google.firebase:firebase-bom:30.3.0')
+    implementation 'com.google.firebase:firebase-analytics'
+    implementation 'com.google.firebase:firebase-crashlytics'
+    implementation 'com.google.firebase:firebase-messaging'
 
     //Google Services
     implementation 'com.google.android.gms:play-services-auth:20.2.0'
