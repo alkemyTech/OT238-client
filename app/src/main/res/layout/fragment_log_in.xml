@@ -7,14 +7,9 @@
     android:layout_height="match_parent"
     tools:context=".view.fragment.LoginFragment">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:visibility="visible">
-
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
 
             <ImageView
                 android:id="@+id/ivLogoSomosMasLogIn"
@@ -62,6 +57,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/itEmailDesign"
+                app:layout_constraintBottom_toTopOf="@+id/bLogin"
                 app:passwordToggleEnabled="true"
                 app:startIconDrawable="@drawable/ic_baseline_lock_24">
 
@@ -84,35 +80,54 @@
                 android:text="@string/action_sign_in_short"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/itPasswordDesign" />
+                app:layout_constraintTop_toBottomOf="@+id/itPasswordDesign"
+                app:layout_constraintVertical_bias="0.10"/>
 
             <TextView
                 android:id="@+id/tvNotHaveAnAccount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
                 android:text="@string/do_you_have_an_account"
+                app:layout_constraintTop_toBottomOf="@+id/bLogin"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/bLogin" />
+                app:layout_constraintVertical_bias="0.10" />
 
             <Button
                 android:id="@+id/bSignUp"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="100dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="100dp"
                 android:text="@string/action_sign_up_short"
                 android:textAppearance="@style/TextAppearance.AppCompat.Display1"
                 android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvNotHaveAnAccount" />
+                app:layout_constraintTop_toBottomOf="@+id/tvNotHaveAnAccount"
+                app:layout_constraintVertical_bias="0.10"/>
 
+            <TextView
+                android:id="@+id/tvLoginWithGoogleAndFacebook"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Login with fb and google"
+                app:layout_constraintTop_toBottomOf="@+id/bSignUp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <com.google.android.gms.common.SignInButton
+                android:id="@+id/sign_in_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.235"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvLoginWithGoogleAndFacebook"
+                app:layout_constraintVertical_bias="0.483" />
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
 
     <ProgressBar
         android:id="@+id/pbCharging"
