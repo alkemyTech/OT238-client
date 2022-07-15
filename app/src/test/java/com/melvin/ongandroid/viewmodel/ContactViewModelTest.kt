@@ -28,27 +28,17 @@ internal class ContactViewModelTest {
         assertEquals(false, result)
     }
 
-    //I don't know if this is right, consult the pibardos
     @Test
-    fun `empty first and last name with wrong character return false`(){
-        val nameAndSurname = "Francisc4o toro"
-        val result = !(nameAndSurname.contains("0")||
-                nameAndSurname.contains("1")||
-                nameAndSurname.contains("2")||
-                nameAndSurname.contains("3")||
-                nameAndSurname.contains("4")||
-                nameAndSurname.contains("5")||
-                nameAndSurname.contains("6")||
-                nameAndSurname.contains("7")||
-                nameAndSurname.contains("8")||
-                nameAndSurname.contains("9"))
+    fun `empty first and last name with number return false`(){
+        val nameAndSurname = "xavier5roslaes"
+        val result = contactViewModel.validateName(nameAndSurname)
         assertEquals(false, result)
     }
 
     @Test
     fun `only a name return false`(){
-        val nameAndSurname = "Francisco"
-        val result = (nameAndSurname.contains(" "))
+        val nameAndSurname = "Xavier"
+        val result = contactViewModel.validateName(nameAndSurname)
         assertEquals(false, result)
     }
 
@@ -91,12 +81,12 @@ internal class ContactViewModelTest {
         assertEquals(false,result)
     }
 
-//    @Test
-//    fun `wrong character in number returns false`(){
-//        val number = "64565464f"
-//        val result = !(number.contains(" ") || number.isDigitsOnly())
-//        assertEquals(false,result)
-//    }
+    @Test
+    fun `wrong character in number returns false`(){
+        val number = "645654643"
+        val result = contactViewModel.validateNumber(number)
+        assertEquals(false,result)
+    }
 
     //message or question test
 
