@@ -1,7 +1,12 @@
 name: OT238 - Branch test
 
 on:
-  
+  push:
+    branches:
+     -'features/**'
+     -'feature/**'
+     -'!main'
+    
   pull_request:
     branches: [ "main" ]
 
