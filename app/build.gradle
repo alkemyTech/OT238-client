@@ -5,8 +5,8 @@ plugins {
     id 'dagger.hilt.android.plugin'
     id 'androidx.navigation.safeargs.kotlin'
     id 'kotlin-parcelize'
-    //id 'com.google.gms.google-services'
-    //id 'com.google.firebase.crashlytics'
+    id 'com.google.gms.google-services'
+    id 'com.google.firebase.crashlytics'
 }
 
 android {
@@ -65,7 +65,7 @@ dependencies {
 
     //Retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
-    implementation 'com.squareup.okhttp3:logging-interceptor:4.7.2'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.9.1'
 
     //Coroutines
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.1'
@@ -111,5 +111,16 @@ dependencies {
 
     //Facebook Login
     implementation 'com.facebook.android:facebook-login:8.1.0'
+
+    //FIREBASE
+    implementation platform('com.google.firebase:firebase-bom:30.1.0')
+    //Analytics
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+    //Crashlytics
+    implementation 'com.google.firebase:firebase-crashlytics-ktx'
+    //Messaging
+    implementation 'com.google.firebase:firebase-messaging'
+
+
 
 }

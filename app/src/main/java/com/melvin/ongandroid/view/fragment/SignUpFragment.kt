@@ -8,9 +8,12 @@ import android.view.ViewGroup
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.LifecycleOwner
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.firebase.analytics.FirebaseAnalytics
+import com.google.firebase.analytics.ktx.analytics
+import com.google.firebase.analytics.ktx.logEvent
+import com.google.firebase.ktx.Firebase
 import com.melvin.ongandroid.R
 import com.melvin.ongandroid.databinding.FragmentSignUpBinding
 import com.melvin.ongandroid.model.entities.UserRegistrationRequest
@@ -23,6 +26,8 @@ class SignUpFragment : Fragment() {
     private var _binding: FragmentSignUpBinding? = null
     private val binding get() = _binding!!
     private val viewModel: SignUpViewModel by viewModels()
+    private lateinit var firebaseAnalytics: FirebaseAnalytics
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -30,17 +35,22 @@ class SignUpFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
 
-        _binding = FragmentSignUpBinding.inflate(inflater,container,false)
+        _binding = FragmentSignUpBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        firebaseAnalytics = Firebase.analytics
 
-        viewModel.validateFields(binding.etUserName.text.toString(),binding.etUserPassword.text.toString(),
-            binding.etUserEmail.text.toString(),binding.etUserPasswordConfirm.text.toString())
+
+        viewModel.validateFields(
+            binding.etUserName.text.toString(), binding.etUserPassword.text.toString(),
+            binding.etUserEmail.text.toString(), binding.etUserPasswordConfirm.text.toString()
+        )
 
         binding.btnSignUp.setOnClickListener {
+            eventPressedSingUp()
             val newUser = UserRegistrationRequest(
                 binding.tiUsername.toString(),
                 binding.tiUserEmail.toString(),
@@ -53,14 +63,16 @@ class SignUpFragment : Fragment() {
         val binding = FragmentSignUpBinding.bind(view)
 
         binding.etUserPasswordConfirm.doAfterTextChanged {
-            val controlFields = viewModel.validateFields(binding.etUserName.text.toString(),binding.etUserPassword.text.toString(),
-                binding.etUserEmail.text.toString(),binding.etUserPasswordConfirm.text.toString())
-            if (controlFields){
+            val controlFields = viewModel.validateFields(
+                binding.etUserName.text.toString(), binding.etUserPassword.text.toString(),
+                binding.etUserEmail.text.toString(), binding.etUserPasswordConfirm.text.toString()
+            )
+            if (controlFields) {
                 binding.btnSignUp.isEnabled = true
             }
         }
 
-        viewModel.signUpUserCharging.observe( viewLifecycleOwner) { charging ->
+        viewModel.signUpUserCharging.observe(viewLifecycleOwner) { charging ->
             if (charging) {
                 binding.pbSignUp.visibility = View.VISIBLE
             } else {
@@ -73,8 +85,14 @@ class SignUpFragment : Fragment() {
     private fun drawStatusDialog() {
         viewModel.status.observe(viewLifecycleOwner) {
             when (it!!) {
-                ApiStatus.SUCCESS -> { showSuccessDialog() }
-                ApiStatus.FAILURE -> { showFailureDialog() }
+                ApiStatus.SUCCESS -> {
+                    eventSingUpSuccess()
+                    showSuccessDialog()
+                }
+                ApiStatus.FAILURE -> {
+                    eventSingUpError()
+                    showFailureDialog()
+                }
             }
         }
     }
@@ -100,6 +118,23 @@ class SignUpFragment : Fragment() {
                     Log.d("SignUpFragment", "close")
                 }
                 .show()
+        }
+    }
+
+    private fun eventPressedSingUp() {
+        firebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT) {
+            param(FirebaseAnalytics.Param.ITEMS, "clickInButton")
+        }
+    }
+    private fun eventSingUpSuccess() {
+        firebaseAnalytics.logEvent("log_in_pressed") {
+            param("user_email", binding.etUserEmail.toString())
+        }
+    }
+    private fun eventSingUpError() {
+        firebaseAnalytics.logEvent("log_in_pressed") {
+            param("user_email", binding.etUserEmail.toString())
+            param("user_email", binding.tiUserPassword.toString())
         }
     }
 }
