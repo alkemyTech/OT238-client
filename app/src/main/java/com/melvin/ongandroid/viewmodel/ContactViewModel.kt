@@ -23,13 +23,13 @@ class ContactViewModel @Inject constructor(
     val createContactCharging = MutableLiveData(false)
 
     fun validateName(name: String): Boolean {
-        val nameRegex = Pattern.compile("^([^0-9]*)$")
-        return if (!name.isNullOrEmpty()) (nameRegex.matcher(name).matches() && name.contains(" ")) else false
+        val nameRegex = Pattern.compile("^[a-zA-Z]+(?:\\s[a-zA-Z]+)+\$")
+        return if (!name.isNullOrEmpty()) (nameRegex.matcher(name).matches()) else false
     }
 
     fun validateNumber(number: String): Boolean {
-        val nameRegex = Pattern.compile("([0-9]*)$")
-        return if (!number.isNullOrEmpty()) (nameRegex.matcher(number).matches() && !number.contains(" ")) else false
+        val nameRegex = Pattern.compile("^(?:[\\+]{1})?(?:\\([0-9]{1,2}\\) ?)?(?:[0-9] ?-?){6,14}[0-9]\$")
+        return if (!number.isNullOrEmpty()) (nameRegex.matcher(number).matches()) else false
     }
 
     fun validateEmail(Email: String): Boolean {

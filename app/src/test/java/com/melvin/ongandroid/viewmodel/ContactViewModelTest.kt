@@ -19,7 +19,21 @@ internal class ContactViewModelTest {
         contactViewModel = ContactViewModel(createContactUseCase)
     }
 
-    //name and surname test
+    /**
+                            __
+                          .'  '.
+                     _.-'/  |  \
+        ,        _.-"  ,|  /  0 `-.
+       |\    .-"       `--""-.__.'=====================-,
+       \ '-'`        .___.--._)=========================|
+        \            .'       |                         |
+        |     /,_.-'          |         NAME            |
+      _/   _.'(               |         AND             |
+    /  ,-' \  \               |         SURNAME         |
+    \  \    `-'               |         TEST            |
+    `-'                       '-------------------------'
+
+     */
 
     @Test
     fun `empty first and last name returns false`(){
@@ -30,7 +44,7 @@ internal class ContactViewModelTest {
 
     @Test
     fun `empty first and last name with number return false`(){
-        val nameAndSurname = "xavier5roslaes"
+        val nameAndSurname = "xavier ros5ales"
         val result = contactViewModel.validateName(nameAndSurname)
         assertEquals(false, result)
     }
@@ -42,7 +56,15 @@ internal class ContactViewModelTest {
         assertEquals(false, result)
     }
 
-    //email tests
+    /**
+
+    /\_/\
+    |°s°|
+    |""""\_____/|
+    |_|_|________)   EMAIL TEST
+    |_|_|...|_|_|
+
+     */
 
     @Test
     fun `wrong email returns false`(){
@@ -72,7 +94,16 @@ internal class ContactViewModelTest {
         assertEquals(true,result)
     }
 
-    //number test
+    /**
+
+    ░░░░░▄█████▄░░░╔═════════════╔░
+    ░░░█▀█▄▄█▄▄█▀█░║ NUMBER TEST ║░
+    ░░░▐▄███▒███▄▌═╩═════════════╩░
+    ░░░░▀██▀▀▀██▀░░░░░░░░░░░░░░░░░░
+    ░░░░░▐█████▌░░░░░░░░░░░░░░░░░░░
+
+
+     */
 
     @Test
     fun `empty number returns false`(){
@@ -83,12 +114,23 @@ internal class ContactViewModelTest {
 
     @Test
     fun `wrong character in number returns false`(){
-        val number = "645W654643"
+        val number = "234W23424"
         val result = contactViewModel.validateNumber(number)
         assertEquals(false,result)
     }
 
-    //message or question test
+    /**
+
+    .......____________________ , ,__
+    ....../ `---___________----_____|] - MESSAGE OR QUESTION TEST - ░ ▒▓▓█D
+    ...../_==o;;;;;;;;_______.:/
+    .....), ---.(_(__) /
+    ....// (..) ), ----"
+    ...//___//
+    ..//___//
+    .//___//
+
+     */
 
     @Test
     fun `empty message returns false`(){
