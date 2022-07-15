@@ -40,10 +40,10 @@ class ContactViewModel @Inject constructor(
     fun createContact(newContact: Contact) {
         viewModelScope.launch {
             _status.value = ApiStatus.LOADING
-            val apiCreateContact=contactUseCase.createContact(newContact)
-            if(apiCreateContact.success){
+            val apiCreateContact = contactUseCase.createContact(newContact)
+            if (apiCreateContact.success) {
                 _status.value = ApiStatus.SUCCESS
-            }else{
+            } else {
                 _status.value = ApiStatus.FAILURE
             }
         }
