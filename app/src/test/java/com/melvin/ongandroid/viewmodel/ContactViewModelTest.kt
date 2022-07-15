@@ -83,7 +83,7 @@ internal class ContactViewModelTest {
 
     @Test
     fun `wrong character in number returns false`(){
-        val number = "645654643"
+        val number = "645W654643"
         val result = contactViewModel.validateNumber(number)
         assertEquals(false,result)
     }

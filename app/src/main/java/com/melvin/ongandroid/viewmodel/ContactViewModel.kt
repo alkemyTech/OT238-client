@@ -27,8 +27,9 @@ class ContactViewModel @Inject constructor(
         return if (!name.isNullOrEmpty()) (nameRegex.matcher(name).matches() && name.contains(" ")) else false
     }
 
-    fun validateNumber(name: String): Boolean {
-        return name.isNotEmpty() && name.isDigitsOnly()
+    fun validateNumber(number: String): Boolean {
+        val nameRegex = Pattern.compile("([0-9]*)$")
+        return if (!number.isNullOrEmpty()) (nameRegex.matcher(number).matches() && !number.contains(" ")) else false
     }
 
     fun validateEmail(Email: String): Boolean {
