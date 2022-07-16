@@ -59,5 +59,8 @@
     <string name="send_button">Enviar</string>
     <string name="success_contact_creation">El contacto fue creado con éxito</string>
     <string name="successful_operation">Operación exitosa</string>
+    <string name="firebase_login">O iniciar sesión con</string>
+    <string name="google_login">Iniciar sesión con Google</string>
+    <string name="facebook_login">Iniciar sesión con Facebook</string>
 
 </resources>

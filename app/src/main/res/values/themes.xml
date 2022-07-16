@@ -12,6 +12,8 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <!-- Text appearance label large -->
+        <item name="textAppearanceLabelLarge">@style/TextAppearance.MaterialComponents.Body1</item>
     </style>
     <style name="Theme.ONGAndroid.NoActionBar">
         <item name="windowActionBar">false</item>
