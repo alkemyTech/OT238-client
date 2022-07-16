@@ -69,9 +69,9 @@ class LoginFragment : Fragment() {
 
         loginViewModel.logInUserCharging.observe(viewLifecycleOwner) { charging ->
             if (charging) {
-                loginBinding.pbCharging?.visibility = View.VISIBLE
+                loginBinding.pbCharging.visibility = View.VISIBLE
             } else {
-                loginBinding.pbCharging?.visibility = View.GONE
+                loginBinding.pbCharging.visibility = View.GONE
             }
         }
 
