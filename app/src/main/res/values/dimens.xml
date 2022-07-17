@@ -10,6 +10,7 @@
     <!-- Layouts margins -->
     <dimen name="layout_margin_horizontal">16dp</dimen>
     <dimen name="layout_margin_vertical">8dp</dimen>
+    <dimen name="layout_mid_margin_vertical">4dp</dimen>
     <!-- Input layout margins and paddings -->
     <dimen name="input_layout_margin">8dp</dimen>
     <dimen name="input_layout_padding">8dp</dimen>
