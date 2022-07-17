@@ -71,8 +71,18 @@ class LogInViewModel @Inject constructor(
         }
     }
 
-    fun loginWithGoogle(){
-        logInUserCharging.postValue(true)
+    fun loginWithGoogle(status: String): Boolean {
+        when(status){
+            "LOGIN_ACTION" -> {
+                logInUserCharging.postValue(true)
+                return true
+            }
+            "LOGGED_IN" -> {
+                logInUserCharging.postValue(false)
+                return true
 
+            }
+        }
+        return true
     }
 }

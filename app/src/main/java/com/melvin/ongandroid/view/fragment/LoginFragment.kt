@@ -8,6 +8,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.activity.result.contract.ActivityResultContracts.*
+import androidx.activity.result.contract.ActivityResultContracts.StartActivityForResult.*
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -31,6 +34,13 @@ class LoginFragment : Fragment() {
 
 
     private val GOOGLE_SIGN_IN_CODE = 200
+    private val launcher = registerForActivityResult(StartActivityForResult()){ result ->
+        if(result.resultCode == GOOGLE_SIGN_IN_CODE){
+            val data: Intent? = result.data
+
+        }
+
+    }
 
 
     override fun onCreateView(
@@ -88,15 +98,22 @@ class LoginFragment : Fragment() {
 
         loginBinding.bGoogleLogin.setOnClickListener {
             //Open login with google in viewmodel
-            loginViewModel.loginWithGoogle()
+            loginViewModel.loginWithGoogle("LOGIN_ACTION")
             val googleConfig = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
                 .build()
 
             val googleClient = GoogleSignIn.getClient(requireActivity(), googleConfig)
+            googleClient.signInIntent.also {
+                startActivityForResult(it, GOOGLE_SIGN_IN_CODE)
+            }
         }
     }
+        private fun openActivity(){
+            val intent = Intent(requireActivity(), MainActivity::class.java)
+            startActivity(intent)
+        }
 
         private fun drawStatusDialog() {
             loginViewModel.status.observe(viewLifecycleOwner) {
