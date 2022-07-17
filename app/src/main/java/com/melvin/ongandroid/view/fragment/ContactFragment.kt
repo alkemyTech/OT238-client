@@ -55,9 +55,6 @@ class ContactFragment : Fragment() {
                         etMessage.text.toString())
                 contactViewModel.createContact(newContact)
             }
-            btnSendFail.setOnClickListener {
-                showFailure()
-            }
 
             contactViewModel.status.observe(viewLifecycleOwner) { currentStatus ->
                 when (currentStatus) {
