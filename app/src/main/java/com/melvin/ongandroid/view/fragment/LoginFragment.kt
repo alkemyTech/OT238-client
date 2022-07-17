@@ -1,5 +1,6 @@
 package com.melvin.ongandroid.view.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -16,15 +17,20 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.melvin.ongandroid.R
 import com.melvin.ongandroid.databinding.FragmentLogInBinding
 import com.melvin.ongandroid.model.entities.LoginRequest
+import com.melvin.ongandroid.view.activity.MainActivity
 import com.melvin.ongandroid.viewmodel.ApiStatus
 import com.melvin.ongandroid.viewmodel.LogInViewModel
 import dagger.hilt.android.AndroidEntryPoint
+
 
 @AndroidEntryPoint
 class LoginFragment : Fragment() {
     private lateinit var _binding : FragmentLogInBinding
     private val loginBinding get() = _binding
     private val loginViewModel : LogInViewModel by viewModels()
+
+
+    private val GOOGLE_SIGN_IN_CODE = 200
 
 
     override fun onCreateView(
@@ -43,31 +49,34 @@ class LoginFragment : Fragment() {
         loginBinding.itPasswordDesign.isHelperTextEnabled = false
         loginBinding.itEmailDesign.isHelperTextEnabled = false
 
-        loginBinding.itEmail.addTextChangedListener{
-            loginBinding.bLogin.isEnabled = loginViewModel.validateEmail(loginBinding.itEmail.text.toString()) &&
-                    loginViewModel.validatePassword(loginBinding.itPassword.text.toString())
+        loginBinding.itEmail.addTextChangedListener {
+            loginBinding.bLogin.isEnabled =
+                loginViewModel.validateEmail(loginBinding.itEmail.text.toString()) &&
+                        loginViewModel.validatePassword(loginBinding.itPassword.text.toString())
             loginBinding.itEmailDesign.isErrorEnabled = false
             loginBinding.itPasswordDesign.isErrorEnabled = false
         }
 
-        loginBinding.itPassword.addTextChangedListener{
-            loginBinding.bLogin.isEnabled = loginViewModel.validateEmail(loginBinding.itEmail.text.toString()) &&
-                    loginViewModel.validatePassword(loginBinding.itPassword.text.toString())
+        loginBinding.itPassword.addTextChangedListener {
+            loginBinding.bLogin.isEnabled =
+                loginViewModel.validateEmail(loginBinding.itEmail.text.toString()) &&
+                        loginViewModel.validatePassword(loginBinding.itPassword.text.toString())
             loginBinding.itEmailDesign.isErrorEnabled = false
             loginBinding.itPasswordDesign.isErrorEnabled = false
         }
 
-        loginBinding.bSignUp.setOnClickListener{
+        loginBinding.bSignUp.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_signUpFragment)
         }
-        
-        loginBinding.bLogin.setOnClickListener{
+
+        loginBinding.bLogin.setOnClickListener {
             val logIn = LoginRequest(
                 loginBinding.itEmail.text.toString(),
-                loginBinding.itPassword.text.toString())
+                loginBinding.itPassword.text.toString()
+            )
             loginViewModel.logInUser(logIn)
             drawStatusDialog()
-            }
+        }
 
         loginViewModel.logInUserCharging.observe(viewLifecycleOwner) { charging ->
             if (charging) {
@@ -77,16 +86,14 @@ class LoginFragment : Fragment() {
             }
         }
 
-        loginBinding.bGoogleLogin.setOnClickListener{
+        loginBinding.bGoogleLogin.setOnClickListener {
+            //Open login with google in viewmodel
+            loginViewModel.loginWithGoogle()
             val googleConfig = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken(getString(R.string.default_web_client_id))
+                .requestIdToken(this.getString(R.string.default_web_client_id))
                 .requestEmail()
                 .build()
-
-            val googleClient = GoogleSignIn.getClient(requireActivity(), googleConfig)
-            
         }
-
     }
 
         private fun drawStatusDialog() {

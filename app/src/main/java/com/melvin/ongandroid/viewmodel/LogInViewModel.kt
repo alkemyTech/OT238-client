@@ -1,10 +1,18 @@
 package com.melvin.ongandroid.viewmodel
 
+import android.app.Activity
+import android.content.Intent
+import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.activity.result.contract.ActivityResultContracts.StartActivityForResult.*
 import androidx.core.util.PatternsCompat
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.melvin.ongandroid.R
 import com.melvin.ongandroid.data.AppData
 import com.melvin.ongandroid.domain.use_case.LogInUseCase
 import com.melvin.ongandroid.model.entities.LoginRequest
@@ -61,5 +69,10 @@ class LogInViewModel @Inject constructor(
                 _status.value = ApiStatus.FAILURE
             }
         }
+    }
+
+    fun loginWithGoogle(){
+        logInUserCharging.postValue(true)
+
     }
 }
