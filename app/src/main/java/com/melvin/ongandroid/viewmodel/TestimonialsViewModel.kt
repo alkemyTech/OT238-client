@@ -1,5 +1,6 @@
 package com.melvin.ongandroid.viewmodel
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -14,15 +15,17 @@ class TestimonialsViewModel @Inject constructor(
     private val repository: ApiClient
 ) : ViewModel() {
 
-    val _status = MutableLiveData<ApiStatus>()
-    val _testimonialsList = MutableLiveData<List<Testimonials>>()
+    private val _status = MutableLiveData<ApiStatus>()
+    val status: LiveData<ApiStatus>
+        get() = _status
 
-    fun observerTestimonialsList (): MutableLiveData<List<Testimonials>> {
-        return _testimonialsList
-    }
+    private val _testimonialsList = MutableLiveData<List<Testimonials>>()
+    val testimonialsList: LiveData<List<Testimonials>>
+        get() = _testimonialsList
 
     fun getTestimonial(){
         viewModelScope.launch {
+            _status.value = ApiStatus.LOADING
             val response = repository.getTestimonials()
             if (response.success) {
                 _testimonialsList.value = response.testimonialsList
@@ -33,6 +36,5 @@ class TestimonialsViewModel @Inject constructor(
             }
         }
     }
-
 }
 

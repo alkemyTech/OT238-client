@@ -17,15 +17,13 @@ class SignUpViewModel @Inject constructor(
     private val registrationUseCase: RegisterUseCase,
 ) : ViewModel() {
 
-    val _status = MutableLiveData<ApiStatus>()
-    val status: LiveData<ApiStatus> = _status
-    val signUpUserCharging = MutableLiveData(false)
+    private val _status = MutableLiveData<ApiStatus>()
+    val status: LiveData<ApiStatus> get() = _status
 
     fun registerUser(newUser: UserRegistrationRequest) {
-        signUpUserCharging.postValue(true)
         viewModelScope.launch {
+            _status.value = ApiStatus.LOADING
             val apiRegistrationResponse = registrationUseCase.registerUser(newUser)
-            signUpUserCharging.postValue(false)
             if (apiRegistrationResponse.success) {
                 _status.value = ApiStatus.SUCCESS
             } else {

@@ -13,6 +13,7 @@ import com.melvin.ongandroid.R
 import com.melvin.ongandroid.databinding.FragmentWhatwedoBinding
 import com.melvin.ongandroid.model.entities.whatWeDo.WhatWeDo
 import com.melvin.ongandroid.view.adapters.WhatWeDoAdapter
+import com.melvin.ongandroid.viewmodel.ApiStatus
 import com.melvin.ongandroid.viewmodel.WhatWeDoViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -40,6 +41,7 @@ class WhatWeDoFragment : Fragment() {
         (activity as AppCompatActivity).supportActionBar?.title =
             resources.getString(R.string.menu_activities)
         setupWhatWeDo()
+        charging()
     }
 
 
@@ -55,22 +57,21 @@ class WhatWeDoFragment : Fragment() {
     }
 
     private fun setupObserver() {
-        viewModel.observerWhatWeDoList().observe(viewLifecycleOwner) {
-            if (it != null) {
-                charging()
-                initRecyclerView(it)
-            } else {
+        viewModel.whatWeDoList.observe(viewLifecycleOwner) {
+            if (it.isNullOrEmpty()) {
                 snackBar()
+            } else {
+                initRecyclerView(it)
             }
         }
     }
 
     private fun charging() {
-        viewModel.charging.observe(viewLifecycleOwner) { charging ->
-            if (charging) {
-                binding.pbWhatWeDo.visibility = View.VISIBLE
-            } else {
-                binding.pbWhatWeDo.visibility = View.GONE
+        viewModel.status.observe(viewLifecycleOwner) { currentStatus ->
+            when (currentStatus) {
+                ApiStatus.SUCCESS -> binding.pbWhatWeDo.hideProgressBar()
+                ApiStatus.FAILURE -> binding.pbWhatWeDo.hideProgressBar()
+                ApiStatus.LOADING -> binding.pbWhatWeDo.showProgressBar()
             }
         }
     }
