@@ -24,6 +24,8 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@drawable/style_border_component"
+            android:backgroundTint="#23FFFFFF"
             android:src="@drawable/logo_somos_mas"
             android:contentDescription="@string/default_content_description"
             app:layout_constraintStart_toStartOf="parent"
@@ -93,7 +95,7 @@
 
             <Button
                 android:id="@+id/bLogin"
-                style="@style/Widget.Material3.Button"
+                style="@style/Button.Icon"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="@dimen/input_layout_margin"
@@ -127,7 +129,7 @@
 
                     <Button
                         android:id="@+id/bGoogleLogin"
-                        style="@style/Widget.Material3.Button.Icon"
+                        style="@style/Button.Icon"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="@dimen/button_margin"
@@ -140,7 +142,7 @@
 
                     <Button
                         android:id="@+id/bFacebookLogin"
-                        style="@style/Widget.Material3.Button.Icon"
+                        style="@style/Button.Icon"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="@dimen/button_margin"
@@ -166,7 +168,7 @@
 
             <Button
                 android:id="@+id/bSignUp"
-                style="@style/Widget.Material3.Button"
+                style="@style/Button.Icon"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/action_sign_up_short"

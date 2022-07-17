@@ -8,4 +8,17 @@
     <color name="secondaryDarkColor">#c88719</color>
     <color name="primaryTextColor">#000000</color>
     <color name="secondaryTextColor">#000000</color>
+    <!-- Buttons Colors -->
+    <color name="primaryButtonColor">#FFFFFF</color>
+    <color name="secondaryButtonColor">#000000</color>
+    <color name="primaryButtonTextColor">#000000</color>
+    <color name="secondaryButtonTextColor">#757373</color>
+    <color name="strokeColor">#000000</color>
+    <color name="strokeNightColor">#757373</color>
+    <color name="rippleButton">#B2EBF2</color>
+    <!-- Button Status Color -->
+    <color name="enabledLight">#FFFFFF</color>
+    <color name="enabledDark">#000000</color>
+    <color name="disabledLight">#B6B6B6</color>
+    <color name="disabledDark">#4A4A4A</color>
 </resources>
