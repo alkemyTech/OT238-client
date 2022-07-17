@@ -18,4 +18,8 @@ class AppData @Inject constructor(@ApplicationContext context: Context) {
     fun getKey(): String? {
         return storage.getString(SHARED_KEY, "")
     }
+
+    fun removeKey() {
+        storage.edit().remove(SHARED_KEY).apply()
+    }
 }

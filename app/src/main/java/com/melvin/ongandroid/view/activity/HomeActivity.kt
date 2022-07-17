@@ -1,5 +1,6 @@
 package com.melvin.ongandroid.view.activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import com.google.android.material.navigation.NavigationView
@@ -13,20 +14,26 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.navigation.fragment.NavHostFragment
 import com.melvin.ongandroid.R
+import com.melvin.ongandroid.data.AppData
 import com.melvin.ongandroid.databinding.ActivityHomeBinding
+import com.melvin.ongandroid.databinding.NavHeaderHomeBinding
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class HomeActivity : AppCompatActivity() {
-
+    @Inject lateinit var appData : AppData
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityHomeBinding
+    private lateinit var headerBinding: NavHeaderHomeBinding
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        headerBinding = NavHeaderHomeBinding.bind(binding.navView.getHeaderView(0))
 
         setSupportActionBar(binding.appBarHome.toolbar)
 
@@ -48,6 +55,7 @@ class HomeActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
+        val logout = headerBinding.tvLogOut
         val home = navView.menu.findItem(R.id.nav_home)
         val contact = navView.menu.findItem(R.id.nav_contact_us)
         val activities = navView.menu.findItem(R.id.nav_activities)
@@ -56,6 +64,7 @@ class HomeActivity : AppCompatActivity() {
         val news = navView.menu.findItem(R.id.nav_news)
 
         //TODO: Add fragments when they are ready
+
         home.setOnMenuItemClickListener {
             Toast.makeText(this, resources.getString(R.string.menu_home), Toast.LENGTH_SHORT).show()
             true
@@ -73,15 +82,15 @@ class HomeActivity : AppCompatActivity() {
             true
         }
         about.setOnMenuItemClickListener {
-            Toast.makeText(this, resources.getString(R.string.menu_about_us), Toast.LENGTH_SHORT).show()
             navController.navigate(R.id.action_nav_home_to_usFragment)
             true
         }
         contact.setOnMenuItemClickListener {
-            Toast.makeText(this, resources.getString(R.string.menu_contact_us), Toast.LENGTH_SHORT)
-                .show()
             navController.navigate(R.id.action_nav_home_to_contactFragment)
             true
+        }
+        logout.setOnClickListener{
+            logOut()
         }
 
     }
@@ -97,6 +106,18 @@ class HomeActivity : AppCompatActivity() {
         } else {
             super.onBackPressed()
         }
+    }
+
+    private fun logOut(){
+        //Remove token and go to login
+        appData.removeKey()
+        //create intent to go to login
+        val intent = Intent(this, StartActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+        //send intent to ignore timer
+        intent.putExtra("STATUS", "LOGOUT")
+        startActivity(intent)
+        finish()
     }
 
 }

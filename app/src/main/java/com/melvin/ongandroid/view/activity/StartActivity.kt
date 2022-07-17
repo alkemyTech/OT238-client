@@ -18,7 +18,15 @@ class StartActivity : AppCompatActivity(){
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        timer()
+        val intent = intent.getStringExtra("STATUS")
+        start(intent)
+    }
+    private fun start(intent: String?){
+        if(intent == "LOGOUT"){
+            checkAuth()
+        }else{
+            timer()
+        }
     }
 
     private fun timer(){

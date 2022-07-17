@@ -62,5 +62,6 @@
     <string name="firebase_login">O iniciar sesión con</string>
     <string name="google_login">Iniciar sesión con Google</string>
     <string name="facebook_login">Iniciar sesión con Facebook</string>
+    <string name="logout">Cerrar sesión</string>
 
 </resources>
