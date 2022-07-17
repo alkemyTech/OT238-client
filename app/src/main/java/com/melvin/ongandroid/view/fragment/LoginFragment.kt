@@ -90,9 +90,11 @@ class LoginFragment : Fragment() {
             //Open login with google in viewmodel
             loginViewModel.loginWithGoogle()
             val googleConfig = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken(this.getString(R.string.default_web_client_id))
+                .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
                 .build()
+
+            val googleClient = GoogleSignIn.getClient(requireActivity(), googleConfig)
         }
     }
 
