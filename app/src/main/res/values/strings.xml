@@ -71,5 +71,6 @@
     <string name="send_button">Enviar</string>
     <string name="success_contact_creation">El contacto fue creado con éxito</string>
     <string name="successful_operation">Operación exitosa</string>
+    <string name="somos_mas_logo">somos mas logo</string>
 
 </resources>
