@@ -104,6 +104,8 @@ dependencies {
     implementation platform('com.google.firebase:firebase-bom:30.3.0')
     implementation 'com.google.firebase:firebase-analytics'
     implementation 'com.google.firebase:firebase-crashlytics'
+    implementation 'com.google.firebase:firebase-messaging'
+    implementation 'com.google.firebase:firebase-analytics-ktx:21.1.0'
     implementation 'com.google.firebase:firebase-messaging-ktx:23.0.6'
     implementation 'com.google.firebase:firebase-auth-ktx:21.0.6'
 
