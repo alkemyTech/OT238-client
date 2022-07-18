@@ -177,10 +177,10 @@ document.getElementById(id).style.display = 'none';
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
   <header class="mdl-layout__header">
     <div class="mdl-layout__header-row">
-      <span class="mdl-layout-title">Lint Report: 1 warning</span>
+      <span class="mdl-layout-title">Lint Report: 4 warnings</span>
       <div class="mdl-layout-spacer"></div>
       <nav class="mdl-navigation mdl-layout--large-screen-only">
-Check performed at Fri Jul 15 21:58:09 UTC 2022      </nav>
+Check performed at Mon Jul 18 21:47:12 UTC 2022      </nav>
     </div>
   </header>
   <div class="mdl-layout__drawer">
@@ -188,6 +188,7 @@ Check performed at Fri Jul 15 21:58:09 UTC 2022      </nav>
     <nav class="mdl-navigation">
       <a class="mdl-navigation__link" href="#overview"><i class="material-icons">dashboard</i>Overview</a>
       <a class="mdl-navigation__link" href="#MissingFirebaseInstanceTokenRefresh"><i class="material-icons warning-icon">warning</i>Missing Firebase Messaging Callback (1)</a>
+      <a class="mdl-navigation__link" href="#UnusedResources"><i class="material-icons warning-icon">warning</i>Unused resources (3)</a>
     </nav>
   </div>
   <main class="mdl-layout__content">
@@ -205,6 +206,11 @@ Check performed at Fri Jul 15 21:58:09 UTC 2022      </nav>
 <tr>
 <td class="countColumn">1</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
 <a href="#MissingFirebaseInstanceTokenRefresh">MissingFirebaseInstanceTokenRefresh</a>: Missing Firebase Messaging Callback</td></tr>
+<tr><td class="countColumn"></td><td class="categoryColumn"><a href="#Performance">Performance</a>
+</td></tr>
+<tr>
+<td class="countColumn">3</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
+<a href="#UnusedResources">UnusedResources</a>: Unused resources</td></tr>
 <tr><td></td><td class="categoryColumn"><a href="#MissingIssues">Disabled Checks (35)</a>
 </td></tr></table>
 <br/>              </div>
@@ -255,6 +261,75 @@ Apps that use Firebase Cloud Messaging should implement the <code>FirebaseMessag
               <div class="mdl-card__actions mdl-card--border">
 <button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="explanationMissingFirebaseInstanceTokenRefreshLink" onclick="reveal('explanationMissingFirebaseInstanceTokenRefresh');">
 Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="MissingFirebaseInstanceTokenRefreshCardLink" onclick="hideid('MissingFirebaseInstanceTokenRefreshCard');">
+Dismiss</button>            </div>
+            </div>
+          </section>
+<a name="Performance"></a>
+<a name="UnusedResources"></a>
+<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="UnusedResourcesCard" style="display: block;">
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+  <div class="mdl-card__title">
+    <h2 class="mdl-card__title-text">Unused resources</h2>
+  </div>
+              <div class="mdl-card__supporting-text">
+<div class="issue">
+<div class="warningslist">
+<span class="location"><a href="../../src/main/res/values/colors.xml">../../src/main/res/values/colors.xml</a>:12</span>: <span class="message">The resource <code>R.color.primaryButtonColor</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno">  9 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"primaryTextColor"</span>>#000000<span class="tag">&lt;/color></span>
+<span class="lineno"> 10 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"secondaryTextColor"</span>>#000000<span class="tag">&lt;/color></span>
+<span class="lineno"> 11 </span>    <span class="comment">&lt;!-- Buttons Colors --></span>
+<span class="caretline"><span class="lineno"> 12 </span>    <span class="tag">&lt;color</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"primaryButtonColor"</span></span>>#FFFFFF<span class="tag">&lt;/color></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 13 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"secondaryButtonColor"</span>>#000000<span class="tag">&lt;/color></span>
+<span class="lineno"> 14 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"primaryButtonTextColor"</span>>#000000<span class="tag">&lt;/color></span>
+<span class="lineno"> 15 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"secondaryButtonTextColor"</span>>#757373<span class="tag">&lt;/color></span></pre>
+
+<span class="location"><a href="../../src/main/res/values/colors.xml">../../src/main/res/values/colors.xml</a>:13</span>: <span class="message">The resource <code>R.color.secondaryButtonColor</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno"> 10 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"secondaryTextColor"</span>>#000000<span class="tag">&lt;/color></span>
+<span class="lineno"> 11 </span>    <span class="comment">&lt;!-- Buttons Colors --></span>
+<span class="lineno"> 12 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"primaryButtonColor"</span>>#FFFFFF<span class="tag">&lt;/color></span>
+<span class="caretline"><span class="lineno"> 13 </span>    <span class="tag">&lt;color</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"secondaryButtonColor"</span></span>>#000000<span class="tag">&lt;/color></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 14 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"primaryButtonTextColor"</span>>#000000<span class="tag">&lt;/color></span>
+<span class="lineno"> 15 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"secondaryButtonTextColor"</span>>#757373<span class="tag">&lt;/color></span>
+<span class="lineno"> 16 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"strokeColor"</span>>#000000<span class="tag">&lt;/color></span></pre>
+
+<span class="location"><a href="../../src/main/res/values/colors.xml">../../src/main/res/values/colors.xml</a>:14</span>: <span class="message">The resource <code>R.color.primaryButtonTextColor</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno"> 11 </span>    <span class="comment">&lt;!-- Buttons Colors --></span>
+<span class="lineno"> 12 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"primaryButtonColor"</span>>#FFFFFF<span class="tag">&lt;/color></span>
+<span class="lineno"> 13 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"secondaryButtonColor"</span>>#000000<span class="tag">&lt;/color></span>
+<span class="caretline"><span class="lineno"> 14 </span>    <span class="tag">&lt;color</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"primaryButtonTextColor"</span></span>>#000000<span class="tag">&lt;/color></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 15 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"secondaryButtonTextColor"</span>>#757373<span class="tag">&lt;/color></span>
+<span class="lineno"> 16 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"strokeColor"</span>>#000000<span class="tag">&lt;/color></span>
+<span class="lineno"> 17 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"strokeNightColor"</span>>#757373<span class="tag">&lt;/color></span></pre>
+
+</div>
+<div class="metadata"><div class="explanation" id="explanationUnusedResources" style="display: none;">
+Unused resources make applications larger and slow down builds.<br/>
+<br/>
+The unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.<br/>
+<br/>
+You can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests=true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests=true.<br/>Note: This issue has an associated quickfix operation in Android Studio and IntelliJ IDEA.<br>
+To suppress this error, use the issue id "UnusedResources" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="chips">
+<span class="mdl-chip">
+    <span class="mdl-chip__text">UnusedResources</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Performance</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Warning</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Priority 3/10</span>
+</span>
+</div>
+              </div>
+              <div class="mdl-card__actions mdl-card--border">
+<button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="explanationUnusedResourcesLink" onclick="reveal('explanationUnusedResources');">
+Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="UnusedResourcesCardLink" onclick="hideid('UnusedResourcesCard');">
 Dismiss</button>            </div>
             </div>
           </section>
