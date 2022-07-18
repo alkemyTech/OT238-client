@@ -47,6 +47,7 @@ class SignUpFragment : Fragment() {
                 binding.tiUserPassword.toString()
             )
             viewModel.registerUser(newUser)
+            drawStatusDialog()
         }
 
         val binding = FragmentSignUpBinding.bind(view)
@@ -59,16 +60,23 @@ class SignUpFragment : Fragment() {
             }
         }
 
-        viewModel.status.observe( viewLifecycleOwner) { currentStatus ->
-            when (currentStatus) {
-                ApiStatus.SUCCESS -> {binding.pbSignUp.hideProgressBar()
-                    showSuccessDialog()}
-                ApiStatus.FAILURE -> {binding.pbSignUp.hideProgressBar()
-                    showFailureDialog()}
-                ApiStatus.LOADING -> binding.pbSignUp.showProgressBar()
+        viewModel.signUpUserCharging.observe( viewLifecycleOwner) { charging ->
+            if (charging) {
+                binding.pbSignUp.visibility = View.VISIBLE
+            } else {
+                binding.pbSignUp.visibility = View.GONE
             }
         }
 
+    }
+
+    private fun drawStatusDialog() {
+        viewModel.status.observe(viewLifecycleOwner) {
+            when (it!!) {
+                ApiStatus.SUCCESS -> { showSuccessDialog() }
+                ApiStatus.FAILURE -> { showFailureDialog() }
+            }
+        }
     }
 
     private fun showSuccessDialog() {

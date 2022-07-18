@@ -57,8 +57,8 @@ class HomeViewModelTest {
             repository.getSlide()
         } returns slide()
         homeViewModel.getSlides()
-        assertEquals(statusSuccess(), homeViewModel.status.value)
-        assertEquals(slideList(), homeViewModel.slideList.value)
+        assertEquals(statusSuccess(), homeViewModel._status.value)
+        assertEquals(slideList(), homeViewModel._slideList.value)
     }
 
     @Test
@@ -67,8 +67,8 @@ class HomeViewModelTest {
             repository.getSlide()
         } returns slideError()
         homeViewModel.getSlides()
-        assertEquals(statusError(), homeViewModel.status.value)
-        assert(homeViewModel.slideList.value.isNullOrEmpty())
+        assertEquals(statusError(), homeViewModel._status.value)
+        assert(homeViewModel._slideList.value.isNullOrEmpty())
     }
 
     @Test
@@ -77,8 +77,8 @@ class HomeViewModelTest {
             repository.getSlide()
         } returns slideApiFailure()
         homeViewModel.getSlides()
-        assertEquals(statusError(), homeViewModel.status.value)
-        assert(homeViewModel.slideList.value.isNullOrEmpty())
+        assertEquals(statusError(), homeViewModel._status.value)
+        assert(homeViewModel._slideList.value.isNullOrEmpty())
     }
 
     //News
@@ -88,8 +88,8 @@ class HomeViewModelTest {
             repository.getNews()
         } returns news()
         homeViewModel.getNews()
-        assertEquals(statusSuccess(), homeViewModel.status.value)
-        assertEquals(newsList(), homeViewModel.newsList.value)
+        assertEquals(statusSuccess(), homeViewModel._status.value)
+        assertEquals(newsList(), homeViewModel._newsList.value)
     }
 
     @Test
@@ -98,8 +98,8 @@ class HomeViewModelTest {
             repository.getNews()
         } returns newsError()
         homeViewModel.getNews()
-        assertEquals(statusError(), homeViewModel.status.value)
-        assert(homeViewModel.newsList.value.isNullOrEmpty())
+        assertEquals(statusError(), homeViewModel._status.value)
+        assert(homeViewModel._newsList.value.isNullOrEmpty())
     }
 
     @Test
@@ -108,8 +108,8 @@ class HomeViewModelTest {
             repository.getNews()
         } returns newsApiFailure()
         homeViewModel.getNews()
-        assertEquals(statusError(), homeViewModel.status.value)
-        assert(homeViewModel.newsList.value.isNullOrEmpty())
+        assertEquals(statusError(), homeViewModel._status.value)
+        assert(homeViewModel._newsList.value.isNullOrEmpty())
     }
 
     //Data for tests

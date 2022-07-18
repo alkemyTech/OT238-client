@@ -64,26 +64,34 @@ class LoginFragment : Fragment() {
                 loginBinding.itEmail.text.toString(),
                 loginBinding.itPassword.text.toString())
             loginViewModel.logInUser(logIn)
+            drawStatusDialog()
             }
 
-        loginViewModel.status.observe(viewLifecycleOwner) { currentStatus ->
-            when (currentStatus) {
-                ApiStatus.SUCCESS -> {loginBinding.pbCharging.hideProgressBar()
-                    showSuccessDialog()}
-                ApiStatus.FAILURE -> {loginBinding.pbCharging.hideProgressBar()
-                    showFailureDialog()}
-                ApiStatus.LOADING -> loginBinding.pbCharging.showProgressBar()
+        loginViewModel.logInUserCharging.observe(viewLifecycleOwner) { charging ->
+            if (charging) {
+                loginBinding.pbCharging.visibility = View.VISIBLE
+            } else {
+                loginBinding.pbCharging.visibility = View.GONE
             }
         }
 
     }
 
-    private fun showSuccessDialog() {
+        private fun drawStatusDialog() {
+            loginViewModel.status.observe(viewLifecycleOwner) {
+                when (it!!) {
+                    ApiStatus.SUCCESS -> { showSuccessDialog() }
+                    ApiStatus.FAILURE -> { showFailureDialog() }
+                }
+            }
+        }
+
+        private fun showSuccessDialog() {
             Toast.makeText(context, resources.getString(R.string.success_login), Toast.LENGTH_LONG).show()
             findNavController().navigate(R.id.action_loginFragment_to_homeActivity)
-    }
+        }
 
-    private fun showFailureDialog() {
+        private fun showFailureDialog() {
             context?.let {
                 MaterialAlertDialogBuilder(it)
                     .setTitle(resources.getString(R.string.failure_dialog_title))
@@ -95,6 +103,6 @@ class LoginFragment : Fragment() {
                 loginBinding.itPasswordDesign.error = getString(R.string.set_error)
                 loginBinding.itEmailDesign.error = getString(R.string.set_error)
             }
-    }
+        }
 
 }
