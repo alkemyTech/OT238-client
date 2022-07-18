@@ -1,6 +1,5 @@
 package com.melvin.ongandroid.viewmodel
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -16,21 +15,20 @@ class HomeViewModel @Inject constructor(
     private val repository: ApiClient
 ) : ViewModel() {
 
-    private val _status = MutableLiveData<ApiStatus>()
-    val status: LiveData<ApiStatus>
-        get() = _status
+    val _status = MutableLiveData<ApiStatus>()
+    val _slideList = MutableLiveData<List<Slide>>()
+    val _newsList = MutableLiveData<List<News>>()
 
-    private val _slideList = MutableLiveData<List<Slide>>()
-    val slideList: LiveData<List<Slide>>
-        get() = _slideList
+    fun observerSlideList ():MutableLiveData<List<Slide>> {
+        return this._slideList
+    }
 
-    private val _newsList = MutableLiveData<List<News>>()
-    val newsList: LiveData<List<News>>
-        get() = _newsList
+    fun observeNewsList (): MutableLiveData<List<News>>{
+        return this._newsList
+    }
 
     fun getSlides() {
         viewModelScope.launch {
-            _status.value = ApiStatus.LOADING
             val response = repository.getSlide()
             if (response.success) {
                 _slideList.value = response.slideList
@@ -44,7 +42,6 @@ class HomeViewModel @Inject constructor(
 
     fun getNews(){
         viewModelScope.launch {
-            _status.value = ApiStatus.LOADING
             val response = repository.getNews()
             if (response.success){
                 _newsList.value = response.data

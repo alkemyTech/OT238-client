@@ -20,8 +20,8 @@ class LogInViewModel @Inject constructor(
 ) : ViewModel() {
 
     private val _status = MutableLiveData<ApiStatus>()
-    val status: LiveData<ApiStatus>
-        get() = _status
+    val status: LiveData<ApiStatus> = _status
+    val logInUserCharging = MutableLiveData(false)
 
     fun validateEmail(Email: String?): Boolean {
         return if (Email != null) {
@@ -50,9 +50,10 @@ class LogInViewModel @Inject constructor(
     }
 
     fun logInUser(logIn: LoginRequest) {
+        logInUserCharging.postValue(true)
         viewModelScope.launch {
-            _status.value = ApiStatus.LOADING
             val apiLogIn = logInUseCase.logInUser(logIn)
+            logInUserCharging.postValue(false)
             if (apiLogIn.success) {
                 _status.value = ApiStatus.SUCCESS
                 appData.saveKey(apiLogIn.data.token)

@@ -13,7 +13,6 @@ import com.melvin.ongandroid.R
 import com.melvin.ongandroid.databinding.FragmentUsBinding
 import com.melvin.ongandroid.model.entities.us.Member
 import com.melvin.ongandroid.view.adapters.UsAdapter
-import com.melvin.ongandroid.viewmodel.ApiStatus
 import com.melvin.ongandroid.viewmodel.UsViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -24,13 +23,17 @@ class UsFragment : Fragment() {
     private val binding get() = _binding!!
     private val viewModel: UsViewModel by viewModels()
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentUsBinding.inflate(inflater, container, false)
         setUpMembers()
-        handleProgressBar()
+        showProgressBarCharging()
         return binding.root
     }
 
@@ -45,11 +48,11 @@ class UsFragment : Fragment() {
     }
 
     private fun setUpObserver() {
-        viewModel.membersList.observe(viewLifecycleOwner) { currentList ->
-            if (currentList.isNullOrEmpty()) {
-                dialogMembers()
+        viewModel.observeMembersList().observe(viewLifecycleOwner) {
+            if (viewModel.observeMembersList() != null) {
+                initRecyclerView(it)
             } else {
-                initRecyclerView(currentList)
+                dialogMembers()
             }
         }
     }
@@ -71,12 +74,12 @@ class UsFragment : Fragment() {
         }
     }
 
-    private fun handleProgressBar() {
-        viewModel.status.observe(viewLifecycleOwner) { currentStatus ->
-            when (currentStatus) {
-                ApiStatus.SUCCESS -> binding.pbUs.hideProgressBar()
-                ApiStatus.FAILURE -> binding.pbUs.hideProgressBar()
-                ApiStatus.LOADING -> binding.pbUs.showProgressBar()
+    private fun showProgressBarCharging() {
+        viewModel.observeMembersList().observe(viewLifecycleOwner) {
+            if (viewModel.observeMembersList() == null) {
+                binding.pbUs.showProgressBar()
+            } else {
+                binding.pbUs.hideProgressBar()
             }
         }
     }

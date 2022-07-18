@@ -13,7 +13,6 @@ import com.melvin.ongandroid.R
 import com.melvin.ongandroid.databinding.FragmentNewsBinding
 import com.melvin.ongandroid.model.entities.news.News
 import com.melvin.ongandroid.view.adapters.NewsAdapter
-import com.melvin.ongandroid.viewmodel.ApiStatus
 import com.melvin.ongandroid.viewmodel.NewsViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -47,11 +46,11 @@ class NewsFragment: Fragment() {
     }
 
     private fun setUpObserver() {
-        viewModel.newsList.observe(viewLifecycleOwner) {
-            if (it.isNullOrEmpty()) {
-                dialogNews()
-            } else {
+        viewModel.observerNewsList().observe(viewLifecycleOwner) {
+            if (viewModel.observerNewsList() != null) {
                 initRecyclerView(it)
+            } else {
+                dialogNews()
             }
         }
     }
@@ -74,11 +73,11 @@ class NewsFragment: Fragment() {
     }
 
     private fun showProgressBarCharging() {
-        viewModel.status.observe(viewLifecycleOwner) {
-            when (it) {
-                ApiStatus.SUCCESS -> binding.pbNews.hideProgressBar()
-                ApiStatus.FAILURE -> binding.pbNews.hideProgressBar()
-                ApiStatus.LOADING -> binding.pbNews.showProgressBar()
+        viewModel.observerNewsList().observe(viewLifecycleOwner) {
+            if (viewModel.observerNewsList() == null) {
+                binding.pbNews.showProgressBar()
+            } else {
+                binding.pbNews.hideProgressBar()
             }
         }
     }
