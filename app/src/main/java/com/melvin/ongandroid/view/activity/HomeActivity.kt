@@ -55,6 +55,11 @@ class HomeActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
+        //Load data from logged user
+
+        headerBinding.tvUserName.text = appData.getPrefs("username")
+        headerBinding.tvUserEmail.text = appData.getPrefs("email")
+
         val logout = headerBinding.tvLogOut
         val home = navView.menu.findItem(R.id.nav_home)
         val contact = navView.menu.findItem(R.id.nav_contact_us)
@@ -110,7 +115,7 @@ class HomeActivity : AppCompatActivity() {
 
     private fun logOut(){
         //Remove token and go to login
-        appData.removeKey()
+        appData.clearPrefs()
         //create intent to go to login
         val intent = Intent(this, StartActivity::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP

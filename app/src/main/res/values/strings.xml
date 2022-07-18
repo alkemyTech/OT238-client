@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Somos Más</string>
+    <!-- Shared Preferences -->
+    <string name="pref_user_data">com.melvin.ongandroid.USER_DATA</string>
     <!-- Strings related to login -->
     <string name="email">Email</string>
     <string name="prompt_password">Contraseña</string>

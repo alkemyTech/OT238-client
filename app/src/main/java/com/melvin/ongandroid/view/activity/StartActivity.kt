@@ -39,11 +39,13 @@ class StartActivity : AppCompatActivity(){
     }
 
     private fun checkAuth(){
-        val token = appData.getKey().toString()
-        if(token.isNotEmpty()){
-            startActivity(Intent(this, HomeActivity::class.java))
-        }else{
-            startActivity(Intent(this, MainActivity::class.java))
+        val token = appData.getPrefs("key")
+        if (token != null) {
+            if(token.isNotEmpty()){
+                startActivity(Intent(this, HomeActivity::class.java))
+            }else{
+                startActivity(Intent(this, MainActivity::class.java))
+            }
         }
     }
 

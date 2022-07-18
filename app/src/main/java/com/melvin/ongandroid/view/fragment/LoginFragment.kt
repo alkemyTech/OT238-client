@@ -1,6 +1,7 @@
 package com.melvin.ongandroid.view.fragment
 
-import android.content.Intent
+import android.app.Activity
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -8,40 +9,37 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.result.contract.ActivityResultContracts.*
-import androidx.activity.result.contract.ActivityResultContracts.StartActivityForResult.*
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.android.gms.tasks.Task
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.GoogleAuthProvider
 import com.melvin.ongandroid.R
+import com.melvin.ongandroid.data.AppData
 import com.melvin.ongandroid.databinding.FragmentLogInBinding
 import com.melvin.ongandroid.model.entities.LoginRequest
-import com.melvin.ongandroid.view.activity.MainActivity
 import com.melvin.ongandroid.viewmodel.ApiStatus
 import com.melvin.ongandroid.viewmodel.LogInViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 
 @AndroidEntryPoint
 class LoginFragment : Fragment() {
+    @Inject lateinit var appData : AppData
     private lateinit var _binding : FragmentLogInBinding
     private val loginBinding get() = _binding
     private val loginViewModel : LogInViewModel by viewModels()
 
-
-    private val GOOGLE_SIGN_IN_CODE = 200
-    private val launcher = registerForActivityResult(StartActivityForResult()){ result ->
-        if(result.resultCode == GOOGLE_SIGN_IN_CODE){
-            val data: Intent? = result.data
-
-        }
-
-    }
-
+    private lateinit var auth : FirebaseAuth
+    private lateinit var googleSignInClient : GoogleSignInClient
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -55,6 +53,22 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        // Save data from login
+        val prefs : SharedPreferences.Editor? = requireActivity().getSharedPreferences(getString(R.string.pref_user_data),Activity.MODE_PRIVATE).edit()
+        prefs?.putString("email", "email")
+        prefs?.putString("username", "username")
+        prefs?.apply()
+
+        // Firebase Auth
+        auth = FirebaseAuth.getInstance()
+
+        val googleSignInOptions = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestIdToken(getString(R.string.default_web_client_id))
+            .requestEmail()
+            .build()
+        googleSignInClient = GoogleSignIn.getClient(requireActivity(), googleSignInOptions)
+
 
         loginBinding.itPasswordDesign.isHelperTextEnabled = false
         loginBinding.itEmailDesign.isHelperTextEnabled = false
@@ -95,34 +109,64 @@ class LoginFragment : Fragment() {
                 loginBinding.pbCharging.visibility = View.GONE
             }
         }
-
+        //Google Sign In
         loginBinding.bGoogleLogin.setOnClickListener {
-            //Open login with google in viewmodel
             loginViewModel.loginWithGoogle("LOGIN_ACTION")
-            val googleConfig = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken(getString(R.string.default_web_client_id))
-                .requestEmail()
-                .build()
+            signInGoogle()
+        }
+    }
 
-            val googleClient = GoogleSignIn.getClient(requireActivity(), googleConfig)
-            googleClient.signInIntent.also {
-                startActivityForResult(it, GOOGLE_SIGN_IN_CODE)
+    private fun signInGoogle() {
+        val signInIntent = googleSignInClient.signInIntent
+        launcher.launch(signInIntent)
+    }
+
+    private val launcher = registerForActivityResult(StartActivityForResult()){
+            result ->
+                if(result.resultCode == Activity.RESULT_OK){
+                    val task = GoogleSignIn.getSignedInAccountFromIntent(result.data)
+                    handlerResult(task)
+                }
+    }
+
+    private fun handlerResult(task: Task<GoogleSignInAccount>) {
+        if (task.isSuccessful){
+            val account : GoogleSignInAccount? = task.result
+            if (account != null){
+                loginWithGoogle(account)
+            }
+        } else {
+            loginViewModel.loginWithGoogle("FAILED_LOGIN")
+            Toast.makeText(requireContext(), "Login failed, try again or check your internet connection", Toast.LENGTH_LONG).show()
+         }
+    }
+
+    private fun loginWithGoogle(account: GoogleSignInAccount) {
+        val credentials = GoogleAuthProvider.getCredential(account.idToken, null)
+        auth.signInWithCredential(credentials).addOnCompleteListener{ task ->
+            if(task.isSuccessful){
+                loginViewModel.loginWithGoogle("LOGGED_IN")
+                //Save data from login
+                account.displayName?.let { appData.savePrefs("username", it) }
+                account.email?.let { appData.savePrefs("email", it) }
+                appData.savePrefs("key", "loggedWithGoogle")
+                //Successful login
+                showSuccessDialog()
+            }else{
+                showFailureDialog()
             }
         }
     }
-        private fun openActivity(){
-            val intent = Intent(requireActivity(), MainActivity::class.java)
-            startActivity(intent)
-        }
 
-        private fun drawStatusDialog() {
-            loginViewModel.status.observe(viewLifecycleOwner) {
-                when (it!!) {
-                    ApiStatus.SUCCESS -> { showSuccessDialog() }
-                    ApiStatus.FAILURE -> { showFailureDialog() }
-                }
-            }
-        }
+
+    private fun drawStatusDialog() {
+         loginViewModel.status.observe(viewLifecycleOwner) {
+             when (it!!) {
+                 ApiStatus.SUCCESS -> { showSuccessDialog() }
+                 ApiStatus.FAILURE -> { showFailureDialog() }
+             }
+         }
+   }
 
         private fun showSuccessDialog() {
             Toast.makeText(context, resources.getString(R.string.success_login), Toast.LENGTH_LONG).show()

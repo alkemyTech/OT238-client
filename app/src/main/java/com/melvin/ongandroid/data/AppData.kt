@@ -1,25 +1,29 @@
 package com.melvin.ongandroid.data
 
+import android.app.Activity
 import android.content.Context
+import android.content.SharedPreferences
+import com.melvin.ongandroid.R
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
 class AppData @Inject constructor(@ApplicationContext context: Context) {
-    val SHARED_KEY = "apikey"
+    private val path : String = context.getString(R.string.pref_user_data)
 
-    val storage =  context.getSharedPreferences(SHARED_KEY, 0)
+    private val prefs : SharedPreferences = context.getSharedPreferences(path, Activity.MODE_PRIVATE)
 
-    fun saveKey(key: String) {
-        storage.edit().putString(SHARED_KEY, key).apply()
+
+    fun savePrefs(key: String, value: String) {
+        prefs.edit().putString(key, value).apply()
     }
 
-    fun getKey(): String? {
-        return storage.getString(SHARED_KEY, "")
+    fun getPrefs(key: String): String? {
+        return prefs.getString(key, "")
     }
 
-    fun removeKey() {
-        storage.edit().remove(SHARED_KEY).apply()
+    fun clearPrefs() {
+        prefs.edit().clear().apply()
     }
 }
