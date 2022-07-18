@@ -14,7 +14,7 @@ import javax.inject.Inject
 class WhatWeDoViewModel @Inject constructor(
     private val repository: ApiClient
 ) : ViewModel() {
-    private val _status = MutableLiveData<ApiStatus>()
+    val _status = MutableLiveData<ApiStatus>()
     val status: LiveData<ApiStatus>
         get() = _status
 
