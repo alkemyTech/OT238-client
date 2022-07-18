@@ -23,6 +23,7 @@ class LogInViewModel @Inject constructor(
     val status: LiveData<ApiStatus> = _status
     val logInUserCharging = MutableLiveData(false)
 
+
     fun validateEmail(Email: String?): Boolean {
         return if (Email != null) {
             Email.isNotEmpty() && PatternsCompat.EMAIL_ADDRESS.matcher(Email).matches()
@@ -49,17 +50,38 @@ class LogInViewModel @Inject constructor(
         }
     }
 
-    fun logInUser(logIn: LoginRequest) {
+    fun logInUser(logIn: LoginRequest){
         logInUserCharging.postValue(true)
         viewModelScope.launch {
             val apiLogIn = logInUseCase.logInUser(logIn)
             logInUserCharging.postValue(false)
             if (apiLogIn.success) {
                 _status.value = ApiStatus.SUCCESS
-                appData.saveKey(apiLogIn.data.token)
+                appData.savePrefs("key", apiLogIn.data.token)
+                apiLogIn.data.user.name?.let { appData.savePrefs("username", it) }
+                apiLogIn.data.user.email?.let { appData.savePrefs("email", it) }
             } else {
                 _status.value = ApiStatus.FAILURE
             }
         }
+
+    }
+
+    fun loginWithGoogle(status: String): Boolean {
+        when(status){
+            "LOGIN_ACTION" -> {
+                logInUserCharging.postValue(true)
+                return true
+            }
+            "LOGGED_IN" -> {
+                logInUserCharging.postValue(false)
+                return true
+            }
+            "FAILED_LOGIN" -> {
+                logInUserCharging.postValue(false)
+                return false
+            }
+        }
+        return true
     }
 }

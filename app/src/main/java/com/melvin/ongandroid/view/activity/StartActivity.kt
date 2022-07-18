@@ -18,7 +18,15 @@ class StartActivity : AppCompatActivity(){
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        timer()
+        val intent = intent.getStringExtra("STATUS")
+        start(intent)
+    }
+    private fun start(intent: String?){
+        if(intent == "LOGOUT"){
+            checkAuth()
+        }else{
+            timer()
+        }
     }
 
     private fun timer(){
@@ -31,11 +39,13 @@ class StartActivity : AppCompatActivity(){
     }
 
     private fun checkAuth(){
-        val token = appData.getKey().toString()
-        if(token.isNotEmpty()){
-            startActivity(Intent(this, HomeActivity::class.java))
-        }else{
-            startActivity(Intent(this, MainActivity::class.java))
+        val token = appData.getPrefs("key")
+        if (token != null) {
+            if(token.isNotEmpty()){
+                startActivity(Intent(this, HomeActivity::class.java))
+            }else{
+                startActivity(Intent(this, MainActivity::class.java))
+            }
         }
     }
 
