@@ -4,6 +4,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.melvin.ongandroid.data.ApiClient
+import com.melvin.ongandroid.domain.analytics.AnalyticsSender.Companion.trackSliderRetrieveError
+import com.melvin.ongandroid.domain.analytics.AnalyticsSender.Companion.trackSliderRetrieveSuccess
 import com.melvin.ongandroid.model.entities.slides.Slide
 import com.melvin.ongandroid.model.entities.news.News
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -33,9 +35,11 @@ class HomeViewModel @Inject constructor(
             if (response.success) {
                 _slideList.value = response.slideList
                 _status.value = ApiStatus.SUCCESS
+                trackSliderRetrieveSuccess("SUCCESS")
             } else {
                 _slideList.value = emptyList()
                 _status.value = ApiStatus.FAILURE
+                trackSliderRetrieveError("ERROR")
             }
         }
     }

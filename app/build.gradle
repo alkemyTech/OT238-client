@@ -106,6 +106,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-analytics'
     implementation 'com.google.firebase:firebase-crashlytics'
     implementation 'com.google.firebase:firebase-messaging'
+    implementation 'com.google.firebase:firebase-analytics-ktx:21.1.0'
 
     //Google Services
     implementation 'com.google.android.gms:play-services-auth:20.2.0'

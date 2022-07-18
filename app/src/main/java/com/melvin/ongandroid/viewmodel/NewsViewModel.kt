@@ -2,9 +2,10 @@ package com.melvin.ongandroid.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import com.melvin.ongandroid.data.ApiClient
+import com.melvin.ongandroid.domain.analytics.AnalyticsSender.Companion.trackNewsRetrieveError
+import com.melvin.ongandroid.domain.analytics.AnalyticsSender.Companion.trackNewsRetrieveSuccess
 import com.melvin.ongandroid.model.entities.news.News
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -28,9 +29,11 @@ class NewsViewModel @Inject constructor(
             if (response.success) {
                 _newsList.value = response.data
                 _status.value = ApiStatus.SUCCESS
+                trackNewsRetrieveSuccess("SUCCESS")
             } else {
                 _newsList.value = emptyList()
                 _status.value = ApiStatus.FAILURE
+                trackNewsRetrieveError("ERROR")
             }
         }
     }

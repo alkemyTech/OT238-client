@@ -4,6 +4,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.melvin.ongandroid.data.ApiClient
+import com.melvin.ongandroid.domain.analytics.AnalyticsSender.Companion.trackTestimoniesRetrieveError
+import com.melvin.ongandroid.domain.analytics.AnalyticsSender.Companion.trackTestimoniesRetrieveSuccess
 import com.melvin.ongandroid.model.entities.testimonials.Testimonials
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -27,9 +29,11 @@ class TestimonialsViewModel @Inject constructor(
             if (response.success) {
                 _testimonialsList.value = response.testimonialsList
                 _status.value = ApiStatus.SUCCESS
+                trackTestimoniesRetrieveSuccess("SUCCESS")
             } else {
                 _testimonialsList.value = emptyList()
                 _status.value = ApiStatus.FAILURE
+                trackTestimoniesRetrieveError("ERROR")
             }
         }
     }

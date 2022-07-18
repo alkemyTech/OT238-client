@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.melvin.ongandroid.R
 import com.melvin.ongandroid.databinding.FragmentTestimonialsItemBinding
 import com.melvin.ongandroid.databinding.TestimonialsViewPagerItemHomeBinding
+import com.melvin.ongandroid.domain.analytics.AnalyticsSender
 import com.melvin.ongandroid.model.entities.testimonials.Testimonials
 import com.squareup.picasso.Picasso
 import javax.inject.Inject
@@ -40,6 +41,7 @@ class TestimonialsViewHolder
         homeBinding.cvTestimonials.isClickable = true
         homeBinding.cvTestimonials.setOnClickListener {
             it.findNavController().navigate(R.id.action_nav_home_to_testimonialsFragment)
+            AnalyticsSender.trackTestimonialsSeeMorePressed("testimonials")
         }
     }
 
