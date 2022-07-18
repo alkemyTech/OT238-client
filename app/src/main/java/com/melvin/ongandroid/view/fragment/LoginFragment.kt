@@ -54,12 +54,6 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Save data from login
-        val prefs : SharedPreferences.Editor? = requireActivity().getSharedPreferences(getString(R.string.pref_user_data),Activity.MODE_PRIVATE).edit()
-        prefs?.putString("email", "email")
-        prefs?.putString("username", "username")
-        prefs?.apply()
-
         // Firebase Auth
         auth = FirebaseAuth.getInstance()
 
