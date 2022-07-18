@@ -50,8 +50,6 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'androidx.annotation:annotation:1.4.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation 'com.google.firebase:firebase-messaging-ktx:23.0.6'
-    implementation 'com.google.firebase:firebase-common-ktx:20.0.0'
 
     //Testing
     testImplementation 'junit:junit:4.13.2'
@@ -107,9 +105,9 @@ dependencies {
     implementation 'com.google.firebase:firebase-analytics'
     implementation 'com.google.firebase:firebase-crashlytics'
     implementation 'com.google.firebase:firebase-messaging'
-    implementation platform('com.google.firebase:firebase-bom:30.1.0')
-    implementation 'com.google.firebase:firebase-analytics-ktx'
-
+    implementation 'com.google.firebase:firebase-analytics-ktx:21.1.0'
+    implementation 'com.google.firebase:firebase-messaging-ktx:23.0.6'
+    implementation 'com.google.firebase:firebase-auth-ktx:21.0.6'
 
     //Google Services
     implementation 'com.google.android.gms:play-services-auth:20.2.0'
