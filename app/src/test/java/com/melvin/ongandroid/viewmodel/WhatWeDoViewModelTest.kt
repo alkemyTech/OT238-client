@@ -1,7 +1,9 @@
 package com.melvin.ongandroid.viewmodel
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
+import com.melvin.ongandroid.MainCoroutinesRule
 import com.melvin.ongandroid.data.ApiClient
+import com.melvin.ongandroid.data.OngApi
 import com.melvin.ongandroid.model.entities.us.Member
 import com.melvin.ongandroid.model.entities.us.MembersResponse
 import io.mockk.MockKAnnotations
@@ -21,24 +23,24 @@ import org.junit.rules.TestRule
 class WhatWeDoViewModelTest {
 
     @RelaxedMockK
-    private lateinit var repository: ApiClient
+    private lateinit var api:  OngApi
 
+    private lateinit var repository: ApiClient
     private lateinit var whatWeDoViewModel: WhatWeDoViewModel
 
     @get:Rule
     val testInstantTaskExecutorRule: TestRule = InstantTaskExecutorRule()
 
+    @get:Rule
+    val mainCoroutinesRule = MainCoroutinesRule()
+
     @Before
     fun setUp() {
         MockKAnnotations.init(this)
+        repository = ApiClient(api)
         whatWeDoViewModel = WhatWeDoViewModel(repository)
-        Dispatchers.setMain(Dispatchers.Unconfined)
     }
 
-    @After
-    fun onAfter() {
-        Dispatchers.resetMain()
-    }
 
     @Test
     fun `when setWhatWeDo is called response is successful and whatWeDoList isn't empty`() = runTest {
