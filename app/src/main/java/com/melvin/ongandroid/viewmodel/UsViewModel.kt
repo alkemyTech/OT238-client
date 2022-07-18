@@ -13,9 +13,9 @@ import javax.inject.Inject
 class UsViewModel @Inject constructor(
     private val dataProvider: ApiClient
 ): ViewModel() {
-
-    private val _status = MutableLiveData<ApiStatus>()
-    private val _membersList = MutableLiveData<List<Member>>()
+    //No olvidar usar el get
+    val _status = MutableLiveData<ApiStatus>()
+    val _membersList = MutableLiveData<List<Member>>()
 
     fun observeMembersList(): MutableLiveData<List<Member>> {
         return this._membersList
