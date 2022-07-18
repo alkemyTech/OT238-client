@@ -1,5 +1,6 @@
 package com.melvin.ongandroid.viewmodel
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -14,8 +15,14 @@ class WhatWeDoViewModel @Inject constructor(
     private val repository: ApiClient
 ) : ViewModel() {
     private val _status = MutableLiveData<ApiStatus>()
+    val status: LiveData<ApiStatus>
+        get() = _status
+
     private val _whatWeDoList = MutableLiveData<List<WhatWeDo>>()
-     val charging = MutableLiveData(false)
+    val whatWeDoList: LiveData<List<WhatWeDo>>
+        get() = _whatWeDoList
+
+    val charging = MutableLiveData(false)
 
 
     fun observerWhatWeDoList(): MutableLiveData<List<WhatWeDo>> {
