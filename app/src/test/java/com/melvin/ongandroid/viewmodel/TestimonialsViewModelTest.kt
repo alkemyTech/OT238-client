@@ -64,7 +64,7 @@ class TestimonialsViewModelTest {
         }
 
     @Test
-    fun `when getTestimonials is called response is error and testimonialsList isn't empty`() =
+    fun `when getTestimonials is called response is error and testimonialsList is empty`() =
         runTest {
             coEvery {
                 repository.getTestimonials()
