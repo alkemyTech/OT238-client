@@ -11,6 +11,7 @@ import com.melvin.ongandroid.domain.use_case.CreateContactUseCase
 import com.melvin.ongandroid.model.entities.contact.Contact
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import java.util.regex.Pattern
 import javax.inject.Inject
 @HiltViewModel
 class ContactViewModel @Inject constructor(
@@ -22,11 +23,13 @@ class ContactViewModel @Inject constructor(
     val createContactCharging = MutableLiveData(false)
 
     fun validateName(name: String): Boolean {
-        return name.isNotEmpty()
+        val nameRegex = Pattern.compile("^[a-zA-Z]+(?:\\s[a-zA-Z]+)+\$")
+        return if (!name.isNullOrEmpty()) (nameRegex.matcher(name).matches()) else false
     }
 
-    fun validateNumber(name: String): Boolean {
-        return name.isNotEmpty() && name.isDigitsOnly()
+    fun validateNumber(number: String): Boolean {
+        val nameRegex = Pattern.compile("^(?:[\\+]{1})?(?:\\([0-9]{1,2}\\) ?)?(?:[0-9] ?-?){6,14}[0-9]\$")
+        return if (!number.isNullOrEmpty()) (nameRegex.matcher(number).matches()) else false
     }
 
     fun validateEmail(Email: String): Boolean {
