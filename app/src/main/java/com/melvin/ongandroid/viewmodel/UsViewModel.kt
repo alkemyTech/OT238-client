@@ -13,7 +13,7 @@ import javax.inject.Inject
 class UsViewModel @Inject constructor(
     private val dataProvider: ApiClient
 ): ViewModel() {
-    //No olvidar usar el get
+    //TODO No olvidar usar el get
     val _status = MutableLiveData<ApiStatus>()
     val _membersList = MutableLiveData<List<Member>>()
 
