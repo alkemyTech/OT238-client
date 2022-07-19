@@ -1,7 +1,6 @@
 package com.melvin.ongandroid.view.fragment
 
 import android.app.Activity
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -24,6 +23,10 @@ import com.google.firebase.auth.GoogleAuthProvider
 import com.melvin.ongandroid.R
 import com.melvin.ongandroid.data.AppData
 import com.melvin.ongandroid.databinding.FragmentLogInBinding
+import com.melvin.ongandroid.domain.analytics.AnalyticsSender
+import com.melvin.ongandroid.domain.analytics.AnalyticsSender.Companion.trackGooglePressed
+import com.melvin.ongandroid.domain.analytics.AnalyticsSender.Companion.trackLogInPressed
+import com.melvin.ongandroid.domain.analytics.AnalyticsSender.Companion.trackSignUpPressed
 import com.melvin.ongandroid.model.entities.LoginRequest
 import com.melvin.ongandroid.viewmodel.ApiStatus
 import com.melvin.ongandroid.viewmodel.LogInViewModel
@@ -37,6 +40,7 @@ class LoginFragment : Fragment() {
     private lateinit var _binding : FragmentLogInBinding
     private val loginBinding get() = _binding
     private val loginViewModel : LogInViewModel by viewModels()
+    private lateinit var analyticsSender : AnalyticsSender
 
     private lateinit var auth : FirebaseAuth
     private lateinit var googleSignInClient : GoogleSignInClient
@@ -84,15 +88,18 @@ class LoginFragment : Fragment() {
         }
 
         loginBinding.bSignUp.setOnClickListener {
+            trackSignUpPressed(R.string.signUpPressed.toString())
             findNavController().navigate(R.id.action_loginFragment_to_signUpFragment)
         }
 
         loginBinding.bLogin.setOnClickListener {
+            trackLogInPressed(R.string.logInPressed.toString())
             val logIn = LoginRequest(
                 loginBinding.itEmail.text.toString(),
                 loginBinding.itPassword.text.toString()
             )
             loginViewModel.logInUser(logIn)
+
             drawStatusDialog()
         }
 
@@ -105,6 +112,7 @@ class LoginFragment : Fragment() {
         }
         //Google Sign In
         loginBinding.bGoogleLogin.setOnClickListener {
+            trackGooglePressed(R.string.googlePressed.toString())
             loginViewModel.loginWithGoogle("LOGIN_ACTION")
             signInGoogle()
         }
