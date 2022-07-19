@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.melvin.ongandroid.domain.analytics.AnalyticsSender
 import com.melvin.ongandroid.domain.use_case.RegisterUseCase
 import com.melvin.ongandroid.model.entities.UserRegistrationRequest
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -27,9 +28,11 @@ class SignUpViewModel @Inject constructor(
             val apiRegistrationResponse = registrationUseCase.registerUser(newUser)
             signUpUserCharging.postValue(false)
             if (apiRegistrationResponse.success) {
+                AnalyticsSender.trackEventSignUpSuccess("sign_up_succes")
                 _status.value = ApiStatus.SUCCESS
             } else {
                 _status.value = ApiStatus.FAILURE
+                AnalyticsSender.trackEventSignUpError("sign_up_error")
             }
         }
     }

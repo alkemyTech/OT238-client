@@ -16,6 +16,7 @@ import com.google.firebase.analytics.ktx.logEvent
 import com.google.firebase.ktx.Firebase
 import com.melvin.ongandroid.R
 import com.melvin.ongandroid.databinding.FragmentSignUpBinding
+import com.melvin.ongandroid.domain.analytics.AnalyticsSender
 import com.melvin.ongandroid.model.entities.UserRegistrationRequest
 import com.melvin.ongandroid.viewmodel.ApiStatus
 import com.melvin.ongandroid.viewmodel.SignUpViewModel
@@ -52,9 +53,7 @@ class SignUpFragment : Fragment() {
             )
             viewModel.registerUser(newUser)
             drawStatusDialog()
-            firebaseAnalytics.logEvent("register_pressed") {
-                param("register_pressed","1")
-            }
+            AnalyticsSender.trackEventRegisterPress("register_pressed")
         }
 
         val binding = FragmentSignUpBinding.bind(view)
