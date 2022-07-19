@@ -6,52 +6,52 @@
     android:layout_height="match_parent"
     android:id="@+id/contact">
 
-
-    <ImageView
-        android:id="@+id/ivLogoSomosMasContact"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:background="@drawable/style_border_component"
-        android:backgroundTint="#6DFFFFFF"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo_somos_mas" />
-
     <TextView
         android:id="@+id/tvHomeWelcome"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:gravity="center_horizontal"
         android:text="@string/contact_us"
         android:textAppearance="?attr/textAppearanceHeadline5"
+        android:textAlignment="center"
+        android:layout_marginVertical="@dimen/layout_margin_vertical"
         app:layout_constraintBottom_toTopOf="@+id/ivLogoSomosMasContact"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/ivLogoSomosMasContact"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/style_border_component"
+        android:backgroundTint="#6DFFFFFF"
+        android:contentDescription="@string/default_content_description"
+        android:layout_marginHorizontal="@dimen/layout_margin_horizontal"
+        android:layout_marginVertical="@dimen/layout_mid_margin_vertical"
+        app:layout_constraintTop_toBottomOf="@id/tvHomeWelcome"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/logo_somos_mas" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tiNameAndSurname"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="16dp"
         android:hint="@string/contact_name"
+        android:layout_marginHorizontal="@dimen/layout_margin_horizontal"
+        android:layout_marginVertical="@dimen/layout_mid_margin_vertical"
+        app:errorEnabled="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivLogoSomosMasContact"
-        app:layout_constraintVertical_bias="0.25">
+        app:layout_constraintTop_toBottomOf="@+id/ivLogoSomosMasContact">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etName"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="match_parent"
+            android:maxLength="50"
+            android:maxLines="1"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -60,14 +60,12 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginHorizontal="@dimen/layout_margin_horizontal"
+        android:layout_marginVertical="@dimen/layout_mid_margin_vertical"
         android:hint="@string/user_email"
         app:errorEnabled="true"
         app:errorIconDrawable="@null"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tiNameAndSurname"
         app:startIconDrawable="@drawable/ic_baseline_email_24">
@@ -75,7 +73,9 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etEmail"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="match_parent"
+            android:maxLength="40"
+            android:maxLines="1"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -84,62 +84,62 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginHorizontal="@dimen/layout_margin_horizontal"
+        android:layout_marginVertical="@dimen/layout_mid_margin_vertical"
         android:hint="@string/contact_phone_number"
         app:errorEnabled="true"
         app:errorIconDrawable="@null"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tiEmail"
-        app:startIconDrawable="@drawable/common_full_open_on_phone">
+        app:startIconDrawable="@drawable/ic_baseline_phone_android_24">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etPhoneNumber"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColorHint="#757575" />
+            android:layout_height="match_parent"
+            android:textColorHint="#757575"
+            android:inputType="numberDecimal"
+            android:maxLength="15"
+            android:maxLines="1"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tiMessage"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="16dp"
-        android:hint="@string/contact_message"
-        app:errorEnabled="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tiPhone"
-        android:lines="4"
-        android:textAlignment="textStart">
+            android:id="@+id/tiMessage"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/layout_margin_horizontal"
+            android:layout_marginVertical="@dimen/layout_mid_margin_vertical"
+            android:hint="@string/contact_message"
+            app:errorEnabled="true"
+            android:textAlignment="textStart"
+            app:layout_constraintTop_toBottomOf="@id/tiPhone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etMessage"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+                    android:id="@+id/etMessage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textMultiLine"
+                    android:minLines="1"
+                    android:maxLines="4"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/btnSend"
-        android:layout_width="310dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/layout_margin_horizontal"
+        android:layout_marginBottom="@dimen/layout_margin_vertical"
         android:enabled="false"
         android:text="@string/send_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tiMessage" />
+        app:layout_constraintStart_toStartOf="parent"/>
 
     <ProgressBar
         android:id="@+id/pbChargingContact"
