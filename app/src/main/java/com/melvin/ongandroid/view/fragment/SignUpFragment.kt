@@ -27,7 +27,6 @@ class SignUpFragment : Fragment() {
     private var _binding: FragmentSignUpBinding? = null
     private val binding get() = _binding!!
     private val viewModel: SignUpViewModel by viewModels()
-    private lateinit var firebaseAnalytics: FirebaseAnalytics
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -57,8 +56,7 @@ class SignUpFragment : Fragment() {
         }
 
         val binding = FragmentSignUpBinding.bind(view)
-        // Obtain the FirebaseAnalytics instance.
-        firebaseAnalytics = Firebase.analytics
+
 
 
         binding.etUserPasswordConfirm.doAfterTextChanged {
