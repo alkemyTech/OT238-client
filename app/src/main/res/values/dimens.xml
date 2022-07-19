@@ -22,6 +22,16 @@
     <dimen name="portrait_margin_vertical">16dp</dimen>
     <dimen name="portrait_middle_margin_vertical">8dp</dimen>
     <dimen name="portrait_quarter_margin_vertical">4dp</dimen>
+    <!-- Portrait Paddings -->
+    <dimen name="portrait_quarter_padding_vertical">4dp</dimen>
+    <!-- Landscape margins -->
+    <dimen name="landscape_margin_horizontal">10dp</dimen>
+    <dimen name="landscape_margin_vertical">18dp</dimen>
+    <dimen name="landscape_middle_margin_vertical">9dp</dimen>
+    <dimen name="landscape_quarter_margin_vertical">4.5dp</dimen>
+    <!-- Tablet margins -->
+    <dimen name="tablet_margin_horizontal">24dp</dimen>
+    <dimen name="tablet_margin_vertical">24dp</dimen>
 
     <!-- List item margins and paddings -->
     <dimen name="list_item_margin">16dp</dimen>

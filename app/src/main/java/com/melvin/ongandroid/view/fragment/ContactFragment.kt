@@ -25,7 +25,7 @@ class ContactFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentContactBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -74,10 +74,6 @@ class ContactFragment : Fragment() {
                     contactViewModel.validateEmail(etEmail.text.toString()) &&
                     contactViewModel.validateNumber(etPhoneNumber.text.toString()) &&
                     contactViewModel.validateMessage(etMessage.text.toString())
-            tiNameAndSurname.isErrorEnabled=false
-            tiEmail.isErrorEnabled=false
-            tiMessage.isErrorEnabled=false
-            tiPhone.isErrorEnabled=false
         }
     }
 
@@ -111,8 +107,8 @@ class ContactFragment : Fragment() {
         binding.apply {
             tiNameAndSurname.error = getString(R.string.set_error)
             tiEmail.error = getString(R.string.set_error)
-            tiMessage.error = getString(R.string.set_error)
             tiPhone.error= getString(R.string.set_error)
+
         }
     }
 
