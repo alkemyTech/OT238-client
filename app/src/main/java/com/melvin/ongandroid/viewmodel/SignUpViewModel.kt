@@ -28,8 +28,8 @@ class SignUpViewModel @Inject constructor(
             val apiRegistrationResponse = registrationUseCase.registerUser(newUser)
             signUpUserCharging.postValue(false)
             if (apiRegistrationResponse.success) {
-                AnalyticsSender.trackEventSignUpSuccess("sign_up_succes")
                 _status.value = ApiStatus.SUCCESS
+                AnalyticsSender.trackEventSignUpSuccess("sign_up_succes")
             } else {
                 _status.value = ApiStatus.FAILURE
                 AnalyticsSender.trackEventSignUpError("sign_up_error")
