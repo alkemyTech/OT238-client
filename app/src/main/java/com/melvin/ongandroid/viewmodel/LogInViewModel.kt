@@ -67,7 +67,7 @@ class LogInViewModel @Inject constructor(
 
     }
 
-    fun loginWithGoogle(status: String): Boolean {
+    fun loginWithSocialMedia(status: String): Boolean {
         when(status){
             "LOGIN_ACTION" -> {
                 logInUserCharging.postValue(true)

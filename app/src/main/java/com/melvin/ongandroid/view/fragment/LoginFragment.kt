@@ -1,6 +1,7 @@
 package com.melvin.ongandroid.view.fragment
 
 import android.app.Activity
+import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
@@ -13,12 +14,20 @@ import androidx.activity.result.contract.ActivityResultContracts.*
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.facebook.AccessToken
+import com.facebook.CallbackManager
+import com.facebook.FacebookCallback
+import com.facebook.FacebookException
+import com.facebook.login.LoginManager
+import com.facebook.login.LoginResult
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.tasks.Task
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.firebase.auth.FacebookAuthCredential
+import com.google.firebase.auth.FacebookAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import com.melvin.ongandroid.R
@@ -40,6 +49,7 @@ class LoginFragment : Fragment() {
 
     private lateinit var auth : FirebaseAuth
     private lateinit var googleSignInClient : GoogleSignInClient
+    private lateinit var callbackManager : CallbackManager
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -63,6 +73,7 @@ class LoginFragment : Fragment() {
             .build()
         googleSignInClient = GoogleSignIn.getClient(requireActivity(), googleSignInOptions)
 
+        callbackManager = CallbackManager.Factory.create()
 
         loginBinding.itPasswordDesign.isHelperTextEnabled = false
         loginBinding.itEmailDesign.isHelperTextEnabled = false
@@ -105,8 +116,49 @@ class LoginFragment : Fragment() {
         }
         //Google Sign In
         loginBinding.bGoogleLogin.setOnClickListener {
-            loginViewModel.loginWithGoogle("LOGIN_ACTION")
+            loginViewModel.loginWithSocialMedia("LOGIN_ACTION")
             signInGoogle()
+        }
+        //Facebook Sign In
+        loginBinding.bFacebookLogin.setOnClickListener {
+            loginViewModel.loginWithSocialMedia("LOGIN_ACTION")
+            LoginManager.getInstance().registerCallback(callbackManager,
+                object : FacebookCallback<LoginResult> {
+                    override fun onCancel() {
+                        Log.d("TAG", "facebook:onCancel")
+                    }
+
+                    override fun onError(error: FacebookException) {
+                        Log.d("TAG", "facebook:onError", error)
+                    }
+
+                    override fun onSuccess(result: LoginResult) {
+                        loginViewModel.loginWithSocialMedia("LOGGED_IN")
+                        handleFacebookAccessToken(result.accessToken)
+                    }
+
+                })
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        callbackManager.onActivityResult(requestCode, resultCode, data)
+    }
+
+    private fun handleFacebookAccessToken(token: AccessToken) {
+
+        val credential = FacebookAuthProvider.getCredential(token.token)
+        auth.signInWithCredential(credential).addOnCompleteListener(requireActivity()) { task ->
+            if (task.isSuccessful) {
+                loginViewModel.loginWithSocialMedia("LOGGED_IN")
+                appData.savePrefs("username", auth.currentUser.toString())
+                appData.savePrefs("email", token.userId)
+                appData.savePrefs("key", "loggedWithFacebook")
+            } else {
+                loginViewModel.loginWithSocialMedia("FAILED_LOGIN")
+                Toast.makeText(requireContext(), R.string.social_media_login_error, Toast.LENGTH_LONG).show()
+            }
         }
     }
 
@@ -130,8 +182,8 @@ class LoginFragment : Fragment() {
                 loginWithGoogle(account)
             }
         } else {
-            loginViewModel.loginWithGoogle("FAILED_LOGIN")
-            Toast.makeText(requireContext(), "Login failed, try again or check your internet connection", Toast.LENGTH_LONG).show()
+            loginViewModel.loginWithSocialMedia("FAILED_LOGIN")
+            Toast.makeText(requireContext(), R.string.social_media_login_error, Toast.LENGTH_LONG).show()
          }
     }
 
@@ -139,7 +191,7 @@ class LoginFragment : Fragment() {
         val credentials = GoogleAuthProvider.getCredential(account.idToken, null)
         auth.signInWithCredential(credentials).addOnCompleteListener{ task ->
             if(task.isSuccessful){
-                loginViewModel.loginWithGoogle("LOGGED_IN")
+                loginViewModel.loginWithSocialMedia("LOGGED_IN")
                 //Save data from login
                 account.displayName?.let { appData.savePrefs("username", it) }
                 account.email?.let { appData.savePrefs("email", it) }
