@@ -16,7 +16,21 @@ class AnalyticsSender {
         private const val EVENT_NEWS_RETRIEVE_ERROR = "last_news_retrieve_error"
         private const val EVENT_TESTIMONIALS_RETRIEVE_SUCCESS = "testimonials_retrieve_success"
         private const val EVENT_TESTIMONIALS_RETRIEVE_ERROR = "testimonials_retrieve_error"
+        private const val EVENT_REGISTER_PRESS = "register_pressed"
+        private const val EVENT_SIGN_UP_SUCCESS = "sign_up_success"
+        private const val EVENT_SIGN_UP_ERROR = "sign_up_error"
 
+        fun trackEventSignUpError(post: String){
+            sendCustomEvent(EVENT_SIGN_UP_ERROR, hashMapOf("post" to post ))
+        }
+
+        fun trackEventSignUpSuccess(post: String){
+            sendCustomEvent(EVENT_SIGN_UP_SUCCESS, hashMapOf("press" to post ))
+        }
+
+        fun trackEventRegisterPress(press: String){
+            sendCustomEvent(EVENT_REGISTER_PRESS, hashMapOf("press" to press ))
+        }
 
         fun trackLastNewsSeeMorePressed(press: String){
             sendCustomEvent(EVENT_LAST_NEWS_SEE_MORE_PRESSED, hashMapOf("press" to press ))
