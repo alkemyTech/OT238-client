@@ -19,6 +19,9 @@ class AnalyticsSender {
         private const val EVENT_REGISTER_PRESS = "register_pressed"
         private const val EVENT_SIGN_UP_SUCCESS = "sign_up_success"
         private const val EVENT_SIGN_UP_ERROR = "sign_up_error"
+        private const val EVENT_MEMBERS_RETRIEVE_SUCCESS = "members_retrieve_success"
+        private const val EVENT_MEMBERS_RETRIEVE_ERROR = "members_retrieve_error"
+        private const val EVENT_MEMBER_PRESSED = "member_pressed"
 
         fun trackEventSignUpError(post: String){
             sendCustomEvent(EVENT_SIGN_UP_ERROR, hashMapOf("post" to post ))
@@ -62,6 +65,18 @@ class AnalyticsSender {
 
         fun trackTestimoniesRetrieveError(GET: String){
             sendCustomEvent(EVENT_TESTIMONIALS_RETRIEVE_ERROR, hashMapOf("GET" to GET ))
+        }
+
+        fun trackMembersRetrieveSuccess(GET: String){
+            sendCustomEvent(EVENT_MEMBERS_RETRIEVE_SUCCESS, hashMapOf("GET" to GET))
+        }
+
+        fun trackMembersRetrieveError(GET: String){
+            sendCustomEvent(EVENT_MEMBERS_RETRIEVE_ERROR, hashMapOf("GET" to GET))
+        }
+
+        fun trackMemberPressed(press: String){
+            sendCustomEvent(EVENT_MEMBER_PRESSED, hashMapOf("press" to press))
         }
 
         private fun sendCustomEvent(eventName: String, params: HashMap<String, String>){
