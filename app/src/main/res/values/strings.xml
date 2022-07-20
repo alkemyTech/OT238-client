@@ -65,5 +65,6 @@
     <string name="google_login">Iniciar sesión con Google</string>
     <string name="facebook_login">Iniciar sesión con Facebook</string>
     <string name="logout">Cerrar sesión</string>
-
+    <string name="event_success">Success</string>
+    <string name="event_error">Error</string>
 </resources>

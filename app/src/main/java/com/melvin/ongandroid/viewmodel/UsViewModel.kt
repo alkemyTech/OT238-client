@@ -3,6 +3,7 @@ package com.melvin.ongandroid.viewmodel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.melvin.ongandroid.R
 import com.melvin.ongandroid.data.ApiClient
 import com.melvin.ongandroid.domain.analytics.AnalyticsSender.Companion.trackMembersRetrieveError
 import com.melvin.ongandroid.domain.analytics.AnalyticsSender.Companion.trackMembersRetrieveSuccess
@@ -29,11 +30,11 @@ class UsViewModel @Inject constructor(
             if (response.success) {
                 _membersList.value = response.data
                 _status.value = ApiStatus.SUCCESS
-                trackMembersRetrieveSuccess("SUCCESS")
+                trackMembersRetrieveSuccess(R.string.event_success.toString())
             } else {
                 _membersList.value = emptyList()
                 _status.value = ApiStatus.FAILURE
-                trackMembersRetrieveError("ERROR")
+                trackMembersRetrieveError(R.string.event_error.toString())
             }
         }
     }

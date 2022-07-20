@@ -31,7 +31,7 @@ class UsAdapter @Inject constructor(
                 .actionUsFragmentToMembersFragment2(item)
 
             mView.findNavController().navigate(direction)
-            trackMemberPressed("member_pressed")
+            trackMemberPressed(item.name.toString())
         }
     }
 
