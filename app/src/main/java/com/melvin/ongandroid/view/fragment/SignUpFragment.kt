@@ -8,11 +8,15 @@ import android.view.ViewGroup
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.LifecycleOwner
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.firebase.analytics.FirebaseAnalytics
+import com.google.firebase.analytics.ktx.analytics
+import com.google.firebase.analytics.ktx.logEvent
+import com.google.firebase.ktx.Firebase
 import com.melvin.ongandroid.R
 import com.melvin.ongandroid.databinding.FragmentSignUpBinding
+import com.melvin.ongandroid.domain.analytics.AnalyticsSender
 import com.melvin.ongandroid.model.entities.UserRegistrationRequest
 import com.melvin.ongandroid.viewmodel.ApiStatus
 import com.melvin.ongandroid.viewmodel.SignUpViewModel
@@ -48,9 +52,12 @@ class SignUpFragment : Fragment() {
             )
             viewModel.registerUser(newUser)
             drawStatusDialog()
+            AnalyticsSender.trackEventRegisterPress("register_pressed")
         }
 
         val binding = FragmentSignUpBinding.bind(view)
+
+
 
         binding.etUserPasswordConfirm.doAfterTextChanged {
             val controlFields = viewModel.validateFields(binding.etUserName.text.toString(),binding.etUserPassword.text.toString(),
@@ -67,6 +74,7 @@ class SignUpFragment : Fragment() {
                 binding.pbSignUp.visibility = View.GONE
             }
         }
+
 
     }
 

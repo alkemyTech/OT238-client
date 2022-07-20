@@ -66,4 +66,6 @@
     <string name="facebook_login">Iniciar sesión con Facebook</string>
     <string name="logout">Cerrar sesión</string>
     <string name="social_media_login_error">"Error al iniciar sesión con tu red social"</string>
+    <string name="event_success">Success</string>
+    <string name="event_error">Error</string>
 </resources>
