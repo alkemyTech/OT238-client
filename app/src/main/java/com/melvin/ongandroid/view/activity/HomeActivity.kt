@@ -3,22 +3,24 @@ package com.melvin.ongandroid.view.activity
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
-import com.google.android.material.navigation.NavigationView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import androidx.drawerlayout.widget.DrawerLayout
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.GravityCompat
-import androidx.navigation.fragment.NavHostFragment
+import com.google.android.material.navigation.NavigationView
 import com.melvin.ongandroid.R
 import com.melvin.ongandroid.data.AppData
 import com.melvin.ongandroid.databinding.ActivityHomeBinding
 import com.melvin.ongandroid.databinding.NavHeaderHomeBinding
+import com.melvin.ongandroid.domain.di.ConnectionInternet
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
+
 
 @AndroidEntryPoint
 class HomeActivity : AppCompatActivity() {
@@ -26,7 +28,6 @@ class HomeActivity : AppCompatActivity() {
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityHomeBinding
     private lateinit var headerBinding: NavHeaderHomeBinding
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -97,6 +98,8 @@ class HomeActivity : AppCompatActivity() {
         logout.setOnClickListener{
             logOut()
         }
+
+        ConnectionInternet.ValidateConection(this)
 
     }
 
