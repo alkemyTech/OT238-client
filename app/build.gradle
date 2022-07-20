@@ -118,6 +118,6 @@ dependencies {
 
     //Facebook Login
     implementation 'com.facebook.android:facebook-login:14.1.0'
-    implementation 'com.facebook.android:facebook-android-sdk:latest.release'
+    implementation 'com.facebook.android:facebook-android-sdk:14.1.0'
 
 }
