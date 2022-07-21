@@ -41,6 +41,7 @@ class TestimonialsViewModelTest {
         repository = ApiClient(ongApiMock)
         viewModel = TestimonialsViewModel(repository)
     }
+
     @Test
     fun `when getTestimonials is called response is successful and testimonialsList isn't empty`() =
         runTest {
