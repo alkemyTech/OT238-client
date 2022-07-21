@@ -18,7 +18,8 @@ class SignUpViewModel @Inject constructor(
 ) : ViewModel() {
 
     private val _status = MutableLiveData<ApiStatus>()
-    val status: LiveData<ApiStatus> get() = _status
+    val status: LiveData<ApiStatus>
+        get() = _status
 
     fun registerUser(newUser: UserRegistrationRequest) {
         viewModelScope.launch {

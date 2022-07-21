@@ -23,10 +23,6 @@ class UsViewModel @Inject constructor(
     val membersList: LiveData<List<Member>>
         get() = _membersList
 
-    fun observeMembersList(): MutableLiveData<List<Member>> {
-        return this._membersList
-    }
-
     fun getMembers() {
         viewModelScope.launch {
             _status.value = ApiStatus.LOADING
