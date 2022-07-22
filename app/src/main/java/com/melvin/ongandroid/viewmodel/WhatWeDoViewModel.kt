@@ -24,10 +24,6 @@ class WhatWeDoViewModel @Inject constructor(
         get() = _whatWeDoList
 
 
-    fun observerWhatWeDoList(): MutableLiveData<List<WhatWeDo>> {
-        return _whatWeDoList
-    }
-
     fun setWhatWeDo() {
         _status.value = ApiStatus.LOADING
         viewModelScope.launch {

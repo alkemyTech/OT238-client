@@ -100,7 +100,6 @@ class LoginFragment : Fragment() {
                 loginBinding.itPassword.text.toString()
             )
             loginViewModel.logInUser(logIn)
-            drawStatusDialog()
         }
 
         loginViewModel.status.observe(viewLifecycleOwner) { currentStatus ->

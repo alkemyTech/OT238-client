@@ -53,15 +53,16 @@ class TestimonialsFragment : Fragment() {
     }
 
     private fun setUpObserver(){
-        viewModel.observerTestimonialsList().observe(viewLifecycleOwner) {
-            if (it != null){
-                onLoadTestimonials()?.let { it1 -> initRecyclerView(it1) }
-            } else {
+        viewModel.testimonialsList.observe(viewLifecycleOwner) {
+            if (it.isNullOrEmpty()){
                 snackBar()
+            } else {
+                initRecyclerView(it)
             }
         }
     }
-    fun onLoadTestimonials() = viewModel.observerTestimonialsList().value
+    //TODO verificar uso
+    fun onLoadTestimonials() = viewModel.testimonialsList.value
 
     private fun initRecyclerView(data: List<Testimonials>){
          adapter = TestimonialsAdapter(data, false)
