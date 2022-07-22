@@ -39,14 +39,15 @@
 
             <androidx.viewpager2.widget.ViewPager2
                 android:id="@+id/pager"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="295dp"
+                android:layout_height="341dp"
                 android:layout_marginStart="@dimen/view_pager_margin"
                 android:layout_marginTop="@dimen/view_pager_margin"
                 android:layout_marginEnd="@dimen/view_pager_margin"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintDimensionRatio="H, 1.2:1"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvHomeWelcome"
                 tools:listitem="@layout/view_pager_item_home" />
@@ -67,54 +68,60 @@
         app:layout_constraintBottom_toBottomOf="parent"
         >
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/tvNews"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/menu_news"
-                android:textAppearance="?attr/textAppearanceHeadline6"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" />
-
-            <androidx.viewpager2.widget.ViewPager2
-                android:id="@+id/vpNews"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:layout_constraintDimensionRatio="H, 1:.35"
-                app:layout_constraintTop_toBottomOf="@id/tvNews"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintBottom_toTopOf="@id/tvLastTestimonials"
-                tools:listitem="@layout/news_view_pager_item_home" />
+                android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/tvLastTestimonials"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/lastest_testimonials"
-                android:textAppearance="?attr/textAppearanceHeadline6"
-                app:layout_constraintBottom_toTopOf="@id/vpTestimonials"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/vpNews" />
+                <TextView
+                    android:id="@+id/tvNews"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/menu_news"
+                    android:textAppearance="?attr/textAppearanceHeadline6"
+                    tools:layout_editor_absoluteX="142dp"
+                    tools:layout_editor_absoluteY="411dp" />
 
-            <androidx.viewpager2.widget.ViewPager2
-                android:id="@+id/vpTestimonials"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                app:layout_constraintDimensionRatio="H, 1:.35"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvLastTestimonials"
-                app:layout_constraintBottom_toBottomOf="parent"
-                tools:listitem="@layout/testimonials_view_pager_item_home" />
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/vpNews"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    tools:layout_editor_absoluteY="411dp"
+                    tools:listitem="@layout/news_view_pager_item_home" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/tvLastTestimonials"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/lastest_testimonials"
+                    android:textAppearance="?attr/textAppearanceHeadline6"
+                    app:layout_constraintBottom_toTopOf="@id/vpTestimonials"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/vpNews" />
+
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/vpTestimonials"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintDimensionRatio="H, 1:.35"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvLastTestimonials"
+                    tools:listitem="@layout/testimonials_view_pager_item_home" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
 
     </LinearLayout>
 
