@@ -5,7 +5,10 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.melvin.ongandroid.R
 import com.melvin.ongandroid.data.AppData
+import com.melvin.ongandroid.domain.analytics.AnalyticsSender.Companion.trackLogInError
+import com.melvin.ongandroid.domain.analytics.AnalyticsSender.Companion.trackLogInSucces
 import com.melvin.ongandroid.domain.use_case.LogInUseCase
 import com.melvin.ongandroid.model.entities.LoginRequest
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -56,11 +59,13 @@ class LogInViewModel @Inject constructor(
             val apiLogIn = logInUseCase.logInUser(logIn)
             if (apiLogIn.success) {
                 _status.value = ApiStatus.SUCCESS
+                trackLogInSucces(R.string.logInSuccess.toString())
                 appData.savePrefs("key", apiLogIn.data.token)
                 apiLogIn.data.user.name?.let { appData.savePrefs("username", it) }
                 apiLogIn.data.user.email?.let { appData.savePrefs("email", it) }
             } else {
                 _status.value = ApiStatus.FAILURE
+                trackLogInError(R.string.logInError.toString())
             }
         }
 
