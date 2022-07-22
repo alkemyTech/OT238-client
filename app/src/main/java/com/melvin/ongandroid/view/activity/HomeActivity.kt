@@ -13,6 +13,11 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import androidx.drawerlayout.widget.DrawerLayout
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.GravityCompat
+import androidx.navigation.fragment.NavHostFragment
+import com.facebook.login.LoginManager
 import com.google.android.material.navigation.NavigationView
 import com.melvin.ongandroid.R
 import com.melvin.ongandroid.data.AppData
@@ -24,13 +29,13 @@ import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
 
-
 @AndroidEntryPoint
 class HomeActivity : AppCompatActivity() {
     @Inject lateinit var appData : AppData
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityHomeBinding
     private lateinit var headerBinding: NavHeaderHomeBinding
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -125,7 +130,12 @@ class HomeActivity : AppCompatActivity() {
 
     private fun logOut(){
         //Remove token and go to login
+        if (appData.getPrefs("key") == "loggedWithFacebook"){
+            LoginManager.getInstance().logOut()
+            appData.clearPrefs()
+        } else {
         appData.clearPrefs()
+        }
         //create intent to go to login
         val intent = Intent(this, StartActivity::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
