@@ -2,8 +2,12 @@ package com.melvin.ongandroid.view.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import com.melvin.ongandroid.databinding.ActivityMainBinding
+import com.melvin.ongandroid.domain.di.ConnectionInternet
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -13,5 +17,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        ConnectionInternet.NetworkConnection.initialize(this)
+        ConnectionInternet.NetworkConnection.isConnected
+            .onEach { ConnectionInternet.NetworkConnection.isConnected.value = !it }
+            .launchIn(lifecycleScope)
     }
 }

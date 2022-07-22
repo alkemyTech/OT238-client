@@ -6,6 +6,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
@@ -19,6 +20,8 @@ import com.melvin.ongandroid.databinding.ActivityHomeBinding
 import com.melvin.ongandroid.databinding.NavHeaderHomeBinding
 import com.melvin.ongandroid.domain.di.ConnectionInternet
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
 
 
@@ -37,6 +40,11 @@ class HomeActivity : AppCompatActivity() {
         headerBinding = NavHeaderHomeBinding.bind(binding.navView.getHeaderView(0))
 
         setSupportActionBar(binding.appBarHome.toolbar)
+
+        ConnectionInternet.NetworkConnection.initialize(this)
+        ConnectionInternet.NetworkConnection.isConnected
+            .onEach { ConnectionInternet.NetworkConnection.isConnected.value = !it }
+            .launchIn(lifecycleScope)
 
         val drawerLayout: DrawerLayout = binding.drawerLayout
         val navView: NavigationView = binding.navView
@@ -98,8 +106,6 @@ class HomeActivity : AppCompatActivity() {
         logout.setOnClickListener{
             logOut()
         }
-
-        ConnectionInternet.ValidateConection(this)
 
     }
 
