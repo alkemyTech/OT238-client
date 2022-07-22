@@ -14,7 +14,8 @@ import javax.inject.Inject
 class WhatWeDoViewModel @Inject constructor(
     private val repository: ApiClient
 ) : ViewModel() {
-    val _status = MutableLiveData<ApiStatus>()
+
+    private val _status = MutableLiveData<ApiStatus>()
     val status: LiveData<ApiStatus>
         get() = _status
 
@@ -22,18 +23,15 @@ class WhatWeDoViewModel @Inject constructor(
     val whatWeDoList: LiveData<List<WhatWeDo>>
         get() = _whatWeDoList
 
-    val charging = MutableLiveData(false)
-
 
     fun observerWhatWeDoList(): MutableLiveData<List<WhatWeDo>> {
         return _whatWeDoList
     }
 
     fun setWhatWeDo() {
-        charging.postValue(true)
+        _status.value = ApiStatus.LOADING
         viewModelScope.launch {
             val response = repository.getActivities()
-            charging.postValue(false)
             if (response.success) {
                 _whatWeDoList.value = response.whatWeDoList
                 _status.value = ApiStatus.SUCCESS

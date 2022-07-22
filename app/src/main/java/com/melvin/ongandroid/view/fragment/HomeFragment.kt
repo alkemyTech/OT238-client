@@ -16,6 +16,7 @@ import com.melvin.ongandroid.model.entities.news.News
 import com.melvin.ongandroid.model.entities.testimonials.Testimonials
 import com.melvin.ongandroid.view.adapters.NewsAdapter
 import com.melvin.ongandroid.view.adapters.TestimonialsAdapter
+import com.melvin.ongandroid.viewmodel.ApiStatus
 import com.melvin.ongandroid.viewmodel.ErrorStatus
 import com.melvin.ongandroid.viewmodel.HomeViewModel
 import com.melvin.ongandroid.viewmodel.TestimonialsViewModel
@@ -83,32 +84,31 @@ class HomeFragment : Fragment() {
     }
 
     private fun setupSlideObserver() {
-        viewModel.observerSlideList().observe(viewLifecycleOwner) {
-            if (it != null) {
-                loadSlidePager(it)
-            } else {
+        viewModel.slideList.observe(viewLifecycleOwner) {
+            if (it.isNullOrEmpty()) {
                 errorHandler(ErrorStatus.SLIDES)
-
+            } else {
+                loadSlidePager(it)
             }
         }
     }
 
     private fun setUpNewsObserver() {
-        viewModel.observeNewsList().observe(viewLifecycleOwner){
-            if (it != null){
-                loadNewsPager(it)
-            }else{
+        viewModel.newsList.observe(viewLifecycleOwner){
+            if (it.isNullOrEmpty()){
                 errorHandler(ErrorStatus.NEWS)
+            }else{
+                loadNewsPager(it)
             }
         }
     }
 
     private fun setUpTestimonialsObserver(){
-        vmTestimonial.observerTestimonialsList().observe(viewLifecycleOwner) {
-            if (it != null){
-                loadTestimonialsPager(it)
-            } else {
+        vmTestimonial.testimonialsList.observe(viewLifecycleOwner) {
+            if (it.isNullOrEmpty()){
                 errorHandler(ErrorStatus.TESTIMONIALS)
+            } else {
+                loadTestimonialsPager(it)
             }
         }
     }
@@ -164,13 +164,11 @@ class HomeFragment : Fragment() {
     }
 
     private fun showProgressBarCharging(){
-        viewModel.observerSlideList().observe(viewLifecycleOwner){
-            if (viewModel.observerSlideList() == null ||
-                viewModel.observeNewsList() == null ||
-                vmTestimonial.observerTestimonialsList() == null){
-                binding.pbHome.showProgressBar()
-            }else{
-                binding.pbHome.hideProgressBar()
+        viewModel.status.observe(viewLifecycleOwner) { currentStatus ->
+            when (currentStatus) {
+                ApiStatus.SUCCESS -> binding.pbHome.hideProgressBar()
+                ApiStatus.FAILURE -> binding.pbHome.hideProgressBar()
+                ApiStatus.LOADING -> binding.pbHome.showProgressBar()
             }
         }
     }
