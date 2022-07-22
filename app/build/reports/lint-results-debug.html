@@ -177,10 +177,10 @@ document.getElementById(id).style.display = 'none';
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
   <header class="mdl-layout__header">
     <div class="mdl-layout__header-row">
-      <span class="mdl-layout-title">Lint Report: 4 warnings</span>
+      <span class="mdl-layout-title">Lint Report: 5 warnings</span>
       <div class="mdl-layout-spacer"></div>
       <nav class="mdl-navigation mdl-layout--large-screen-only">
-Check performed at Fri Jul 22 13:22:30 UTC 2022      </nav>
+Check performed at Fri Jul 22 21:52:27 UTC 2022      </nav>
     </div>
   </header>
   <div class="mdl-layout__drawer">
@@ -188,7 +188,7 @@ Check performed at Fri Jul 22 13:22:30 UTC 2022      </nav>
     <nav class="mdl-navigation">
       <a class="mdl-navigation__link" href="#overview"><i class="material-icons">dashboard</i>Overview</a>
       <a class="mdl-navigation__link" href="#MissingFirebaseInstanceTokenRefresh"><i class="material-icons warning-icon">warning</i>Missing Firebase Messaging Callback (1)</a>
-      <a class="mdl-navigation__link" href="#UnusedResources"><i class="material-icons warning-icon">warning</i>Unused resources (3)</a>
+      <a class="mdl-navigation__link" href="#UnusedResources"><i class="material-icons warning-icon">warning</i>Unused resources (4)</a>
     </nav>
   </div>
   <main class="mdl-layout__content">
@@ -209,7 +209,7 @@ Check performed at Fri Jul 22 13:22:30 UTC 2022      </nav>
 <tr><td class="countColumn"></td><td class="categoryColumn"><a href="#Performance">Performance</a>
 </td></tr>
 <tr>
-<td class="countColumn">3</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
+<td class="countColumn">4</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
 <a href="#UnusedResources">UnusedResources</a>: Unused resources</td></tr>
 <tr><td></td><td class="categoryColumn"><a href="#MissingIssues">Disabled Checks (35)</a>
 </td></tr></table>
@@ -300,6 +300,15 @@ Dismiss</button>            </div>
 <span class="lineno"> 15 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"secondaryButtonTextColor"</span>>#757373<span class="tag">&lt;/color></span>
 <span class="lineno"> 16 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"strokeColor"</span>>#000000<span class="tag">&lt;/color></span>
 <span class="lineno"> 17 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"strokeNightColor"</span>>#757373<span class="tag">&lt;/color></span></pre>
+
+<span class="location"><a href="../../src/main/res/values/strings.xml">../../src/main/res/values/strings.xml</a>:58</span>: <span class="message">The resource <code>R.string.contact_email</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno"> 55 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"default_user_email"</span>>User email<span class="tag">&lt;/string></span>
+<span class="lineno"> 56 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"contact_name"</span>>Ingrese su nombre y apellido<span class="tag">&lt;/string></span>
+<span class="lineno"> 57 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"contact_phone_number"</span>>Ingrese su número telefónico<span class="tag">&lt;/string></span>
+<span class="caretline"><span class="lineno"> 58 </span>    <span class="tag">&lt;string</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"contact_email"</span></span>>Ingrese su Email<span class="tag">&lt;/string></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 59 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"contact_message"</span>>Mensaje o duda<span class="tag">&lt;/string></span>
+<span class="lineno"> 60 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"contact_us"</span>>Contáctenos<span class="tag">&lt;/string></span>
+<span class="lineno"> 61 </span>    <span class="tag">&lt;string</span><span class="attribute"> name</span>=<span class="value">"send_button"</span>>Enviar<span class="tag">&lt;/string></span></pre>
 
 </div>
 <div class="metadata"><div class="explanation" id="explanationUnusedResources" style="display: none;">
