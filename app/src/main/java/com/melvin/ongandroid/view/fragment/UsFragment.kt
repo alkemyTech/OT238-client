@@ -1,5 +1,6 @@
 package com.melvin.ongandroid.view.fragment
 
+import android.content.res.Configuration
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -7,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.melvin.ongandroid.R
@@ -42,9 +44,15 @@ class UsFragment : Fragment() {
         (activity as AppCompatActivity).supportActionBar?.title="Nosotros"
     }
 
-    private fun initRecyclerView(usDummyData: List<Member>) {
-        binding.rvUs.layoutManager= LinearLayoutManager(binding.root.context)
-        binding.rvUs.adapter = UsAdapter(usDummyData)
+    private fun initRecyclerView(usData: List<Member>) {
+        if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            val manager = GridLayoutManager(binding.root.context, 2, GridLayoutManager.VERTICAL, false)
+            binding.rvUs.layoutManager = manager
+        } else {
+            binding.rvUs.layoutManager = LinearLayoutManager(context)
+            binding.rvUs.layoutManager = LinearLayoutManager(binding.root.context)
+        }
+        binding.rvUs.adapter = UsAdapter(usData, false)
     }
 
     private fun setUpObserver() {

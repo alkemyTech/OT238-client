@@ -1,5 +1,6 @@
 package com.melvin.ongandroid.view.fragment
 
+import android.content.res.Configuration
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -7,11 +8,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
 import com.melvin.ongandroid.R
 import com.melvin.ongandroid.databinding.FragmentWhatwedoBinding
 import com.melvin.ongandroid.model.entities.whatWeDo.WhatWeDo
+import com.melvin.ongandroid.view.adapters.NewsAdapter
 import com.melvin.ongandroid.view.adapters.WhatWeDoAdapter
 import com.melvin.ongandroid.viewmodel.WhatWeDoViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -44,9 +47,15 @@ class WhatWeDoFragment : Fragment() {
 
 
     private fun initRecyclerView(data: List<WhatWeDo>) {
-        adapter = WhatWeDoAdapter(data)
-        binding.rvActivities.layoutManager = LinearLayoutManager(context)
-        binding.rvActivities.adapter = adapter
+        if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            val manager = GridLayoutManager(binding.root.context, 2, GridLayoutManager.VERTICAL, false)
+            binding.rvActivities.layoutManager = manager
+        } else {
+            binding.rvActivities.layoutManager = LinearLayoutManager(context)
+            binding.rvActivities.layoutManager = LinearLayoutManager(binding.root.context)
+        }
+        binding.rvActivities.adapter = WhatWeDoAdapter(data, false)
+
     }
 
     private fun setupWhatWeDo() {
