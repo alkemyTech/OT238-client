@@ -3,7 +3,10 @@ package com.melvin.ongandroid.viewmodel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.melvin.ongandroid.R
 import com.melvin.ongandroid.data.ApiClient
+import com.melvin.ongandroid.domain.analytics.AnalyticsSender.Companion.trackMembersRetrieveError
+import com.melvin.ongandroid.domain.analytics.AnalyticsSender.Companion.trackMembersRetrieveSuccess
 import com.melvin.ongandroid.model.entities.us.Member
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -13,9 +16,9 @@ import javax.inject.Inject
 class UsViewModel @Inject constructor(
     private val dataProvider: ApiClient
 ): ViewModel() {
-
-    private val _status = MutableLiveData<ApiStatus>()
-    private val _membersList = MutableLiveData<List<Member>>()
+    //TODO No olvidar usar el get
+    val _status = MutableLiveData<ApiStatus>()
+    val _membersList = MutableLiveData<List<Member>>()
 
     fun observeMembersList(): MutableLiveData<List<Member>> {
         return this._membersList
@@ -27,9 +30,11 @@ class UsViewModel @Inject constructor(
             if (response.success) {
                 _membersList.value = response.data
                 _status.value = ApiStatus.SUCCESS
+                trackMembersRetrieveSuccess(R.string.event_success.toString())
             } else {
                 _membersList.value = emptyList()
                 _status.value = ApiStatus.FAILURE
+                trackMembersRetrieveError(R.string.event_error.toString())
             }
         }
     }
