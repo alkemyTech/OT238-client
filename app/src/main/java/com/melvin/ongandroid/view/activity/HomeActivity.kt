@@ -46,6 +46,7 @@ class HomeActivity : AppCompatActivity() {
             .onEach { ConnectionInternet.NetworkConnection.isConnected.value = !it }
             .launchIn(lifecycleScope)
 
+
         val drawerLayout: DrawerLayout = binding.drawerLayout
         val navView: NavigationView = binding.navView
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment_content_home) as NavHostFragment
