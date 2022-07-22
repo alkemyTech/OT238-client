@@ -1,5 +1,6 @@
 package com.melvin.ongandroid.view.fragment
 
+import android.content.res.Configuration
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,6 +8,7 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.melvin.ongandroid.R
@@ -41,7 +43,13 @@ class NewsFragment: Fragment() {
     }
 
     private fun initRecyclerView(data: List<News>) {
-        binding.rvNews.layoutManager = LinearLayoutManager(binding.root.context)
+        if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            val manager = GridLayoutManager(binding.root.context, 2, GridLayoutManager.VERTICAL, false)
+            binding.rvNews.layoutManager = manager
+        } else {
+            binding.rvNews.layoutManager = LinearLayoutManager(context)
+            binding.rvNews.layoutManager = LinearLayoutManager(binding.root.context)
+        }
         binding.rvNews.adapter = NewsAdapter(data, false)
     }
 
