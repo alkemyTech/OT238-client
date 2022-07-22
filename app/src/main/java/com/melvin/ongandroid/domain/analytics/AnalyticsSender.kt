@@ -44,9 +44,9 @@ class AnalyticsSender {
         fun trackLogInSucces(press: String){
             sendCustomEvent(EVENT_LOG_IN_SUCCESS, hashMapOf("press" to press ))
         }
-        fun trackLogInError(press: String){
-            sendCustomEvent(EVENT_LOG_IN_ERROR, hashMapOf("press" to press ))
-
+        fun trackLogInError(press: String) {
+            sendCustomEvent(EVENT_LOG_IN_ERROR, hashMapOf("press" to press))
+        }
         fun trackEventSignUpError(post: String){
             sendCustomEvent(EVENT_SIGN_UP_ERROR, hashMapOf("post" to post ))
         }
