@@ -66,7 +66,13 @@
     <string name="facebook_login">Iniciar sesión con Facebook</string>
     <string name="logout">Cerrar sesión</string>
     <string name="somos_mas_logo">somos mas logo</string>
+    <string name="logInPressed">Log in Pressed</string>
+    <string name="logInSuccess">LogIn Success</string>
+    <string name="logInError">LogIn Error</string>
+    <string name="signUpPressed">SignUp Pressed</string>
+    <string name="googlePressed">Google bottom pressed</string>
     <string name="social_media_login_error">"Error al iniciar sesión con tu red social"</string>
     <string name="event_success">Success</string>
     <string name="event_error">Error</string>
+
 </resources>
