@@ -24,11 +24,8 @@ class StartActivity : AppCompatActivity(){
         super.onCreate(savedInstanceState)
         val intent = intent.getStringExtra("STATUS")
         start(intent)
-        ConnectionInternet.NetworkConnection.initialize(this)
-        ConnectionInternet.NetworkConnection.isConnected
-            .onEach { ConnectionInternet.NetworkConnection.isConnected.value = !it }
-            .launchIn(lifecycleScope)
     }
+
     private fun start(intent: String?){
         if(intent == "LOGOUT"){
             checkAuth()

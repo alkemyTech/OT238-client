@@ -17,9 +17,5 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        ConnectionInternet.NetworkConnection.initialize(this)
-        ConnectionInternet.NetworkConnection.isConnected
-            .onEach { ConnectionInternet.NetworkConnection.isConnected.value = !it }
-            .launchIn(lifecycleScope)
     }
 }

@@ -42,11 +42,6 @@ class HomeActivity : AppCompatActivity() {
 
         setSupportActionBar(binding.appBarHome.toolbar)
 
-        ConnectionInternet.NetworkConnection.initialize(this)
-        ConnectionInternet.NetworkConnection.isConnected
-            .onEach { ConnectionInternet.NetworkConnection.isConnected.value = !it }
-            .launchIn(lifecycleScope)
-
 
         val drawerLayout: DrawerLayout = binding.drawerLayout
         val navView: NavigationView = binding.navView
