@@ -54,14 +54,19 @@ class ContactFragment : Fragment() {
                         etPhoneNumber.text.toString(),
                         etMessage.text.toString())
                 contactViewModel.createContact(newContact)
-                drawStatusDialog()
             }
 
-            contactViewModel.createContactCharging.observe(viewLifecycleOwner) { charging ->
-                if (charging) {
-                    pbChargingContact.visibility = View.VISIBLE
-                } else {
-                    pbChargingContact.visibility = View.GONE
+            contactViewModel.status.observe(viewLifecycleOwner) { currentStatus ->
+                when (currentStatus) {
+                    ApiStatus.SUCCESS -> {
+                        binding.pbChargingContact.hideProgressBar()
+                        showSuccessDialog()
+                    }
+                    ApiStatus.FAILURE -> {
+                        binding.pbChargingContact.hideProgressBar()
+                        showFailure()
+                    }
+                    ApiStatus.LOADING -> binding.pbChargingContact.showProgressBar()
                 }
             }
         }
@@ -77,14 +82,6 @@ class ContactFragment : Fragment() {
         }
     }
 
-    private fun drawStatusDialog() {
-        contactViewModel.status.observe(viewLifecycleOwner) { statusApi->
-            when (statusApi!!) {
-                ApiStatus.SUCCESS -> { showSuccessDialog() }
-                ApiStatus.FAILURE -> { showFailure() }
-            }
-        }
-    }
 
     private fun showSuccessDialog() {
         context?.let {

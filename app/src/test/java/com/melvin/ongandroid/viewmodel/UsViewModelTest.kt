@@ -44,8 +44,8 @@ internal class UsViewModelTest{
                 repository.getMembers()
             } returns members()
         viewModel.getMembers()
-        assertEquals(statusSuccess(),viewModel._status.value)
-        assertEquals(membersList(),viewModel._membersList.value)
+        assertEquals(statusSuccess(),viewModel.status.value)
+        assertEquals(membersList(),viewModel.membersList.value)
         }
 
     @Test
@@ -55,8 +55,8 @@ internal class UsViewModelTest{
                 repository.getMembers()
             } returns membersError()
             viewModel.getMembers()
-            assertEquals(statusError(),viewModel._status.value)
-            assert(viewModel._membersList.value.isNullOrEmpty())
+            assertEquals(statusError(),viewModel.status.value)
+            assert(viewModel.membersList.value.isNullOrEmpty())
         }
 
     @Test
@@ -66,8 +66,8 @@ internal class UsViewModelTest{
                 repository.getMembers()
             } returns membersApiFailure()
             viewModel.getMembers()
-            assertEquals(statusError(),viewModel._status.value)
-            assert(viewModel._membersList.value.isNullOrEmpty())
+            assertEquals(statusError(),viewModel.status.value)
+            assert(viewModel.membersList.value.isNullOrEmpty())
         }
 
     //Data for testing

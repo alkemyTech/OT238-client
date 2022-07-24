@@ -107,15 +107,19 @@ class LoginFragment : Fragment() {
                 loginBinding.itPassword.text.toString()
             )
             loginViewModel.logInUser(logIn)
-
-            drawStatusDialog()
         }
 
-        loginViewModel.logInUserCharging.observe(viewLifecycleOwner) { charging ->
-            if (charging) {
-                loginBinding.pbCharging.visibility = View.VISIBLE
-            } else {
-                loginBinding.pbCharging.visibility = View.GONE
+        loginViewModel.status.observe(viewLifecycleOwner) { currentStatus ->
+            when (currentStatus) {
+                ApiStatus.SUCCESS -> {
+                    loginBinding.pbCharging.hideProgressBar()
+                    showSuccessDialog()
+                }
+                ApiStatus.FAILURE -> {
+                    loginBinding.pbCharging.hideProgressBar()
+                    showFailureDialog()
+                }
+                ApiStatus.LOADING -> loginBinding.pbCharging.showProgressBar()
             }
         }
         //Google Sign In
@@ -219,15 +223,6 @@ class LoginFragment : Fragment() {
     }
 
     //Dialog Methods
-    private fun drawStatusDialog() {
-         loginViewModel.status.observe(viewLifecycleOwner) {
-             when (it!!) {
-                 ApiStatus.SUCCESS -> { showSuccessDialog() }
-                 ApiStatus.FAILURE -> { showFailureDialog() }
-             }
-         }
-   }
-
         private fun showSuccessDialog() {
             Toast.makeText(context, resources.getString(R.string.success_login), Toast.LENGTH_LONG).show()
             findNavController().navigate(R.id.action_loginFragment_to_homeActivity)

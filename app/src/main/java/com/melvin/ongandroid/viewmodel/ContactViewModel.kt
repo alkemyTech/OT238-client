@@ -19,8 +19,8 @@ class ContactViewModel @Inject constructor(
 ) : ViewModel() {
 
     private val _status = MutableLiveData<ApiStatus>()
-    val status: LiveData<ApiStatus> = _status
-    val createContactCharging = MutableLiveData(false)
+    val status: LiveData<ApiStatus>
+        get() = _status
 
     fun validateName(name: String): Boolean {
         val nameRegex = Pattern.compile("^[a-zA-Z]+(?:\\s[a-zA-Z]+)+\$")
@@ -41,10 +41,9 @@ class ContactViewModel @Inject constructor(
     }
 
     fun createContact(newContact: Contact) {
-        createContactCharging.postValue(true)
+        _status.value = ApiStatus.LOADING
         viewModelScope.launch {
             val apiCreateContact=contactUseCase.createContact(newContact)
-            createContactCharging.postValue(false)
             if(apiCreateContact.success){
                 _status.value = ApiStatus.SUCCESS
             }else{

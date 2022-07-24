@@ -1,5 +1,6 @@
 package com.melvin.ongandroid.viewmodel
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -16,16 +17,18 @@ import javax.inject.Inject
 class UsViewModel @Inject constructor(
     private val dataProvider: ApiClient
 ): ViewModel() {
-    //TODO No olvidar usar el get
-    val _status = MutableLiveData<ApiStatus>()
-    val _membersList = MutableLiveData<List<Member>>()
 
-    fun observeMembersList(): MutableLiveData<List<Member>> {
-        return this._membersList
-    }
+    private val _status = MutableLiveData<ApiStatus>()
+    val status: LiveData<ApiStatus>
+        get() = _status
+
+    private val _membersList = MutableLiveData<List<Member>>()
+    val membersList: LiveData<List<Member>>
+        get() = _membersList
 
     fun getMembers() {
         viewModelScope.launch {
+            _status.value = ApiStatus.LOADING
             val response = dataProvider.getMembers()
             if (response.success) {
                 _membersList.value = response.data

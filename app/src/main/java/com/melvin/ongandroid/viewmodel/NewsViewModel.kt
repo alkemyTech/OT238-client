@@ -1,5 +1,6 @@
 package com.melvin.ongandroid.viewmodel
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -17,14 +18,16 @@ class NewsViewModel @Inject constructor(
 ) : ViewModel() {
 
     private val _status = MutableLiveData<ApiStatus>()
-    private val _newsList = MutableLiveData<List<News>>()
+    val status: LiveData<ApiStatus>
+        get() = _status
 
-    fun observerNewsList() : MutableLiveData<List<News>> {
-        return this._newsList
-    }
+    private val _newsList = MutableLiveData<List<News>>()
+    val newsList: LiveData<List<News>>
+        get() = _newsList
 
     fun getNews(){
         viewModelScope.launch {
+            _status.value = ApiStatus.LOADING
             val response = dataProvider.getNews()
             if (response.success) {
                 _newsList.value = response.data

@@ -49,8 +49,8 @@ class TestimonialsViewModelTest {
                 repository.getTestimonials()
             } returns testimonial()
         viewModel.getTestimonial()
-        assertEquals(statusSuccess(),viewModel._status.value)
-        assertEquals(testimonialsList(),viewModel._testimonialsList.value)
+        assertEquals(statusSuccess(),viewModel.status.value)
+        assertEquals(testimonialsList(),viewModel.testimonialsList.value)
         }
 
     @Test
@@ -60,8 +60,8 @@ class TestimonialsViewModelTest {
                 repository.getTestimonials()
             } returns testimonialError()
         viewModel.getTestimonial()
-        assertEquals(statusError(),viewModel._status.value)
-        assert(viewModel._testimonialsList.value.isNullOrEmpty())
+        assertEquals(statusError(),viewModel.status.value)
+        assert(viewModel.testimonialsList.value.isNullOrEmpty())
         }
 
     @Test
@@ -71,8 +71,8 @@ class TestimonialsViewModelTest {
                 repository.getTestimonials()
             } returns testimonialApiFailure()
         viewModel.getTestimonial()
-        assertEquals(statusError(),viewModel._status.value)
-        assert(viewModel._testimonialsList.value.isNullOrEmpty())
+        assertEquals(statusError(),viewModel.status.value)
+        assert(viewModel.testimonialsList.value.isNullOrEmpty())
         }
 
     //Data for testing

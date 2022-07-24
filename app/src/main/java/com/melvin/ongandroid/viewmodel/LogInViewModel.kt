@@ -23,8 +23,8 @@ class LogInViewModel @Inject constructor(
 ) : ViewModel() {
 
     private val _status = MutableLiveData<ApiStatus>()
-    val status: LiveData<ApiStatus> = _status
-    val logInUserCharging = MutableLiveData(false)
+    val status: LiveData<ApiStatus>
+        get() = _status
 
 
     fun validateEmail(Email: String?): Boolean {
@@ -54,10 +54,9 @@ class LogInViewModel @Inject constructor(
     }
 
     fun logInUser(logIn: LoginRequest){
-        logInUserCharging.postValue(true)
+        _status.value = ApiStatus.LOADING
         viewModelScope.launch {
             val apiLogIn = logInUseCase.logInUser(logIn)
-            logInUserCharging.postValue(false)
             if (apiLogIn.success) {
                 _status.value = ApiStatus.SUCCESS
                 trackLogInSucces(R.string.logInSuccess.toString())
@@ -75,15 +74,15 @@ class LogInViewModel @Inject constructor(
     fun loginWithSocialMedia(status: String): Boolean {
         when(status){
             "LOGIN_ACTION" -> {
-                logInUserCharging.postValue(true)
+                _status.value = ApiStatus.LOADING
                 return true
             }
             "LOGGED_IN" -> {
-                logInUserCharging.postValue(false)
+                _status.value = ApiStatus.SUCCESS
                 return true
             }
             "FAILED_LOGIN" -> {
-                logInUserCharging.postValue(false)
+                _status.value = ApiStatus.FAILURE
                 return false
             }
         }
