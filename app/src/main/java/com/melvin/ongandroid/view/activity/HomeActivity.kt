@@ -77,22 +77,27 @@ class HomeActivity : AppCompatActivity() {
         }
         news.setOnMenuItemClickListener {
             navController.navigate(R.id.action_nav_home_to_newsFragment)
+            onBackPressed()
             true
         }
         activities.setOnMenuItemClickListener {
             navController.navigate(R.id.action_nav_home_to_activitieFragment)
+            onBackPressed()
             true
         }
         testimonials.setOnMenuItemClickListener {
             navController.navigate(R.id.action_nav_home_to_testimonialsFragment)
+            onBackPressed()
             true
         }
         about.setOnMenuItemClickListener {
             navController.navigate(R.id.action_nav_home_to_usFragment)
+            onBackPressed()
             true
         }
         contact.setOnMenuItemClickListener {
             navController.navigate(R.id.action_nav_home_to_contactFragment)
+            onBackPressed()
             true
         }
         logout.setOnClickListener{
@@ -110,7 +115,7 @@ class HomeActivity : AppCompatActivity() {
         if (binding.drawerLayout.isDrawerOpen(GravityCompat.START)) {
             binding.drawerLayout.closeDrawer(GravityCompat.START)
         } else {
-            super.onBackPressed()
+            moveTaskToBack(true)
         }
     }
 

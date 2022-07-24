@@ -1,6 +1,5 @@
 package com.melvin.ongandroid.view.adapters
 
-
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -14,6 +13,8 @@ class NewsAdapter @Inject constructor(
     private val isMain: Boolean
 ) : RecyclerView.Adapter<NewsViewHolder>() {
 
+    private val MAXITEMS = 3
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewsViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         return if (isMain) {
@@ -25,9 +26,11 @@ class NewsAdapter @Inject constructor(
 
     override fun onBindViewHolder(holder: NewsViewHolder, position: Int) {
         val item = news[position]
-        if (isMain) {
+        if (isMain && position <= MAXITEMS) {
             holder.drawNewsViewPager(item)
-        } else {
+        } else if(isMain && position == MAXITEMS + 1) {
+            holder.drawArrow()
+        } else if (!isMain) {
             holder.drawNewsRecyclerView(item)
         }
     }
