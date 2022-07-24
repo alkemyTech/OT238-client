@@ -1,6 +1,7 @@
 package com.melvin.ongandroid.view.activity
 
 import android.content.Intent
+import android.content.IntentFilter
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -20,6 +21,8 @@ import com.melvin.ongandroid.data.AppData
 import com.melvin.ongandroid.databinding.ActivityHomeBinding
 import com.melvin.ongandroid.databinding.NavHeaderHomeBinding
 import com.melvin.ongandroid.domain.di.ConnectionInternet
+import com.melvin.ongandroid.domain.di.NetworkBroadcast
+import com.melvin.ongandroid.domain.di.NetworkStatusService
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
@@ -35,6 +38,10 @@ class HomeActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        //Register Broadcast
+        val networkFilter = IntentFilter()
+        networkFilter.addAction("CONNECTIVITY_CHANGE")
+        registerReceiver(NetworkBroadcast(), networkFilter)
 
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -89,6 +96,7 @@ class HomeActivity : AppCompatActivity() {
             true
         }
         testimonials.setOnMenuItemClickListener {
+            onBackPressed()
             navController.navigate(R.id.action_nav_home_to_testimonialsFragment)
             true
         }
@@ -134,6 +142,21 @@ class HomeActivity : AppCompatActivity() {
         intent.putExtra("STATUS", "LOGOUT")
         startActivity(intent)
         finish()
+    }
+
+    override fun onPause() {
+        stopService(Intent(this, NetworkStatusService::class.java))
+        super.onPause()
+    }
+
+    override fun onResume() {
+        startService(Intent(this, NetworkStatusService::class.java))
+        super.onResume()
+    }
+
+    override fun onStop() {
+        stopService(Intent(this, NetworkStatusService::class.java))
+        super.onStop()
     }
 
 }

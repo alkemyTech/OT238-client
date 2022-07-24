@@ -30,7 +30,6 @@ object NetworkModule {
             .addInterceptor(loggingInterceptor)
             .build()
 
-
         return Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())

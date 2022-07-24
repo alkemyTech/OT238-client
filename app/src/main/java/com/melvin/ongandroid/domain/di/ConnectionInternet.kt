@@ -1,15 +1,19 @@
 package com.melvin.ongandroid.domain.di
 
 import android.content.Context
+import android.content.Intent
 import android.net.ConnectivityManager
 import android.net.NetworkRequest
-import android.widget.Toast
+import android.util.Log
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.MutableStateFlow
+import javax.inject.Inject
 
 class ConnectionInternet {
 
     object NetworkConnection {
         val isConnected = MutableStateFlow(false)
+        val broadcastMessages = BroadcastMessages()
 
         fun initialize(context: Context) {
             val cm = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
@@ -17,15 +21,18 @@ class ConnectionInternet {
             val callback = object : ConnectivityManager.NetworkCallback() {
                 override fun onAvailable(network: android.net.Network) {
                     isConnected.value = true
-                    Toast.makeText(context, "connection OK", Toast.LENGTH_LONG).show()
+                    broadcastMessages.sendConnectivityChange(context, isConnected.value)
                 }
                 override fun onLost(network: android.net.Network) {
                     isConnected.value = false
-                    Toast.makeText(context, "connection FAIL", Toast.LENGTH_LONG).show()
+                    broadcastMessages.sendConnectivityChange(context, isConnected.value)
+                }
+                override fun onUnavailable() {
+                    isConnected.value = false
+                    broadcastMessages.sendConnectivityCheck(context)
                 }
             }
             cm.registerNetworkCallback(request, callback)
         }
-
     }
-} 
+}
