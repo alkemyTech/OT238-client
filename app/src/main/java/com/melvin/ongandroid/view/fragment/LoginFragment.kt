@@ -111,10 +111,14 @@ class LoginFragment : Fragment() {
 
         loginViewModel.status.observe(viewLifecycleOwner) { currentStatus ->
             when (currentStatus) {
-                ApiStatus.SUCCESS -> {loginBinding.pbCharging.hideProgressBar()
-                    showSuccessDialog()}
-                ApiStatus.FAILURE -> {loginBinding.pbCharging.hideProgressBar()
-                    showFailureDialog()}
+                ApiStatus.SUCCESS -> {
+                    loginBinding.pbCharging.hideProgressBar()
+                    showSuccessDialog()
+                }
+                ApiStatus.FAILURE -> {
+                    loginBinding.pbCharging.hideProgressBar()
+                    showFailureDialog()
+                }
                 ApiStatus.LOADING -> loginBinding.pbCharging.showProgressBar()
             }
         }

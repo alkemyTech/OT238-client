@@ -68,10 +68,14 @@ class SignUpFragment : Fragment() {
 
         viewModel.status.observe( viewLifecycleOwner) { currentStatus ->
             when (currentStatus) {
-                ApiStatus.SUCCESS -> {binding.pbSignUp.hideProgressBar()
-                    showSuccessDialog()}
-                ApiStatus.FAILURE -> {binding.pbSignUp.hideProgressBar()
-                    showFailureDialog()}
+                ApiStatus.SUCCESS -> {
+                    binding.pbSignUp.hideProgressBar()
+                    showSuccessDialog()
+                }
+                ApiStatus.FAILURE -> {
+                    binding.pbSignUp.hideProgressBar()
+                    showFailureDialog()
+                }
                 ApiStatus.LOADING -> binding.pbSignUp.showProgressBar()
             }
         }

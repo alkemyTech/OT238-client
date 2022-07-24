@@ -69,8 +69,7 @@ class WhatWeDoFragment : Fragment() {
     private fun charging() {
         viewModel.status.observe(viewLifecycleOwner) { currentStatus ->
             when (currentStatus) {
-                ApiStatus.SUCCESS -> binding.pbWhatWeDo.hideProgressBar()
-                ApiStatus.FAILURE -> binding.pbWhatWeDo.hideProgressBar()
+                ApiStatus.SUCCESS, ApiStatus.FAILURE  -> binding.pbWhatWeDo.hideProgressBar()
                 ApiStatus.LOADING -> binding.pbWhatWeDo.showProgressBar()
             }
         }

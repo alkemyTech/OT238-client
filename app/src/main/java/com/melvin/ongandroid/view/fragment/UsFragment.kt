@@ -78,8 +78,7 @@ class UsFragment : Fragment() {
     private fun handleProgressBar() {
         viewModel.status.observe(viewLifecycleOwner) { currentStatus ->
             when (currentStatus) {
-                ApiStatus.SUCCESS -> binding.pbUs.hideProgressBar()
-                ApiStatus.FAILURE -> binding.pbUs.hideProgressBar()
+                ApiStatus.SUCCESS, ApiStatus.FAILURE -> binding.pbUs.hideProgressBar()
                 ApiStatus.LOADING -> binding.pbUs.showProgressBar()
             }
         }

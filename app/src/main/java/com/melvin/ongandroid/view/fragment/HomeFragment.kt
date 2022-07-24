@@ -166,8 +166,7 @@ class HomeFragment : Fragment() {
     private fun showProgressBarCharging(){
         viewModel.status.observe(viewLifecycleOwner) { currentStatus ->
             when (currentStatus) {
-                ApiStatus.SUCCESS -> binding.pbHome.hideProgressBar()
-                ApiStatus.FAILURE -> binding.pbHome.hideProgressBar()
+                ApiStatus.SUCCESS, ApiStatus.FAILURE -> binding.pbHome.hideProgressBar()
                 ApiStatus.LOADING -> binding.pbHome.showProgressBar()
             }
         }

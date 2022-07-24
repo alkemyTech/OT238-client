@@ -58,10 +58,14 @@ class ContactFragment : Fragment() {
 
             contactViewModel.status.observe(viewLifecycleOwner) { currentStatus ->
                 when (currentStatus) {
-                    ApiStatus.SUCCESS -> {binding.pbChargingContact.hideProgressBar()
-                        showSuccessDialog()}
-                    ApiStatus.FAILURE -> {binding.pbChargingContact.hideProgressBar()
-                        showFailure()}
+                    ApiStatus.SUCCESS -> {
+                        binding.pbChargingContact.hideProgressBar()
+                        showSuccessDialog()
+                    }
+                    ApiStatus.FAILURE -> {
+                        binding.pbChargingContact.hideProgressBar()
+                        showFailure()
+                    }
                     ApiStatus.LOADING -> binding.pbChargingContact.showProgressBar()
                 }
             }

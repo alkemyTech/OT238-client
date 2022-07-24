@@ -76,8 +76,7 @@ class NewsFragment: Fragment() {
     private fun showProgressBarCharging() {
         viewModel.status.observe(viewLifecycleOwner) {
             when (it) {
-                ApiStatus.SUCCESS -> binding.pbNews.hideProgressBar()
-                ApiStatus.FAILURE -> binding.pbNews.hideProgressBar()
+                ApiStatus.SUCCESS, ApiStatus.FAILURE -> binding.pbNews.hideProgressBar()
                 ApiStatus.LOADING -> binding.pbNews.showProgressBar()
             }
         }

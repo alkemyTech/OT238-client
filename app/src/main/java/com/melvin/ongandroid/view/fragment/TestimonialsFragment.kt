@@ -61,8 +61,6 @@ class TestimonialsFragment : Fragment() {
             }
         }
     }
-    //TODO verificar uso
-    fun onLoadTestimonials() = viewModel.testimonialsList.value
 
     private fun initRecyclerView(data: List<Testimonials>){
          adapter = TestimonialsAdapter(data, false)
