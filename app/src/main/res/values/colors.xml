@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="primaryColor">#0097a7</color>
-    <color name="primaryLightColor">#80d6ff</color>
-    <color name="primaryDarkColor">#0077c2</color>
-    <color name="secondaryColor">#ffb74d</color>
-    <color name="secondaryLightColor">#ffe97d</color>
-    <color name="secondaryDarkColor">#c88719</color>
+    <color name="primaryColor">#009688</color>
+    <color name="primaryLightColor">#52c7b8</color>
+    <color name="primaryDarkColor">#00675b</color>
+    <color name="secondaryColor">#0097a7</color>
+    <color name="secondaryLightColor">#56c8d8</color>
+    <color name="secondaryDarkColor">#006978</color>
     <color name="primaryTextColor">#000000</color>
     <color name="secondaryTextColor">#000000</color>
     <!-- Buttons Colors -->

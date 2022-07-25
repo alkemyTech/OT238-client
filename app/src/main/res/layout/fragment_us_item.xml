@@ -13,6 +13,7 @@
     android:paddingEnd="10dp"
     android:paddingRight="10dp"
     android:paddingBottom="10dp"
+    app:cardBackgroundColor="?attr/colorSecondaryVariant"
     app:cardCornerRadius="12dp">
 
 
@@ -25,11 +26,11 @@
             android:id="@+id/ivUsImageUser"
             android:layout_width="@dimen/image_width_us"
             android:layout_height="@dimen/image_height_us"
-            android:scaleType="centerCrop"
             android:layout_margin="5dp"
             android:layout_weight="1"
-            tools:srcCompat="@tools:sample/avatars"
-            android:contentDescription="@string/us_name_title"/>
+            android:contentDescription="@string/us_name_title"
+            android:scaleType="centerCrop"
+            tools:srcCompat="@tools:sample/avatars" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -43,14 +44,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:text="@string/us_name_title"
-                android:textSize="17sp"/>
+                android:textSize="17sp" />
 
             <TextView
                 android:id="@+id/tvUsUserDescription"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/dummy_short_string"
-                tools:text="@string/dummy_short_string"/>
+                tools:text="@string/dummy_short_string" />
         </LinearLayout>
     </LinearLayout>
 </com.google.android.material.card.MaterialCardView>
