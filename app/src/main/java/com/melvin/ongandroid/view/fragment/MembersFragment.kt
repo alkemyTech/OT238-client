@@ -42,7 +42,7 @@ class MembersFragment : Fragment() {
     private fun fillMemberData() {
         binding.apply {
             tvMemberName.text = member.name
-            tvMemberDescription.text = member.description
+            tvMemberDescription.text = member.rawDescription
             Picasso.get().load(member.image).into(binding.ivMember)
             ibFacebook.setOnClickListener {
                 val fbURL = member.facebookURL.toString()
