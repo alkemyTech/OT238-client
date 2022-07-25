@@ -52,7 +52,7 @@ class WhatWeDoViewModelTest {
                 repository.getActivities()
             } returns memberResponseOnSuccess()
         whatWeDoViewModel.setWhatWeDo()
-        assertEquals(setSuccess(), whatWeDoViewModel._status.value)
+        assertEquals(setSuccess(), whatWeDoViewModel.status.value)
         assertEquals(listOfMembers(), whatWeDoViewModel.whatWeDoList.value)
     }
 

@@ -55,15 +55,14 @@ class TestimonialsFragment : Fragment() {
     }
 
     private fun setUpObserver(){
-        viewModel.observerTestimonialsList().observe(viewLifecycleOwner) {
-            if (it != null){
-                onLoadTestimonials()?.let { it1 -> initRecyclerView(it1) }
-            } else {
+        viewModel.testimonialsList.observe(viewLifecycleOwner) {
+            if (it.isNullOrEmpty()){
                 snackBar()
+            } else {
+                initRecyclerView(it)
             }
         }
     }
-    fun onLoadTestimonials() = viewModel.observerTestimonialsList().value
 
     private fun initRecyclerView(data: List<Testimonials>){
         if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
