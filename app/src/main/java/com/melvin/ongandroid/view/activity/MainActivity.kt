@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        
         //Register Broadcast
         val networkFilter = IntentFilter()
         networkFilter.addAction("CONNECTIVITY_CHANGE")
@@ -34,6 +34,11 @@ class MainActivity : AppCompatActivity() {
     override fun onStop() {
         stopService(Intent(this, NetworkStatusService::class.java))
         super.onStop()
+    }
+
+    override fun onBackPressed() {
+        finishAffinity()
+        finish()
     }
 
 }

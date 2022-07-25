@@ -9,7 +9,8 @@ import com.melvin.ongandroid.view.viewHolders.WhatWeDoViewHolder
 import javax.inject.Inject
 
 class WhatWeDoAdapter @Inject constructor(
-    private val whatWeDo: List<WhatWeDo>
+    private val whatWeDo: List<WhatWeDo>,
+    private val isMain: Boolean
 ) : RecyclerView.Adapter<WhatWeDoViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WhatWeDoViewHolder {

@@ -12,7 +12,8 @@ import com.melvin.ongandroid.view.viewHolders.UsViewHolder
 import javax.inject.Inject
 
 class UsAdapter @Inject constructor(
-    private val us: List<Member>
+    private val us: List<Member>,
+    private val isMain: Boolean
     ): RecyclerView.Adapter<UsViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UsViewHolder {

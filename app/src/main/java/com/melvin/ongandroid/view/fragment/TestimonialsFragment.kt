@@ -1,5 +1,6 @@
 package com.melvin.ongandroid.view.fragment
 
+import android.content.res.Configuration
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -11,6 +12,7 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
 import com.melvin.ongandroid.R
@@ -64,9 +66,14 @@ class TestimonialsFragment : Fragment() {
     fun onLoadTestimonials() = viewModel.observerTestimonialsList().value
 
     private fun initRecyclerView(data: List<Testimonials>){
-         adapter = TestimonialsAdapter(data, false)
-         binding.rvTestimonials.layoutManager = LinearLayoutManager(context)
-         binding.rvTestimonials.adapter = adapter
+        if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            val manager = GridLayoutManager(binding.root.context, 2, GridLayoutManager.VERTICAL, false)
+            binding.rvTestimonials.layoutManager = manager
+        } else {
+            binding.rvTestimonials.layoutManager = LinearLayoutManager(context)
+            binding.rvTestimonials.layoutManager = LinearLayoutManager(binding.root.context)
+        }
+        binding.rvTestimonials.adapter = TestimonialsAdapter(data, false)
     }
     private fun snackBar(){
         Snackbar.make(binding.rvTestimonials, R.string.textError, Snackbar.LENGTH_LONG)
