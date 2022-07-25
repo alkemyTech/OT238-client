@@ -43,7 +43,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/style_border_component"
                 android:contentDescription="@string/somos_mas_logo"
-                android:backgroundTint="#6DFFFFFF"
+                android:backgroundTint="?attr/colorPrimaryVariant"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/tvHomeWelcome"
                 app:layout_constraintBottom_toBottomOf="parent"

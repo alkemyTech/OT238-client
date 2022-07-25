@@ -24,13 +24,13 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/style_border_component"
-            android:backgroundTint="#23FFFFFF"
-            android:src="@drawable/logo_somos_mas"
+            android:backgroundTint="?attr/colorPrimaryVariant"
             android:contentDescription="@string/default_content_description"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/logo_somos_mas"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </LinearLayout>
 
@@ -98,11 +98,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="@dimen/input_layout_margin"
-                android:text="@string/action_sign_in_short"
                 android:enabled="false"
-                app:layout_constraintStart_toStartOf="parent"
+                android:text="@string/action_sign_in_short"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/itPasswordDesign"/>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/itPasswordDesign"
+                app:strokeColor="?attr/colorPrimaryVariant" />
 
             <TextView
                 android:id="@+id/tvFirebaseLogin"
@@ -137,7 +138,9 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintEnd_toStartOf="@id/bFacebookLogin"/>
+                        app:layout_constraintEnd_toStartOf="@id/bFacebookLogin"
+                        app:strokeColor="@color/design_default_color_error"
+                        android:backgroundTint="@color/disabledLight"/>
 
                     <Button
                         android:id="@+id/bFacebookLogin"
@@ -150,7 +153,9 @@
                         app:layout_constraintStart_toEndOf="@id/bGoogleLogin"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent"/>
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:strokeColor="@color/com_facebook_messenger_blue"
+                        android:backgroundTint="@color/disabledLight"/>
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 

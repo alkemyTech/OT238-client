@@ -14,15 +14,15 @@
         android:id="@+id/ivLogoSomosMasSignUp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/portrait_margin_vertical"
         android:layout_marginTop="48dp"
         android:background="@drawable/style_border_component"
-        android:backgroundTint="#23FFFFFF"
+        android:backgroundTint="?attr/colorPrimaryVariant"
         android:contentDescription="@string/default_content_description"
-        android:layout_marginVertical="@dimen/portrait_margin_vertical"
-        app:layout_constraintStart_toStartOf="parent"
+        android:src="@drawable/logo_somos_mas"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/logo_somos_mas" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tiUsername"
