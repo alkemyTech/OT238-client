@@ -106,7 +106,9 @@
                             android:contentDescription="@string/facebook_icon"
                             android:minWidth="48dp"
                             android:minHeight="48dp"
-                            android:src="@drawable/ic_fb" />
+                            android:src="@drawable/ic_fb"
+                            app:tint="@color/enabledDark"/>
+
 
                         <ImageButton
                             android:id="@+id/ibLinkedin"
@@ -117,7 +119,8 @@
                             android:contentDescription="@string/linkedin_icon"
                             android:minWidth="48dp"
                             android:minHeight="48dp"
-                            android:src="@drawable/ic_linkedin" />
+                            android:src="@drawable/ic_linkedin"
+                            app:tint="@color/enabledDark"/>
                     </LinearLayout>
 
                     <TextView
