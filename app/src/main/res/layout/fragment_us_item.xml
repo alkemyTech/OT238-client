@@ -44,7 +44,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:text="@string/us_name_title"
-                android:textSize="17sp" />
+                android:textSize="17sp"
+                android:maxLines="4"/>
 
             <TextView
                 android:id="@+id/tvUsUserDescription"
