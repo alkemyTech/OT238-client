@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.melvin.ongandroid.data.AppData
 import com.melvin.ongandroid.domain.di.BroadcastMessages
-import com.melvin.ongandroid.domain.di.ConnectionInternet
 import com.melvin.ongandroid.domain.di.NetworkBroadcast
 import com.melvin.ongandroid.domain.di.NetworkStatusService
 import dagger.hilt.android.AndroidEntryPoint

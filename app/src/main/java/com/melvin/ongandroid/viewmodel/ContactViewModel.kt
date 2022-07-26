@@ -1,6 +1,5 @@
 package com.melvin.ongandroid.viewmodel
 
-import androidx.core.text.isDigitsOnly
 import androidx.core.util.PatternsCompat
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -28,7 +27,7 @@ class ContactViewModel @Inject constructor(
     }
 
     fun validateNumber(number: String): Boolean {
-        val nameRegex = Pattern.compile("^(?:[\\+])?(?:\\([0-9]{1,2}\\) ?)?(?:[0-9] ?-?){6,14}[0-9]\$")
+        val nameRegex = Pattern.compile("^([0-9]{1,2}\\) ?)?(?:[0-9] ?-?){6,14}[0-9]\$")
         return if (number.isNotEmpty()) (nameRegex.matcher(number).matches()) else false
     }
 

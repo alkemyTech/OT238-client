@@ -74,5 +74,9 @@
     <string name="social_media_login_error">"Error al iniciar sesión con tu red social"</string>
     <string name="event_success">Success</string>
     <string name="event_error">Error</string>
+    <string name="no_internet_title">¡No hay conexion!</string>
+    <string name="no_internet_message">Por favor, verifica tu conexión a internet y vuelve a intentarlo</string>
+    <string name="retry_message">Reintentar</string>
+    <string name="retrying_toast">Reintentando…</string>
 
 </resources>

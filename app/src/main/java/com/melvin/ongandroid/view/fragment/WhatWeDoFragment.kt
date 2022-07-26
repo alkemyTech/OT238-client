@@ -14,7 +14,6 @@ import com.google.android.material.snackbar.Snackbar
 import com.melvin.ongandroid.R
 import com.melvin.ongandroid.databinding.FragmentWhatwedoBinding
 import com.melvin.ongandroid.model.entities.whatWeDo.WhatWeDo
-import com.melvin.ongandroid.view.adapters.NewsAdapter
 import com.melvin.ongandroid.view.adapters.WhatWeDoAdapter
 import com.melvin.ongandroid.viewmodel.ApiStatus
 import com.melvin.ongandroid.viewmodel.WhatWeDoViewModel

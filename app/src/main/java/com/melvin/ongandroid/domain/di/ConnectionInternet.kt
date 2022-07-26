@@ -1,13 +1,9 @@
 package com.melvin.ongandroid.domain.di
 
 import android.content.Context
-import android.content.Intent
 import android.net.ConnectivityManager
 import android.net.NetworkRequest
-import android.util.Log
-import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.MutableStateFlow
-import javax.inject.Inject
 
 class ConnectionInternet {
 

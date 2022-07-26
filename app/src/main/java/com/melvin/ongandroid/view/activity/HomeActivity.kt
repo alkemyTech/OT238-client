@@ -7,7 +7,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
@@ -20,12 +19,9 @@ import com.melvin.ongandroid.R
 import com.melvin.ongandroid.data.AppData
 import com.melvin.ongandroid.databinding.ActivityHomeBinding
 import com.melvin.ongandroid.databinding.NavHeaderHomeBinding
-import com.melvin.ongandroid.domain.di.ConnectionInternet
 import com.melvin.ongandroid.domain.di.NetworkBroadcast
 import com.melvin.ongandroid.domain.di.NetworkStatusService
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.launchIn
-import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
 
 @AndroidEntryPoint

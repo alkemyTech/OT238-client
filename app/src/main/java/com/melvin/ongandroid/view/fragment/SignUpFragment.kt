@@ -10,10 +10,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.google.firebase.analytics.FirebaseAnalytics
-import com.google.firebase.analytics.ktx.analytics
-import com.google.firebase.analytics.ktx.logEvent
-import com.google.firebase.ktx.Firebase
 import com.melvin.ongandroid.R
 import com.melvin.ongandroid.databinding.FragmentSignUpBinding
 import com.melvin.ongandroid.domain.analytics.AnalyticsSender
@@ -23,7 +19,7 @@ import com.melvin.ongandroid.viewmodel.SignUpViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class SignUpFragment : Fragment() {
+class SignUpFragment : Fragment(){
     private var _binding: FragmentSignUpBinding? = null
     private val binding get() = _binding!!
     private val viewModel: SignUpViewModel by viewModels()
@@ -34,15 +30,17 @@ class SignUpFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
 
-        _binding = FragmentSignUpBinding.inflate(inflater,container,false)
+        _binding = FragmentSignUpBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.validateFields(binding.etUserName.text.toString(),binding.etUserPassword.text.toString(),
-            binding.etUserEmail.text.toString(),binding.etUserPasswordConfirm.text.toString())
+        viewModel.validateFields(
+            binding.etUserName.text.toString(), binding.etUserPassword.text.toString(),
+            binding.etUserEmail.text.toString(), binding.etUserPasswordConfirm.text.toString()
+        )
 
         binding.btnSignUp.setOnClickListener {
             val newUser = UserRegistrationRequest(
@@ -59,14 +57,16 @@ class SignUpFragment : Fragment() {
 
 
         binding.etUserPasswordConfirm.doAfterTextChanged {
-            val controlFields = viewModel.validateFields(binding.etUserName.text.toString(),binding.etUserPassword.text.toString(),
-                binding.etUserEmail.text.toString(),binding.etUserPasswordConfirm.text.toString())
-            if (controlFields){
+            val controlFields = viewModel.validateFields(
+                binding.etUserName.text.toString(), binding.etUserPassword.text.toString(),
+                binding.etUserEmail.text.toString(), binding.etUserPasswordConfirm.text.toString()
+            )
+            if (controlFields) {
                 binding.btnSignUp.isEnabled = true
             }
         }
 
-        viewModel.status.observe( viewLifecycleOwner) { currentStatus ->
+        viewModel.status.observe(viewLifecycleOwner) { currentStatus ->
             when (currentStatus) {
                 ApiStatus.SUCCESS -> {
                     binding.pbSignUp.hideProgressBar()
