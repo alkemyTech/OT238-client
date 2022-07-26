@@ -44,14 +44,16 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:text="@string/us_name_title"
-                android:textSize="17sp" />
+                android:textSize="17sp"
+                android:maxLines="4"/>
 
             <TextView
                 android:id="@+id/tvUsUserDescription"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/dummy_short_string"
-                tools:text="@string/dummy_short_string" />
+                tools:text="@string/dummy_short_string"
+                android:maxLines="6"/>
         </LinearLayout>
     </LinearLayout>
 </com.google.android.material.card.MaterialCardView>

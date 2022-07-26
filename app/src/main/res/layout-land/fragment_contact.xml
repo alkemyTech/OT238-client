@@ -98,7 +98,7 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/user_email"
+                android:hint="@string/contact_email"
                 android:inputType="textEmailAddress"
                 app:errorEnabled="false"
                 app:startIconDrawable="@drawable/ic_baseline_email_24"

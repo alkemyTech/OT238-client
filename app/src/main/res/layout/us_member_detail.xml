@@ -29,7 +29,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="194dp"
                 android:contentDescription="@string/somos_mas_integrante"
-                android:scaleType="centerCrop"
+                android:scaleType="fitCenter"
+                android:layout_gravity="center"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -83,7 +84,9 @@
                     android:contentDescription="@string/facebook_icon"
                     android:minWidth="48dp"
                     android:minHeight="48dp"
-                    android:src="@drawable/ic_fb" />
+                    android:src="@drawable/ic_fb"
+                    app:tint="@color/enabledDark"
+                    />
 
                 <ImageButton
                     android:id="@+id/ibLinkedin"
@@ -94,7 +97,9 @@
                     android:contentDescription="@string/linkedin_icon"
                     android:minWidth="48dp"
                     android:minHeight="48dp"
-                    android:src="@drawable/ic_linkedin" />
+                    android:src="@drawable/ic_linkedin"
+                    app:tint="@color/enabledDark"
+                    />
             </LinearLayout>
 
         </LinearLayout>
